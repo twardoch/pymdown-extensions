@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Math - PyMdown Extensions Documentation</title>
+  <title>Arithmatex - PyMdown Extensions Documentation</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -72,6 +72,24 @@
             <li>
     <ul class="subnav">
     <li><span>Extensions</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Arithmatex</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#arithmatex">Arithmatex</a></li>
+                
+                    <li><a class="toctree-l4" href="#overview">Overview</a></li>
+                
+                    <li><a class="toctree-l4" href="#examples">Examples</a></li>
+                
+            
+            </ul>
+        
+    </li>
 
         
             
@@ -154,24 +172,6 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../mark/">Mark</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Math</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#math">Math</a></li>
-                
-                    <li><a class="toctree-l4" href="#overview">Overview</a></li>
-                
-                    <li><a class="toctree-l4" href="#examples">Examples</a></li>
-                
-            
-            </ul>
         
     </li>
 
@@ -275,7 +275,7 @@
         
       
     
-    <li>Math</li>
+    <li>Arithmatex</li>
     <li class="wy-breadcrumbs-aside">
       
         
@@ -289,15 +289,15 @@
           <div role="main">
             <div class="section">
               
-                <h1 class="doctitle" id="math"><a name="user-content-math" href="#math" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Math</h1>
+                <h1 class="doctitle" id="arithmatex"><a name="user-content-arithmatex" href="#arithmatex" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Arithmatex</h1>
 <p>Syntax for MathJax support.</p>
 <hr />
 <h2 id="overview"><a name="user-content-overview" href="#overview" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Overview</h2>
-<p>The math extension searches for <code class="codehilite"><span class="s">$</span><span class="nb">...</span><span class="s">$</span></code> or <code class="codehilite"><span class="sb">$$</span><span class="nb">...</span><span class="s">$$</span></code> and formats them so that <a href="http://www.mathjax.org/">MathJax</a> can detect them in the HTML output.</p>
+<p>The Arithmatex extension searches for <code class="codehilite"><span class="s">$</span><span class="nb">...</span><span class="s">$</span></code> or <code class="codehilite"><span class="sb">$$</span><span class="nb">...</span><span class="s">$$</span></code> and formats them so that <a href="http://www.mathjax.org/">MathJax</a> can detect them in the HTML output.</p>
 <p><code class="codehilite"><span class="s">$</span><span class="nb">...</span><span class="s">$</span></code> is the inline form and requires the opening token (<code class="codehilite"><span class="s">$</span><span class="nb"></span></code>) to be followed by a non-whitespace character, and the closing to be preceded by a non-whitespace character.  This is to help avoid false positives when using the dollar sign in traditional ways such as: I have $2.00 and Bob has $10.00.  The previous statement required no escaping of the <code class="codehilite"><span class="s">$</span><span class="nb"></span></code> character.  But when needed, the <code class="codehilite"><span class="s">$</span><span class="nb"></span></code> character can be escaped using <code class="codehilite"><span class="k">\$</span></code>.</p>
 <p><code class="codehilite"><span class="sb">$$</span><span class="nb">...</span><span class="s">$$</span></code> is the <em>display</em> or <em>block</em> form.  When using <code class="codehilite"><span class="sb">$$</span><span class="nb"></span></code>, the block must start with <code class="codehilite"><span class="sb">$$</span><span class="nb"></span></code> and end with <code class="codehilite"><span class="sb">$$</span><span class="nb"></span></code>; a block contains no empty lines.</p>
-<p>The math extension actually converts the dollar notation to a more reliable notation in the HTML.  So the conversion is as follows: <code class="codehilite"><span class="s">$</span><span class="nb">...</span><span class="s">$</span></code> -&gt; <code class="codehilite"><span class="s">\(</span><span class="nb">...</span><span class="s">\)</span></code> and <code class="codehilite"><span class="sb">$$</span><span class="nb">...</span><span class="s">$$</span></code> -&gt; <code class="codehilite"><span class="sb">\[</span><span class="nb">...</span><span class="s">\]</span></code>.  Keep this in mind when configuring MathJax for your document.</p>
-<p>Math requires you to point the HTML at the MathJax library and provide the necessary configuration.  If using the PyMdown application, and not <em>just</em> the extension, PyMdown provides a script <code>mathjax-loader.js</code> for quick setup, though you still need to actually configure your settings to use the script and also point it at the library or cdn: <code>https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML</code>.  The PyMdown loader script does not have to be used, but is provided for quick startup and as an example.  Please see the <a href="http://www.mathjax.org/">MathJax</a> site form more info on using MathJax.</p>
+<p>The Arithmatex extension actually converts the dollar notation to a more reliable notation in the HTML.  So the conversion is as follows: <code class="codehilite"><span class="s">$</span><span class="nb">...</span><span class="s">$</span></code> -&gt; <code class="codehilite"><span class="s">\(</span><span class="nb">...</span><span class="s">\)</span></code> and <code class="codehilite"><span class="sb">$$</span><span class="nb">...</span><span class="s">$$</span></code> -&gt; <code class="codehilite"><span class="sb">\[</span><span class="nb">...</span><span class="s">\]</span></code>.  Keep this in mind when configuring MathJax for your document.</p>
+<p>Arithmatex requires you to point the HTML at the MathJax library and provide the necessary configuration.  If using the PyMdown application, and not <em>just</em> the extension, PyMdown provides a script <code>mathjax-loader.js</code> for quick setup, though you still need to actually configure your settings to use the script and also point it at the library or cdn: <code>https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML</code>.  The PyMdown loader script does not have to be used, but is provided for quick startup and as an example.  Please see the <a href="http://www.mathjax.org/">MathJax</a> site form more info on using MathJax.</p>
 <h2 id="examples"><a name="user-content-examples" href="#examples" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Examples</h2>
 <div class="codehilite"><pre>Some Equations:
 
@@ -343,10 +343,10 @@ E(\mathbf{v}, \mathbf{h}) = -\sum_{i,j}w_{ij}v_i h_j - \sum_i b_i v_i - \sum_j c
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../pathconverter/" class="btn btn-neutral float-right" title="PathConverter"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../b64/" class="btn btn-neutral float-right" title="B64"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../mark/" class="btn btn-neutral" title="Mark"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../usage_notes/" class="btn btn-neutral" title="Usage Notes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -377,10 +377,10 @@ E(\mathbf{v}, \mathbf{h}) = -\sum_{i,j}w_{ij}v_i h_j - \sum_i b_i v_i - \sum_j c
           <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../mark/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../usage_notes/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../pathconverter/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../b64/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
