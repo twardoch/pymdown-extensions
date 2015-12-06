@@ -149,6 +149,8 @@
                 
                     <li><a class="toctree-l4" href="#options">Options</a></li>
                 
+                    <li><a class="toctree-l4" href="#alternate-slugify">Alternate Slugify</a></li>
+                
                     <li><a class="toctree-l4" href="#css">CSS</a></li>
                 
             
@@ -324,10 +326,16 @@
 <td>use_toc_settings</td>
 <td>bool</td>
 <td>True</td>
-<td>This specifies whether HeaderAnchor should get its settings from <abbr title="Table of Contents">Toc</abbr>.  This affects <code>slugify</code>and <code>separator</code></td>
+<td>This specifies whether HeaderAnchor should get its settings from <abbr title="Table of Contents">Toc</abbr>.  This affects <code>slugify</code> and <code>separator</code>.</td>
 </tr>
 </tbody>
 </table>
+<h2 id="alternate-slugify"><a name="user-content-alternate-slugify" href="#alternate-slugify" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Alternate Slugify</h2>
+<p>Python Markdown&rsquo;s default slugify strips out Unicode chars. To better handle Unicode, a couple of optional slugify options have been provided.</p>
+<h3 id="uslugify"><a name="user-content-uslugify" href="#uslugify" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>uslugify</h3>
+<p>In order to get slugs closer to like <abbr title="Github Flavored Markdown">GFM</abbr>&rsquo;s slugs (in regards to Unicode chars), a slugify has been included at <code>pymdownx.headerancor.uslugify</code>.  This assumes you are encoding your HTML as UTF-8.  UTF-8 Unicode should be okay in your slugs in modern browsers.  You can use this to override <abbr title="Table of Contents">Toc</abbr>&lsquo;s and HeaderAnchor&rsquo;s slugify; it is good to override both if you are using both.</p>
+<h3 id="uslugify_encoded"><a name="user-content-uslugify_encoded" href="#uslugify_encoded" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>uslugify_encoded</h3>
+<p>If you aren&rsquo;t encoding your HTML as UTF-8, or prefer the safer percent encoded Unicode slugs, you can use <code>uslugify_encoded</code> which will percent encode non-ASCII word chars.  You can use this to override <abbr title="Table of Contents">Toc</abbr>&lsquo;s and HeaderAnchor&rsquo;s slugify; it is good to override both if you are using both.</p>
 <h2 id="css"><a name="user-content-css" href="#css" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>CSS</h2>
 <p>This is the CSS used for rendering the header anchors in this document. While Font Awesome is used, you can substitute it with <a href="https://octicons.github.com/">Octicons</a> for even more of a <abbr title="Github Flavored Markdown">GFM</abbr> feel, or use something else entirely.</p>
 <p>The HTML tags with classes are set like this:</p>
