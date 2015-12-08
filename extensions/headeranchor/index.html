@@ -369,6 +369,10 @@
 </table>
 <p>The CSS below sets the header tags to be <code>relative</code>, and the <code>headeranchor-link</code> class to be <code>absolute</code>.  We then attach a <code>:before</code> pseudo element to the <code>headeranchor</code> class with the desired character and position.  We play a little bit with padding and margin so when you hover over the header or where the link is supposed to be, the link appears and is accessible without causing the header position to change.</p>
 <div class="codehilite"><pre><span class="c">/* Header Anchors */</span>
+<span class="nc">.markdown-body</span> <span class="p">{</span>
+    <span class="k">padding-left</span><span class="o">:</span> <span class="m">30px</span><span class="p">;</span>
+<span class="p">}</span>
+
 <span class="nc">.markdown-body</span> <span class="nc">.headeranchor-link</span> <span class="p">{</span>
   <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
   <span class="k">top</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
