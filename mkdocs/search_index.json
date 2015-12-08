@@ -586,6 +586,21 @@
             "title": "Documentation Improvements"
         }, 
         {
+            "location": "/changelog/", 
+            "text": "Changelog\n\n\nChanges between versions.\n\n\n1.0.0\n\n\n\n\nInitial release.", 
+            "title": "Changelog"
+        }, 
+        {
+            "location": "/changelog/#changelog", 
+            "text": "Changes between versions.", 
+            "title": "Changelog"
+        }, 
+        {
+            "location": "/changelog/#100", 
+            "text": "Initial release.", 
+            "title": "1.0.0"
+        }, 
+        {
             "location": "/license/", 
             "text": "License\n\n\n\n\nThe MIT License (MIT) (Except where stated below)\n\n\nCopyright \n 2014 - 2015 Isaac Muse\n\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\n\nof this software and associated documentation files (the \nSoftware\n), to deal\n\nin the Software without restriction, including without limitation the rights\n\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n\ncopies of the Software, and to permit persons to whom the Software is\n\nfurnished to do so, subject to the following conditions:\n\n\nThe above copyright notice and this permission notice shall be included in all\n\ncopies or substantial portions of the Software.\n\n\nTHE SOFTWARE IS PROVIDED \nAS IS\n, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n\nSOFTWARE.\n\n\n\n\nsuperfences.py is derived from Python Markdown\ns fenced_code extension.\n\n\nFenced Code Extension for Python Markdown\n\n =========================================\n\nThis extension adds Fenced Code Blocks to Python-Markdown.\n\nSee \nhttps://pythonhosted.org/Markdown/extensions/fenced_code_blocks.html\n\nfor documentation.\n\nOriginal code Copyright 2007-2008 \nWaylan Limberg\n.\n\nAll changes Copyright 2008-2014 The Python Markdown Project\n\nLicense: \nBSD\n\n\n\n\ninlinehilite.py is derived from Python Markdown\ns codehilite extension.\n\n\nCodeHilite Extension for Python-Markdown\n\n ========================================\n\nAdds code/syntax highlighting to standard Python-Markdown code blocks.\n\nSee \nhttps://pythonhosted.org/Markdown/extensions/code_hilite.html\n\nfor documentation.\n\nOriginal code Copyright 2006-2008 \nWaylan Limberg\n.\n\nAll changes Copyright 2008-2014 The Python Markdown Project\n\nLicense: \nBSD\n\n\n\n\nextrarawhtml.py is a literal copy and paste from Python Markdown\ns extra extension.\n\nIt basically splits out the raw html markdown parsing into a seprate extension that can\n\nbe used even if it is not desired to use all of \nextra\n.\n\n\nPython-Markdown Extra Extension\n\n ===============================\n\nSee \nhttps://pythonhosted.org/Markdown/extensions/extra.html\n\nfor documentation.\n\nCopyright The Python Markdown Project\n\nLicense: \nBSD", 
             "title": "License"
