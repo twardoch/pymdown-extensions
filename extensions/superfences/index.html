@@ -18,12 +18,12 @@
   <link rel="stylesheet" href="../../css/theme_custom.css" type="text/css" />
   <link rel="stylesheet" href="../../css/highlight.css">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.4/sequence-diagram-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.4.2/flowchart.min.js"></script>
   <script src="../../js/jquery-2.1.1.min.js"></script>
   <script src="../../js/modernizr-2.8.3.min.js"></script>
-  <script src="../../js/flowchart-min.js"></script>
   <script src="../../js/theme.js"></script>
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> 
 
@@ -363,7 +363,15 @@ Definition
 <li><a href="http://underscorejs.org/">underscore.js</a></li>
 <li><a href="http://bramp.github.io/js-sequence-diagrams/">sequece-diagram.js</a></li>
 </ul>
-<p>Simply including the libraries above is not enough as these libraries need to be pointed at the elements they need to convert.  If using the PyMdown application, and not just the extension, PyMdown provides scripts <code>uml-converter.js</code>, <code>flow-loader.js</code>, and <code>sequence-loader.js</code> that can be used to target the HTML elements and execute the appropriate library on their content to create the desired diagrams.  The scripts do not have to be used, and you can modify them or write your own to suite your needs; it is provided for convenience.</p>
+<p>All of these libraries can be included using a CDN (you can use the version of your choice):</p>
+<div class="codehilite"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.4.2/flowchart.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+
+
+<p>Simply including the libraries above is not enough as these libraries need to be pointed at the elements they need to convert.  Here we are going to show some examples (<code>uml-converter.js</code>, <code>flow-loader.js</code>, and <code>sequence-loader.js</code>) that can be used to target the HTML elements and execute the appropriate library on their content to create the desired diagrams.  The scripts do not have to be used, and you can modify them or write your own to suite your needs; it is provided for convenience.</p>
 <div class="codehilite"><pre><span class="cm">/* uml-converter.js */</span>
 <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">win</span><span class="p">,</span> <span class="nx">doc</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">win</span><span class="p">.</span><span class="nx">convertUML</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">className</span><span class="p">,</span> <span class="nx">converter</span><span class="p">,</span> <span class="nx">settings</span><span class="p">)</span> <span class="p">{</span>

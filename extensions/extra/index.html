@@ -18,12 +18,12 @@
   <link rel="stylesheet" href="../../css/theme_custom.css" type="text/css" />
   <link rel="stylesheet" href="../../css/highlight.css">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.4/sequence-diagram-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.4.2/flowchart.min.js"></script>
   <script src="../../js/jquery-2.1.1.min.js"></script>
   <script src="../../js/modernizr-2.8.3.min.js"></script>
-  <script src="../../js/flowchart-min.js"></script>
   <script src="../../js/theme.js"></script>
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> 
 
@@ -298,9 +298,9 @@
 <p>PHP Markdown Extra extensions.</p>
 <hr />
 <h2 id="overview"><a name="user-content-overview" href="#overview" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Overview</h2>
-<p>Python Markdown provides an <code>extra</code> extension to provide features similar to PHP Markdown Extra.  PyMdown aims to provide not only new features, but to improve behavior in Python Markdown&rsquo;s existing feature set.  Some of things can be at odds.  Python Markdown&rsquo;s <code>smartstrong</code> and <code>fenced_code</code> are not compatible with PyMdown&rsquo;s <code>betterem</code> and <code>superfences</code>.  <code>smartstong</code> should never be loaded at the same time as <code>betterem</code>, and <code>superfences</code> should not be loaded at the same time as <code>fenced_code</code>.  Because of this, it is not possible to use Python Markdown&rsquo;s <code>extra</code> and PyMdown&rsquo;s <code>superfences</code> and <code>betterem</code>. To make this less frustrating, PyMdown provides it&rsquo;s own implementation of <code>extra</code>.</p>
+<p>Python Markdown provides an <code>extra</code> extension to provide features similar to PHP Markdown Extra.  PyMdown Extensions aims to provide not only new features, but to improve behavior in Python Markdown&rsquo;s existing feature set.  Some of these things can be at odds.  Python Markdown&rsquo;s <code>smartstrong</code> and <code>fenced_code</code> are not compatible with PyMdown Extensions&rsquo; <code>betterem</code> and <code>superfences</code>.  <code>smartstong</code> should never be loaded at the same time as <code>betterem</code>, and <code>superfences</code> should not be loaded at the same time as <code>fenced_code</code>.  Because of this, it is not possible to use Python Markdown&rsquo;s <code>extra</code> and PyMdown&rsquo;s <code>superfences</code> and <code>betterem</code>. To make this less frustrating, PyMdown provides it&rsquo;s own implementation of <code>extra</code>.</p>
 <p>PyMdown&rsquo;s <code>extra</code> is just like Python Markdown&rsquo;s extra except <code>smartstrong</code> is replaced by <code>betterem</code> and <code>fenced_code</code> is replaced by <code>superfences</code>.  All other features and extensions should be identical because we are using the same ones.</p>
-<p>The PyMdown extension is a convenience extension and it currently provides no other additional features.  But remember <strong>don&rsquo;t use <code>pymdownx.extra</code> while also using <code>markdown.extensions.extra</code></strong>!</p>
+<p>This extension is a convenience extension, and it currently provides no other additional features.  But remember <strong>don&rsquo;t use <code>pymdownx.extra</code> while also using <code>markdown.extensions.extra</code></strong>!</p>
 <div class="admonition caution">
 <p class="admonition-title">Reminder</p>
 <p>Remember to read the <a href="../../usage_notes/">Usage Notes</a> for information that may be relevant when using this extension!</p>

@@ -18,12 +18,12 @@
   <link rel="stylesheet" href="../css/theme_custom.css" type="text/css" />
   <link rel="stylesheet" href="../css/highlight.css">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.4/sequence-diagram-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.4.2/flowchart.min.js"></script>
   <script src="../js/jquery-2.1.1.min.js"></script>
   <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script src="../js/flowchart-min.js"></script>
   <script src="../js/theme.js"></script>
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> 
 
@@ -296,7 +296,7 @@
 <p>Notes about compatibility and usage.</p>
 <hr />
 <h2 id="incompatible-extensions"><a name="user-content-incompatible-extensions" href="#incompatible-extensions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Incompatible Extensions</h2>
-<p>PyMdown Extensions includes three extensions that are meant to <strong>replace</strong> their counterpart in the default Python Markdown extensions.  You need to either use the PyMdown version or use the Python Markdown version; <strong>they cannot be loaded at the same time</strong>.</p>
+<p>PyMdown Extensions includes three extensions that are meant to <strong>replace</strong> their counterpart in the default Python Markdown extensions.  You need to either use the PyMdown Extensions version or use the Python Markdown version; <strong>they cannot be loaded at the same time</strong>.</p>
 <ul>
 <li><code>pymdownx.superfences</code> replaces <code>markdown.extensions.fenced_code</code>.</li>
 <li><code>pymdownx.betterem</code> replaces <code>markdown.extensions.smartstrong</code>.</li>
@@ -305,7 +305,7 @@
 <li><code>pymdownx.extra</code>, <code>pymdownx.github</code>, <code>pymdownx.pymdown</code> are all convenience extensions that batch include a number of extensions; <strong>do not mix these with each other</strong> as they will cause certain extensions to be included multiple times.</li>
 </ul>
 <h2 id="include-extensions-only-once"><a name="user-content-include-extensions-only-once" href="#include-extensions-only-once" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Include Extensions Only Once</h2>
-<p>In general, you shouldn&rsquo;t include an extension more than once.  PyMdown provides three extensions that batch include a number of extensions for convenience: <code>pymdownx.extra</code>, <code>pymdownx.github</code>, and <code>pymdownx.pymdown</code>.  If you try to include more than one of these convenience extensions at the same time, you will include certain extensions multiple times possibly leading to unexpected results.  Also, be aware of what extensions these convenience extensions include and do not accidentally re-include them individually or unexpected issues my arise.</p>
+<p>In general, you shouldn&rsquo;t include an extension more than once.  PyMdown Extensions provides three extensions that batch include a number of extensions for convenience: <code>pymdownx.extra</code>, <code>pymdownx.github</code>, and <code>pymdownx.pymdown</code>.  If you try to include more than one of these convenience extensions at the same time, you will include certain extensions multiple times possibly leading to unexpected results.  Also, be aware of what extensions these convenience extensions include and do not accidentally re-include them individually or unexpected issues my arise.</p>
               
             </div>
           </div>

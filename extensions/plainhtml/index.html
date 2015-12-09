@@ -18,12 +18,12 @@
   <link rel="stylesheet" href="../../css/theme_custom.css" type="text/css" />
   <link rel="stylesheet" href="../../css/highlight.css">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.4/sequence-diagram-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.4.2/flowchart.min.js"></script>
   <script src="../../js/jquery-2.1.1.min.js"></script>
   <script src="../../js/modernizr-2.8.3.min.js"></script>
-  <script src="../../js/flowchart-min.js"></script>
   <script src="../../js/theme.js"></script>
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> 
 
@@ -306,7 +306,7 @@
 <p>This is not meant to be a sanitizer for HTML.  This is just meant to try and strip out style, script, classes, etc. to provide a plain HTML output for the times this is desired; this is not meant as a security extension.  If you want something to secure the output, you should consider running a sanitizer like <a href="https://pypi.python.org/pypi/bleach">bleach</a>.</p>
 </div>
 <h2 id="options"><a name="user-content-options" href="#options" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Options</h2>
-<p>By default, PlainHtml strips the following attributes: <code>style</code>, <code>id</code>, <code>class</code>, and <code>on&lt;name&gt;</code>.  PlainHtml also strips HTML comments. If desired, its behavior can be configured to strip less or even more, but it is limited to attributes and comments.  If you are using the <a href="https://github.com/facelessuser/PyMdown">PyMdown app</a>, and you want to control what gets stripped, you may want to forgo using the <code>--plain-html</code> option laid out in the <a href="http://facelessuser.github.io/PyMdown/user-guide/general-usage/#plain-html">user guide</a> and just configure the plugin manually; the <code>--plain-html</code> option runs with the defaults only.</p>
+<p>By default, PlainHtml strips the following attributes: <code>style</code>, <code>id</code>, <code>class</code>, and <code>on&lt;name&gt;</code>.  PlainHtml also strips HTML comments. If desired, its behavior can be configured to strip less or even more, but it is limited to attributes and comments.</p>
 <table>
 <thead>
 <tr>

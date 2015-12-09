@@ -18,12 +18,12 @@
   <link rel="stylesheet" href="../css/theme_custom.css" type="text/css" />
   <link rel="stylesheet" href="../css/highlight.css">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.4/sequence-diagram-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.4.2/flowchart.min.js"></script>
   <script src="../js/jquery-2.1.1.min.js"></script>
   <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script src="../js/flowchart-min.js"></script>
   <script src="../js/theme.js"></script>
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> 
 
@@ -295,12 +295,12 @@
             <div class="section">
               
                 <h1 class="doctitle" id="installation"><a name="user-content-installation" href="#installation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Installation</h1>
-<p>Installation of PyMdown.</p>
+<p>Installation of PyMdown Extensions.</p>
 <hr />
 <h2 id="overview"><a name="user-content-overview" href="#overview" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Overview</h2>
-<p>Pymdown is built on top of a few requirements.  If installing, the requirements will be installed automatically unless the requirement is optional.</p>
+<p>Pymdown Extensions is built on top of a few requirements.  If installing, the requirements will be installed automatically unless the requirement is optional.</p>
 <h2 id="requirements"><a name="user-content-requirements" href="#requirements" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Requirements</h2>
-<p>In order for PyMdown to work, there are a couple of prerequisites.</p>
+<p>In order for PyMdown Extensions to work, there are a couple of prerequisites.</p>
 <table>
 <thead>
 <tr>
@@ -323,7 +323,12 @@
 </tbody>
 </table>
 <h2 id="installation_1"><a name="user-content-installation_1" href="#installation_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Installation</h2>
-<p>To install, run <code class="codehilite">python setup.py build</code> and <code class="codehilite">python setup.py install</code>.  You should be able to access the extensions in Python Markdown under the namespace <code>pymdownx.&lt;extension&gt;</code>.</p>
+<p>Installation is easy with pip:</p>
+<div class="codehilite"><pre>pip install pymdown-extensions
+</pre></div>
+
+
+<p>If you want to manually install it, run <code class="codehilite">python setup.py build</code> and <code class="codehilite">python setup.py install</code>.  You should be able to access the extensions in Python Markdown under the namespace <code>pymdownx.&lt;extension&gt;</code>.</p>
 <p>If you would like to modify the code, you can install it via: <code class="codehilite">pip install --editable .</code>.  This method will allow you to instantly see your changes without reinstalling.  If you want to do this in a virtual machine, you can.</p>
               
             </div>
