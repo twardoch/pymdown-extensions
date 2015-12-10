@@ -587,7 +587,7 @@
         }, 
         {
             "location": "/changelog/", 
-            "text": "Changelog\n\n\nChanges between versions.\n\n\n1.0.0\n\n\n\n\nInitial release.", 
+            "text": "Changelog\n\n\nChanges between versions.\n\n\n1.0.0 Releases\n\n\n1.0.1\n\n\n\n\nFixed: Ordinal number 11\nth\n, 12\nth\n, and 13\nth\n\n\n\n\n1.0.0\n\n\n\n\nInitial release.", 
             "title": "Changelog"
         }, 
         {
@@ -596,9 +596,9 @@
             "title": "Changelog"
         }, 
         {
-            "location": "/changelog/#100", 
-            "text": "Initial release.", 
-            "title": "1.0.0"
+            "location": "/changelog/#100-releases", 
+            "text": "1.0.1   Fixed: Ordinal number 11 th , 12 th , and 13 th   1.0.0   Initial release.", 
+            "title": "1.0.0 Releases"
         }, 
         {
             "location": "/license/", 
