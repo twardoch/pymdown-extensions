@@ -133,6 +133,8 @@
                 
                     <li><a class="toctree-l4" href="#overview">Overview</a></li>
                 
+                    <li><a class="toctree-l4" href="#options">Options</a></li>
+                
             
             </ul>
         
@@ -323,7 +325,7 @@
 <td>markdown.extensions.tables</td>
 </tr>
 <tr>
-<td><a href="https://pythonhosted.org/Markdown/extensions/nl2br.html">New&nbsp;Line&nbsp;to&nbsp;Break</a></td>
+<td><a href="https://pythonhosted.org/Markdown/extensions/nl2br.html">New&nbsp;Line&nbsp;to&nbsp;Break</a><sup id="fnref:nl2br"><a class="footnote-ref" href="#fn:nl2br" rel="footnote">1</a></sup></td>
 <td></td>
 <td>markdown.extensions.nl2b</td>
 </tr>
@@ -334,12 +336,12 @@
 </tr>
 <tr>
 <td><a href="../betterem/">betterem</a></td>
-<td><code class="codehilite"><span class="p">{</span><span class="s">&quot;smart_enable&quot;</span><span class="p">:</span> <span class="s">&#39;all&#39;</span> <span class="p">}</span></code></td>
+<td><code class="codehilite"><span class="p">{</span><span class="s2">&quot;smart_enable&quot;</span><span class="p">:</span> <span class="s1">&#39;all&#39;</span> <span class="p">}</span></code></td>
 <td>pymdownx.betterem</td>
 </tr>
 <tr>
 <td><a href="../tilde/">tilde</a></td>
-<td><code class="codehilite"><span class="p">{</span><span class="s">&quot;subscript&quot;</span><span class="p">:</span> <span class="bp">False</span> <span class="p">}</span></code></td>
+<td><code class="codehilite"><span class="p">{</span><span class="s2">&quot;subscript&quot;</span><span class="p">:</span> <span class="bp">False</span> <span class="p">}</span></code></td>
 <td>pymdownx.tilde</td>
 </tr>
 <tr>
@@ -364,6 +366,33 @@
 </tr>
 </tbody>
 </table>
+<h2 id="options"><a name="user-content-options" href="#options" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Options</h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>no_nl2br</td>
+<td>bool</td>
+<td>False</td>
+<td>Don&rsquo;t use <code>nl2br</code> extension.  Latest Github Flavored Markdown no longer uses the equivalent of <code>nl2br</code>.  In the future, this will be defaulted to &lsquo;True&rsquo;.</td>
+</tr>
+</tbody>
+</table>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:nl2br">
+<p><code>nl2br</code> will not be loaded by default in the future.&#160;<a class="footnote-backref" href="#fnref:nl2br" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
               
             </div>
           </div>
@@ -384,7 +413,7 @@
   <div role="contentinfo">
     <p>
     
-    Copyright &copy; 2014 - 2015 <a href="https://github.com/facelessuser">Isaac Muse</a>
+    Copyright &copy; 2014 - 2016 <a href="https://github.com/facelessuser">Isaac Muse</a>
     
     </p>
   </div>

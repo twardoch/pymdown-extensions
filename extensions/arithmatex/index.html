@@ -305,12 +305,12 @@
 <p><code class="codehilite"><span class="sb">$$</span><span class="nb">...</span><span class="s">$$</span></code> is the <em>display</em> or <em>block</em> form.  When using <code class="codehilite"><span class="sb">$$</span><span class="nb"></span></code>, the block must start with <code class="codehilite"><span class="sb">$$</span><span class="nb"></span></code> and end with <code class="codehilite"><span class="sb">$$</span><span class="nb"></span></code>; a block contains no empty lines.</p>
 <p>The Arithmatex extension actually converts the dollar notation to a more reliable notation in the HTML.  So the conversion is as follows: <code class="codehilite"><span class="s">$</span><span class="nb">...</span><span class="s">$</span></code> &rarr; <code class="codehilite"><span class="s">\(</span><span class="nb">...</span><span class="s">\)</span></code> and <code class="codehilite"><span class="sb">$$</span><span class="nb">...</span><span class="s">$$</span></code> &rarr; <code class="codehilite"><span class="sb">\[</span><span class="nb">...</span><span class="s">\]</span></code>.  Keep this in mind when configuring MathJax for your document.</p>
 <p>Arithmatex requires you to point the HTML at the MathJax library and provide the necessary configuration.  The recommended way of including MathJax is to use the CDN:</p>
-<div class="codehilite"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 
 
 <p>Here is an example of setting up MathJax configuration:</p>
-<div class="codehilite"><pre><span class="cm">/* mathjax-loader.js */</span>
+<div class="codehilite"><pre><span></span><span class="cm">/* mathjax-loader.js */</span>
 <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">win</span><span class="p">,</span> <span class="nx">doc</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">win</span><span class="p">.</span><span class="nx">MathJax</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">config</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;MMLorHTML.js&quot;</span><span class="p">],</span>
@@ -341,7 +341,7 @@
 
 <p>Please see the <a href="http://www.mathjax.org/">MathJax</a> site for more info on using MathJax.</p>
 <h2 id="examples"><a name="user-content-examples" href="#examples" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Examples</h2>
-<div class="codehilite"><pre>Some Equations:
+<div class="codehilite"><pre><span></span>Some Equations:
 
 <span class="sb">$$</span><span class="nb"></span>
 <span class="nb">E</span><span class="o">(</span><span class="nv">\mathbf</span><span class="nb">{v}, </span><span class="nv">\mathbf</span><span class="nb">{h}</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="o">-</span><span class="nv">\sum</span><span class="nb">_{i,j}w_{ij}v_i h_j </span><span class="o">-</span><span class="nb"> </span><span class="nv">\sum</span><span class="nb">_i b_i v_i </span><span class="o">-</span><span class="nb"> </span><span class="nv">\sum</span><span class="nb">_j c_j h_j</span>
@@ -398,7 +398,7 @@ E(\mathbf{v}, \mathbf{h}) = -\sum_{i,j}w_{ij}v_i h_j - \sum_i b_i v_i - \sum_j c
   <div role="contentinfo">
     <p>
     
-    Copyright &copy; 2014 - 2015 <a href="https://github.com/facelessuser">Isaac Muse</a>
+    Copyright &copy; 2014 - 2016 <a href="https://github.com/facelessuser">Isaac Muse</a>
     
     </p>
   </div>

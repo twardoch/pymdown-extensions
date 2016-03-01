@@ -361,7 +361,7 @@
 </tbody>
 </table>
 <p>Here they are in action:</p>
-<div class="codehilite"><pre>Here<span class="w"> </span>is<span class="w"> </span>some<span class="w"> </span><span class="s">{--*incorrect*--}</span><span class="w"> </span>Markdown.<span class="w">  </span>I<span class="w"> </span>am<span class="w"> </span>adding<span class="w"> </span>this<span class="s">{++ here.++}</span>.<span class="w">  </span>Here<span class="w"> </span>is<span class="w"> </span>some<span class="w"> </span>more<span class="w"> </span><span class="s">{--text</span>
+<div class="codehilite"><pre><span></span>Here<span class="w"> </span>is<span class="w"> </span>some<span class="w"> </span><span class="s">{--*incorrect*--}</span><span class="w"> </span>Markdown.<span class="w">  </span>I<span class="w"> </span>am<span class="w"> </span>adding<span class="w"> </span>this<span class="s">{++ here.++}</span>.<span class="w">  </span>Here<span class="w"> </span>is<span class="w"> </span>some<span class="w"> </span>more<span class="w"> </span><span class="s">{--text</span>
 <span class="s">that I am removing--}</span>text.<span class="w">  </span>And<span class="w"> </span>here<span class="w"> </span>is<span class="w"> </span>even<span class="w"> </span>more<span class="w"> </span><span class="s">{++text that I</span>
 <span class="s">am ++}</span>adding.<span class="s">{~~</span>
 
@@ -458,117 +458,117 @@ am </ins>adding.<del class="critic break">&nbsp;</del><ins class="critic">  </in
 </tbody>
 </table>
 <p>This is the CSS used for this page.</p>
-<div class="codehilite"><pre><span class="c">/* Critic Markup */</span>
+<div class="codehilite"><pre><span></span><span class="c">/* Critic Markup */</span>
 <span class="nc">.markdown-body</span> <span class="nc">.critic</span> <span class="p">{</span>
-  <span class="k">font-family</span><span class="o">:</span> <span class="k">inherit</span><span class="p">;</span>
-  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
-  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
-  <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
-  <span class="k">border-style</span><span class="o">:</span> <span class="k">solid</span><span class="p">;</span>
-  <span class="k">border-width</span><span class="o">:</span> <span class="m">1px</span><span class="p">;</span>
-  <span class="k">padding-top</span><span class="o">:</span> <span class="m">0.1em</span><span class="p">;</span>
-  <span class="k">padding-bottom</span><span class="o">:</span> <span class="m">0.1em</span><span class="p">;</span>
-  <span class="k">text-decoration</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="nb">font-family</span><span class="o">:</span> <span class="nb">inherit</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="nb">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="nb">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+  <span class="nb">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+  <span class="nb">border-style</span><span class="o">:</span> <span class="nb">solid</span><span class="p">;</span>
+  <span class="nb">border-width</span><span class="o">:</span> <span class="m">1px</span><span class="p">;</span>
+  <span class="nb">padding-top</span><span class="o">:</span> <span class="m">0.1em</span><span class="p">;</span>
+  <span class="nb">padding-bottom</span><span class="o">:</span> <span class="m">0.1em</span><span class="p">;</span>
+  <span class="nb">text-decoration</span><span class="o">:</span> <span class="nb">none</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.markdown-body</span> <span class="nc">.critic</span><span class="nd">:before</span><span class="o">,</span>
 <span class="nc">.markdown-body</span> <span class="nc">.critic</span><span class="nd">:after</span> <span class="p">{</span>
-  <span class="k">content</span><span class="o">:</span> <span class="s1">&#39;\00a0&#39;</span><span class="p">;</span>
-  <span class="k">padding-top</span><span class="o">:</span> <span class="m">0.1em</span><span class="p">;</span>
-  <span class="k">padding-bottom</span><span class="o">:</span> <span class="m">0.1em</span><span class="p">;</span>
-  <span class="k">font-size</span><span class="o">:</span> <span class="n">initial</span><span class="p">;</span>
+  <span class="nb">content</span><span class="o">:</span> <span class="s1">&#39;\00a0&#39;</span><span class="p">;</span>
+  <span class="nb">padding-top</span><span class="o">:</span> <span class="m">0.1em</span><span class="p">;</span>
+  <span class="nb">padding-bottom</span><span class="o">:</span> <span class="m">0.1em</span><span class="p">;</span>
+  <span class="nb">font-size</span><span class="o">:</span> <span class="n">initial</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.markdown-body</span> <span class="nc">.block</span><span class="nd">:before</span><span class="o">,</span>
 <span class="nc">.markdown-body</span> <span class="nc">.block</span><span class="nd">:after</span> <span class="p">{</span>
-  <span class="k">content</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+  <span class="nb">content</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.markdown-body</span> <span class="nt">mark</span><span class="nc">.critic</span> <span class="p">{</span>
-  <span class="k">border-color</span><span class="o">:</span> <span class="m">#ff8600</span><span class="p">;</span>
-  <span class="k">background</span><span class="o">:</span> <span class="m">#ffddaa</span><span class="p">;</span>
+  <span class="nb">border-color</span><span class="o">:</span> <span class="m">#ff8600</span><span class="p">;</span>
+  <span class="nb">background</span><span class="o">:</span> <span class="m">#ffddaa</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.markdown-body</span> <span class="nt">ins</span><span class="nc">.critic</span> <span class="p">{</span>
-  <span class="k">border-color</span><span class="o">:</span> <span class="m">#00bb00</span><span class="p">;</span>
-  <span class="k">background</span><span class="o">:</span> <span class="m">#ddffdd</span><span class="p">;</span>
+  <span class="nb">border-color</span><span class="o">:</span> <span class="m">#00bb00</span><span class="p">;</span>
+  <span class="nb">background</span><span class="o">:</span> <span class="m">#ddffdd</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.markdown-body</span> <span class="nt">del</span><span class="nc">.critic</span> <span class="p">{</span>
-  <span class="k">border-color</span><span class="o">:</span> <span class="m">#dd0000</span><span class="p">;</span>
-  <span class="k">background</span><span class="o">:</span> <span class="m">#ffdddd</span><span class="p">;</span>
+  <span class="nb">border-color</span><span class="o">:</span> <span class="m">#dd0000</span><span class="p">;</span>
+  <span class="nb">background</span><span class="o">:</span> <span class="m">#ffdddd</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.markdown-body</span> <span class="nt">ins</span><span class="nc">.break</span><span class="o">,</span>
 <span class="nc">.markdown-body</span> <span class="nt">del</span><span class="nc">.break</span> <span class="p">{</span>
-  <span class="k">font-size</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
-  <span class="k">border</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="nb">font-size</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nb">border</span><span class="o">:</span> <span class="nb">none</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.markdown-body</span> <span class="nt">ins</span><span class="nc">.break</span><span class="nd">:before</span><span class="o">,</span>
 <span class="nc">.markdown-body</span> <span class="nt">del</span><span class="nc">.break</span><span class="nd">:before</span> <span class="p">{</span>
-  <span class="k">content</span><span class="o">:</span> <span class="s1">&#39;\00a0\b6\00a0&#39;</span><span class="p">;</span>
-  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
-  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
-  <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+  <span class="nb">content</span><span class="o">:</span> <span class="s1">&#39;\00a0\b6\00a0&#39;</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="nb">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="nb">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+  <span class="nb">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.markdown-body</span> <span class="nt">ins</span><span class="nc">.after</span><span class="o">,</span>
 <span class="nc">.markdown-body</span> <span class="nt">del</span><span class="nc">.after</span> <span class="p">{</span>
-  <span class="k">content</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+  <span class="nb">content</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.markdown-body</span> <span class="nt">ins</span><span class="nc">.break</span><span class="nd">:before</span> <span class="p">{</span>
-  <span class="k">color</span><span class="o">:</span> <span class="m">#00bb00</span><span class="p">;</span>
-  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#00bb00</span><span class="p">;</span>
-  <span class="k">background</span><span class="o">:</span> <span class="m">#ddffdd</span><span class="p">;</span>
+  <span class="nb">color</span><span class="o">:</span> <span class="m">#00bb00</span><span class="p">;</span>
+  <span class="nb">border</span><span class="o">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="m">#00bb00</span><span class="p">;</span>
+  <span class="nb">background</span><span class="o">:</span> <span class="m">#ddffdd</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.markdown-body</span> <span class="nt">del</span><span class="nc">.break</span><span class="nd">:before</span> <span class="p">{</span>
-  <span class="k">color</span><span class="o">:</span> <span class="m">#bb0000</span><span class="p">;</span>
-  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#bb0000</span><span class="p">;</span>
-  <span class="k">background</span><span class="o">:</span> <span class="m">#ffdddd</span><span class="p">;</span>
+  <span class="nb">color</span><span class="o">:</span> <span class="m">#bb0000</span><span class="p">;</span>
+  <span class="nb">border</span><span class="o">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="m">#bb0000</span><span class="p">;</span>
+  <span class="nb">background</span><span class="o">:</span> <span class="m">#ffdddd</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.markdown-body</span> <span class="nt">span</span><span class="nc">.critic</span> <span class="p">{</span>
-  <span class="k">background</span><span class="o">:</span> <span class="m">#ddddff</span><span class="p">;</span>
-  <span class="k">border</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
-  <span class="k">border-top</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#0000bb</span><span class="p">;</span>
-  <span class="k">border-bottom</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#0000bb</span><span class="p">;</span>
+  <span class="nb">background</span><span class="o">:</span> <span class="m">#ddddff</span><span class="p">;</span>
+  <span class="nb">border</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nb">border-top</span><span class="o">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="m">#0000bb</span><span class="p">;</span>
+  <span class="nb">border-bottom</span><span class="o">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="m">#0000bb</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.markdown-body</span> <span class="nt">span</span><span class="nc">.critic</span><span class="nd">:before</span><span class="o">,</span>
 <span class="nc">.markdown-body</span> <span class="nt">span</span><span class="nc">.critic</span><span class="nd">:after</span> <span class="p">{</span>
-  <span class="k">font-size</span><span class="o">:</span> <span class="k">inherit</span><span class="p">;</span>
-  <span class="k">background</span><span class="o">:</span> <span class="m">#ddddff</span><span class="p">;</span>
-  <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#0000bb</span><span class="p">;</span>
+  <span class="nb">font-size</span><span class="o">:</span> <span class="nb">inherit</span><span class="p">;</span>
+  <span class="nb">background</span><span class="o">:</span> <span class="m">#ddddff</span><span class="p">;</span>
+  <span class="nb">border</span><span class="o">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="m">#0000bb</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.markdown-body</span> <span class="nt">span</span><span class="nc">.critic</span><span class="nd">:before</span> <span class="p">{</span>
-  <span class="k">content</span><span class="o">:</span> <span class="s1">&#39;\00a0\bb&#39;</span><span class="p">;</span>
-  <span class="k">border-right</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
-  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="k">border-top</span><span class="o">-</span><span class="k">left</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
-  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="k">border-top</span><span class="o">-</span><span class="k">left</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
-  <span class="k">border-top</span><span class="o">-</span><span class="k">left</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
-  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="k">border-bottom</span><span class="o">-</span><span class="k">left</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
-  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="k">border-bottom</span><span class="o">-</span><span class="k">left</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
-  <span class="k">border-bottom</span><span class="o">-</span><span class="k">left</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+  <span class="nb">content</span><span class="o">:</span> <span class="s1">&#39;\00a0\bb&#39;</span><span class="p">;</span>
+  <span class="nb">border-right</span><span class="o">:</span> <span class="nb">none</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="nb">border-top</span><span class="o">-</span><span class="nb">left</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="nb">border-top</span><span class="o">-</span><span class="nb">left</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+  <span class="nb">border-top</span><span class="o">-</span><span class="nb">left</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="nb">border-bottom</span><span class="o">-</span><span class="nb">left</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="nb">border-bottom</span><span class="o">-</span><span class="nb">left</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+  <span class="nb">border-bottom</span><span class="o">-</span><span class="nb">left</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.markdown-body</span> <span class="nt">span</span><span class="nc">.critic</span><span class="nd">:after</span> <span class="p">{</span>
-  <span class="k">content</span><span class="o">:</span> <span class="s1">&#39;\ab\00a0&#39;</span><span class="p">;</span>
-  <span class="k">border-left</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
-  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="k">border-top</span><span class="o">-</span><span class="k">right</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
-  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="k">border-top</span><span class="o">-</span><span class="k">right</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
-  <span class="k">border-top</span><span class="o">-</span><span class="k">right</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
-  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="k">border-bottom</span><span class="o">-</span><span class="k">right</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
-  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="k">border-bottom</span><span class="o">-</span><span class="k">right</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
-  <span class="k">border-bottom</span><span class="o">-</span><span class="k">right</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+  <span class="nb">content</span><span class="o">:</span> <span class="s1">&#39;\ab\00a0&#39;</span><span class="p">;</span>
+  <span class="nb">border-left</span><span class="o">:</span> <span class="nb">none</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="nb">border-top</span><span class="o">-</span><span class="nb">right</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="nb">border-top</span><span class="o">-</span><span class="nb">right</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+  <span class="nb">border-top</span><span class="o">-</span><span class="nb">right</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="nb">border-bottom</span><span class="o">-</span><span class="nb">right</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="nb">border-bottom</span><span class="o">-</span><span class="nb">right</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
+  <span class="nb">border-bottom</span><span class="o">-</span><span class="nb">right</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">3px</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nc">.markdown-body</span> <span class="nc">.block</span> <span class="p">{</span>
-  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
-  <span class="k">padding</span><span class="o">:</span> <span class="m">.02em</span><span class="p">;</span>
+  <span class="nb">display</span><span class="o">:</span> <span class="nb">block</span><span class="p">;</span>
+  <span class="nb">padding</span><span class="o">:</span> <span class="m">.02em</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
               
@@ -591,7 +591,7 @@ am </ins>adding.<del class="critic break">&nbsp;</del><ins class="critic">  </in
   <div role="contentinfo">
     <p>
     
-    Copyright &copy; 2014 - 2015 <a href="https://github.com/facelessuser">Isaac Muse</a>
+    Copyright &copy; 2014 - 2016 <a href="https://github.com/facelessuser">Isaac Muse</a>
     
     </p>
   </div>

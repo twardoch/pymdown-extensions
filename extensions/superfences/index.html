@@ -321,14 +321,14 @@
 </div>
 <h3 id="nested-fenced-blocks"><a name="user-content-nested-fenced-blocks" href="#nested-fenced-blocks" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Nested Fenced Blocks</h3>
 <p>Fenced blocks requires all nested fence content to be at least at the indentation levels of the fences (blank lines excluded).  The opening and closing fence markers must be indented at the same level.  If you are using a fenced block inside a blockquote, at least the first line of the fenced block needs to have the appropriate number of <code>&gt;</code> characters signifying the quote depth.</p>
-<div class="codehilite"><pre>&gt; ```
+<div class="codehilite"><pre><span></span>&gt; ```
   a fenced block
   ```
 </pre></div>
 
 
 <p>Keep in mind that too many blank lines will cause a blockquote to terminate, so remember to use <code>&gt;</code> markers accordingly if not marking every line.</p>
-<div class="codehilite"><pre>&gt; ```
+<div class="codehilite"><pre><span></span>&gt; ```
   a fenced block
 
 &gt; with blank lines
@@ -337,7 +337,7 @@
 
 
 <p>If using a fenced block as the first line of a list, you will have to leave the first line blank, but remember that the list marker must be followed by a space.</p>
-<div class="codehilite"><pre>-&lt;space&gt;
+<div class="codehilite"><pre><span></span>-&lt;space&gt;
     ```
     a fenced block
     ```
@@ -364,15 +364,15 @@ Definition
 <li><a href="http://bramp.github.io/js-sequence-diagrams/">sequece-diagram.js</a></li>
 </ul>
 <p>All of these libraries can be included using a CDN (you can use the version of your choice):</p>
-<div class="codehilite"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.4.2/flowchart.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.4.2/flowchart.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 
 
 <p>Simply including the libraries above is not enough as these libraries need to be pointed at the elements they need to convert.  Here we are going to show some examples (<code>uml-converter.js</code>, <code>flow-loader.js</code>, and <code>sequence-loader.js</code>) that can be used to target the HTML elements and execute the appropriate library on their content to create the desired diagrams.  The scripts do not have to be used, and you can modify them or write your own to suite your needs; it is provided for convenience.</p>
-<div class="codehilite"><pre><span class="cm">/* uml-converter.js */</span>
+<div class="codehilite"><pre><span></span><span class="cm">/* uml-converter.js */</span>
 <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">win</span><span class="p">,</span> <span class="nx">doc</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">win</span><span class="p">.</span><span class="nx">convertUML</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">className</span><span class="p">,</span> <span class="nx">converter</span><span class="p">,</span> <span class="nx">settings</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">charts</span> <span class="o">=</span> <span class="nx">doc</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">&quot;pre.&quot;</span> <span class="o">+</span> <span class="nx">className</span><span class="p">),</span>
@@ -414,7 +414,7 @@ Definition
 </pre></div>
 
 
-<div class="codehilite"><pre><span class="cm">/* flow-loader.js */</span>
+<div class="codehilite"><pre><span></span><span class="cm">/* flow-loader.js */</span>
 <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">doc</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">function</span> <span class="nx">onReady</span><span class="p">(</span><span class="nx">fn</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">)</span> <span class="p">{</span>
@@ -432,7 +432,7 @@ Definition
 </pre></div>
 
 
-<div class="codehilite"><pre><span class="cm">/* sequence-loader.js */</span>
+<div class="codehilite"><pre><span></span><span class="cm">/* sequence-loader.js */</span>
 <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">doc</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">function</span> <span class="nx">onReady</span><span class="p">(</span><span class="nx">fn</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">)</span> <span class="p">{</span>
@@ -497,7 +497,7 @@ Definition
 <h2 id="examples"><a name="user-content-examples" href="#examples" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Examples</h2>
 <p>This highlights the special features of this extension except for <code>disable_indented_code_blocks</code>.</p>
 <h3 id="nested-fences"><a name="user-content-nested-fences" href="#nested-fences" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Nested Fences:</h3>
-<div class="codehilite"><pre>    ```
+<div class="codehilite"><pre><span></span>    ```
     This will still be parsed
     as a normal indented code block.
     ```
@@ -530,14 +530,14 @@ as a fenced code block.
 </pre></div>
 
 
-<div class="codehilite"><pre>```
+<div class="codehilite"><pre><span></span>```
 This will still be parsed
 as a normal indented code block.
 ```
 </pre></div>
 
 
-<div class="codehilite"><pre>This will still be parsed
+<div class="codehilite"><pre><span></span>This will still be parsed
 as a fenced code block.
 </pre></div>
 
@@ -548,7 +548,7 @@ as a fenced code block.
 <ul>
 <li>
 <p>Here is an indented block</p>
-<div class="codehilite"><pre>```
+<div class="codehilite"><pre><span></span>```
 This will still be parsed
 as a normal indented code block.
 ```
@@ -558,13 +558,13 @@ as a normal indented code block.
 </li>
 <li>
 <p>Here is a fenced code block:</p>
-<div class="codehilite"><pre>This will still be parsed
+<div class="codehilite"><pre><span></span>This will still be parsed
 as a fenced code block.
 </pre></div>
 
 
 <blockquote>
-<div class="codehilite"><pre>Blockquotes?
+<div class="codehilite"><pre><span></span>Blockquotes?
 Not a problem!
 </pre></div>
 
@@ -575,7 +575,7 @@ Not a problem!
 </li>
 </ul>
 <h3 id="uml-flow-charts"><a name="user-content-uml-flow-charts" href="#uml-flow-charts" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>UML Flow Charts</h3>
-<div class="codehilite"><pre>```flow
+<div class="codehilite"><pre><span></span>```flow
 st=&gt;start: Start:&gt;http://www.google.com[blank]
 e=&gt;end:&gt;http://www.google.com
 op1=&gt;operation: My Operation
@@ -605,7 +605,7 @@ cond(no)-&gt;sub1(right)-&gt;op1
 </code></pre>
 
 <h2 id="uml-sequence-diagrams"><a name="user-content-uml-sequence-diagrams" href="#uml-sequence-diagrams" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>UML Sequence Diagrams</h2>
-<div class="codehilite"><pre>```sequence
+<div class="codehilite"><pre><span></span>```sequence
 Title: Here is a title
 A-&gt;B: Normal line
 B--&gt;C: Dashed line
@@ -641,7 +641,7 @@ D--&gt;&gt;A: Dashed open arrow
   <div role="contentinfo">
     <p>
     
-    Copyright &copy; 2014 - 2015 <a href="https://github.com/facelessuser">Isaac Muse</a>
+    Copyright &copy; 2014 - 2016 <a href="https://github.com/facelessuser">Isaac Muse</a>
     
     </p>
   </div>

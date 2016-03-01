@@ -163,6 +163,8 @@
                 
                     <li><a class="toctree-l4" href="#examples">Examples</a></li>
                 
+                    <li><a class="toctree-l4" href="#options">Options</a></li>
+                
             
             </ul>
         
@@ -302,7 +304,7 @@
 <h2 id="overview"><a name="user-content-overview" href="#overview" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Overview</h2>
 <p><abbr title="Github Flavored Markdown">GFM</abbr> has a nice feature that detects and auto-generates links.  This extension adds similar functionality to Python Markdown allowing you to just type or paste links; no special syntax required.  It auto-links HTML, FTP, and email links.</p>
 <h2 id="examples"><a name="user-content-examples" href="#examples" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Examples</h2>
-<div class="codehilite"><pre>This requires no special syntax.
+<div class="codehilite"><pre><span></span>This requires no special syntax.
 
 Just paste links directly in the document like this: https://github.com/facelessuser/pymdown-extensions.
 
@@ -313,6 +315,25 @@ Or even an email address fake.email@email.com.
 <p>This requires no special syntax.</p>
 <p>Just paste links directly in the document like this: <a href="https://github.com/facelessuser/pymdown-extensions">https://github.com/facelessuser/pymdown-extensions</a>.</p>
 <p>Or even an email address <a href="mailto:fake.email@email.com">fake.email@email.com</a>.</p>
+<h2 id="options"><a name="user-content-options" href="#options" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Options</h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hide_protocol</td>
+<td>bool</td>
+<td>False</td>
+<td>If &lsquo;True&rsquo;, links are displayed without the initial ftp://, http:// or https://</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>
@@ -333,7 +354,7 @@ Or even an email address fake.email@email.com.
   <div role="contentinfo">
     <p>
     
-    Copyright &copy; 2014 - 2015 <a href="https://github.com/facelessuser">Isaac Muse</a>
+    Copyright &copy; 2014 - 2016 <a href="https://github.com/facelessuser">Isaac Muse</a>
     
     </p>
   </div>
