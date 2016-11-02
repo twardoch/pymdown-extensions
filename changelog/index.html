@@ -3,7 +3,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
   
   <title>Changelog - PyMdown Extensions Documentation</title>
   
@@ -15,17 +18,25 @@
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_custom.css" type="text/css" />
   <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../css/theme_custom.css" rel="stylesheet">
 
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Changelog";
+    var mkdocs_page_input_path = "changelog.md";
+    var mkdocs_page_url = "/changelog/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script src="../js/theme.js"></script> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.4.2/flowchart.min.js"></script>
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script src="../js/theme.js"></script>
-  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> 
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 </head>
@@ -239,9 +250,13 @@
             
                 <li class="toctree-l3"><a href="#changelog">Changelog</a></li>
                 
-                    <li><a class="toctree-l4" href="#100-releases">1.0.0 Releases</a></li>
+                    <li><a class="toctree-l4" href="#120">1.2.0</a></li>
                 
-                    <li><a class="toctree-l4" href="#110-releases">1.1.0 Releases</a></li>
+                    <li><a class="toctree-l4" href="#110">1.1.0</a></li>
+                
+                    <li><a class="toctree-l4" href="#101">1.0.1</a></li>
+                
+                    <li><a class="toctree-l4" href="#100">1.0.0</a></li>
                 
             
             </ul>
@@ -294,21 +309,36 @@
               
                 <h1 class="doctitle" id="changelog"><a name="user-content-changelog" href="#changelog" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Changelog</h1>
 <p>Changes between versions.</p>
-<h2 id="100-releases"><a name="user-content-100-releases" href="#100-releases" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.0.0 Releases</h2>
-<h3 id="101"><a name="user-content-101" href="#101" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.0.1</h3>
+<hr />
+<h2 id="120"><a name="user-content-120" href="#120" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.2.0</h2>
+<blockquote>
+<p>Released Nov 1, 2016</p>
+</blockquote>
 <ul>
-<li>Fixed: Ordinal number 11<sup>th</sup>, 12<sup>th</sup>, and 13<sup>th</sup></li>
+<li><strong>NEW</strong>: Add option to output tasklists in a more customizable way.</li>
 </ul>
-<h3 id="100"><a name="user-content-100" href="#100" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.0.0</h3>
+<h2 id="110"><a name="user-content-110" href="#110" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.1.0</h2>
+<blockquote>
+<p>Released Mar 1, 2016</p>
+</blockquote>
 <ul>
-<li>Initial release.</li>
+<li><strong>NEW</strong>: Add pypi 3.5 info in setup</li>
+<li><strong>NEW</strong>: Add option to magiclink extension to allow the stripping of link protocols (<code>http://</code> etc.).</li>
+<li><strong>NEW</strong>: Add option to github extension to disable the use of nl2br to reflect recent changes to Github Flavored Markdown.  Currently the default is the legacy (uses nl2br), but a warning will be displayed.  In the future, the option will be defaulted to not use nl2br.</li>
 </ul>
-<h2 id="110-releases"><a name="user-content-110-releases" href="#110-releases" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.1.0 Releases</h2>
-<h3 id="110"><a name="user-content-110" href="#110" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.1.0</h3>
+<h2 id="101"><a name="user-content-101" href="#101" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.0.1</h2>
+<blockquote>
+<p>Released Dec 10, 2015</p>
+</blockquote>
 <ul>
-<li>Add pypi 3.5 info in setup</li>
-<li>Add option to magiclink extension to allow the stripping of link protocols (<code>http://</code> etc.).</li>
-<li>Add option to github extension to disable the use of nl2br to reflect recent changes to Github Flavored Markdown.  Currently the default is the legacy (uses nl2br), but a warning will be displayed.  In the future, the option will be defaulted to not use nl2br.</li>
+<li><strong>FIX</strong>: Ordinal number 11<sup>th</sup>, 12<sup>th</sup>, and 13<sup>th</sup></li>
+</ul>
+<h2 id="100"><a name="user-content-100" href="#100" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.0.0</h2>
+<blockquote>
+<p>Released Dec 8, 2015</p>
+</blockquote>
+<ul>
+<li><strong>NEW</strong>: Initial release.</li>
 </ul>
               
             </div>
@@ -317,7 +347,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../license/" class="btn btn-neutral float-right" title="License"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../license/" class="btn btn-neutral float-right" title="License">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../contributing/" class="btn btn-neutral" title="Contributing &amp; Suppport"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -328,11 +358,10 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>
+    <!-- Copyright etc -->
     
-    Copyright &copy; 2014 - 2016 <a href="https://github.com/facelessuser">Isaac Muse</a>
+      <p>Copyright &copy; 2014 - 2016 <a href="https://github.com/facelessuser">Isaac Muse</a></p>
     
-    </p>
   </div>
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -348,7 +377,7 @@
 <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/facelessuser/pymdown-extensions" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../contributing/" style="color: #fcfcfc;">&laquo; Previous</a></span>
