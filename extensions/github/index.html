@@ -109,6 +109,13 @@
         
             
     <li class="toctree-l1 ">
+        <a class="" href="../emoji/">Emoji</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
         <a class="" href="../extra/">Extra</a>
         
     </li>
@@ -322,7 +329,7 @@
 <td>markdown.extensions.tables</td>
 </tr>
 <tr>
-<td><a href="https://pythonhosted.org/Markdown/extensions/nl2br.html">New&nbsp;Line&nbsp;to&nbsp;Break</a><sup id="fnref:nl2br"><a class="footnote-ref" href="#fn:nl2br" rel="footnote">1</a></sup></td>
+<td><a href="https://pythonhosted.org/Markdown/extensions/nl2br.html">New&nbsp;Line&nbsp;to&nbsp;Break</a>[^nl2br]</td>
 <td></td>
 <td>markdown.extensions.nl2b</td>
 </tr>
@@ -377,18 +384,14 @@
 <tr>
 <td>no_nl2br</td>
 <td>bool</td>
-<td>False</td>
-<td>Don&rsquo;t use <code>nl2br</code> extension.  Latest Github Flavored Markdown no longer uses the equivalent of <code>nl2br</code>.  In the future, this will be defaulted to &lsquo;True&rsquo;.</td>
+<td>True</td>
+<td>Don&rsquo;t use <code>nl2br</code> extension.</td>
 </tr>
 </tbody>
 </table>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:nl2br">
-<p><code>nl2br</code> will not be loaded by default in the future.&#160;<a class="footnote-backref" href="#fnref:nl2br" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
+<div class="admonition warning">
+<p class="admonition-title">Deprecated</p>
+<p><code>no_nl2br</code> is deprecated in version <code>1.3.0</code> and will be removed in the future as Github&rsquo;s <abbr title="Github Flavored Markdown">GFM</abbr> (which we are emulating) no longer converts new lines to <code>&lt;br&gt;</code>.</p>
 </div>
               
             </div>
@@ -414,7 +417,8 @@
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.<br>
+  Emoji provided free by <a href="http://emojione.com">EmojiOne</a>.
 </footer>
 	  
         </div>
@@ -443,6 +447,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.4.2/flowchart.min.js"></script>
       <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/css/emojione.min.css"></script>
 
 </body>
 </html>

@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Emoji - PyMdown Extensions Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/theme_custom.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Emoji";
+    var mkdocs_page_input_path = "extensions/emoji.md";
+    var mkdocs_page_url = "/extensions/emoji/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> PyMdown Extensions Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/">Installation</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../usage_notes/">Usage Notes</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Extensions</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../arithmatex/">Arithmatex</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../b64/">B64</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../betterem/">BetterEm</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../caret/">Caret</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../critic/">Critic</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Emoji</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#emoji">Emoji</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#overview">Overview</a></li>
+                
+                    <li><a class="toctree-l4" href="#options">Options</a></li>
+                
+                    <li><a class="toctree-l4" href="#default-emoji-indexes">Default Emoji Indexes</a></li>
+                
+                    <li><a class="toctree-l4" href="#default-emoji-generators">Default Emoji Generators</a></li>
+                
+                    <li><a class="toctree-l4" href="#custom-emoji-indexes">Custom Emoji Indexes</a></li>
+                
+                    <li><a class="toctree-l4" href="#custom-emoji-generators">Custom Emoji Generators</a></li>
+                
+                    <li><a class="toctree-l4" href="#using-with-mkdocs">Using with MkDocs</a></li>
+                
+                    <li><a class="toctree-l4" href="#emoji-index-updates">Emoji Index Updates</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#examples">Examples</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../extra/">Extra</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../extrarawhtml/">ExtraRawHtml</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../github/">Github</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../githubemoji/">GithubEmoji</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../headeranchor/">HeaderAnchor</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../inlinehilite/">InlineHilite</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../magiclink/">MagicLink</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../mark/">Mark</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../pathconverter/">PathConverter</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../plainhtml/">PlainHtml</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../progressbar/">ProgressBar</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../pymdown/">PyMdown</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../smartsymbols/">SmartSymbols</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../superfences/">SuperFences</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../tasklist/">Tasklist</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../tilde/">Tilde</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../contributing/">Contributing &amp; Suppport</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../changelog/">Changelog</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../license/">License</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">PyMdown Extensions Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Extensions &raquo;</li>
+        
+      
+    
+    <li>Emoji</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions/emoji.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 class="doctitle" id="emoji"><a name="user-content-emoji" href="#emoji" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Emoji</h1>
+<p>Easy emoji insertion.</p>
+<hr />
+<h1 id="overview"><a name="user-content-overview" href="#overview" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Overview</h1>
+<p>The Emoji extension adds support for inserting emojis or special emoji tags linked to images that are either local or on a CDN via the syntax <code>:emoji:</code>.  Currently the Emoji extension adds support for two different emoji syntax short names. The first index is from <a href="https://github.com/github/gemoji">Gemoji</a>.  Gemoji is Github&rsquo;s open source solution that provides emojis in GFM.  The second is from <a href="https://github.com/Ranks/emojione">EmojiOne</a> which is another open source emoji solution.</p>
+<p>An emoji index is built for Gemoji and EmojiOne from the respective repository sources.  The index contains the emoji&rsquo;s names, shortnames, values, etc.; everything needed to insert emoji or specially crafted HTML elements to reference emoji images.</p>
+<div class="admonition warning">
+<p class="admonition-title">EmojiOne and Gemoji licensing</p>
+<p>Pymdownx-extensions has no affiliation with EmojiOne or Gemoji.  The indexes generated from their sources are covered under their respective licensing.  When using their images or CSS, please see their licensing terms to ensure proper usage and attributions.</p>
+<p>EmojiOne: <a href="http://emojione.com/licensing/">http://emojione.com/licensing/</a><br />
+Gemoji: <a href="https://github.com/github/gemoji/blob/master/LICENSE">https://github.com/github/gemoji/blob/master/LICENSE</a></p>
+</div>
+<h2 id="options"><a name="user-content-options" href="#options" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Options</h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>emoji_index</td>
+<td>function</td>
+<td>pymdownx.emoji.emojione</td>
+<td>A function that returns the index to use when parsing <code>:emoji:</code> syntax. See <a href="#default-emoji-indexes">Default Emoji Indexes</a> to see the provided indexes.</td>
+</tr>
+<tr>
+<td>emoji_generator</td>
+<td>function</td>
+<td>pymdownx.emoji.to_png</td>
+<td>A function that takes the emoji info and constructs the desired emoji ouput. See <a href="#default-emoji-generators">Default Emoji Generators</a> to see the provided generators.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>str</td>
+<td>&lsquo;short&rsquo;</td>
+<td>Specifies the title format that is fed into the emoji generator function.  Can either be <code>long</code> which is the long description of the emoji, <code>short</code> which is the short name (<code>:short:</code>), or <code>none</code> which will simply pass <code>None</code>.</td>
+</tr>
+<tr>
+<td>alt</td>
+<td>str</td>
+<td>&lsquo;unicode&rsquo;</td>
+<td>Specifies the format for the alt value that is passed to the emoji generator function. If <code>alt</code> is set to <code>short</code>, the short name will be passed to the generator.  If <code>alt</code> is set to <code>unicode</code> the Unicode characters are passed to the generator.  Lastly, if <code>alt</code> is set to <code>html_entity</code>, the Unicode characters are passed encoded as an HTML entities.</td>
+</tr>
+<tr>
+<td>remove_variation_selector</td>
+<td>bool</td>
+<td>False</td>
+<td>Specifies whether variation selectors should be removed from Unicode alt. Currently only <code>fe0f</code> is searched and removed as it is the only one presently found in the current emojis.</td>
+</tr>
+<tr>
+<td>options</td>
+<td>dict</td>
+<td>{}</td>
+<td>Options that are specific to emoji generator functions.  Actually supported parameters can vary from function to function.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Legacy GithubEmoji Emulation</p>
+<p>The Emoji extension was actually created to replace the now deprecated <a href="../githubemoji/">githubemoji</a> extension. Emoji was written to be much more flexible.  If you have a desire to configure the output to be like the legacy githubemoji extension, you can use the settings below. To learn more about settings, read on through the documentation.</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pymdownx.emoji</span>
+
+<span class="n">github_emulation_parameters</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;emoji_index&quot;</span><span class="p">:</span> <span class="n">pymdownx</span><span class="o">.</span><span class="n">emoji</span><span class="o">.</span><span class="n">gemoji</span><span class="p">,</span>
+    <span class="s2">&quot;emoji_generator&quot;</span><span class="p">:</span> <span class="n">pymdownx</span><span class="o">.</span><span class="n">emoji</span><span class="o">.</span><span class="n">to_png</span><span class="p">,</span>
+    <span class="s2">&quot;alt&quot;</span><span class="p">:</span> <span class="s2">&quot;short&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;options&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;align&quot;</span><span class="p">:</span> <span class="s2">&quot;absmiddle&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="s2">&quot;20px&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="s2">&quot;20px&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+</div>
+<h2 id="default-emoji-indexes"><a name="user-content-default-emoji-indexes" href="#default-emoji-indexes" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Default Emoji Indexes</h2>
+<p>By default, Emoji provides two indexes: <code>emojione</code> and <code>gemoji</code>.  Both indexes are generated from the most recent official release tag source. They can be used by passing in one of the two functions below via the <code>emoji_index</code> parameter.  Pass the actual function reference, not a string. If you need to create your own, just check out <a href="#custom-emoji-generators">Custom Emoji Indexes</a>.</p>
+<dl>
+<dt>pymdownx.emoji.emojione</dt>
+<dd>
+<p>This is the default index used and provides an index using the latest EmojiOne supported emojis (at the time of release).  You can always find out what tag it was built with by doing the following:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">pymdownx.emoji1_db</span> <span class="kn">as</span> <span class="nn">e1db</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">e1db</span><span class="o">.</span><span class="n">version</span>
+<span class="s1">&#39;v2.2.7&#39;</span>
+</pre></div>
+
+
+</dd>
+<dt>pymdownx.emoji.gemoji</dt>
+<dd>
+<p>This provides an index of the latest Gemoji supported emoji (at the time of release). You can always find out what tag it was built with by doing the following:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">pymdownx.gemoji_db</span> <span class="kn">as</span> <span class="nn">gmdb</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">gmdb</span><span class="o">.</span><span class="n">version</span>
+<span class="s1">&#39;v3.0.0&#39;</span>
+</pre></div>
+
+
+</dd>
+</dl>
+<h2 id="default-emoji-generators"><a name="user-content-default-emoji-generators" href="#default-emoji-generators" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Default Emoji Generators</h2>
+<p>Emoji provides six default emoji generators.  All the generators can be used with the <code>emojione</code> index, but only two will work well with the <code>gemoji</code> index: <code>pymdownx.emoji.to_png</code> and <code>pymdownx.emoji.to_alt</code>. They can be used by passing in one of the functions below via the <code>emoji_generator</code> parameter.  Pass the actual function reference, not a string. If you need to create your own, just check out <a href="#custom-emoji-generators">Custom Emoji Generators</a>.</p>
+<dl>
+<dt>pymdownx.emoji.to_png</dt>
+<dd>
+<p>This generator was written to do PNG outputs for both Gemoji and EmojiOne.  This outputs the emoji as a PNG image in the form of:</p>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;😄&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;emojione&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/emojione/assets/png/1f604.png&quot;</span> <span class="na">title</span><span class="o">=</span><span class="s">&quot;:smile:&quot;</span> <span class="p">/&gt;</span>
+</pre></div>
+
+
+<p><strong>Generator Specific Options</strong></p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>classes</td>
+<td>str</td>
+<td>name of the index used</td>
+<td>Specifies the class(es) to be used in the img element.</td>
+</tr>
+<tr>
+<td>image_path</td>
+<td>str</td>
+<td>CDN for the default index used</td>
+<td>This can be either a local path, or it can be a CDN.  By default, an appropriate CDN is provided for EmojiOne and Gemoji depending on which index is being used.</td>
+</tr>
+<tr>
+<td>non_standard_image_path</td>
+<td>str</td>
+<td>CDN for the default index used</td>
+<td>This can be either a local path, or it can be a CDN. Currently, only Gemoji&rsquo;s non-standard emojis take advantage of this as the Github CDN alters the path slightly for its non-Unicode emoji.  By default, an appropriate CDN is provided for Gemoji.</td>
+</tr>
+<tr>
+<td>attributes</td>
+<td>dict</td>
+<td>{}</td>
+<td>A dictionary containing tag attributes as key value string pairs. The dict keys are the attribute names and dict values are the attribute values.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>pymdownx.emoji.to_svg</dt>
+<dd>
+<p>This generator was written to output EmojiOne SVG images.  This outputs the emoji as a SVG image in the form of:</p>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;😄&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;emojione&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/emojione/assets/svg/1f604.svg&quot;</span> <span class="na">title</span><span class="o">=</span><span class="s">&quot;:smile:&quot;</span> <span class="p">/&gt;</span>
+</pre></div>
+
+
+<p><strong>Generator Specific Options</strong></p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>classes</td>
+<td>str</td>
+<td>name of the index used</td>
+<td>Specifies the class(es) to be used in the img element. The default will match the name of the index used.</td>
+</tr>
+<tr>
+<td>image_path</td>
+<td>str</td>
+<td>A CDN for EmojiOne images</td>
+<td>This can be either a local path, or it can be a CDN.  By default, an appropriate CDN is provided for EmojiOne.</td>
+</tr>
+<tr>
+<td>attributes</td>
+<td>dict</td>
+<td>{}</td>
+<td>A dictionary containing tag attributes as key value string pairs. The dict keys are the attribute names and dict values are the attribute values.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>pymdownx.emoji.to_png_sprite</dt>
+<dd>
+<p>This generator was written to support PNG sprite output for EmojiOne.  It is expected that this will be used in conjunction with the the official EmojiOne CSS.  You can include the CSS from the CDN in your document (version 2.2.7 at the time of writing this): <a href="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/sprites/emojione.sprites.css">https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/sprites/emojione.sprites.css</a>.  This outputs the emoji as a span in the form below.  The CSS will apply the appropriate mapping in the sprite PNG for the background image of the span.</p>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;emojione emojione-1f604&quot;</span> <span class="na">title</span><span class="o">=</span><span class="s">&quot;:smile:&quot;</span><span class="p">&gt;</span>😄<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p><strong>Generator Specific Options</strong></p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>classes</td>
+<td>str</td>
+<td>name of the index used</td>
+<td>Class used for the span where the classes are inserted as &ldquo;class&rdquo; in the following template: <code>'%(class)s-%(unicode)s'</code>.</td>
+</tr>
+<tr>
+<td>attributes</td>
+<td>dict</td>
+<td>{}</td>
+<td>A dictionary containing tag attributes as key value string pairs. The dict keys are the attribute names and dict values are the attribute values.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>pymdownx.emoji.to_svg_sprite</dt>
+<dd>
+<p>This was written to support EmojiOne SVG sprite output.  The output form was taken directly from an example in the EmojiOne source.  It is expected that the the user will provide a local version of the official SVG sprite and the path to it.  The output is:</p>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">svg</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;emojione&quot;</span><span class="p">&gt;&lt;</span><span class="nt">description</span><span class="p">&gt;</span>😄<span class="p">&lt;/</span><span class="nt">description</span><span class="p">&gt;&lt;</span><span class="nt">use</span> <span class="na">xlink:href</span><span class="o">=</span><span class="s">&quot;./../assets/sprites/emojione.sprites.svg#emoji-1f604&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">use</span><span class="p">&gt;&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p><strong>Generator Specific Options</strong></p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>classes</td>
+<td>str</td>
+<td>name of the index used</td>
+<td>Classes to apply to the svg element where the classes are inserted as &ldquo;class&rdquo; in the following template: <code>'%(class)s-%(unicode)s'</code>.</td>
+</tr>
+<tr>
+<td>image_path</td>
+<td>str</td>
+<td>&rsquo;./../assets/sprites/emojione.sprites.svg&rsquo;</td>
+<td>Path to the SVG sprites.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>pymdownx.emoji.to_awesome</dt>
+<dd>
+<p>This generator is another EmojiOne specific output.  This is an output form mentioned here: <a href="https://github.com/Ranks/emojione/tree/master/lib/emojione-awesome">https://github.com/Ranks/emojione/tree/master/lib/emojione-awesome</a>.  According to EmojiOne&rsquo;s documentation, it aims to give a font-awesome like interface for EmojiOne.  There isn&rsquo;t currently a CDN link that could be found, but you can provide the CSS in your project locally: <a href="https://github.com/Ranks/emojione/blob/master/assets/css/emojione-awesome.css">https://github.com/Ranks/emojione/blob/master/assets/css/emojione-awesome.css</a>.  The output format is:</p>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;e1a-smile&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>classes</td>
+<td>str</td>
+<td>&lsquo;e1a&rsquo;</td>
+<td>Classes to apply to the svg element where the classes are inserted as &ldquo;class&rdquo; in the following template: <code>'%(class)s-%(shortname)s'</code>.</td>
+</tr>
+<tr>
+<td>attributes</td>
+<td>dict</td>
+<td>{}</td>
+<td>A dictionary containing tag attributes as key value string pairs. The dict keys are the attribute names and dict values are the attribute values.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>pymdownx.emoji.to_alt</dt>
+<dd>
+<p>This generator supports both Gemoji and EmojiOne.  The generator outputs the alt value directly to the document.  The output can be Unicode characters, HTML entities, or even just the short name depending on what the global setting of &lsquo;alt&rsquo; is set to.</p>
+<div class="codehilite"><pre><span></span>😃
+</pre></div>
+
+
+<p>There are no generator specific options.</p>
+</dd>
+</dl>
+<h2 id="custom-emoji-indexes"><a name="user-content-custom-emoji-indexes" href="#custom-emoji-indexes" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Custom Emoji Indexes</h2>
+<p>In order to provide a custom index, the emoji extension must be given a function that returns a suitable emoji index.  No parameters are passed to the function.  The function should simply return the custom index in the following format.</p>
+<div class="codehilite"><pre><span></span><span class="n">emoji_index</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># Name is the name of the index.  This is passed into the emoji</span>
+    <span class="c1"># generator functions and can be used to differentiate logic</span>
+    <span class="c1"># for different indexes if required.</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;myindex&quot;</span><span class="p">,</span>
+
+    <span class="c1"># The actual index.  An dictionary of all the emoji.</span>
+    <span class="c1"># Different emoji shortnames with the same Unicode data</span>
+    <span class="c1"># can be mentioned under aliases.</span>
+    <span class="s2">&quot;emoji&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="c1"># Key is the short name.</span>
+        <span class="s2">&quot;:zero:&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+            <span class="c1"># Name is the long name.</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;keycap digit zero&quot;</span><span class="p">,</span>
+
+            <span class="c1"># Unicode is the representation of the Unicode</span>
+            <span class="c1"># code points with variations and joiners striped out.</span>
+            <span class="c1"># This is used to reference pngs or svgs associated</span>
+            <span class="c1"># with the emoji and can also sometimes be used as</span>
+            <span class="c1"># part of special class names in the HTML output.</span>
+            <span class="c1">#</span>
+            <span class="c1"># Do not include this if the emoji is a custom,</span>
+            <span class="c1"># non-Unicode emoji.</span>
+            <span class="s2">&quot;unicode&quot;</span><span class="p">:</span> <span class="s2">&quot;0030-20e3&quot;</span><span class="p">,</span>
+
+            <span class="c1"># This is the full Unicode code points and is</span>
+            <span class="c1"># used for the &quot;alt&quot; attributes in the HTML output of images.</span>
+            <span class="c1"># It is redundant to include this if it is the</span>
+            <span class="c1"># same as &#39;unicode&#39;, but it won&#39;t hurt anything if it is.</span>
+            <span class="c1">#</span>
+            <span class="c1"># Do not include this if the emoji is a custom,</span>
+            <span class="c1"># non-Unicode emoji.</span>
+            <span class="s2">&quot;unicode_alt&quot;</span><span class="p">:</span> <span class="s2">&quot;0030-fe0f-20e3&quot;</span>
+        <span class="p">},</span>
+        <span class="c1"># No need to specify &#39;unicode_alt&#39; as it is the same</span>
+        <span class="c1"># as &#39;unicode&#39;.</span>
+        <span class="s2">&quot;:thumbsup:&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;thumbs up sign&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;unicode&quot;</span><span class="p">:</span> <span class="s2">&quot;1f44d&quot;</span>
+        <span class="p">},</span>
+        <span class="c1"># Should not specify any unicode fields</span>
+        <span class="c1"># as this is not a real unicode emoji.</span>
+        <span class="s2">&quot;:octocat:&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;octocat&quot;</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="c1"># Short names that share previously defined Unicode data</span>
+    <span class="c1"># like &#39;+1&#39; and &#39;thumbsup&#39; etc.</span>
+    <span class="s2">&quot;aliases&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="c1"># Key is the alias.</span>
+        <span class="c1"># Value is the short name it maps to in the</span>
+        <span class="c1"># previously defined &#39;emoji&#39; key.</span>
+        <span class="s2">&quot;:+1:&quot;</span><span class="p">:</span> <span class="s2">&quot;:thumbsup:&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2 id="custom-emoji-generators"><a name="user-content-custom-emoji-generators" href="#custom-emoji-generators" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Custom Emoji Generators</h2>
+<p>Each different kind of output is controlled by a different emoji generator function, but all generator functions have the same format. The format is shown below in case you need to create your own custom output generator.</p>
+<dl>
+<dt>def emoji_generator(index, shortname, alias, uc, alt, title, options, md)</dt>
+<dd>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>index</td>
+<td>str</td>
+<td>The name of the selected emoji index.</td>
+</tr>
+<tr>
+<td>shortname</td>
+<td>str</td>
+<td>The current short name.  This may differ from the actual name used in a document as aliases get translated to the main short name.</td>
+</tr>
+<tr>
+<td>alias</td>
+<td>str</td>
+<td>If the name specified in the document was an alias, that alias will be set here, and the main short name will be found under <code>shortname</code>.  This will be <code>None</code> if the name used was not an alias.</td>
+</tr>
+<tr>
+<td>uc</td>
+<td>str</td>
+<td>This is a the the Unicode values for the emoji.  This name is used to reference emoji image names or for specifying class names etc., so it may not contain all the code points.  The string returned consists of each Unicode value represented as a hex value separated with hyphens.  Values such as U+200D ZERO WIDTH JOINER and  U+FE0F VARIATION SELECTOR-16 are stripped out.  So the value here will not always be practical for calculating the actual Unicode points of an emoji.  This will be <code>None</code> for non-standard emoji that are not Unicode.</td>
+</tr>
+<tr>
+<td>alt</td>
+<td>str</td>
+<td>This is the alternative emoji value (or fallback value).  Its format will differ depending on the extension setting <code>alt</code>.  This will be returned as either the Unicode characters, HTML entities, or the short name used.  See the <code>alt</code> setting for more info.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>str</td>
+<td>This is the title that can be used in img elements.  Depending of the global extension setting <code>title</code>, this will either return the long name, the short name, or <code>None</code>.  See the <code>title</code> setting for more info.</td>
+</tr>
+<tr>
+<td>options</td>
+<td>dict</td>
+<td>This is a dictionary to specify generator function specific options.  This can be anything, and it is up to the generator function to parse and provide defaults.</td>
+</tr>
+<tr>
+<td>md</td>
+<td>class</td>
+<td>This is the Markdown class object.  This mainly used to access specific things needed from the Markdown class.  If you needed to stash your output, you would do something like: <code>md.htmlStash.store(alt, safe=True)</code>.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Non-Unicode emojis</p>
+<p>Keep in mind that Gemoji ships with some non-standard emojis like <code>:octocat:</code> that do not have Unicode code points.  <code>uc</code> and <code>alt</code> are affected by this and will return <code>None</code> and the short name respectively instead of strings describing the Unicode points.  For example <code>:octocat:</code> will just return <code>None</code> for <code>uc</code> and <code>:octocat:</code> for <code>alt</code>.  If you are parsing an index with custom emojis, just like Gemoji has, then you need to be aware of this.</p>
+</div>
+</dd>
+</dl>
+<h2 id="using-with-mkdocs"><a name="user-content-using-with-mkdocs" href="#using-with-mkdocs" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Using with MkDocs</h2>
+<p>This project uses these extensions with <a href="https://github.com/mkdocs/mkdocs">MkDocs</a> to generate the documentation.  It might not be obvious how to set the index or generator functions in Mkdoc&rsquo;s YAML settings file, but it is actually pretty easy.  The functions are referenced like you would import them in Python except you also append them with a special prefix to let the YAML module know that the setting value is a Python object.  For instance, to specify the <code>to_svg</code> generator, you would simply reference it like this: <code>!!python/name:pymdownx.emoji.to_svg</code> (or you could use your own custom module).</p>
+<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">markdown_extensions</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pymdownx.emoji</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">emoji_generator</span><span class="p p-Indicator">:</span> <span class="kt">!!python/name:pymdownx.emoji.to_svg</span>
+</pre></div>
+
+
+<h2 id="emoji-index-updates"><a name="user-content-emoji-index-updates" href="#emoji-index-updates" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Emoji Index Updates</h2>
+<p>The Emoji extension might not always have indexes built from the latest repos, we try to keep the indexes updated with new releases, but if they fall out of date, you can open an issue on the repo to alert the maintainer(s) and they will update them when someone gets a chance.  Pull requests are also welcome.  The process for updating the indexes is automated, so it is fairly easy to do for a pull request.</p>
+<ol>
+<li>Ensure you have requests installed: <code>pip install requests</code>.</li>
+<li>Fork the repo and checkout to your machine.</li>
+<li><code>cd pymdown-extensions/tools</code></li>
+<li>Call the generator script: <code>python gen_emoji --gemoji</code> or <code>python gen_emoji --emojione</code>.  It will prompt you to select a tag to download.  Please pull the latest <strong>official</strong> tag.  Please don&rsquo;t pull experimental tags.  This should update the indexes.</li>
+<li>Then you want to update the tests.  Step back out to the root of the project: <code>cd ..</code>.</li>
+<li>Force the tests to update via <code>python run_tests.py -fu</code>.</li>
+</ol>
+<p>Nothing is fool proof.  If they make a breaking change to the files that the script parses, or the location of the files, the auto-update tool may need to be updated itself (hopefully this would be a rare occurrence).  If such a change does occur, and you are feeling brave, a pull request would be appreciated, but in time, they will be resolved regardless.</p>
+<h1 id="examples"><a name="user-content-examples" href="#examples" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Examples</h1>
+<p>Current examples are all rendered with EmojiOne.</p>
+<div class="codehilite"><pre><span></span>EmojiOne :smile: emojis are very useful :thumbsup:.
+
+You can also escape `:` characters to escape the emoji: \:smile:.
+</pre></div>
+
+
+<p>EmojiOne <img alt="😄" class="emojione" height="20px" src="https://cdn.jsdelivr.net/emojione/assets/png/1f604.png" title=":smile:" width="20px" /> emojis are very useful <img alt="👍" class="emojione" height="20px" src="https://cdn.jsdelivr.net/emojione/assets/png/1f44d.png" title=":thumbsup:" width="20px" />.</p>
+<p>You can also escape <code>:</code> characters to escape the emoji: :smile:.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../extra/" class="btn btn-neutral float-right" title="Extra">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../critic/" class="btn btn-neutral" title="Critic"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright &copy; 2014 - 2016 <a href="https://github.com/facelessuser">Isaac Muse</a></p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.<br>
+  Emoji provided free by <a href="http://emojione.com">EmojiOne</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/facelessuser/pymdown-extensions" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../critic/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../extra/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.4.2/flowchart.min.js"></script>
+      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/css/emojione.min.css"></script>
+
+</body>
+</html>
