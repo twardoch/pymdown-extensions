@@ -36,7 +36,7 @@
 
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-a736c18f69.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-13bba0cbc1.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/application-0352baa348.palette.css">
       
@@ -667,7 +667,7 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions/critic.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions\critic.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
@@ -707,62 +707,62 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite"><span class="s">{--delete--}</span></code></td>
+<td><code class="codehilite">{--delete--}</code></td>
 <td><del class="critic">delete</del></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="s">{++delete++}</span></code></td>
+<td><code class="codehilite">{++delete++}</code></td>
 <td><ins class="critic">insert</ins></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="s">{~~delete and replace~&gt;substitutions~~}</span></code></td>
+<td><code class="codehilite">{~~delete and replace~&gt;substitutions~~}</code></td>
 <td><del class="critic">delete and replace</del><ins class="critic">substitutions</ins></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="s">{==highlight==}</span></code></td>
+<td><code class="codehilite">{==highlight==}</code></td>
 <td><mark class="critic">highlight</mark></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="s">{&gt;&gt;comment&lt;&lt;}</span></code></td>
+<td><code class="codehilite">{&gt;&gt;comment&lt;&lt;}</code></td>
 <td><mark class="critic">text</mark><span class="critic comment">comment</span></td>
 </tr>
 </tbody>
 </table>
 <p>Here they are in action:</p>
-<div class="codehilite"><pre><span></span>Here<span class="w"> </span>is<span class="w"> </span>some<span class="w"> </span><span class="s">{--*incorrect*--}</span><span class="w"> </span>Markdown.<span class="w">  </span>I<span class="w"> </span>am<span class="w"> </span>adding<span class="w"> </span>this<span class="s">{++ here.++}</span>.<span class="w">  </span>Here<span class="w"> </span>is<span class="w"> </span>some<span class="w"> </span>more<span class="w"> </span><span class="s">{--text</span>
-<span class="s">that I am removing--}</span>text.<span class="w">  </span>And<span class="w"> </span>here<span class="w"> </span>is<span class="w"> </span>even<span class="w"> </span>more<span class="w"> </span><span class="s">{++text that I</span>
-<span class="s">am ++}</span>adding.<span class="s">{~~</span>
+<div class="codehilite"><pre><span></span>Here is some {--*incorrect*--} Markdown.  I am adding this{++ here.++}.  Here is some more {--text
+that I am removing--}text.  And here is even more {++text that I
+am ++}adding.{~~
 
-<span class="s">~&gt;  ~~}</span>Paragraph<span class="w"> </span>was<span class="w"> </span>deleted<span class="w"> </span>and<span class="w"> </span>replaced<span class="w"> </span>with<span class="w"> </span>some<span class="w"> </span>spaces.<span class="s">{~~  ~&gt;</span>
+~&gt;  ~~}Paragraph was deleted and replaced with some spaces.{~~  ~&gt;
 
-<span class="s">~~}</span>Spaces<span class="w"> </span>were<span class="w"> </span>removed<span class="w"> </span>and<span class="w"> </span>a<span class="w"> </span>paragraph<span class="w"> </span>was<span class="w"> </span>added.
+~~}Spaces were removed and a paragraph was added.
 
-And<span class="w"> </span>here<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>comment<span class="w"> </span>on<span class="w"> </span><span class="s">{==some</span>
-<span class="s">==text== ==}{&gt;&gt;This works quite well. I just wanted to comment on it.&lt;&lt;}</span>.<span class="w"> </span>Substitutions<span class="w"> </span><span class="s">{~~is~&gt;are~~}</span><span class="w"> </span>great!
+And here is a comment on {==some
+==text== ==}{&gt;&gt;This works quite well. I just wanted to comment on it.&lt;&lt;}. Substitutions {~~is~&gt;are~~} great!
 
-Escape<span class="w"> </span>\{&gt;&gt;This text is preserved&lt;&lt;}.
+Escape \{&gt;&gt;This text is preserved&lt;&lt;}.
 
-General<span class="w"> </span>block<span class="w"> </span>handling.
+General block handling.
 
-<span class="s">{--</span>
+{--
 
-<span class="s">* test</span>
-<span class="s">* test</span>
-<span class="s">* test</span>
-<span class="s">    * test</span>
-<span class="s">* test</span>
+* test
+* test
+* test
+    * test
+* test
 
-<span class="s">--}</span>
+--}
 
-<span class="s">{++</span>
+{++
 
-<span class="s">* test</span>
-<span class="s">* test</span>
-<span class="s">* test</span>
-<span class="s">    * test</span>
-<span class="s">* test</span>
+* test
+* test
+* test
+    * test
+* test
 
-<span class="s">++}</span>
+++}
 </pre></div>
 
 
