@@ -36,7 +36,7 @@
 
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-13bba0cbc1.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-b228671939.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/application-0352baa348.palette.css">
       
@@ -625,7 +625,7 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions\arithmatex.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions/arithmatex.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
@@ -655,42 +655,39 @@ MathJax.Hub.Config({
 </script>
 
 <h2 id="overview"><a name="user-content-overview" href="#overview" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Overview</h2>
-<p>The Arithmatex extension searches for <code class="codehilite"><span class="s">$</span><span class="nb">...</span><span class="s">$</span></code> or <code class="codehilite"><span class="sb">$$</span><span class="nb">...</span><span class="s">$$</span></code> and formats them so that <a href="http://www.mathjax.org/">MathJax</a> can detect them in the HTML output.</p>
-<p><code class="codehilite"><span class="s">$</span><span class="nb">...</span><span class="s">$</span></code> is the inline form and requires the opening token (<code class="codehilite"><span class="s">$</span><span class="nb"></span></code>) to be followed by a non-whitespace character, and the closing to be preceded by a non-whitespace character.  This is to help avoid false positives when using the dollar sign in traditional ways such as: I have $2.00 and Bob has $10.00.  The previous statement required no escaping of the <code class="codehilite"><span class="s">$</span><span class="nb"></span></code> character.  But when needed, the <code class="codehilite"><span class="s">$</span><span class="nb"></span></code> character can be escaped using <code class="codehilite"><span class="k">\$</span></code>.</p>
-<p><code class="codehilite"><span class="sb">$$</span><span class="nb">...</span><span class="s">$$</span></code> is the <em>display</em> or <em>block</em> form.  When using <code class="codehilite"><span class="sb">$$</span><span class="nb"></span></code>, the block must start with <code class="codehilite"><span class="sb">$$</span><span class="nb"></span></code> and end with <code class="codehilite"><span class="sb">$$</span><span class="nb"></span></code>; a block contains no empty lines.</p>
+<p>The Arithmatex extension searches for <code class="codehilite"><span class="s">$</span><span class="nb">...</span><span class="s">$</span></code> or <code class="codehilite"><span class="sb">$$</span><span class="nb">...</span><span class="s">$$</span></code> and preserves and formats them so that <a href="http://www.mathjax.org/">MathJax</a> can detect them in the HTML output.</p>
+<p><code class="codehilite"><span class="s">$</span><span class="nb">...</span><span class="s">$</span></code> is the inline form and requires the opening token (<code class="codehilite"><span class="s">$</span><span class="nb"></span></code>) to be followed by a non-whitespace character, and the closing to be preceded by a non-whitespace character.  This is to help avoid false positives when using the dollar sign in traditional ways such as: I have $2.00 and Bob has $10.00.  The previous statement requires no escaping of the <code class="codehilite"><span class="s">$</span><span class="nb"></span></code> character.  But when needed, the <code class="codehilite"><span class="s">$</span><span class="nb"></span></code> character can be escaped using <code class="codehilite"><span class="k">\$</span></code>.</p>
+<p><code class="codehilite"><span class="sb">$$</span><span class="nb">...</span><span class="s">$$</span></code> is the <em>block</em> form.  When using <code class="codehilite"><span class="sb">$$</span><span class="nb"></span></code>, the block must start with <code class="codehilite"><span class="sb">$$</span><span class="nb"></span></code> and end with <code class="codehilite"><span class="sb">$$</span><span class="nb"></span></code>; a block contains no empty lines.</p>
 <p>The Arithmatex extension actually converts the dollar notation to a more reliable notation in the HTML.  So the conversion is as follows: <code class="codehilite"><span class="s">$</span><span class="nb">...</span><span class="s">$</span></code> &rarr; <code class="codehilite"><span class="s">\(</span><span class="nb">...</span><span class="s">\)</span></code> and <code class="codehilite"><span class="sb">$$</span><span class="nb">...</span><span class="s">$$</span></code> &rarr; <code class="codehilite"><span class="sb">\[</span><span class="nb">...</span><span class="s">\]</span></code>.  Keep this in mind when configuring MathJax for your document.</p>
-<p>Arithmatex requires you to point the HTML at the MathJax library and provide the necessary configuration.  The recommended way of including MathJax is to use the CDN:</p>
+<p>Arithmatex requires you to provide the MathJax library and provide the necessary configuration.  The recommended way of including MathJax is to use the CDN:</p>
 <div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 
 
-<p>Here is an example of setting up MathJax configuration:</p>
-<div class="codehilite"><pre><span></span><span class="cm">/* mathjax-loader.js */</span>
-<span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">win</span><span class="p">,</span> <span class="nx">doc</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">win</span><span class="p">.</span><span class="nx">MathJax</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">config</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;MMLorHTML.js&quot;</span><span class="p">],</span>
-    <span class="nx">extensions</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;tex2jax.js&quot;</span><span class="p">],</span>
-    <span class="nx">jax</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;input/TeX&quot;</span><span class="p">],</span>
-    <span class="nx">tex2jax</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">inlineMath</span><span class="o">:</span> <span class="p">[</span> <span class="p">[</span><span class="s2">&quot;\\(&quot;</span><span class="p">,</span><span class="s2">&quot;\\)&quot;</span><span class="p">]</span> <span class="p">],</span>
-      <span class="nx">displayMath</span><span class="o">:</span> <span class="p">[</span> <span class="p">[</span><span class="s2">&quot;\\[&quot;</span><span class="p">,</span><span class="s2">&quot;\\]&quot;</span><span class="p">]</span> <span class="p">]</span>
+<p>Here is an example of setting up MathJax configuration with JavaScript:</p>
+<div class="codehilite"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">MathJax</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">config</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;MMLorHTML.js&quot;</span><span class="p">],</span>
+  <span class="nx">extensions</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;tex2jax.js&quot;</span><span class="p">],</span>
+  <span class="nx">jax</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;input/TeX&quot;</span><span class="p">],</span>
+  <span class="nx">tex2jax</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">inlineMath</span><span class="o">:</span> <span class="p">[</span> <span class="p">[</span><span class="s2">&quot;\\(&quot;</span><span class="p">,</span><span class="s2">&quot;\\)&quot;</span><span class="p">]</span> <span class="p">],</span>
+    <span class="nx">displayMath</span><span class="o">:</span> <span class="p">[</span> <span class="p">[</span><span class="s2">&quot;\\[&quot;</span><span class="p">,</span><span class="s2">&quot;\\]&quot;</span><span class="p">]</span> <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="nx">TeX</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">TagSide</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span><span class="p">,</span>
+    <span class="nx">TagIndent</span><span class="o">:</span> <span class="s2">&quot;.8em&quot;</span><span class="p">,</span>
+    <span class="nx">MultLineWidth</span><span class="o">:</span> <span class="s2">&quot;85%&quot;</span><span class="p">,</span>
+    <span class="nx">equationNumbers</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">autoNumber</span><span class="o">:</span> <span class="s2">&quot;AMS&quot;</span><span class="p">,</span>
     <span class="p">},</span>
-    <span class="nx">TeX</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">TagSide</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span><span class="p">,</span>
-      <span class="nx">TagIndent</span><span class="o">:</span> <span class="s2">&quot;.8em&quot;</span><span class="p">,</span>
-      <span class="nx">MultLineWidth</span><span class="o">:</span> <span class="s2">&quot;85%&quot;</span><span class="p">,</span>
-      <span class="nx">equationNumbers</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">autoNumber</span><span class="o">:</span> <span class="s2">&quot;AMS&quot;</span><span class="p">,</span>
-      <span class="p">},</span>
-      <span class="nx">unicode</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">fonts</span><span class="o">:</span> <span class="s2">&quot;STIXGeneral,&#39;Arial Unicode MS&#39;&quot;</span>
-      <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="nx">displayAlign</span><span class="o">:</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span>
-    <span class="nx">showProcessingMessages</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="nx">messageStyle</span><span class="o">:</span> <span class="s1">&#39;none&#39;</span>
-  <span class="p">};</span>
-<span class="p">})(</span><span class="nb">window</span><span class="p">,</span> <span class="nb">document</span><span class="p">);</span>
+    <span class="nx">unicode</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">fonts</span><span class="o">:</span> <span class="s2">&quot;STIXGeneral,&#39;Arial Unicode MS&#39;&quot;</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">displayAlign</span><span class="o">:</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span>
+  <span class="nx">showProcessingMessages</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nx">messageStyle</span><span class="o">:</span> <span class="s1">&#39;none&#39;</span>
+<span class="p">};</span>
 </pre></div>
 
 
@@ -853,7 +850,7 @@ E(\mathbf{v}, \mathbf{h}) = -\sum_{i,j}w_{ij}v_i h_j - \sum_i b_i v_i - \sum_j c
       
         
       
-      <script src="../../assets/javascripts/application-7d4b61265c.js"></script>
+      <script src="../../assets/javascripts/application-c57ff8e45a.js"></script>
       <script>var config={url:{base:"../.."}},app=new Application(config);app.initialize()</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>

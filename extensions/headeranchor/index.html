@@ -36,7 +36,7 @@
 
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-13bba0cbc1.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-b228671939.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/application-0352baa348.palette.css">
       
@@ -693,14 +693,14 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions\headeranchor.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions/headeranchor.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
                   <h1>HeaderAnchor</h1>
                 
                 <h2 id="overview"><a name="user-content-overview" href="#overview" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Overview</h2>
-<p>HeaderAnchor adds anchors to headers in the style of <abbr title="Github Flavored Markdown">GFM</abbr>&rsquo;s header anchors. The header anchors in this document were all generated with this extension.</p>
+<p>HeaderAnchor adds anchors to headers in the style of <abbr title="Github Flavored Markdown">GFM</abbr>&rsquo;s header anchors (anchors that appear to the left of the headers when the cursor hovers over the header). The header anchors in this document were all generated with this extension.</p>
 <h2 id="options"><a name="user-content-options" href="#options" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Options</h2>
 <p>By default, HeaderAnchor will use <a href="https://pythonhosted.org/Markdown/extensions/toc.html"><abbr title="Table of Contents">Toc</abbr>&rsquo;s</a> settings (if <abbr title="Table of Contents">Toc</abbr> is being used), but HeaderAnchor can be run without <abbr title="Table of Contents">Toc</abbr>.  HeaderAnchor can also be run along side <abbr title="Table of Contents">Toc</abbr> and ignore <abbr title="Table of Contents">Toc</abbr>&rsquo;s settings; though it is advised to keep <abbr title="Table of Contents">Toc</abbr> and HeaderAnchor&rsquo;s settings in sync to ensure header links properly link.</p>
 <table>
@@ -717,13 +717,13 @@
 <td>separator</td>
 <td>string</td>
 <td>&rsquo;-&lsquo;</td>
-<td>If ignoring <abbr title="Table of Contents">Toc</abbr>&rsquo;s settings, this will specify the word separator used.</td>
+<td>If not using <abbr title="Table of Contents">Toc</abbr>, or ignoring <abbr title="Table of Contents">Toc</abbr>&rsquo;s settings, this will specify the word separator used.</td>
 </tr>
 <tr>
 <td>slugify</td>
 <td>function</td>
 <td>Default method</td>
-<td>If ignoring <abbr title="Table of Contents">Toc</abbr>&rsquo;s settings, this will specify the function to generate anchors based on header text.  By Default, this will use <abbr title="Table of Contents">Toc</abbr>&rsquo;s default, fallback slugify method, but if for any reason <abbr title="Table of Contents">Toc</abbr> is not installed, HeaderAnchor will fall back to an equivalent method.</td>
+<td>If not using <abbr title="Table of Contents">Toc</abbr>, or ignoring <abbr title="Table of Contents">Toc</abbr>&rsquo;s settings, this will specify the function to generate anchors based on header text.  By Default, this will use <abbr title="Table of Contents">Toc</abbr>&rsquo;s default, fallback slugify method, but if for any reason <abbr title="Table of Contents">Toc</abbr> is not installed, HeaderAnchor will fall back to an equivalent method.</td>
 </tr>
 <tr>
 <td>use_toc_settings</td>
@@ -736,11 +736,11 @@
 <h2 id="alternate-slugify"><a name="user-content-alternate-slugify" href="#alternate-slugify" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Alternate Slugify</h2>
 <p>Python Markdown&rsquo;s default slugify strips out Unicode chars. To better handle Unicode, a couple of optional slugify options have been provided.</p>
 <h3 id="uslugify"><a name="user-content-uslugify" href="#uslugify" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>uslugify</h3>
-<p>In order to get slugs closer to like <abbr title="Github Flavored Markdown">GFM</abbr>&rsquo;s slugs (in regards to Unicode chars), a slugify has been included at <code>pymdownx.headerancor.uslugify</code>.  This assumes you are encoding your HTML as UTF-8.  UTF-8 Unicode should be okay in your slugs in modern browsers.  You can use this to override <abbr title="Table of Contents">Toc</abbr>&lsquo;s and HeaderAnchor&rsquo;s slugify; it is good to override both if you are using both.</p>
+<p>In order to get slugs closer to like <abbr title="Github Flavored Markdown">GFM</abbr>&rsquo;s slugs (in regards to Unicode chars), a slugify has been included at <code>pymdownx.headerancor.uslugify</code>.  This assumes you are encoding your HTML as UTF-8.  UTF-8 Unicode should be okay in your slugs in modern browsers.  You can use this to override <abbr title="Table of Contents">Toc</abbr>&lsquo;s and/or HeaderAnchor&rsquo;s slugify.</p>
 <h3 id="uslugify_encoded"><a name="user-content-uslugify_encoded" href="#uslugify_encoded" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>uslugify_encoded</h3>
-<p>If you aren&rsquo;t encoding your HTML as UTF-8, or prefer the safer percent encoded Unicode slugs, you can use <code>uslugify_encoded</code> which will percent encode non-ASCII word chars.  You can use this to override <abbr title="Table of Contents">Toc</abbr>&lsquo;s and HeaderAnchor&rsquo;s slugify; it is good to override both if you are using both.</p>
+<p>If you aren&rsquo;t encoding your HTML as UTF-8, or prefer the safer percent encoded Unicode slugs, you can use <code>uslugify_encoded</code> which will percent encode non-ASCII word chars.  You can use this to override <abbr title="Table of Contents">Toc</abbr>&lsquo;s and/or HeaderAnchor&rsquo;s slugify.</p>
 <h2 id="css"><a name="user-content-css" href="#css" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>CSS</h2>
-<p>This is the example CSS for rendering the header anchors. While Font Awesome is used in this example, you can substitute it with <a href="https://octicons.github.com/">Octicons</a> for even more of a <abbr title="Github Flavored Markdown">GFM</abbr> feel, or use something else entirely.</p>
+<p>Here we will show some example CSS for rendering the header anchors. While Font Awesome is used in this example, you can substitute it with <a href="https://octicons.github.com/">Octicons</a> for even more of a <abbr title="Github Flavored Markdown">GFM</abbr> feel, or use something else entirely.</p>
 <p>The HTML tags with classes are set like this:</p>
 <div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;css&quot;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">a</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;user-content-css&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#css&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;headeranchor-link&quot;</span> <span class="na">aria-hidden</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
@@ -770,7 +770,7 @@
 </tr>
 </tbody>
 </table>
-<p>The CSS below sets the header tags to be <code>relative</code>, and the <code>headeranchor-link</code> class to be <code>absolute</code>.  We then attach a <code>:before</code> pseudo element to the <code>headeranchor</code> class with the desired character and position.  We play a little bit with padding and margin so when you hover over the header or where the link is supposed to be, the link appears and is accessible without causing the header position to change.</p>
+<p>The CSS below sets the header tags to be <code>relative</code>, and the <code>headeranchor-link</code> class to be <code>absolute</code>.  We then attach a <code>:before</code> pseudo element to the <code>headeranchor</code> class with the desired character and position.  We play a little bit with padding and margin so when you hover over the header or where the link is supposed to be, the link appears and is accessible without causing the header position to change. Depending on document themes or other CSS, you may need to modify this or other CSS if it doesn&rsquo;t work.</p>
 <div class="codehilite"><pre><span></span><span class="c">/* Header Anchors */</span>
 <span class="nc">.markdown-body</span> <span class="p">{</span>
     <span class="nb">padding-left</span><span class="o">:</span> <span class="m">30px</span><span class="p">;</span>
@@ -970,7 +970,7 @@
       
         
       
-      <script src="../../assets/javascripts/application-7d4b61265c.js"></script>
+      <script src="../../assets/javascripts/application-c57ff8e45a.js"></script>
       <script>var config={url:{base:"../.."}},app=new Application(config);app.initialize()</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>

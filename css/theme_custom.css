@@ -5,17 +5,7 @@
   overflow: auto;
 }
 
-/* Abbreviations */
-.md-typeset abbr {
-  cursor: help;
-  border-bottom: 1px dotted rgba(0, 0, 0, 0.26);
-}
-
-/*Inline fixes*/
-.md-typeset a {
-  word-wrap: break-word;
-}
-
+/* Inline */
 .md-typeset code, .md-typeset tt {
   white-space: pre-wrap;
   word-wrap: break-word;
@@ -189,11 +179,6 @@
 }
 
 /* Header Anchors */
-.md-typeset .md-content__edit {
-  position: relative;
-  z-index: 1;
-}
-
 .md-typeset .headeranchor-link {
   position: absolute;
   top: 0;
@@ -243,6 +228,10 @@
 .md-typeset h5,
 .md-typeset h6 {
   position: relative;
+}
+
+.md-typeset h1 {
+  z-index: -1;
 }
 
 .md-typeset h1 .headeranchor,
