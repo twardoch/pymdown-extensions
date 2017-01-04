@@ -901,7 +901,7 @@ Definition
 <p>UML flowcharts and sequence diagrams will be rendered as HTML <code>&lt;pre&gt;&lt;code&gt;</code> tags before the JavaScript libraries are run on them.  They will be assigned the CSS classes <code>uml-flowchart</code> and <code>uml-sequence-diagram</code> respectively for flowcharts and sequence diagrams.</p>
 <h2 id="limitations"><a name="user-content-limitations" href="#limitations" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Limitations</h2>
 <p>This extension suffers from the same issues that the original fenced block extension suffers from.  Normally Python Markdown does not parse content inside HTML tags unless they are marked with the attribute <code>markdown='1'</code>.  But since this is run as a preprocessor, it is not aware of the HTML blocks.</p>
-<p>SuperFences is made to work with the default extensions out of the box.  It will probably not work with other extensions such as Grid Tables, since that extension allows for characters to obscure the blocks like the blockquote syntax does (though this has been designed to work with blockquotes).  Ideally fenced blocks need to be handled by a block parser, but there is much work to be done on Python Markdown&rsquo;s internal block handlers before this is possible.</p>
+<p>SuperFences is made to work with the default extensions out of the box.  It will probably not work with other extensions such as Grid Tables, since that extension allows for characters to obscure the blocks like the blockquote syntax does (though this has been designed to work with blockquotes).  Ideally fenced blocks need to be handled by a block parser, but there is much work to be done on Python Markdown's internal block handlers before this is possible.</p>
 <p>SuperFences works best when following the guidelines.  If the guidelines are not followed, odd results may be encountered.</p>
 <p>For the reasons above, the nested fences feature really is just a workaround.  But for a lot of people, this functionality is more than sufficient.</p>
 <h2 id="options"><a name="user-content-options" href="#options" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Options</h2>
@@ -920,7 +920,7 @@ Definition
 <td>disable_indented_code_blocks</td>
 <td>bool</td>
 <td>False</td>
-<td>Disables Python Markdown&rsquo;s indented code block parsing.  This is nice if you only ever use fenced blocks.</td>
+<td>Disables Python Markdown's indented code block parsing.  This is nice if you only ever use fenced blocks.</td>
 </tr>
 <tr>
 <td>nested</td>

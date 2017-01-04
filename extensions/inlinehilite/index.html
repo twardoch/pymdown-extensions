@@ -646,7 +646,7 @@
                   <h1>InlineHilite</h1>
                 
                 <h2 id="overview"><a name="user-content-overview" href="#overview" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Overview</h2>
-<p>InlineHilite is an inline version of <a href="https://pythonhosted.org/Markdown/extensions/code_hilite.html">CodeHilite</a> which adds inline code highlighting.  Borrowing from CodeHilite&rsquo;s existing syntax, InlineHilite utilizes the following syntax to insert inline highlighted code: <code>`:::language mycode`</code> or <code>`#!language mycode`</code>.  We will call these specifiers (<code>#!language</code> and <code>:::language</code>) mock shebangs.</p>
+<p>InlineHilite is an inline version of <a href="https://pythonhosted.org/Markdown/extensions/code_hilite.html">CodeHilite</a> which adds inline code highlighting.  Borrowing from CodeHilite's existing syntax, InlineHilite utilizes the following syntax to insert inline highlighted code: <code>`:::language mycode`</code> or <code>`#!language mycode`</code>.  We will call these specifiers (<code>#!language</code> and <code>:::language</code>) mock shebangs.</p>
 <p>When using the colon mock shebang, 3 or more colons can be used.  Mock shebangs must come <strong>immediately</strong> after the opening backtick(s) and must be followed by at least one space.  If you need to escape a mock shebang at the start of a code block, just put a space before it and it will be treated as part of the code.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -654,7 +654,7 @@
 <p>If you are using a JavaScript highlighter such as <code>highlight.js</code> you will most likely need to construct a JavaScript method to target the inline blocks.  You may also find it useful to tag inline blocks with a different class than the block highlighted code so you can also target and style them with CSS differently.  InlineHilite allows you to have a different <code>css_class</code> than what is used by <code>CodeHilite</code>.</p>
 </div>
 <h2 id="options"><a name="user-content-options" href="#options" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Options</h2>
-<p>By default, InlineHilite will use CodeHilite&rsquo;s settings if it is being used, but InlineHilite can be run without CodeHilite, and if desired, it can be run along side it and ignore CodeHilite&rsquo;s settings.</p>
+<p>By default, InlineHilite will use CodeHilite's settings if it is being used, but InlineHilite can be run without CodeHilite, and if desired, it can be run along side it and ignore CodeHilite's settings.</p>
 <table>
 <thead>
 <tr>
@@ -675,37 +675,37 @@
 <td>use_codehilite_settings</td>
 <td>bool</td>
 <td>True</td>
-<td>Determine whether CodeHilite&rsquo;s settings should be used, or if InlineHilite should use a different set.</td>
+<td>Determine whether CodeHilite's settings should be used, or if InlineHilite should use a different set.</td>
 </tr>
 <tr>
 <td>guess_lang</td>
 <td>bool</td>
 <td>True</td>
-<td>If CodeHilite is not used, or if ignoring CodeHilite&rsquo;s settings, determine whether InlineHilite should try to guess a code block&rsquo;s language if not specified.</td>
+<td>If CodeHilite is not used, or if ignoring CodeHilite's settings, determine whether InlineHilite should try to guess a code block's language if not specified.</td>
 </tr>
 <tr>
 <td>css_class</td>
 <td>string</td>
-<td>&lsquo;inlinehilite&rsquo;</td>
-<td>If ignoring CodeHilite&rsquo;s settings, this is the class name that will be injected into code tags when they are processed.</td>
+<td>'inlinehilite'</td>
+<td>If ignoring CodeHilite's settings, this is the class name that will be injected into code tags when they are processed.</td>
 </tr>
 <tr>
 <td>pygments_style</td>
 <td>string</td>
-<td>&lsquo;default&rsquo;</td>
-<td>If CodeHilite is not used, or if ignoring CodeHilite&rsquo;s settings, this will be the Pygments&rsquo; style to use.  When using Pygments, this really only has an effect when used with <code>noclasses</code>.</td>
+<td>'default'</td>
+<td>If CodeHilite is not used, or if ignoring CodeHilite's settings, this will be the Pygments' style to use.  When using Pygments, this really only has an effect when used with <code>noclasses</code>.</td>
 </tr>
 <tr>
 <td>noclasses</td>
 <td>bool</td>
 <td>False</td>
-<td>If CodeHilite is not used, or if ignoring CodeHilite&rsquo;s settings, this will cause the styles to directly be written to the tag&rsquo;s style attribute instead of requiring a stylesheet.</td>
+<td>If CodeHilite is not used, or if ignoring CodeHilite's settings, this will cause the styles to directly be written to the tag's style attribute instead of requiring a stylesheet.</td>
 </tr>
 <tr>
 <td>use_pygments</td>
 <td>bool</td>
 <td>True</td>
-<td>If CodeHilite is not used, or if ignoring CodeHilite&rsquo;s settings, this will control whether Pygements (if available) is used on the code block, or if the block&rsquo;s content will just be escaped and prepped for a JavaScript syntax highlighter.</td>
+<td>If CodeHilite is not used, or if ignoring CodeHilite's settings, this will control whether Pygements (if available) is used on the code block, or if the block's content will just be escaped and prepped for a JavaScript syntax highlighter.</td>
 </tr>
 </tbody>
 </table>

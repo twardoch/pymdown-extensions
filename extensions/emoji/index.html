@@ -730,8 +730,8 @@
                   <h1>Emoji</h1>
                 
                 <h2 id="overview"><a name="user-content-overview" href="#overview" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Overview</h2>
-<p>The Emoji extension adds support for inserting emojis or special emoji tags linked to images that are either local or on a CDN via the syntax <code>:emoji:</code>.  Currently, the Emoji extension adds support for two different emoji providers. The first emoji provider is <a href="https://github.com/github/gemoji">Gemoji</a>.  Gemoji is Github&rsquo;s open source solution that provides emojis for <abbr title="Github Flavored Markdown">GFM</abbr>.  The second provider is <a href="https://github.com/Ranks/emojione">EmojiOne</a> which is another open source emoji solution.</p>
-<p>An emoji index is built for both Gemoji and EmojiOne from their respective repository source.  The indexes contain the emoji&rsquo;s names, shortnames, values, etc.; everything needed to insert emoji or specially crafted HTML elements to reference emoji images.</p>
+<p>The Emoji extension adds support for inserting emojis or special emoji tags linked to images that are either local or on a CDN via the syntax <code>:emoji:</code>.  Currently, the Emoji extension adds support for two different emoji providers. The first emoji provider is <a href="https://github.com/github/gemoji">Gemoji</a>.  Gemoji is Github's open source solution that provides emojis for <abbr title="Github Flavored Markdown">GFM</abbr>.  The second provider is <a href="https://github.com/Ranks/emojione">EmojiOne</a> which is another open source emoji solution.</p>
+<p>An emoji index is built for both Gemoji and EmojiOne from their respective repository source.  The indexes contain the emoji's names, shortnames, values, etc.; everything needed to insert emoji or specially crafted HTML elements to reference emoji images.</p>
 <div class="admonition warning">
 <p class="admonition-title">EmojiOne and Gemoji licensing</p>
 <p>Pymdown Extensions has no affiliation with EmojiOne or Gemoji.  The indexes generated from their sources are covered under their respective licensing.  When using their images or CSS, please see their licensing terms to ensure proper usage and attributions.</p>
@@ -764,13 +764,13 @@ Gemoji: <a href="https://github.com/github/gemoji/blob/master/LICENSE">https://g
 <tr>
 <td>title</td>
 <td>str</td>
-<td>&lsquo;short&rsquo;</td>
+<td>'short'</td>
 <td>Specifies the title format that is fed into the emoji generator function.  Can either be <code>long</code> which is the long description of the emoji, <code>short</code> which is the short name (<code>:short:</code>), or <code>none</code> which will simply pass <code>None</code>.</td>
 </tr>
 <tr>
 <td>alt</td>
 <td>str</td>
-<td>&lsquo;unicode&rsquo;</td>
+<td>'unicode'</td>
 <td>Specifies the format for the alt value that is passed to the emoji generator function. If <code>alt</code> is set to <code>short</code>, the short name will be passed to the generator.  If <code>alt</code> is set to <code>unicode</code> the Unicode characters are passed to the generator.  Lastly, if <code>alt</code> is set to <code>html_entity</code>, the Unicode characters are passed encoded as HTML entities.</td>
 </tr>
 <tr>
@@ -869,7 +869,7 @@ Gemoji: <a href="https://github.com/github/gemoji/blob/master/LICENSE">https://g
 <td>non_standard_image_path</td>
 <td>str</td>
 <td>CDN for the default index used</td>
-<td>This can be either a local path, or it can be a CDN. Currently, only Gemoji&rsquo;s non-standard emojis take advantage of this as the Github CDN alters the path slightly for its non-Unicode emoji.  By default, an appropriate CDN is provided for Gemoji.</td>
+<td>This can be either a local path, or it can be a CDN. Currently, only Gemoji's non-standard emojis take advantage of this as the Github CDN alters the path slightly for its non-Unicode emoji.  By default, an appropriate CDN is provided for Gemoji.</td>
 </tr>
 <tr>
 <td>attributes</td>
@@ -941,7 +941,7 @@ Gemoji: <a href="https://github.com/github/gemoji/blob/master/LICENSE">https://g
 <td>classes</td>
 <td>str</td>
 <td>Name of the index used</td>
-<td>Class(es) used for the span where the classes are inserted as &ldquo;class&rdquo; in the following template: <code>'%(class)s-%(unicode)s'</code>.</td>
+<td>Class(es) used for the span where the classes are inserted as "class" in the following template: <code>'%(class)s-%(unicode)s'</code>.</td>
 </tr>
 <tr>
 <td>attributes</td>
@@ -974,12 +974,12 @@ Gemoji: <a href="https://github.com/github/gemoji/blob/master/LICENSE">https://g
 <td>classes</td>
 <td>str</td>
 <td>Name of the index used</td>
-<td>Class(es) to apply to the svg element where the classes are inserted as &ldquo;class&rdquo; in the following template: <code>'%(class)s-%(unicode)s'</code>.</td>
+<td>Class(es) to apply to the svg element where the classes are inserted as "class" in the following template: <code>'%(class)s-%(unicode)s'</code>.</td>
 </tr>
 <tr>
 <td>image_path</td>
 <td>str</td>
-<td>&rsquo;./../assets/sprites/emojione.sprites.svg&rsquo;</td>
+<td>'./../assets/sprites/emojione.sprites.svg'</td>
 <td>Path to the SVG sprites.</td>
 </tr>
 </tbody>
@@ -987,7 +987,7 @@ Gemoji: <a href="https://github.com/github/gemoji/blob/master/LICENSE">https://g
 </dd>
 <dt>pymdownx.emoji.to_awesome</dt>
 <dd>
-<p>This generator is another EmojiOne specific output called <a href="https://github.com/Ranks/emojione/tree/master/lib/emojione-awesome">Emojione Awesome</a>.  According to EmojiOne&rsquo;s documentation, it aims to give a font-awesome like interface for EmojiOne.  There isn&rsquo;t currently a CDN link that could be found, but you can provide the CSS in your project locally by <a href="https://github.com/Ranks/emojione/blob/master/assets/css/emojione-awesome.css">downloading it</a> from their repo.  The output format is:</p>
+<p>This generator is another EmojiOne specific output called <a href="https://github.com/Ranks/emojione/tree/master/lib/emojione-awesome">Emojione Awesome</a>.  According to EmojiOne's documentation, it aims to give a font-awesome like interface for EmojiOne.  There isn't currently a CDN link that could be found, but you can provide the CSS in your project locally by <a href="https://github.com/Ranks/emojione/blob/master/assets/css/emojione-awesome.css">downloading it</a> from their repo.  The output format is:</p>
 <div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;e1a-smile&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>
 </pre></div>
 
@@ -1005,8 +1005,8 @@ Gemoji: <a href="https://github.com/github/gemoji/blob/master/LICENSE">https://g
 <tr>
 <td>classes</td>
 <td>str</td>
-<td>&lsquo;e1a&rsquo;</td>
-<td>Class(es) to apply to the svg element where the classes are inserted as &ldquo;class&rdquo; in the following template: <code>'%(class)s-%(shortname)s'</code>.</td>
+<td>'e1a'</td>
+<td>Class(es) to apply to the svg element where the classes are inserted as "class" in the following template: <code>'%(class)s-%(shortname)s'</code>.</td>
 </tr>
 <tr>
 <td>attributes</td>
@@ -1019,7 +1019,7 @@ Gemoji: <a href="https://github.com/github/gemoji/blob/master/LICENSE">https://g
 </dd>
 <dt>pymdownx.emoji.to_alt</dt>
 <dd>
-<p>This generator supports both Gemoji and EmojiOne.  The generator outputs the alt value directly to the document.  The output can be Unicode characters, HTML entities, or even just the short name depending on what the global setting of &lsquo;alt&rsquo; is set to.</p>
+<p>This generator supports both Gemoji and EmojiOne.  The generator outputs the alt value directly to the document.  The output can be Unicode characters, HTML entities, or even just the short name depending on what the global setting of 'alt' is set to.</p>
 <div class="codehilite"><pre><span></span>😃
 </pre></div>
 
@@ -1151,7 +1151,7 @@ Gemoji: <a href="https://github.com/github/gemoji/blob/master/LICENSE">https://g
 </dd>
 </dl>
 <h2 id="using-with-mkdocs"><a name="user-content-using-with-mkdocs" href="#using-with-mkdocs" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Using with MkDocs</h2>
-<p>This project uses these extensions with <a href="https://github.com/mkdocs/mkdocs">MkDocs</a> to generate the documentation.  It might not be obvious how to set the index or generator functions in Mkdoc&rsquo;s YAML settings file, but it is actually pretty easy.  The functions are referenced like you would import them in Python except you also append them with a special prefix to let the YAML module know that the setting value is a Python object.  For instance, to specify the <code>to_svg</code> generator, you would simply reference it like this: <code>!!python/name:pymdownx.emoji.to_svg</code> (or you could use your own custom module).</p>
+<p>This project uses these extensions with <a href="https://github.com/mkdocs/mkdocs">MkDocs</a> to generate the documentation.  It might not be obvious how to set the index or generator functions in Mkdoc's YAML settings file, but it is actually pretty easy.  The functions are referenced like you would import them in Python except you also append them with a special prefix to let the YAML module know that the setting value is a Python object.  For instance, to specify the <code>to_svg</code> generator, you would simply reference it like this: <code>!!python/name:pymdownx.emoji.to_svg</code> (or you could use your own custom module).</p>
 <div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">markdown_extensions</span><span class="p p-Indicator">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pymdownx.emoji</span><span class="p p-Indicator">:</span>
       <span class="l l-Scalar l-Scalar-Plain">emoji_generator</span><span class="p p-Indicator">:</span> <span class="kt">!!python/name:pymdownx.emoji.to_svg</span>
@@ -1163,8 +1163,8 @@ Gemoji: <a href="https://github.com/github/gemoji/blob/master/LICENSE">https://g
 <ol>
 <li>Ensure you have <code>requests</code> installed: <code>pip install requests</code>.</li>
 <li>Fork the repo and checkout to your machine.</li>
-<li>Navigate to the &ldquo;tools&rdquo; directory: <code>cd pymdown-extensions/tools</code>.</li>
-<li>Call the generator script: <code>python gen_emoji --gemoji</code> or <code>python gen_emoji --emojione</code>.  It will prompt you to select a tag to download.  Please pull the latest <strong>official</strong> tag.  Please don&rsquo;t pull experimental tags.  This should update the indexes.</li>
+<li>Navigate to the "tools" directory: <code>cd pymdown-extensions/tools</code>.</li>
+<li>Call the generator script: <code>python gen_emoji --gemoji</code> or <code>python gen_emoji --emojione</code>.  It will prompt you to select a tag to download.  Please pull the latest <strong>official</strong> tag.  Please don't pull experimental tags.  This should update the indexes.</li>
 <li>Then you want to update the tests.  Step back out to the root of the project: <code>cd ..</code>.</li>
 <li>Force the tests to update via <code>python run_tests.py -fu</code>.</li>
 </ol>
