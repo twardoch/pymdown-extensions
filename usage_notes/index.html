@@ -633,11 +633,14 @@
 <li><code>pymdownx.superfences</code> replaces <code>markdown.extensions.fenced_code</code>.</li>
 <li><code>pymdownx.betterem</code> replaces <code>markdown.extensions.smartstrong</code>.</li>
 <li><code>pymdownx.extra</code> replaces <code>markdown.extensions.extra</code>.</li>
-<li><code>pymdownx.github</code> and <code>pymdownx.pymdown</code> serve a similar function as <code>pydmown.extra</code> so either one would also be used in place of <code>markdown.extensions.extra</code>.</li>
-<li><code>pymdownx.extra</code>, <code>pymdownx.github</code>, <code>pymdownx.pymdown</code> are all convenience extensions that batch include a number of extensions; <strong>do not mix these with each other</strong> as they will cause certain extensions to be included multiple times.</li>
+</ul>
+<p>A few convenience extensions that include multiple extensions in one shot are also provided and should not be mixed.  And none of them should be mixed with <code>markdown.extensions.extra</code> or <code>pymdownx.extra</code>. This is to prevent multiples of an extension from getting included.</p>
+<ul>
+<li><code>pymdownx.github</code></li>
+<li><code>pymdownx.pymdown</code></li>
 </ul>
 <h2 id="include-extensions-only-once"><a name="user-content-include-extensions-only-once" href="#include-extensions-only-once" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Include Extensions Only Once</h2>
-<p>In general, you shouldn't include an extension more than once.  PyMdown Extensions provides three extensions that batch include a number of extensions for convenience: <code>pymdownx.extra</code>, <code>pymdownx.github</code>, and <code>pymdownx.pymdown</code>.  If you try to include more than one of these convenience extensions at the same time, you will include certain extensions multiple times possibly leading to unexpected results.  Also, be aware of what extensions these convenience extensions include and do not accidentally re-include them individually or unexpected issues my arise.</p>
+<p>In general, you shouldn't include an extension more than once. If you try to include more than one of the aforementioned convenience extensions at the same time, you will include certain extensions multiple times possibly leading to unexpected results.  Also, be aware of what extensions these convenience extensions include and do not accidentally re-include them individually.</p>
               
             </article>
           </div>

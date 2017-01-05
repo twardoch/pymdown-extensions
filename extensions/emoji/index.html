@@ -730,8 +730,11 @@
                   <h1>Emoji</h1>
                 
                 <h2 id="overview"><a name="user-content-overview" href="#overview" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Overview</h2>
-<p>The Emoji extension adds support for inserting emojis or special emoji tags linked to images that are either local or on a CDN via the syntax <code>:emoji:</code>.  Currently, the Emoji extension adds support for two different emoji providers. The first emoji provider is <a href="https://github.com/github/gemoji">Gemoji</a>.  Gemoji is Github's open source solution that provides emojis for <abbr title="Github Flavored Markdown">GFM</abbr>.  The second provider is <a href="https://github.com/Ranks/emojione">EmojiOne</a> which is another open source emoji solution.</p>
-<p>An emoji index is built for both Gemoji and EmojiOne from their respective repository source.  The indexes contain the emoji's names, shortnames, values, etc.; everything needed to insert emoji or specially crafted HTML elements to reference emoji images.</p>
+<p>The Emoji extension adds support for inserting emojis via simple short names enclosed within colons: <code>:short_name:</code>.  This is accomplished by using a short name index to map easy to remember names to the Unicode data. The Unicode data is then converted into actual Unicode emoji characters and/or special HTML elements that represent the emoji.</p>
+<p>There are a number of familiar emoji short name conventions that people may be aware of, and they differ slightly.  At the present, Emoji chooses to focus on two specific short name conventions. The first convention is from <a href="https://github.com/github/gemoji">Gemoji</a> which is Github's open source solution that provides emojis in <abbr title="Github Flavored Markdown">GFM</abbr>.  The second is from <a href="https://github.com/Ranks/emojione">EmojiOne</a> which is another open source emoji solution.</p>
+<p>The short name indexes simply provide easy to remember names mapped to the Unicode data. Custom emojis (like Gemoji's <code>:octocat:</code>) wold have no Unicode data associated with them and would only provide a long name.  While it may be thought that an index like Gemoji is only for Github emoji images, you could easily map EmojiOne images to the Gemoji short names and vice versa. You could even map <a href="https://github.com/twitter/twemoji">Twemoji</a> images to EmojiOne if desired.</p>
+<p>Emoji provides various output formats that take the Unicode data associated with a short name (or the short name itself in the case of a custom emoji) and generates an HTML output. Most hosted emoji images follow the same pattern and are named after their Unicode code points separated by hyphens (minus things like zero width joiners and variation selectors).  This is true with EmojiOne, Github, and Twemoji, to name a few.  The default output <code>to_png</code> could theoretically be used with the EmojiOne index to output valid PNG images for EmojiOne, Github, or Twemoji (assuming appropriate CDN or local source images were provided). With that said, some output formats may lend themselves better to assets that are available from a specific provider. For instance, EmojiOne provides SVG, PNG, and sprite assets, while others provide only PNG images.</p>
+<p>As previously mentioned, short name indexes are sourced from EmojiOne's and Gemoji's latest official tags. The index contains the emoji names, shortnames, values, etc.; everything needed to insert Unicode emoji characters or specially crafted HTML elements.</p>
 <div class="admonition warning">
 <p class="admonition-title">EmojiOne and Gemoji licensing</p>
 <p>Pymdown Extensions has no affiliation with EmojiOne or Gemoji.  The indexes generated from their sources are covered under their respective licensing.  When using their images or CSS, please see their licensing terms to ensure proper usage and attributions.</p>
@@ -753,7 +756,7 @@ Gemoji: <a href="https://github.com/github/gemoji/blob/master/LICENSE">https://g
 <td>emoji_index</td>
 <td>function</td>
 <td>pymdownx.emoji.emojione</td>
-<td>A function that returns the index to use when parsing <code>:emoji:</code> syntax. See <a href="#default-emoji-indexes">Default Emoji Indexes</a> to see the provided indexes.</td>
+<td>A function that returns the index to use when parsing <code>:short_name:</code> syntax. See <a href="#default-emoji-indexes">Default Emoji Indexes</a> to see the provided indexes.</td>
 </tr>
 <tr>
 <td>emoji_generator</td>
@@ -833,11 +836,11 @@ Gemoji: <a href="https://github.com/github/gemoji/blob/master/LICENSE">https://g
 </dd>
 </dl>
 <h2 id="default-emoji-generators"><a name="user-content-default-emoji-generators" href="#default-emoji-generators" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Default Emoji Generators</h2>
-<p>Emoji provides six default emoji generators.  All the generators can be used with the <code>emojione</code> index, but only two will work well with the <code>gemoji</code> index: <code>pymdownx.emoji.to_png</code> and <code>pymdownx.emoji.to_alt</code>. They can be used by passing in one of the functions below via the <code>emoji_generator</code> parameter.  Pass the actual function reference, not a string. If you need to create your own, just check out <a href="#custom-emoji-generators">Custom Emoji Generators</a>.</p>
+<p>Emoji provides six default emoji generators.  All the generators can be used with the <code>emojione</code> index, but only two will work well with the <code>gemoji</code> index: <code>pymdownx.emoji.to_png</code> and <code>pymdownx.emoji.to_alt</code>. You can select a generator to use by passing in one of the functions below via the <code>emoji_generator</code> parameter.  Pass the actual function reference, not a string. If you need to create your own, just check out <a href="#custom-emoji-generators">Custom Emoji Generators</a>.</p>
 <dl>
 <dt>pymdownx.emoji.to_png</dt>
 <dd>
-<p>This generator was written to do PNG outputs for both Gemoji and EmojiOne.  This outputs the emoji as a PNG image in the form of:</p>
+<p>This is a general purpose generator and, by default, provides an EmojiOne CDN and Github CDN path(s).  The PNG output form is as follows:</p>
 <div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;😄&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;emojione&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/emojione/assets/png/1f604.png&quot;</span> <span class="na">title</span><span class="o">=</span><span class="s">&quot;:smile:&quot;</span> <span class="p">/&gt;</span>
 </pre></div>
 
@@ -863,13 +866,13 @@ Gemoji: <a href="https://github.com/github/gemoji/blob/master/LICENSE">https://g
 <td>image_path</td>
 <td>str</td>
 <td>CDN for the default index used</td>
-<td>This can be either a local path, or it can be a CDN.  By default, an appropriate CDN is provided for EmojiOne and Gemoji depending on which index is being used.</td>
+<td>This can be either a local path or a CDN containing the assets.  By default, an appropriate CDN is provided for EmojiOne and Gemoji depending on which index is being used.</td>
 </tr>
 <tr>
 <td>non_standard_image_path</td>
 <td>str</td>
 <td>CDN for the default index used</td>
-<td>This can be either a local path, or it can be a CDN. Currently, only Gemoji's non-standard emojis take advantage of this as the Github CDN alters the path slightly for its non-Unicode emoji.  By default, an appropriate CDN is provided for Gemoji.</td>
+<td>This can be either a local path, or a CDN containing the assets. Currently, only Gemoji's non-standard emojis take advantage of this as the Github CDN alters the path slightly for its non-Unicode emoji.  By default, an appropriate CDN is provided for Gemoji.</td>
 </tr>
 <tr>
 <td>attributes</td>
@@ -882,7 +885,7 @@ Gemoji: <a href="https://github.com/github/gemoji/blob/master/LICENSE">https://g
 </dd>
 <dt>pymdownx.emoji.to_svg</dt>
 <dd>
-<p>This generator was written to output EmojiOne SVG images.  This outputs the emoji as a SVG image in the form of:</p>
+<p>This generator was written to output EmojiOne SVG images. The SVG image outputs as:</p>
 <div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;😄&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;emojione&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/emojione/assets/svg/1f604.svg&quot;</span> <span class="na">title</span><span class="o">=</span><span class="s">&quot;:smile:&quot;</span> <span class="p">/&gt;</span>
 </pre></div>
 
@@ -908,7 +911,7 @@ Gemoji: <a href="https://github.com/github/gemoji/blob/master/LICENSE">https://g
 <td>image_path</td>
 <td>str</td>
 <td>A CDN for EmojiOne images</td>
-<td>This can be either a local path, or it can be a CDN.  By default, an appropriate CDN is provided for EmojiOne.</td>
+<td>This can be either a local path or a CDN containing the assets.  By default, an appropriate CDN is provided for EmojiOne.</td>
 </tr>
 <tr>
 <td>attributes</td>
@@ -1035,7 +1038,7 @@ Gemoji: <a href="https://github.com/github/gemoji/blob/master/LICENSE">https://g
     <span class="c1"># for different indexes if required.</span>
     <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;myindex&quot;</span><span class="p">,</span>
 
-    <span class="c1"># The actual index.  An dictionary of all the emoji.</span>
+    <span class="c1"># The actual index.  A dictionary of all the emoji.</span>
     <span class="c1"># Different emoji shortnames with the same Unicode data</span>
     <span class="c1"># can be mentioned under aliases.</span>
     <span class="s2">&quot;emoji&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -1159,7 +1162,7 @@ Gemoji: <a href="https://github.com/github/gemoji/blob/master/LICENSE">https://g
 
 
 <h2 id="emoji-index-updates"><a name="user-content-emoji-index-updates" href="#emoji-index-updates" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Emoji Index Updates</h2>
-<p>The Emoji extension might not always have indexes built from the latest repos, we try to keep the indexes updated with new releases, but if they fall out of date, you can open an issue on the repo to alert the maintainer(s) and they will update them when someone gets a chance.  Pull requests are also welcome.  The process for updating the indexes is automated, so it is fairly easy to do for a pull request.</p>
+<p>The Emoji extension might at times be behind on having indexes built from the latest repos. We try to keep the indexes updated with new releases, but if they fall out of date, you can open an issue on the repo to alert the maintainer(s) and they will update them when someone gets a chance.  Pull requests are also welcome.  The process for updating the indexes is automated, so it is fairly easy to do for a pull request.</p>
 <ol>
 <li>Ensure you have <code>requests</code> installed: <code>pip install requests</code>.</li>
 <li>Fork the repo and checkout to your machine.</li>
