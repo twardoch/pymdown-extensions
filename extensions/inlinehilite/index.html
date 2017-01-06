@@ -561,6 +561,17 @@
       
   <li class="md-nav__item">
     
+      <a href="../../miscellaneous_extras/" title="Miscellaneous Extras" class="md-nav__link">
+        Miscellaneous Extras
+      </a>
+    
+  </li>
+
+    
+      
+      
+  <li class="md-nav__item">
+    
       <a href="../../contributing/" title="Contributing &amp; Suppport" class="md-nav__link">
         Contributing &amp; Suppport
       </a>
@@ -645,7 +656,7 @@
                 
                   <h1>InlineHilite</h1>
                 
-                <h2 id="overview"><a name="user-content-overview" href="#overview" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Overview</h2>
+                <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
 <p>InlineHilite is an inline version of <a href="https://pythonhosted.org/Markdown/extensions/code_hilite.html">CodeHilite</a> which adds inline code highlighting.  Borrowing from CodeHilite's existing syntax, InlineHilite utilizes the following syntax to insert inline highlighted code: <code>`:::language mycode`</code> or <code>`#!language mycode`</code>.  We will call these specifiers (<code>#!language</code> and <code>:::language</code>) mock shebangs.</p>
 <p>When using the colon mock shebang, 3 or more colons can be used.  Mock shebangs must come <strong>immediately</strong> after the opening backtick(s) and must be followed by at least one space.  If you need to escape a mock shebang at the start of a code block, just put a space before it and it will be treated as part of the code.</p>
 <div class="admonition tip">
@@ -653,7 +664,7 @@
 <p>If using Pygments, the elements should be highlighted just fine, but you may need to adjust CSS to get the general style of the inline block the way you like it.</p>
 <p>If you are using a JavaScript highlighter such as <code>highlight.js</code> you will most likely need to construct a JavaScript method to target the inline blocks.  You may also find it useful to tag inline blocks with a different class than the block highlighted code so you can also target and style them with CSS differently.  InlineHilite allows you to have a different <code>css_class</code> than what is used by <code>CodeHilite</code>.</p>
 </div>
-<h2 id="options"><a name="user-content-options" href="#options" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Options</h2>
+<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link"></a></h2>
 <p>By default, InlineHilite will use CodeHilite's settings if it is being used, but InlineHilite can be run without CodeHilite, and if desired, it can be run along side it and ignore CodeHilite's settings.</p>
 <table>
 <thead>
@@ -709,7 +720,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="example"><a name="user-content-example" href="#example" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Example</h2>
+<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link"></a></h2>
 <div class="codehilite"><pre><span></span>Here is some code: `#!js function pad(v){return (&#39;0&#39;+v).split(&#39;&#39;).reverse().splice(0,2).reverse().join(&#39;&#39;)}`.
 
 The mock shebang will be treated like text here: ` #!js var test = 0; `.
@@ -828,10 +839,10 @@ The mock shebang will be treated like text here: ` #!js var test = 0; `.
         
       
         
-      
-        
           
           <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        
+      
         
       
         

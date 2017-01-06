@@ -588,6 +588,17 @@
       
   <li class="md-nav__item">
     
+      <a href="../../miscellaneous_extras/" title="Miscellaneous Extras" class="md-nav__link">
+        Miscellaneous Extras
+      </a>
+    
+  </li>
+
+    
+      
+      
+  <li class="md-nav__item">
+    
       <a href="../../contributing/" title="Contributing &amp; Suppport" class="md-nav__link">
         Contributing &amp; Suppport
       </a>
@@ -699,9 +710,14 @@
                 
                   <h1>HeaderAnchor</h1>
                 
-                <h2 id="overview"><a name="user-content-overview" href="#overview" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Overview</h2>
+                <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
 <p>HeaderAnchor adds anchors to headers in the style of <abbr title="Github Flavored Markdown">GFM</abbr>'s header anchors (anchors that appear to the left of the headers when the cursor hovers over the header). The header anchors in this document were all generated with this extension.</p>
-<h2 id="options"><a name="user-content-options" href="#options" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Options</h2>
+<div class="admonition warning">
+<p class="admonition-title">Deprecated</p>
+<p>This extension has been deprecated in version <code>1.4.0</code>.  The same effect can be accomplished using<br />
+<code>markdown.extensions.toc</code> with <code>permalinks</code> and some custom CSS.  It doesn't make sense to continue supporting this as nothing is really gained by specifically doing anchors Github's way.</p>
+</div>
+<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link"></a></h2>
 <p>By default, HeaderAnchor will use <a href="https://pythonhosted.org/Markdown/extensions/toc.html"><abbr title="Table of Contents">Toc</abbr>'s</a> settings (if <abbr title="Table of Contents">Toc</abbr> is being used), but HeaderAnchor can be run without <abbr title="Table of Contents">Toc</abbr>.  HeaderAnchor can also be run along side <abbr title="Table of Contents">Toc</abbr> and ignore <abbr title="Table of Contents">Toc</abbr>'s settings; though it is advised to keep <abbr title="Table of Contents">Toc</abbr> and HeaderAnchor's settings in sync to ensure header links properly link.</p>
 <table>
 <thead>
@@ -733,13 +749,17 @@
 </tr>
 </tbody>
 </table>
-<h2 id="alternate-slugify"><a name="user-content-alternate-slugify" href="#alternate-slugify" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Alternate Slugify</h2>
+<h2 id="alternate-slugify">Alternate Slugify<a class="headerlink" href="#alternate-slugify" title="Permanent link"></a></h2>
 <p>Python Markdown's default slugify strips out Unicode chars. To better handle Unicode, a couple of optional slugify options have been provided.</p>
-<h3 id="uslugify"><a name="user-content-uslugify" href="#uslugify" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>uslugify</h3>
-<p>In order to get slugs closer to like <abbr title="Github Flavored Markdown">GFM</abbr>'s slugs (in regards to Unicode chars), a slugify has been included at <code>pymdownx.headerancor.uslugify</code>.  This assumes you are encoding your HTML as UTF-8.  UTF-8 Unicode should be okay in your slugs in modern browsers.  You can use this to override <abbr title="Table of Contents">Toc</abbr>'s and/or HeaderAnchor's slugify.</p>
-<h3 id="uslugify_encoded"><a name="user-content-uslugify_encoded" href="#uslugify_encoded" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>uslugify_encoded</h3>
-<p>If you aren't encoding your HTML as UTF-8, or prefer the safer percent encoded Unicode slugs, you can use <code>uslugify_encoded</code> which will percent encode non-ASCII word chars.  You can use this to override <abbr title="Table of Contents">Toc</abbr>'s and/or HeaderAnchor's slugify.</p>
-<h2 id="css"><a name="user-content-css" href="#css" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>CSS</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This extension has been deprecated. But for legacy compatibility, you can still reference slugs at <code>pymdownx.headeranchor</code>, but slugs are actually found at <code>pymdownx.slugs</code> moving forward.</p>
+</div>
+<h3 id="uslugify">uslugify<a class="headerlink" href="#uslugify" title="Permanent link"></a></h3>
+<p>In order to get slugs closer to like <abbr title="Github Flavored Markdown">GFM</abbr>'s slugs (in regards to Unicode chars), a slugify has been included at <code>pymdownx.slugs.uslugify</code>.  This assumes you are encoding your HTML as UTF-8.  UTF-8 Unicode should be okay in your slugs in modern browsers.  You can use this to override <abbr title="Table of Contents">Toc</abbr>'s and/or HeaderAnchor's slugify.</p>
+<h3 id="uslugify_encoded">uslugify_encoded<a class="headerlink" href="#uslugify_encoded" title="Permanent link"></a></h3>
+<p>If you aren't encoding your HTML as UTF-8, or prefer the safer percent encoded Unicode slugs, you can use <code>pymdownx.slugs.uslugify_encoded</code> which will percent encode non-ASCII word chars.  You can use this to override <abbr title="Table of Contents">Toc</abbr>'s and/or HeaderAnchor's slugify.</p>
+<h2 id="css">CSS<a class="headerlink" href="#css" title="Permanent link"></a></h2>
 <p>Here we will show some example CSS for rendering the header anchors. While Material Icon font is used in this example, you can substitute it with <a href="https://octicons.github.com/">Octicons</a> for even more of a <abbr title="Github Flavored Markdown">GFM</abbr> feel, or use something else entirely.</p>
 <p>The HTML tags with classes are set like this:</p>
 <div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;css&quot;</span><span class="p">&gt;</span>
@@ -770,7 +790,7 @@
 </tr>
 </tbody>
 </table>
-<p>The CSS below is what this document is using.</p>
+<p>The CSS below is an example.</p>
 <div class="codehilite"><pre><span></span><span class="c">/* Header Anchors */</span>
 <span class="nc">.markdown-body</span> <span class="nc">.headeranchor-link</span> <span class="p">{</span>
   <span class="nb">opacity</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
@@ -943,10 +963,10 @@
         
       
         
-      
-        
           
           <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        
+      
         
       
         

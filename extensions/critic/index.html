@@ -575,6 +575,17 @@
       
   <li class="md-nav__item">
     
+      <a href="../../miscellaneous_extras/" title="Miscellaneous Extras" class="md-nav__link">
+        Miscellaneous Extras
+      </a>
+    
+  </li>
+
+    
+      
+      
+  <li class="md-nav__item">
+    
       <a href="../../contributing/" title="Contributing &amp; Suppport" class="md-nav__link">
         Contributing &amp; Suppport
       </a>
@@ -673,9 +684,9 @@
                 
                   <h1>Critic</h1>
                 
-                <h2 id="overview"><a name="user-content-overview" href="#overview" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Overview</h2>
+                <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
 <p>Critic is an extension that adds handling and support of <a href="http://criticmarkup.com/">Critic Markup</a>.  This extension runs before all other extensions to parse the critic edits.  It allows for the removal or acceptance of the critic modifications and modifies the source to reflect the rejection or approval (highlights and comments are stripped in both cases).  It also allows for visually displaying the changes in HTML output (<a href="#limitations-with-previewing-critic-markup">mileage may vary</a>).</p>
-<h2 id="options"><a name="user-content-options" href="#options" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Options</h2>
+<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link"></a></h2>
 <table>
 <thead>
 <tr>
@@ -694,10 +705,10 @@
 </tr>
 </tbody>
 </table>
-<h2 id="limitations-with-previewing-critic-markup"><a name="user-content-limitations-with-previewing-critic-markup" href="#limitations-with-previewing-critic-markup" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Limitations with Previewing Critic Markup</h2>
+<h2 id="limitations-with-previewing-critic-markup">Limitations with Previewing Critic Markup<a class="headerlink" href="#limitations-with-previewing-critic-markup" title="Permanent link"></a></h2>
 <p>Parsing CriticMarkup is very straight forward.  If you need to reject critic marks or accept them, the critic extension will work quite well.  But when trying to render the edits visually <strong>and</strong> trying to convert the document to HTML, things can get ugly.  I think this is the one unfortunate problem with CriticMarkup.  The existence of the critic edits can alter the actual source.  Its a fantastic idea, but it should be understood that when using CriticMarkup beyond inline or block paragraphs, there is a possibility that invalid HTML will be created for the preview (especially in relation to lists or if breaking up Markdown syntax).  I think Fletcher said it best here: <a href="http://fletcher.github.io/MultiMarkdown-4/criticmarkup">http://fletcher.github.io/MultiMarkdown-4/criticmarkup</a>.</p>
 <p>The critic extension does its best by employing a preprocessor to inject the critic tags before all other parsing and a post-processor to clean up some of the weird side effects of the injection (only selected odd cases as others are more difficult to fix).  It injects some classes into the edit region's HTML output which allows for CSS styling.  There is probably a lot more post-processing that could be done to fix more issues, but whether this extension will be going further down that road has not yet been decided.</p>
-<h2 id="examples"><a name="user-content-examples" href="#examples" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Examples</h2>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link"></a></h2>
 <table>
 <thead>
 <tr>
@@ -797,7 +808,7 @@ am </ins>adding.<del class="critic break">&nbsp;</del><ins class="critic">  </in
 <li>test</li>
 </ul>
 </ins>
-<h2 id="css"><a name="user-content-css" href="#css" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>CSS</h2>
+<h2 id="css">CSS<a class="headerlink" href="#css" title="Permanent link"></a></h2>
 <p>Critic renders the CriticMarkup with the following classes.</p>
 <table>
 <thead>
@@ -1049,10 +1060,10 @@ am </ins>adding.<del class="critic break">&nbsp;</del><ins class="critic">  </in
         
       
         
-      
-        
           
           <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        
+      
         
       
         

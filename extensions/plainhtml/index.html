@@ -459,6 +459,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#examples" title="Examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -554,6 +561,17 @@
       
   <li class="md-nav__item">
     
+      <a href="../../miscellaneous_extras/" title="Miscellaneous Extras" class="md-nav__link">
+        Miscellaneous Extras
+      </a>
+    
+  </li>
+
+    
+      
+      
+  <li class="md-nav__item">
+    
       <a href="../../contributing/" title="Contributing &amp; Suppport" class="md-nav__link">
         Contributing &amp; Suppport
       </a>
@@ -614,6 +632,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#examples" title="Examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -631,13 +656,14 @@
                 
                   <h1>PlainHtml</h1>
                 
-                <h2 id="overview"><a name="user-content-overview" href="#overview" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Overview</h2>
+                <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
 <p>PlainHtml is a simple extension that is run at the end of post-processing.  It searches the final output stripping things like <code>style</code>, <code>id</code>, <code>class</code>, and <code>on&lt;name&gt;</code> attributes from HTML tags.  It also removes HTML comments.  If you have no desire to see these, this can strip them out.  Though it does its best to be loaded at the very end of the process, it helps to include this one last when loading up your extensions.  If needed, plain HTML can also be configured to strip out just comments or just attributes etc.</p>
+<p>Because comments aren't stripped until the end in a post-processing step, they are present throughout the entire Markdown conversion process and could possibly affect parsing, so be careful how you generally insert comments.</p>
 <div class="admonition caution">
 <p class="admonition-title">Warning</p>
 <p>This is not meant to be a sanitizer for HTML.  This is just meant to try and strip out style, script, classes, etc. to provide a plain HTML output for the times this is desired; this is not meant as a security extension.  If you want something to secure the output, you should consider running a sanitizer like <a href="https://pypi.python.org/pypi/bleach">bleach</a>.</p>
 </div>
-<h2 id="options"><a name="user-content-options" href="#options" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Options</h2>
+<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link"></a></h2>
 <p>By default, PlainHtml strips the following attributes: <code>style</code>, <code>id</code>, <code>class</code>, and <code>on&lt;name&gt;</code>.  PlainHtml also strips HTML comments. If desired, its behavior can be configured to strip less or even more, but it is limited to attributes and comments.</p>
 <table>
 <thead>
@@ -669,6 +695,13 @@
 </tr>
 </tbody>
 </table>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link"></a></h2>
+<div class="codehilite"><pre><span></span>&lt;!-- We are only allowing strip_comments and strip_js_on_attributes
+     in this example. --&gt;
+
+Here is a test. You can verify the result by inspecting the code in your browser.
+</pre></div>
+<p>Here is a test. You can verify the result by inspecting the code in your browser.</p>
               
             </article>
           </div>
@@ -779,10 +812,10 @@
         
       
         
-      
-        
           
           <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        
+      
         
       
         
