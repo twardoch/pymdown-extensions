@@ -643,7 +643,8 @@
                   <h1>B64</h1>
                 
                 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
-<p>In the current iteration, B64 allows for embedding images with base64 encoding.  It simply needs a base path to resolve relative links, and it will embed the images as base64 resources.  This is useful if you would like to distribute a Markdown output without having to also distribute the images separately.  In a normal website, this would probably not be desired.</p>
+<p>B64 allows for the embedding of local PNG, JPEG, and GIF image references with base64 encoding.  It simply needs a base path to resolve relative links in the Markdown source. The base path is the assumed location of the Markdown source at time of conversion. Using the base path, B64 will search and find the actual <code>img</code> tag references and base64 encode them in the HTML output.</p>
+<p>If you would like to distribute a Markdown output without having to also distribute the images separately, B64 can help.  In a normal website, this would probably not be desired.</p>
 <h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link"></a></h2>
 <table>
 <thead>
