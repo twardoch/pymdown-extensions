@@ -17,7 +17,7 @@
     
     
       
-        <title>Usage Notes - PyMdown Extensions Documentation</title>
+        <title>Development - PyMdown Extensions Documentation</title>
       
     
     
@@ -79,7 +79,7 @@
             
               
             
-            Usage Notes
+            Development
           
         </span>
       </div>
@@ -198,42 +198,9 @@
       
   <li class="md-nav__item">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
+      <a href="../usage_notes/" title="Usage Notes" class="md-nav__link">
         Usage Notes
-      </label>
-    
-    <a href="./" title="Usage Notes" class="md-nav__link md-nav__link--active">
-      Usage Notes
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#incompatible-extensions" title="Incompatible Extensions" class="md-nav__link">
-    Incompatible Extensions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#include-extensions-only-once" title="Include Extensions Only Once" class="md-nav__link">
-    Include Extensions Only Once
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
+      </a>
     
   </li>
 
@@ -549,9 +516,104 @@
       
   <li class="md-nav__item">
     
-      <a href="../development/" title="Development" class="md-nav__link">
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
         Development
-      </a>
+      </label>
+    
+    <a href="./" title="Development" class="md-nav__link md-nav__link--active">
+      Development
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-layout" title="Project Layout" class="md-nav__link">
+    Project Layout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-standards" title="Coding Standards" class="md-nav__link">
+    Coding Standards
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-documents" title="Building Documents" class="md-nav__link">
+    Building Documents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spell-checking-documents" title="Spell Checking Documents" class="md-nav__link">
+    Spell Checking Documents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-tests" title="Validation Tests" class="md-nav__link">
+    Validation Tests
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#syntax" title="Syntax" class="md-nav__link">
+    Syntax
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#targeted" title="Targeted" class="md-nav__link">
+    Targeted
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-validation-with-tox" title="Running Validation With Tox" class="md-nav__link">
+    Running Validation With Tox
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-coverage" title="Code Coverage" class="md-nav__link">
+    Code Coverage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-emoji-indexes" title="Generating Emoji Indexes" class="md-nav__link">
+    Generating Emoji Indexes
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -597,15 +659,77 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#incompatible-extensions" title="Incompatible Extensions" class="md-nav__link">
-    Incompatible Extensions
+  <a href="#project-layout" title="Project Layout" class="md-nav__link">
+    Project Layout
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#include-extensions-only-once" title="Include Extensions Only Once" class="md-nav__link">
-    Include Extensions Only Once
+  <a href="#coding-standards" title="Coding Standards" class="md-nav__link">
+    Coding Standards
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-documents" title="Building Documents" class="md-nav__link">
+    Building Documents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spell-checking-documents" title="Spell Checking Documents" class="md-nav__link">
+    Spell Checking Documents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-tests" title="Validation Tests" class="md-nav__link">
+    Validation Tests
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#syntax" title="Syntax" class="md-nav__link">
+    Syntax
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#targeted" title="Targeted" class="md-nav__link">
+    Targeted
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-validation-with-tox" title="Running Validation With Tox" class="md-nav__link">
+    Running Validation With Tox
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-coverage" title="Code Coverage" class="md-nav__link">
+    Code Coverage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-emoji-indexes" title="Generating Emoji Indexes" class="md-nav__link">
+    Generating Emoji Indexes
   </a>
   
 </li>
@@ -621,26 +745,171 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/usage_notes.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/development.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
-                  <h1>Usage Notes</h1>
+                  <h1>Development</h1>
                 
-                <h2 id="incompatible-extensions">Incompatible Extensions<a class="headerlink" href="#incompatible-extensions" title="Permanent link"></a></h2>
-<p>PyMdown Extensions includes three extensions that are meant to <strong>replace</strong> their counterpart in the default Python Markdown extensions.  You need to either use the PyMdown Extensions version or use the Python Markdown version; <strong>they cannot be loaded at the same time</strong>.</p>
+                <h2 id="project-layout">Project Layout<a class="headerlink" href="#project-layout" title="Permanent link"></a></h2>
+<p>There are a number of files for build, test, and continuous integration in the root of the project, but in general, the project is broken up like so.</p>
+<div class="codehilite"><pre><span></span>├── doc_theme
+├── docs
+├── pymdownx
+├── requirements
+├── tests
+└── tools
+</pre></div>
+
+
+<table>
+<thead>
+<tr>
+<th>Directory</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>doc_theme</td>
+<td>This contains document theme tweaks for the current theme</td>
+</tr>
+<tr>
+<td>docs</td>
+<td>This contains the source files for the documentation.</td>
+</tr>
+<tr>
+<td>pymdownx</td>
+<td>This contains the source code for all the extensions.</td>
+</tr>
+<tr>
+<td>requirements</td>
+<td>This contains files with lists of dependencies required dependencies for continuous integration.</td>
+</tr>
+<tr>
+<td>tests</td>
+<td>This contains the various tests that are run in order to ensure code health.</td>
+</tr>
+<tr>
+<td>tools</td>
+<td>This contains various tools that are necessary during development.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="coding-standards">Coding Standards<a class="headerlink" href="#coding-standards" title="Permanent link"></a></h2>
+<p>When writing code, the code should roughly conform to PEP8 and PEP257 suggestions.  The PyMdown Extensions project utilizes the flake8 linter (with some additional plugins) to ensure code conforms (give or take some of the rules).  When in doubt follow the formatting hints of existing code when adding or modifying files. existing files.  Listed below are the modules used:</p>
 <ul>
-<li><code>pymdownx.superfences</code> replaces <code>markdown.extensions.fenced_code</code>.</li>
-<li><code>pymdownx.betterem</code> replaces <code>markdown.extensions.smartstrong</code>.</li>
-<li><code>pymdownx.extra</code> replaces <code>markdown.extensions.extra</code>.</li>
+<li><a href="https://pypi.python.org/pypi/flake8">flake8</a></li>
+<li><a href="https://pypi.python.org/pypi/flake8-docstrings">flake8_docstrings</a></li>
+<li><a href="https://pypi.python.org/pypi/pep8-naming">pep8-naming</a></li>
 </ul>
-<p>A few convenience extensions that include multiple extensions in one shot are also provided and should not be mixed.  And none of them should be mixed with <code>markdown.extensions.extra</code> or <code>pymdownx.extra</code>. This is to prevent multiples of an extension from getting included.</p>
+<p>Flake8 can be run directly via the command line from the root of the project.</p>
+<div class="codehilite"><pre><span></span>flake8
+</pre></div>
+
+
+<h2 id="building-documents">Building Documents<a class="headerlink" href="#building-documents" title="Permanent link"></a></h2>
+<p>Documents are in Markdown (with with some additional syntax) and converted to HTML via Python Markdown and this extension bundle. If you would like to build and preview the documentation, you must have these packages installed:</p>
 <ul>
-<li><code>pymdownx.github</code></li>
-<li><code>pymdownx.pymdown</code></li>
+<li><a href="https://github.com/waylan/Python-Markdown">Python Markdown</a>: the Markdown parser.</li>
+<li><a href="https://github.com/mkdocs/mkdocs">MkDocs</a>: the document site generator.</li>
+<li><a href="https://github.com/squidfunk/mkdocs-material">Material</a>: a material theme for MkDocs.</li>
+<li>pymdown-extensions: this Python Markdown extension bundle.</li>
 </ul>
-<h2 id="include-extensions-only-once">Include Extensions Only Once<a class="headerlink" href="#include-extensions-only-once" title="Permanent link"></a></h2>
-<p>In general, you shouldn't include an extension more than once. If you try to include more than one of the aforementioned convenience extensions at the same time, you will include certain extensions multiple times possibly leading to unexpected results.  Also, be aware of what extensions these convenience extensions include and do not accidentally re-include them individually.</p>
+<p>In order to build and preview the documents, just run the following from the root of the project and you should be able to view the docs at <code>localhost:8000</code> in your browser (assuming you have the dependencies installed).</p>
+<div class="codehilite"><pre><span></span>mkdocs serve
+</pre></div>
+
+
+<h2 id="spell-checking-documents">Spell Checking Documents<a class="headerlink" href="#spell-checking-documents" title="Permanent link"></a></h2>
+<p>During validation we build the docs and run a spell checker on them.  The spell checker script uses <a href="http://aspell.net/">aspell</a>.  Currently this project uses the latest aspell.  As the latest aspell is not available on Windows, it is not expected that everyone will install and run aspell locally.  In order to perform the spell check, it is expected you are setup to build the documents, and that you have aspell installed in the your system path. To initiate the spell check run the following command from the root of the project:</p>
+<div class="codehilite"><pre><span></span>python spelling.py
+</pre></div>
+
+
+<p>It should print out the files with the misspelled words if any are found.  If you find it prints words that are not misspelled, you can add them in <code>.dictionary</code> in the root of the project.</p>
+<h2 id="validation-tests">Validation Tests<a class="headerlink" href="#validation-tests" title="Permanent link"></a></h2>
+<p>In order to preserve good code health, a test suite has been put together with <a href="http://doc.pytest.org/en/latest/">pytest</a>. There are currently two kinds of tests: syntax and targeted.  To run these tests, you can use the following command:</p>
+<div class="codehilite"><pre><span></span>python run_tests.py
+</pre></div>
+
+
+<h3 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link"></a></h3>
+<p>Syntax tests are essentially text files containing Markdown. They are found under <code>tests/extensions</code>.  <code>test_syntax.py</code> scans all the files and converts the files to HTML with the extensions and options defined in <code>tests/extensions/tests.yml</code>.  They are then compared to the current stored HTML output.  If the two differ, the test fails.</p>
+<p>To run <strong>only</strong> these tests, from the root of the project run the following command:</p>
+<div class="codehilite"><pre><span></span>python run_tests.py --test-target syntax
+</pre></div>
+
+
+<p>You could also run them directly with:</p>
+<div class="codehilite"><pre><span></span>py.test tests/test_syntax.py
+</pre></div>
+
+
+<p>To accept the differences in a test due to a change(s) you made, you can run the following command:</p>
+<div class="codehilite"><pre><span></span>python run_tests.py --update
+</pre></div>
+
+
+<h3 id="targeted">Targeted<a class="headerlink" href="#targeted" title="Permanent link"></a></h3>
+<p>Targeted tests are unit tests that target specific areas in the code and exercises them to ensure proper functionality.  These tests are found in <code>test_targeted.py</code>.</p>
+<p>You can run <strong>only</strong> these tests from the root of the project with:</p>
+<div class="codehilite"><pre><span></span>python run_tests.py --test-target targeted
+</pre></div>
+
+
+<p>You could also run them directly with:</p>
+<div class="codehilite"><pre><span></span>py.test tests/test_targeted.py
+</pre></div>
+
+
+<h3 id="running-validation-with-tox">Running Validation With Tox<a class="headerlink" href="#running-validation-with-tox" title="Permanent link"></a></h3>
+<p><a href="https://pypi.python.org/pypi/tox">Tox</a> is a great way to run the validation tests, spelling checks, and linting in virtual environments so as not to mess with your current working environment. Tox will use the specified Python version for the given environment and create a virtual environment and install all the needed requirements (minus aspell).  You could also setup your own virtual environments with the virtualenv module without tox, and manually do the same.</p>
+<p>First, you need to have tox installed:</p>
+<div class="codehilite"><pre><span></span>pip install tox
+</pre></div>
+
+
+<p>By running tox, it will walk through all the environments and create them (assuming you have all the python versions on your machine) and run the related tests.  See <code>tox.ini</code> to learn more.</p>
+<div class="codehilite"><pre><span></span>tox
+</pre></div>
+
+
+<p>If you don't have all the Python versions needed to test all the environments, those entries will fail.  You can ignore those.  Spelling will also fail if you don't have the correct version of aspell.</p>
+<p>To target a specific environment to test, you use the <code>-e</code> option to select the environment of interest.  To select lint:</p>
+<div class="codehilite"><pre><span></span>tox -elint
+</pre></div>
+
+
+<p>To select PY27 unit tests (or other versions &ndash; change accordingly):</p>
+<div class="codehilite"><pre><span></span>tox -epy27-unittests
+</pre></div>
+
+
+<p>To select spelling:</p>
+<div class="codehilite"><pre><span></span>tox -espelling
+</pre></div>
+
+
+<h2 id="code-coverage">Code Coverage<a class="headerlink" href="#code-coverage" title="Permanent link"></a></h2>
+<p>When running the validation tests through tox, it is setup to track code coverage via the <a href="https://coverage.readthedocs.io">coverage</a> module.  Coverage is run on each <code>pyxx-unittests</code> environment.  If you've made changes to the code, you can clear the old coverage data:</p>
+<div class="codehilite"><pre><span></span>coverage erase
+</pre></div>
+
+
+<p>Then run each unit test environment to and coverage will be calculated. All the data from each run is merged together.  HTML is output for each file in <code>.tox/pyXX-unittests/tmp</code>.  You can use these to see areas that are not covered/exercised yet with testing.</p>
+<p>You can checkout <code>tox.ini</code> to see how this is accomplished.</p>
+<h2 id="generating-emoji-indexes">Generating Emoji Indexes<a class="headerlink" href="#generating-emoji-indexes" title="Permanent link"></a></h2>
+<p>The Emoji extension has emoji indexes generated from the source of Gemoji and EmojiOne.  Below is the process for auto-generating these indexes.</p>
+<ol>
+<li>Ensure you have <a href="https://pypi.python.org/pypi/requests/">requests</a> installed: <code>pip install requests</code>.</li>
+<li>Fork the repository and checkout to your machine.</li>
+<li>Navigate to the root of the project.</li>
+<li>Call the generator script: <code>python tools/gen_emoji.py --gemoji</code> or <code>python tools/gen_emoji.py --emojione</code>.  It will prompt you to select a tag to download.  Please pull the latest <strong>official</strong> tag.  Please don't pull experimental tags.  This should update the indexes.</li>
+<li>Then you want to update the tests.</li>
+<li>Force the tests to update via <code>python run_tests.py --update</code>.</li>
+</ol>
+<p>Nothing is fool proof.  If they make a breaking change to the files that the script parses, or the location of the files change, the auto-update tool may need to be updated itself (hopefully this would be a rare occurrence).  If such a change does occur, and you are feeling brave, a pull request would be appreciated, but in time, they will be resolved regardless.</p>
               
             </article>
           </div>
@@ -652,7 +921,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../installation/" title="Installation" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../contributing/" title="Contributing &amp; Support" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-footer-nav__icon">arrow_back</i>
             </div>
@@ -661,19 +930,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Installation
+                Contributing &amp; Support
               </span>
             </div>
           </a>
         
         
-          <a href="../extensions/arithmatex/" title="Arithmatex" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../changelog/" title="Changelog" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Arithmatex
+                Changelog
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

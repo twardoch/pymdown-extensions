@@ -17,7 +17,7 @@
     
     
       
-        <title>InlineHilite - PyMdown Extensions Documentation</title>
+        <title>Snippets - PyMdown Extensions Documentation</title>
       
     
     
@@ -83,7 +83,7 @@
                 </span>
               
             
-            InlineHilite
+            Snippets
           
         </span>
       </div>
@@ -361,49 +361,9 @@
           
   <li class="md-nav__item">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
+      <a href="../inlinehilite/" title="InlineHilite" class="md-nav__link">
         InlineHilite
-      </label>
-    
-    <a href="./" title="InlineHilite" class="md-nav__link md-nav__link--active">
-      InlineHilite
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" title="Overview" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#options" title="Options" class="md-nav__link">
-    Options
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example" title="Example" class="md-nav__link">
-    Example
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
+      </a>
     
   </li>
 
@@ -489,9 +449,49 @@
           
   <li class="md-nav__item">
     
-      <a href="../snippets/" title="Snippets" class="md-nav__link">
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
         Snippets
-      </a>
+      </label>
+    
+    <a href="./" title="Snippets" class="md-nav__link md-nav__link--active">
+      Snippets
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" title="Overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options" title="Options" class="md-nav__link">
+    Options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" title="Examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -622,8 +622,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#example" title="Example" class="md-nav__link">
-    Example
+  <a href="#examples" title="Examples" class="md-nav__link">
+    Examples
   </a>
   
 </li>
@@ -639,22 +639,22 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions/inlinehilite.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions/snippets.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
-                  <h1>InlineHilite</h1>
+                  <h1>Snippets</h1>
                 
                 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
-<p>InlineHilite is an inline version of <a href="https://pythonhosted.org/Markdown/extensions/code_hilite.html">CodeHilite</a> which adds inline code highlighting.  Borrowing from CodeHilite's existing syntax, InlineHilite utilizes the following syntax to insert inline highlighted code: <code>`:::language mycode`</code> or <code>`#!language mycode`</code>.  We will call these specifiers (<code>#!language</code> and <code>:::language</code>) mock shebangs.</p>
-<p>When using the colon mock shebang, 3 or more colons can be used.  Mock shebangs must come <strong>immediately</strong> after the opening backtick(s) and must be followed by at least one space.  If you need to escape a mock shebang at the start of a code block, just put a space before it and it will be treated as part of the code.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>If using Pygments, the elements should be highlighted just fine, but you may need to adjust CSS to get the general style of the inline block the way you like it.</p>
-<p>If you are using a JavaScript highlighter such as <code>highlight.js</code> you will most likely need to construct a JavaScript method to target the inline blocks.  You may also find it useful to tag inline blocks with a different class than the block highlighted code so you can also target and style them with CSS differently.  InlineHilite allows you to have a different <code>css_class</code> than what is used by <code>CodeHilite</code>.</p>
+<p>Snippets is an extension to insert markdown or HTML snippets into another markdown file. This is done by placing the following markup: <code>---8&lt;--- filename.md</code>.  As you can see, the notation is an ASCII scissor cutting a line followed by the file name.  The dashes can be as few as 2 (<code>--8&lt;--</code>) or longer if desired (<code>--8&lt;---------</code>); whatever your preference is.  The important thing is that it must reside on a line by itself.  If it is indented, the content will be indented to that level as well.</p>
+<p>Snippets can also handle recursive file inclusion.  And if snippets encounters the same file in the current stack, it will avoid re-processing it in order to avoid an infinite loop (or crash on hitting max recursion depth).</p>
+<p>Snippets is run as a preprocessor, so if a snippet is found in a fenced code block etc., it will still get processed.  If the specified file cannot be found, the the markup will be left in the file.</p>
+<p>Snippets is great for situations where you have content you need to insert into multiple documents.  For instance, this document keeps all its hyperlinks in a separate file.  Then includes it at the bottom of a document that uses one or more of the links. If a link needs to be updated, it can be updated in one location.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This syntax is experimental. While the functionality of the extension is not likely to change, the syntax could if it becomes problematic (or at least an alternative syntax might be provided).</p>
 </div>
 <h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link"></a></h2>
-<p>By default, InlineHilite will use CodeHilite's settings if it is being used, but InlineHilite can be run without CodeHilite, and if desired, it can be run along side it and ignore CodeHilite's settings.</p>
 <table>
 <thead>
 <tr>
@@ -666,58 +666,37 @@
 </thead>
 <tbody>
 <tr>
-<td>style_plain_text</td>
-<td>bool</td>
-<td>False</td>
-<td>By default, InlineHilite will avoid syntax highlighting a code block with no language specified or the <code>text</code> language specified.  No classes or style will be applied, but the text will be formatted for a code element.  If this is set true, text blocks will be processed and have classes injected into them even though only the plain text lexer is applied.</td>
-</tr>
-<tr>
-<td>use_codehilite_settings</td>
-<td>bool</td>
-<td>True</td>
-<td>Determine whether CodeHilite's settings should be used, or if InlineHilite should use a different set.</td>
-</tr>
-<tr>
-<td>guess_lang</td>
-<td>bool</td>
-<td>True</td>
-<td>If CodeHilite is not used, or if ignoring CodeHilite's settings, determine whether InlineHilite should try to guess a code block's language if not specified.</td>
-</tr>
-<tr>
-<td>css_class</td>
+<td>base_path</td>
 <td>string</td>
-<td>'inlinehilite'</td>
-<td>If ignoring CodeHilite's settings, this is the class name that will be injected into code tags when they are processed.</td>
+<td>'.'</td>
+<td>A string indicating a base path to be used resolve snippet locations.</td>
 </tr>
 <tr>
-<td>pygments_style</td>
+<td>encoding</td>
 <td>string</td>
-<td>'default'</td>
-<td>If CodeHilite is not used, or if ignoring CodeHilite's settings, this will be the Pygments' style to use.  When using Pygments, this really only has an effect when used with <code>noclasses</code>.</td>
-</tr>
-<tr>
-<td>noclasses</td>
-<td>bool</td>
-<td>False</td>
-<td>If CodeHilite is not used, or if ignoring CodeHilite's settings, this will cause the styles to directly be written to the tag's style attribute instead of requiring a stylesheet.</td>
-</tr>
-<tr>
-<td>use_pygments</td>
-<td>bool</td>
-<td>True</td>
-<td>If CodeHilite is not used, or if ignoring CodeHilite's settings, this will control whether Pygments (if available) is used on the code block, or if the block's content will just be escaped and prepped for a JavaScript syntax highlighter.</td>
+<td><code>utf-8</code></td>
+<td>Encoding to use when reading in the snippets.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link"></a></h2>
-<div class="codehilite"><pre><span></span>Here is some code: `#!js function pad(v){return (&#39;0&#39;+v).split(&#39;&#39;).reverse().splice(0,2).reverse().join(&#39;&#39;)}`.
-
-The mock shebang will be treated like text here: ` #!js var test = 0; `.
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link"></a></h2>
+<p>Assuming you have a snippet named <code>my_snippet.md</code>, and the content of <code>my_snippet.md</code> is as follows:</p>
+<div class="codehilite"><pre><span></span>A snippet
 </pre></div>
 
 
-<p>Here is some code: <code class="codehilite"><span class="kd">function</span> <span class="nx">pad</span><span class="p">(</span><span class="nx">v</span><span class="p">){</span><span class="k">return</span> <span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="o">+</span><span class="nx">v</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">splice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">).</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)}</span></code></p>
-<p>The mock shebang will be treated like text here: <code>#!js var test = 0;</code>.</p>
+<p>Also assuming a base path that points to a folder where both your markdown and your snippet both reside. We can enter this content to load our snippet.</p>
+<div class="codehilite"><pre><span></span>Here we will include a snippet.
+
+---8&lt;--- my_snippet.md
+</pre></div>
+
+
+<p>The result will be:</p>
+<div class="codehilite"><pre><span></span>Here we will include a snippet.
+
+A snippet
+</pre></div>
               
             </article>
           </div>
@@ -729,7 +708,7 @@ The mock shebang will be treated like text here: ` #!js var test = 0; `.
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../headeranchor/" title="HeaderAnchor" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../smartsymbols/" title="SmartSymbols" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-footer-nav__icon">arrow_back</i>
             </div>
@@ -738,19 +717,19 @@ The mock shebang will be treated like text here: ` #!js var test = 0; `.
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                HeaderAnchor
+                SmartSymbols
               </span>
             </div>
           </a>
         
         
-          <a href="../magiclink/" title="MagicLink" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../superfences/" title="SuperFences" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                MagicLink
+                SuperFences
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
