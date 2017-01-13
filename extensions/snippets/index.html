@@ -639,7 +639,7 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions/snippets.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions\snippets.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
@@ -647,7 +647,7 @@
                 
                 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
 <p>Snippets is an extension to insert markdown or HTML snippets into another markdown file. This is done by placing the following markup: <code>---8&lt;--- filename.md</code>.  As you can see, the notation is an ASCII scissor cutting a line followed by the file name.  The dashes can be as few as 2 (<code>--8&lt;--</code>) or longer if desired (<code>--8&lt;---------</code>); whatever your preference is.  The important thing is that it must reside on a line by itself.  If it is indented, the content will be indented to that level as well.</p>
-<p>Snippets can also handle recursive file inclusion.  And if snippets encounters the same file in the current stack, it will avoid re-processing it in order to avoid an infinite loop (or crash on hitting max recursion depth).</p>
+<p>Snippets can also handle recursive file inclusion.  And if Snippets encounters the same file in the current stack, it will avoid re-processing it in order to avoid an infinite loop (or crash on hitting max recursion depth).</p>
 <p>Snippets is run as a preprocessor, so if a snippet is found in a fenced code block etc., it will still get processed.  If the specified file cannot be found, the the markup will be left in the file.</p>
 <p>Snippets is great for situations where you have content you need to insert into multiple documents.  For instance, this document keeps all its hyperlinks in a separate file.  Then includes it at the bottom of a document that uses one or more of the links. If a link needs to be updated, it can be updated in one location.</p>
 <div class="admonition note">
