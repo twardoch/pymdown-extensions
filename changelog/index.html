@@ -324,8 +324,8 @@
           
   <li class="md-nav__item">
     
-      <a href="../extensions/github/" title="Github" class="md-nav__link">
-        Github
+      <a href="../extensions/github/" title="GitHub" class="md-nav__link">
+        GitHub
       </a>
     
   </li>
@@ -335,8 +335,8 @@
           
   <li class="md-nav__item">
     
-      <a href="../extensions/githubemoji/" title="GithubEmoji" class="md-nav__link">
-        GithubEmoji
+      <a href="../extensions/githubemoji/" title="GitHubEmoji" class="md-nav__link">
+        GitHubEmoji
       </a>
     
   </li>
@@ -547,6 +547,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#160" title="1.6.0" class="md-nav__link">
+    1.6.0
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#150" title="1.5.0" class="md-nav__link">
     1.5.0
   </a>
@@ -632,6 +639,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#160" title="1.6.0" class="md-nav__link">
+    1.6.0
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#150" title="1.5.0" class="md-nav__link">
     1.5.0
   </a>
@@ -697,7 +711,16 @@
                 
                   <h1>Changelog</h1>
                 
-                <h2 id="150">1.5.0<a class="headerlink" href="#150" title="Permanent link"></a></h2>
+                <h2 id="160">1.6.0<a class="headerlink" href="#160" title="Permanent link"></a></h2>
+<blockquote>
+<p>Released Jan 15, 2017</p>
+</blockquote>
+<ul>
+<li><strong>NEW</strong>: EscapeAll has the option to perform more like Pandoc in that you can enable escaped newlines to be <code>hardbreaks</code>, and escaped spaces to be <code>nbsp</code>.</li>
+<li><strong>NEW</strong>: Rework poorly thought out snippets format to require quoting file names with single line format.  Add a block format.  Allow commenting out lines temporarily.  And allow a way to escape them by placing a space after them.</li>
+<li><strong>FIX</strong>: Fix documentation issues.</li>
+</ul>
+<h2 id="150">1.5.0<a class="headerlink" href="#150" title="Permanent link"></a></h2>
 <blockquote>
 <p>Released Jan 13, 2017</p>
 </blockquote>
@@ -719,26 +742,26 @@
 </blockquote>
 <ul>
 <li><strong>NEW</strong>: HeaderAnchor extension is now deprecated.  It will be removed in a future version.</li>
-<li><strong>NEW</strong>: HeaderAnchor is no longer included in the Github extension.</li>
+<li><strong>NEW</strong>: HeaderAnchor is no longer included in the <code>pymdownx.github</code> extension.</li>
 <li><strong>NEW</strong>: Slugify functions are moved to <code>pymdownx.slug</code> in preparation of HeaderAnchor removal.</li>
-<li><strong>FIX</strong>: GithubEmoji is not "pending" deprecation, but is actually deprecated.</li>
+<li><strong>FIX</strong>: GitHubEmoji is not "pending" deprecation, but is actually deprecated.</li>
 </ul>
 <h2 id="130">1.3.0<a class="headerlink" href="#130" title="Permanent link"></a></h2>
 <blockquote>
 <p>Released Jan 1, 2017</p>
 </blockquote>
 <ul>
-<li><strong>NEW</strong>: New emoji extension that aims to replace githubemoji.  By default it is configured for EmojiOne and Gemoji (Github's emoji).</li>
-<li><strong>NEW</strong>: Githubemoji is deprecated. Please use the emoji extension instead.</li>
-<li><strong>NEW</strong>: Pymdown extension is deprecated.  Pymdown extension was just a wrapper, please configure the desired individual extension(s) instead of relying on pymdown.</li>
-<li><strong>NEW</strong>: Github extension now turns off nl2br by default in order properly emulate recent changes in GFM.  <code>no_nl2br</code> option is deprecated and will be removed in the future as it no longer reflects GFM behavior.</li>
+<li><strong>NEW</strong>: New Emoji extension that aims to replace GitHubEmoji.  By default it is configured for EmojiOne and Gemoji (GitHub's emoji).</li>
+<li><strong>NEW</strong>: GitHubEmoji is deprecated. Please use the Emoji extension instead.</li>
+<li><strong>NEW</strong>: PyMdown extension is deprecated.  PyMdown extension was just a wrapper, please configure the desired individual extension(s) instead of relying on PyMdown.</li>
+<li><strong>NEW</strong>: <code>github</code> extension now turns off <code>nl2br</code> by default in order properly emulate recent changes in GFM.  <code>no_nl2br</code> option is deprecated and will be removed in the future as it no longer reflects GFM behavior.</li>
 </ul>
 <h2 id="120">1.2.0<a class="headerlink" href="#120" title="Permanent link"></a></h2>
 <blockquote>
 <p>Released Nov 1, 2016</p>
 </blockquote>
 <ul>
-<li><strong>NEW</strong>: Add option to output tasklists in a more customizable way.</li>
+<li><strong>NEW</strong>: Add option to output task lists in a more customizable way.</li>
 </ul>
 <h2 id="110">1.1.0<a class="headerlink" href="#110" title="Permanent link"></a></h2>
 <blockquote>
@@ -746,8 +769,8 @@
 </blockquote>
 <ul>
 <li><strong>NEW</strong>: Add pypi 3.5 info in setup</li>
-<li><strong>NEW</strong>: Add option to magiclink extension to allow the stripping of link protocols (<code>http://</code> etc.).</li>
-<li><strong>NEW</strong>: Add option to github extension to disable the use of nl2br to reflect recent changes to GitHub Flavored Markdown.  Currently the default is the legacy (uses nl2br), but a warning will be displayed.  In the future, the option will be defaulted to not use nl2br.</li>
+<li><strong>NEW</strong>: Add option to MagicLink extension to allow the stripping of link protocols (<code>http://</code> etc.).</li>
+<li><strong>NEW</strong>: Add option to <code>github</code> extension to disable the use of <code>nl2br</code> to reflect recent changes to GitHub Flavored Markdown.  Currently the default is the legacy (uses <code>nl2br</code>), but a warning will be displayed.  In the future, the option will be defaulted to not use <code>nl2br</code>.</li>
 </ul>
 <h2 id="101">1.0.1<a class="headerlink" href="#101" title="Permanent link"></a></h2>
 <blockquote>

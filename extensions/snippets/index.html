@@ -328,8 +328,8 @@
           
   <li class="md-nav__item">
     
-      <a href="../github/" title="Github" class="md-nav__link">
-        Github
+      <a href="../github/" title="GitHub" class="md-nav__link">
+        GitHub
       </a>
     
   </li>
@@ -339,8 +339,8 @@
           
   <li class="md-nav__item">
     
-      <a href="../githubemoji/" title="GithubEmoji" class="md-nav__link">
-        GithubEmoji
+      <a href="../githubemoji/" title="GitHubEmoji" class="md-nav__link">
+        GitHubEmoji
       </a>
     
   </li>
@@ -483,8 +483,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#examples" title="Examples" class="md-nav__link">
-    Examples
+  <a href="#snippets-notation" title="Snippets Notation" class="md-nav__link">
+    Snippets Notation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formatting-snippets" title="Formatting Snippets" class="md-nav__link">
+    Formatting Snippets
   </a>
   
 </li>
@@ -622,8 +629,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#examples" title="Examples" class="md-nav__link">
-    Examples
+  <a href="#snippets-notation" title="Snippets Notation" class="md-nav__link">
+    Snippets Notation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formatting-snippets" title="Formatting Snippets" class="md-nav__link">
+    Formatting Snippets
   </a>
   
 </li>
@@ -639,21 +653,17 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions\snippets.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions/snippets.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
                   <h1>Snippets</h1>
                 
                 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
-<p>Snippets is an extension to insert markdown or HTML snippets into another markdown file. This is done by placing the following markup: <code>---8&lt;--- filename.md</code>.  As you can see, the notation is an ASCII scissor cutting a line followed by the file name.  The dashes can be as few as 2 (<code>--8&lt;--</code>) or longer if desired (<code>--8&lt;---------</code>); whatever your preference is.  The important thing is that it must reside on a line by itself.  If it is indented, the content will be indented to that level as well.</p>
-<p>Snippets can also handle recursive file inclusion.  And if Snippets encounters the same file in the current stack, it will avoid re-processing it in order to avoid an infinite loop (or crash on hitting max recursion depth).</p>
-<p>Snippets is run as a preprocessor, so if a snippet is found in a fenced code block etc., it will still get processed.  If the specified file cannot be found, the the markup will be left in the file.</p>
-<p>Snippets is great for situations where you have content you need to insert into multiple documents.  For instance, this document keeps all its hyperlinks in a separate file.  Then includes it at the bottom of a document that uses one or more of the links. If a link needs to be updated, it can be updated in one location.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This syntax is experimental. While the functionality of the extension is not likely to change, the syntax could if it becomes problematic (or at least an alternative syntax might be provided).</p>
-</div>
+<p>Snippets is an extension to insert markdown or HTML snippets into another markdown file.  Snippets is great for situations where you have content you need to insert into multiple documents.  For instance, this document keeps all its hyperlinks in a separate file.  Then includes those hyperlinks at the bottom of a document via snippets. If a link needs to be updated, it can be updated in one location instead of updating them in multiple files.</p>
+<p>Snippets is run as a preprocessor, so if a snippet is found in a fenced code block etc., it will still get processed.  If the specified file cannot be found, the the markup will be removed.  If you need to show a snippet example in fenced code, please escape it as listed in <a href="#snippets-notation">Snippets Notation</a>.</p>
+<p>Snippets can handle recursive file inclusion.  And if Snippets encounters the same file in the current stack, it will avoid re-processing it in order to avoid an infinite loop (or crash on hitting max recursion depth).  Though it should be said, you should extreme recursion depth as you will hit Python's recursion limit.</p>
+<p>This is meant for simple file inclusion, it has no intention to implement features from complex template systems. If you need something more complex, you may consider using a template environment to process your files <strong>before</strong> feeding them through Python Markdown.  If you are using a document generation system, this can likely be performed via a plugin for that document system (assuming a plugin environment is available).</p>
 <h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link"></a></h2>
 <table>
 <thead>
@@ -666,36 +676,71 @@
 </thead>
 <tbody>
 <tr>
-<td>base_path</td>
+<td><code>base_path</code></td>
 <td>string</td>
-<td>'.'</td>
+<td><code class="codehilite"><span class="s1">&#39;.&#39;</span></code></td>
 <td>A string indicating a base path to be used resolve snippet locations.</td>
 </tr>
 <tr>
-<td>encoding</td>
+<td><code>encoding</code></td>
 <td>string</td>
-<td><code>utf-8</code></td>
+<td><code class="codehilite"><span class="s1">&#39;utf-8&#39;</span></code></td>
 <td>Encoding to use when reading in the snippets.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link"></a></h2>
-<p>Assuming you have a snippet named <code>my_snippet.md</code>, and the content of <code>my_snippet.md</code> is as follows:</p>
-<div class="codehilite"><pre><span></span>A snippet
+<h2 id="snippets-notation">Snippets Notation<a class="headerlink" href="#snippets-notation" title="Permanent link"></a></h2>
+<p>Snippets has two modes of inserting snippets: single line and block.</p>
+<p>Single line format is done by placing the following markup for the single line notation:</p>
+<div class="codehilite"><pre><span></span>--8&lt;-- &quot;filename.md&quot; 
 </pre></div>
 
 
-<p>Also assuming a base path that points to a folder where both your markdown and your snippet both reside. We can enter this content to load our snippet.</p>
-<div class="codehilite"><pre><span></span>Here we will include a snippet.
-
----8&lt;--- my_snippet.md
+<p>Or you can insert multiple files with block notation:</p>
+<div class="codehilite"><pre><span></span>--8&lt;-- 
+filename.md
+filename2.md
+--8&lt;-- 
 </pre></div>
 
 
-<p>The result will be:</p>
-<div class="codehilite"><pre><span></span>Here we will include a snippet.
+<p>As you can see, the notation is ASCII scissors cutting a line followed by the file name.  In the case of the single line variant, the file name follows directly after the scissors and is quoted.  In the case of the block format, the file names follow on separate lines and an additional scissor is added afterwards to signal the end of the block.</p>
+<p>The dashes can be as few as 2 (<code>--8&lt;--</code>) or longer if desired (<code>---8&lt;---------</code>); whatever your preference is.  The important thing is that the notation must reside on a line(s) by itself, and the path must be quoted in the case of the single line notation.  If the file name is indented, the content will be indented to that level as well.  To reduce confusion in block format, it is advised to ensure the entire block is indented to the same level.  If you need to escape the syntax, just make sure a minimum of a space is after the quoted file name for single line format, or a space after the start or end block markers in block format.</p>
+<div class="codehilite"><pre><span></span>--8&lt;-- &quot;escaped notation&quot;&lt;space&gt;
 
-A snippet
+--8&lt;--&lt;space&gt;
+escaped notation
+--8&lt;--&lt;space&gt;
+</pre></div>
+
+
+<p>If you have a file you want to temporarily ignore, you can comment out the path by appending a <code>;</code> to the path (notice the semicolon is followed by a space).  This works for both single line and block format:</p>
+<div class="codehilite"><pre><span></span>--8&lt;-- &quot;; skip.md&quot; 
+
+--8&lt;-- 
+include.md
+; skip.md
+--8&lt;-- 
+</pre></div>
+
+
+<h2 id="formatting-snippets">Formatting Snippets<a class="headerlink" href="#formatting-snippets" title="Permanent link"></a></h2>
+<p>When inserting your snippet, it is important to remember that some snippets may need whitespace around them.</p>
+<div class="codehilite"><pre><span></span>This is the file that is including the snippet.
+We want blank lines before and after the insertion:
+
+--8&lt;-- &quot;insert.md&quot; 
+
+So we put blank lines around the insertion.
+</pre></div>
+
+
+<p>In block format, it is important to note that empty lines are preserved for formatting:</p>
+<div class="codehilite"><pre><span></span>--8&lt;-- 
+file1.md
+
+file2.md
+--8&lt;-- 
 </pre></div>
               
             </article>

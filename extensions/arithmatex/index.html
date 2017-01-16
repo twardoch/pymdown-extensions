@@ -375,8 +375,8 @@
           
   <li class="md-nav__item">
     
-      <a href="../github/" title="Github" class="md-nav__link">
-        Github
+      <a href="../github/" title="GitHub" class="md-nav__link">
+        GitHub
       </a>
     
   </li>
@@ -386,8 +386,8 @@
           
   <li class="md-nav__item">
     
-      <a href="../githubemoji/" title="GithubEmoji" class="md-nav__link">
-        GithubEmoji
+      <a href="../githubemoji/" title="GitHubEmoji" class="md-nav__link">
+        GitHubEmoji
       </a>
     
   </li>
@@ -653,15 +653,15 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions\arithmatex.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions/arithmatex.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
                   <h1>Arithmatex</h1>
                 
                 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
-<p>The Arithmatex extension searches for <code class="codehilite"><span class="s">$</span><span class="nb">...</span><span class="s">$</span></code> or <code class="codehilite"><span class="sb">$$</span><span class="nb">...</span><span class="s">$$</span></code> and preserves and formats them so that <a href="http://www.mathjax.org/">MathJax</a> can detect them in the HTML output.</p>
-<p><code class="codehilite"><span class="s">$</span><span class="nb">...</span><span class="s">$</span></code> is the inline form and requires the opening token (<code class="codehilite"><span class="s">$</span><span class="nb"></span></code>) to be followed by a non-whitespace character, and the closing to be preceded by a non-whitespace character.  This is to help avoid false positives when using the dollar sign in traditional ways such as: I have $2.00 and Bob has $10.00.  The previous statement requires no escaping of the <code class="codehilite"><span class="s">$</span><span class="nb"></span></code> character.  But when needed, the <code class="codehilite"><span class="s">$</span><span class="nb"></span></code> character can be escaped using <code class="codehilite"><span class="k">\$</span></code>.</p>
+<p>The Arithmatex extension searches for <code class="codehilite"><span class="s">$</span><span class="nb">...</span><span class="s">$</span></code> or <code class="codehilite"><span class="sb">$$</span><span class="nb">...</span><span class="s">$$</span></code> and preserves and formats them so that <a href="http://www.mathjax.org/">MathJax</a> can detect them in the HTML output.</p>
+<p><code class="codehilite"><span class="s">$</span><span class="nb">...</span><span class="s">$</span></code> is the inline form and requires the opening token (<code class="codehilite"><span class="s">$</span><span class="nb"></span></code>) to be followed by a non-whitespace character, and the closing to be preceded by a non-white-space character.  This is to help avoid false positives when using the dollar sign in traditional ways such as: I have $2.00 and Bob has $10.00.  The previous statement requires no escaping of the <code class="codehilite"><span class="s">$</span><span class="nb"></span></code> character.  But when needed, the <code class="codehilite"><span class="s">$</span><span class="nb"></span></code> character can be escaped using <code class="codehilite"><span class="k">\$</span></code>.</p>
 <p><code class="codehilite"><span class="sb">$$</span><span class="nb">...</span><span class="s">$$</span></code> is the <em>block</em> form.  When using <code class="codehilite"><span class="sb">$$</span><span class="nb"></span></code>, the block must start with <code class="codehilite"><span class="sb">$$</span><span class="nb"></span></code> and end with <code class="codehilite"><span class="sb">$$</span><span class="nb"></span></code>; a block contains no empty lines.</p>
 <p>The Arithmatex extension actually converts the dollar notation to a more reliable notation in the HTML.  So the conversion is as follows: <code class="codehilite"><span class="s">$</span><span class="nb">...</span><span class="s">$</span></code> &rarr; <code class="codehilite"><span class="s">\(</span><span class="nb">...</span><span class="s">\)</span></code> and <code class="codehilite"><span class="sb">$$</span><span class="nb">...</span><span class="s">$$</span></code> &rarr; <code class="codehilite"><span class="sb">\[</span><span class="nb">...</span><span class="s">\]</span></code>.  Keep this in mind when configuring MathJax for your document.  If a different conversion is desired, see <a href="#options">Options</a> below to learn how to configure it.</p>
 <h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link"></a></h2>
@@ -676,15 +676,15 @@
 </thead>
 <tbody>
 <tr>
-<td>tex_inline_wrap</td>
-<td>(string)</td>
+<td><code>tex_inline_wrap</code></td>
+<td><code class="codehilite"><span class="p">[</span><span class="n">string</span><span class="p">]</span></code></td>
 <td><code class="codehilite"><span class="p">[</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">(&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">)&#39;</span><span class="p">]</span></code></td>
 <td>An array containing the opening and closing portion of the wrap.</td>
 </tr>
 <tr>
-<td>tex_block_wrap</td>
-<td>[string]</td>
-<td><code class="codehilite"><span class="p">[</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">(&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">)&#39;</span><span class="p">]</span></code></td>
+<td><code>tex_block_wrap</code></td>
+<td><code class="codehilite"><span class="p">[</span><span class="n">string</span><span class="p">]</span></code></td>
+<td><code class="codehilite"><span class="p">[</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">[&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">]&#39;</span><span class="p">]</span></code></td>
 <td>An array containing the opening and closing portion of the wrap.</td>
 </tr>
 </tbody>
@@ -724,7 +724,7 @@
 </pre></div>
 
 
-<p>Please see the <a href="http://www.mathjax.org/">MathJax</a> site for more info on using MathJax.</p>
+<p>Please see the <a href="http://www.mathjax.org/">MathJax</a> site for more info on using MathJax.</p>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link"></a></h2>
 <div class="codehilite"><pre><span></span>Some Equations:
 

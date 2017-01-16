@@ -328,8 +328,8 @@
           
   <li class="md-nav__item">
     
-      <a href="../github/" title="Github" class="md-nav__link">
-        Github
+      <a href="../github/" title="GitHub" class="md-nav__link">
+        GitHub
       </a>
     
   </li>
@@ -339,8 +339,8 @@
           
   <li class="md-nav__item">
     
-      <a href="../githubemoji/" title="GithubEmoji" class="md-nav__link">
-        GithubEmoji
+      <a href="../githubemoji/" title="GitHubEmoji" class="md-nav__link">
+        GitHubEmoji
       </a>
     
   </li>
@@ -653,14 +653,14 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions\tasklist.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions/tasklist.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
                   <h1>Tasklist</h1>
                 
                 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
-<p>The Tasklist extension adds <abbr title="GitHub Flavored Markdown">GFM</abbr> style checkbox lists.  They follow the same syntax as <abbr title="GitHub Flavored Markdown">GFM</abbr>.</p>
+<p>The Tasklist extension adds <abbr title="GitHub Flavored Markdown">GFM</abbr> style task lists.  They follow the same syntax as <abbr title="GitHub Flavored Markdown">GFM</abbr>.</p>
 <h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link"></a></h2>
 <table>
 <thead>
@@ -673,15 +673,15 @@
 </thead>
 <tbody>
 <tr>
-<td>custom_checkbox</td>
+<td><code>custom_checkbox</code></td>
 <td>bool</td>
-<td>False</td>
-<td>Generate tasklists in such a way as to allow for styling the checkbox with CSS.</td>
+<td><code class="codehilite"><span class="bp">False</span></code></td>
+<td>Generate task lists in such a way as to allow for styling the check box with CSS.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link"></a></h2>
-<p>Example tasklists results are generated with <code>custom_checkbox</code> enabled.</p>
+<p>Example task list results are generated with <code>custom_checkbox</code> enabled.</p>
 <div class="codehilite"><pre><span></span>Task List
 
 - [X] item 1
@@ -701,8 +701,7 @@
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> item 1<ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> item A</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> item B<br />
-    more text<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> item B<ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> item a</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> item b</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> item c</li>
@@ -715,7 +714,7 @@
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> item 3</li>
 </ul>
 <h2 id="css">CSS<a class="headerlink" href="#css" title="Permanent link"></a></h2>
-<p>The default HTML structure of tasklists is found below:</p>
+<p>The default HTML structure of a task list is found below:</p>
 <div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;task-list&quot;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;task-list-item&quot;</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">disabled</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">checked</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>
@@ -747,19 +746,19 @@
 </thead>
 <tbody>
 <tr>
-<td>task-list</td>
+<td><code>task-list</code></td>
 <td>Attached to either the <code>ul</code> or <code>ol</code> tag and represents the entire list element.</td>
 </tr>
 <tr>
-<td>task-list-item</td>
+<td><code>task-list-item</code></td>
 <td>This is attached the <code>li</code> tag and represents an item in the list.</td>
 </tr>
 <tr>
-<td>task-list-control</td>
+<td><code>task-list-control</code></td>
 <td>This is attached to the <code>label</code> tag and represents the control object.</td>
 </tr>
 <tr>
-<td>task-list-indicator</td>
+<td><code>task-list-indicator</code></td>
 <td>This is attached to the <code>span</code> directly following the input and is used to style the visual indicator.</td>
 </tr>
 </tbody>
@@ -776,7 +775,7 @@
 </pre></div>
 
 
-<p>If custom checkbox icons are desired, custom styles can be used to give a unique look to the checkmarks.  Below is a very simple CSS example that creates a light gray square with rounded corners and displays a green Unicode check mark when the control is checked.  This can be adapted to use webfonts, images, etc.</p>
+<p>If custom check box icons are desired, custom styles can be used to give a unique look to the check marks.  Below is a very simple CSS example that creates a light gray square with rounded corners and displays a green Unicode check mark when the control is checked.  This can be adapted to use web fonts, images, etc.</p>
 <div class="codehilite"><pre><span></span><span class="nc">.markdown-body</span> <span class="nc">.task-list-item</span> <span class="p">{</span>
   <span class="nb">list-style-type</span><span class="o">:</span> <span class="nb">none</span> <span class="cp">!important</span><span class="p">;</span>
 <span class="p">}</span>

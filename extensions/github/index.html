@@ -17,7 +17,7 @@
     
     
       
-        <title>Github - PyMdown Extensions Documentation</title>
+        <title>GitHub - PyMdown Extensions Documentation</title>
       
     
     
@@ -83,7 +83,7 @@
                 </span>
               
             
-            Github
+            GitHub
           
         </span>
       </div>
@@ -332,11 +332,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        Github
+        GitHub
       </label>
     
-    <a href="./" title="Github" class="md-nav__link md-nav__link--active">
-      Github
+    <a href="./" title="GitHub" class="md-nav__link md-nav__link--active">
+      GitHub
     </a>
     
       
@@ -356,8 +356,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#github-emoji-configuration" title="Github Emoji Configuration" class="md-nav__link">
-    Github Emoji Configuration
+  <a href="#github-emoji-configuration" title="GitHub Emoji Configuration" class="md-nav__link">
+    GitHub Emoji Configuration
   </a>
   
 </li>
@@ -385,8 +385,8 @@
           
   <li class="md-nav__item">
     
-      <a href="../githubemoji/" title="GithubEmoji" class="md-nav__link">
-        GithubEmoji
+      <a href="../githubemoji/" title="GitHubEmoji" class="md-nav__link">
+        GitHubEmoji
       </a>
     
   </li>
@@ -622,8 +622,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#github-emoji-configuration" title="Github Emoji Configuration" class="md-nav__link">
-    Github Emoji Configuration
+  <a href="#github-emoji-configuration" title="GitHub Emoji Configuration" class="md-nav__link">
+    GitHub Emoji Configuration
   </a>
   
 </li>
@@ -651,17 +651,17 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions\github.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions/github.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
-                  <h1>Github</h1>
+                  <h1>GitHub</h1>
                 
                 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
-<p>The Github extension is a convenience extension to load up and configure the minimum extensions needed to get a <abbr title="GitHub Flavored Markdown">GFM</abbr> feel.  It is not a 1:1 emulation, but some aspects are pretty close.  There is no desire to make it exact, but the feel is nice if you like <abbr title="GitHub Flavored Markdown">GFM</abbr> feel; some things may differ slightly.</p>
+<p>The GitHub extension is a convenience extension to load up and configure the minimum extensions needed to get a <abbr title="GitHub Flavored Markdown">GFM</abbr> feel.  It is not a 1:1 emulation, but some aspects are pretty close.  There is no desire to make it exact, but the feel is nice if you like <abbr title="GitHub Flavored Markdown">GFM</abbr> feel; some things may differ slightly.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>For code highlighting, you will also need to load the <code>markdown.extensions.codehilite</code> extension yourself as well with <code>guess_lang=False</code>. You will also need to provide your preferred Pygments style (or configure a JavaScript highlighter).  Though there is no Github style included with this extension, you are most likely able to find a suitable theme online by searching. There are Github styles found at the <a href="https://github.com/facelessuser/pymdown-styles/tree/master/pymdown_styles">pymdown-styles</a> repo; it contains the original Pygments Github style (github) and the Github 2014 style (github2014) which Github used before they ditched Pygments for their own in-house highlighter.</p>
+<p>For code highlighting, you will also need to load the <code>markdown.extensions.codehilite</code> extension yourself as well with <code>guess_lang=False</code>. You will also need to provide your preferred Pygments style (or configure a JavaScript highlighter).  Though there is no GitHub style included with this extension, you are most likely able to find a suitable theme online by searching. There are GitHub styles found at the <a href="https://github.com/facelessuser/pymdown-styles/tree/master/pymdown_styles"><code>pymdown-styles</code></a> repository; it contains the original Pygments GitHub style (<code>github</code>) and the GitHub 2014 style (<code>github2014</code>) which GitHub used before they ditched Pygments for their own in-house highlighter.</p>
 </div>
 <div class="admonition danger">
 <p class="admonition-title">Reminder</p>
@@ -674,52 +674,60 @@
 <th>Extension</th>
 <th>Options</th>
 <th>Name</th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="https://pythonhosted.org/Markdown/extensions/tables.html">Tables</a></td>
+<td><a href="https://pythonhosted.org/Markdown/extensions/tables.html">Tables</a></td>
 <td></td>
-<td>markdown.extensions.tables</td>
+<td><code>markdown.extensions.tables</code></td>
+<td></td>
 </tr>
 <tr>
-<td><a href="../magiclink/">magiclink</a></td>
+<td><a href="../magiclink/">MagicLink</a></td>
 <td></td>
-<td>pymdownx.magiclink</td>
+<td><code>pymdownx.magiclink</code></td>
+<td></td>
 </tr>
 <tr>
-<td><a href="../betterem/">betterem</a></td>
+<td><a href="../betterem/">BetterEm</a></td>
 <td><code class="codehilite"><span class="p">{</span><span class="s2">&quot;smart_enable&quot;</span><span class="p">:</span> <span class="s1">&#39;all&#39;</span> <span class="p">}</span></code></td>
-<td>pymdownx.betterem</td>
+<td><code>pymdownx.betterem</code></td>
+<td></td>
 </tr>
 <tr>
-<td><a href="../tilde/">tilde</a></td>
+<td><a href="../tilde/">Tilde</a></td>
 <td><code class="codehilite"><span class="p">{</span><span class="s2">&quot;subscript&quot;</span><span class="p">:</span> <span class="bp">False</span> <span class="p">}</span></code></td>
-<td>pymdownx.tilde</td>
-</tr>
-<tr>
-<td><a href="../emoji/">emoji</a></td>
-<td>see <a href="#github-emoji-configuration">Github Emoji Configuration</a></td>
-<td>pymdownx.emoji</td>
-</tr>
-<tr>
-<td><a href="../tasklist/">tasklist</a></td>
+<td><code>pymdownx.tilde</code></td>
 <td></td>
-<td>pymdownx.tasklist</td>
 </tr>
 <tr>
-<td><a href="../superfences/">superfences</a></td>
+<td><a href="../emoji/">Emoji</a></td>
+<td>see <a href="#github-emoji-configuration">GitHub Emoji Configuration</a></td>
+<td><code>pymdownx.emoji</code></td>
 <td></td>
-<td>pymdownx.superfences</td>
+</tr>
+<tr>
+<td><a href="../tasklist/">Tasklist</a></td>
+<td></td>
+<td><code>pymdownx.tasklist</code></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../superfences/">SuperFences</a></td>
+<td></td>
+<td><code>pymdownx.superfences</code></td>
+<td></td>
 </tr>
 </tbody>
 </table>
 <div class="admonition warning">
 <p class="admonition-title">Output Change</p>
-<p>HeaderAnchor is no longer included starting in version <code>1.4.0</code> as it wasn't really part of the <abbr title="GitHub Flavored Markdown">GFM</abbr> syntax, and HeaderAnchor is now deprecated.  HeaderAnchor is an unnecessary extension, and the same end result can be achieved with <code>markdown.extensions.toc</code> (with the <code>permalink</code> option enabled) and some custom CSS.  This extension was more about the syntax than it was about styling.  If you are not ready to give up the extension, you can manually include the <code>pymdownx.headeranchor</code> extension in addition to <code>pymdownx.github</code>. But in the future, the HeaderAnchor extension will be removed from Pymdown Extensions.</p>
+<p>HeaderAnchor is no longer included starting in version <code>1.4.0</code> as it wasn't really part of the <abbr title="GitHub Flavored Markdown">GFM</abbr> syntax, and HeaderAnchor is now deprecated.  HeaderAnchor is an unnecessary extension, and the same end result can be achieved with <code>markdown.extensions.toc</code> (with the <code>permalink</code> option enabled) and some custom CSS.  This extension was more about the syntax than it was about styling.  If you are not ready to give up the extension, you can manually include the <code>pymdownx.headeranchor</code> extension in addition to <code>pymdownx.github</code>. But in the future, the HeaderAnchor extension will be removed from PyMdown Extensions.</p>
 </div>
-<h3 id="github-emoji-configuration">Github Emoji Configuration<a class="headerlink" href="#github-emoji-configuration" title="Permanent link"></a></h3>
-<p>This is the full, default setup used to get Github emoji images.  This is valid at the time of writing this. Github constantly tweaks how they do things, so in time this may render differently than what they actually do. But this should provide emojis for as long as the CDNs are valid.</p>
+<h3 id="github-emoji-configuration">GitHub Emoji Configuration<a class="headerlink" href="#github-emoji-configuration" title="Permanent link"></a></h3>
+<p>This is the full, default setup used to get GitHub emoji images.  This is valid at the time of writing this. GitHub constantly tweaks how they do things, so in time this may render differently than what they actually do. But this should provide emojis for as long as the CDNs are valid.</p>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pymdownx.emoji</span>
 
 <span class="n">extension_configs</span> <span class="o">=</span> <span class="p">{</span>
@@ -753,16 +761,16 @@
 </thead>
 <tbody>
 <tr>
-<td>no_nl2br</td>
+<td><code>no_nl2br</code></td>
 <td>bool</td>
-<td>True</td>
-<td>If <code>False</code>, this includes the <a href="https://pythonhosted.org/Markdown/extensions/nl2br.html">nl2br</a> extension.</td>
+<td><code class="codehilite"><span class="bp">True</span></code></td>
+<td>If <code>False</code>, this includes the <a href="https://pythonhosted.org/Markdown/extensions/nl2br.html">New-Line-to-Break</a> extension.</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition warning">
 <p class="admonition-title">Deprecated Option</p>
-<p>In version <code>1.3.0</code>, the setting <code>no_nl2br</code> is now <code>True</code> by default and the setting is deprecated and will be removed in the future. Github's <abbr title="GitHub Flavored Markdown">GFM</abbr> (which we are emulating) no longer converts new lines to <code>&lt;br&gt;</code>.  If you prefer having nl2br enabled, you can enable the <code>markdown.extensions.nl2br</code> extension separately.</p>
+<p>In version <code>1.3.0</code>, the setting <code>no_nl2br</code> is now <code>True</code> by default and the setting is deprecated and will be removed in the future. GitHub's <abbr title="GitHub Flavored Markdown">GFM</abbr> (which we are emulating) no longer converts new lines to <code>&lt;br&gt;</code>.  If you prefer having New-Line-to-Break enabled, you can enable the <code>markdown.extensions.nl2br</code> extension separately.</p>
 </div>
               
             </article>
@@ -823,7 +831,7 @@
 
         <!-- Link to next page -->
         
-          <a href="../githubemoji/" title="GithubEmoji"
+          <a href="../githubemoji/" title="GitHubEmoji"
               class="md-flex md-footer-nav__link md-footer-nav__link--next"
               rel="next">
             <div class="md-flex__cell md-flex__cell--stretch
@@ -832,7 +840,7 @@
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                GithubEmoji
+                GitHubEmoji
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

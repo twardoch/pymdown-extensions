@@ -322,6 +322,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#options" title="Options" class="md-nav__link">
+    Options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#examples" title="Examples" class="md-nav__link">
     Examples
   </a>
@@ -361,8 +368,8 @@
           
   <li class="md-nav__item">
     
-      <a href="../github/" title="Github" class="md-nav__link">
-        Github
+      <a href="../github/" title="GitHub" class="md-nav__link">
+        GitHub
       </a>
     
   </li>
@@ -372,8 +379,8 @@
           
   <li class="md-nav__item">
     
-      <a href="../githubemoji/" title="GithubEmoji" class="md-nav__link">
-        GithubEmoji
+      <a href="../githubemoji/" title="GitHubEmoji" class="md-nav__link">
+        GitHubEmoji
       </a>
     
   </li>
@@ -608,6 +615,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#options" title="Options" class="md-nav__link">
+    Options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#examples" title="Examples" class="md-nav__link">
     Examples
   </a>
@@ -625,35 +639,49 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions\escapeall.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions/escapeall.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
                   <h1>EscapeAll</h1>
                 
                 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
-<p>If you ever have to stop and try to remember, <em>Can I escape this char?</em> or <em>Will backslash escape this?</em>, you are not alone.  EscapeAll makes <code>\</code> escape everything making such questions moot.  Now instead of questioning or looking up what can be escaped, you can expect that <code>\</code> will escape the character following it.  So if you need a literal <code>\</code>, just escape it: <code>\\</code>.</p>
-<blockquote>
-<p>What about newlines?</p>
-</blockquote>
-<p>It escapes everything.</p>
-<blockquote>
-<p>What about Unicode?</p>
-</blockquote>
-<p>It escapes everything!</p>
-<blockquote>
-<p>What about&hellip;</p>
-</blockquote>
-<p>EVERYTHING! IT ESCAPES EVERYTHING!</p>
+<p>If you ever have to stop and try to remember, <em>Can I escape this char?</em> or <em>Will backslash escape this?</em>, you are not alone.  EscapeAll makes <code>\</code> escape everything making such questions moot.  Now instead of questioning or looking up what can be escaped, you can expect that <code>\</code> will escape the character following it.  So if you need a literal <code>\</code>, just escape it: <code>\\</code>.  Keep in mind this will not escape things in inline, block, or fenced code.</p>
+<p>There are two special escapes among all of these, and it is the escape of the "space" character and the "newline" character. If <code>nbsp</code> is enabled, an escaped space will be converted into a non-breaking space: <code class="codehilite"><span class="ni">&amp;nbsp;</span></code>. If <code>hardbreak</code> is enabled, an escaped newline will be converted to a hard break <code class="codehilite"><span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span></code>. The advantage of <code>hardbreak</code> is that you can visually see the hard break opposed to Markdown's default method of two spaces at the end of a line.</p>
+<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link"></a></h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hardbreak</code></td>
+<td>bool</td>
+<td>False</td>
+<td>Escaped newlines will be hard breaks: <code class="codehilite"><span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span></code>.</td>
+</tr>
+<tr>
+<td><code>nbsp</code></td>
+<td>bool</td>
+<td>False</td>
+<td>Escaped spaces will be non-breaking spaces: <code class="codehilite"><span class="ni">&amp;nbsp;</span></code>.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link"></a></h2>
-<div class="codehilite"><pre><span></span>\W\e\ \c\a\n\ \e\s\c\a\p\e\ \e\v\e\r\y\t\h\i\n\g\!\ \
-\
+<div class="codehilite"><pre><span></span>\W\e\ \c\a\n\ \e\s\c\a\p\e
+\e\v\e\r\y\t\h\i\n\g\!\ \
 \❤\😄
 </pre></div>
 
 
-<p>We can escape everything! 
-
+<p>We&nbsp;can&nbsp;escape
+everything!&nbsp;<br />
 ❤😄</p>
               
             </article>

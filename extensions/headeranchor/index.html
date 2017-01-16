@@ -328,8 +328,8 @@
           
   <li class="md-nav__item">
     
-      <a href="../github/" title="Github" class="md-nav__link">
-        Github
+      <a href="../github/" title="GitHub" class="md-nav__link">
+        GitHub
       </a>
     
   </li>
@@ -339,8 +339,8 @@
           
   <li class="md-nav__item">
     
-      <a href="../githubemoji/" title="GithubEmoji" class="md-nav__link">
-        GithubEmoji
+      <a href="../githubemoji/" title="GitHubEmoji" class="md-nav__link">
+        GitHubEmoji
       </a>
     
   </li>
@@ -693,7 +693,7 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions\headeranchor.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions/headeranchor.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
@@ -702,12 +702,12 @@
                 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Deprecated Extension</p>
-<p>This extension has been deprecated in version <code>1.4.0</code>.  The same effect can be accomplished using<br />
-<code>markdown.extensions.toc</code> with <code>permalinks</code> and some custom CSS.  It doesn't make sense to continue supporting this as nothing is really gained by specifically doing anchors Github's way.</p>
+<p>This extension has been deprecated in version <code>1.4.0</code>.  The same effect can be accomplished using
+<code>markdown.extensions.toc</code> with <code>permalinks</code> and some custom CSS.  It doesn't make sense to continue supporting this as nothing is really gained by specifically doing anchors GitHub's way.</p>
 </div>
 <p>HeaderAnchor adds anchors to headers in the style of <abbr title="GitHub Flavored Markdown">GFM</abbr>'s header anchors (anchors that appear to the left of the headers when the cursor hovers over the header). The header anchors in this document were all generated with this extension.</p>
 <h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link"></a></h2>
-<p>By default, HeaderAnchor will use <a href="https://pythonhosted.org/Markdown/extensions/toc.html"><abbr title="Table of Contents">Toc</abbr>'s</a> settings (if <abbr title="Table of Contents">Toc</abbr> is being used), but HeaderAnchor can be run without <abbr title="Table of Contents">Toc</abbr>.  HeaderAnchor can also be run along side <abbr title="Table of Contents">Toc</abbr> and ignore <abbr title="Table of Contents">Toc</abbr>'s settings; though it is advised to keep <abbr title="Table of Contents">Toc</abbr> and HeaderAnchor's settings in sync to ensure header links properly link.</p>
+<p>By default, HeaderAnchor will use <a href="https://pythonhosted.org/Markdown/extensions/toc.html"><abbr title="Table of Contents">Toc</abbr>'s</a> settings (if <abbr title="Table of Contents">Toc</abbr> is being used), but HeaderAnchor can be run without <abbr title="Table of Contents">Toc</abbr>.  HeaderAnchor can also be run along side <abbr title="Table of Contents">Toc</abbr> and ignore <abbr title="Table of Contents">Toc</abbr>'s settings; though it is advised to keep <abbr title="Table of Contents">Toc</abbr> and HeaderAnchor's settings in sync to ensure header links properly link.</p>
 <table>
 <thead>
 <tr>
@@ -719,21 +719,21 @@
 </thead>
 <tbody>
 <tr>
-<td>separator</td>
+<td><code>separator</code></td>
 <td>string</td>
-<td>'-'</td>
+<td><code class="codehilite"><span class="s1">&#39;-&#39;</span></code></td>
 <td>If not using <abbr title="Table of Contents">Toc</abbr>, or ignoring <abbr title="Table of Contents">Toc</abbr>'s settings, this will specify the word separator used.</td>
 </tr>
 <tr>
-<td>slugify</td>
+<td><code>slugify</code></td>
 <td>function</td>
 <td>Default method</td>
 <td>If not using <abbr title="Table of Contents">Toc</abbr>, or ignoring <abbr title="Table of Contents">Toc</abbr>'s settings, this will specify the function to generate anchors based on header text.  By Default, this will use <abbr title="Table of Contents">Toc</abbr>'s default, fallback slugify method, but if for any reason <abbr title="Table of Contents">Toc</abbr> is not installed, HeaderAnchor will fall back to an equivalent method.</td>
 </tr>
 <tr>
-<td>use_toc_settings</td>
+<td><code>use_toc_settings</code></td>
 <td>bool</td>
-<td>True</td>
+<td><code class="codehilite"><span class="bp">True</span></code></td>
 <td>This specifies whether HeaderAnchor should get its settings from <abbr title="Table of Contents">Toc</abbr>.  This affects <code>slugify</code> and <code>separator</code>.</td>
 </tr>
 </tbody>
@@ -749,7 +749,7 @@
 <h3 id="uslugify_encoded">uslugify_encoded<a class="headerlink" href="#uslugify_encoded" title="Permanent link"></a></h3>
 <p>If you aren't encoding your HTML as UTF-8, or prefer the safer percent encoded Unicode slugs, you can use <code>pymdownx.slugs.uslugify_encoded</code> which will percent encode non-ASCII word chars.  You can use this to override <abbr title="Table of Contents">Toc</abbr>'s and/or HeaderAnchor's slugify.</p>
 <h2 id="css">CSS<a class="headerlink" href="#css" title="Permanent link"></a></h2>
-<p>Here we will show some example CSS for rendering the header anchors. While Material Icon font is used in this example, you can substitute it with <a href="https://octicons.github.com/">Octicons</a> for even more of a <abbr title="GitHub Flavored Markdown">GFM</abbr> feel, or use something else entirely.</p>
+<p>Here we will show some example CSS for rendering the header anchors. While Material Icon font is used in this example, you can substitute it with <a href="https://octicons.github.com/">Octicons</a> for even more of a <abbr title="GitHub Flavored Markdown">GFM</abbr> feel, or use something else entirely.</p>
 <p>The HTML tags with classes are set like this:</p>
 <div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;css&quot;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">a</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;user-content-css&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#css&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;headeranchor-link&quot;</span> <span class="na">aria-hidden</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>
@@ -770,11 +770,11 @@
 </thead>
 <tbody>
 <tr>
-<td>headeranchor-link</td>
+<td><code>headeranchor-link</code></td>
 <td>This is attached to the actual anchor tag that links to the header.</td>
 </tr>
 <tr>
-<td>headeranchor</td>
+<td><code>headeranchor</code></td>
 <td>This is the span we attach the anchor character to.</td>
 </tr>
 </tbody>
@@ -880,7 +880,7 @@
         <!-- Link to previous page -->
         
           <a href="../githubemoji/"
-              title="GithubEmoji"
+              title="GitHubEmoji"
               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
               rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -893,7 +893,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                GithubEmoji
+                GitHubEmoji
               </span>
             </div>
           </a>
