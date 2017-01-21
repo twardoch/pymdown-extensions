@@ -256,6 +256,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#input-format" title="Input Format" class="md-nav__link">
+    Input Format
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-format" title="Output Format" class="md-nav__link">
+    Output Format
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#options" title="Options" class="md-nav__link">
     Options
   </a>
@@ -622,6 +636,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#input-format" title="Input Format" class="md-nav__link">
+    Input Format
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-format" title="Output Format" class="md-nav__link">
+    Output Format
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#options" title="Options" class="md-nav__link">
     Options
   </a>
@@ -660,10 +688,14 @@
                   <h1>Arithmatex</h1>
                 
                 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
-<p>The Arithmatex extension searches for <code class="codehilite"><span class="s">$</span><span class="nb">...</span><span class="s">$</span></code> or <code class="codehilite"><span class="sb">$$</span><span class="nb">...</span><span class="s">$$</span></code> and preserves and formats them so that <a href="http://www.mathjax.org/">MathJax</a> can detect them in the HTML output.</p>
-<p><code class="codehilite"><span class="s">$</span><span class="nb">...</span><span class="s">$</span></code> is the inline form and requires the opening token (<code class="codehilite"><span class="s">$</span><span class="nb"></span></code>) to be followed by a non-whitespace character, and the closing to be preceded by a non-white-space character.  This is to help avoid false positives when using the dollar sign in traditional ways such as: I have $2.00 and Bob has $10.00.  The previous statement requires no escaping of the <code class="codehilite"><span class="s">$</span><span class="nb"></span></code> character.  But when needed, the <code class="codehilite"><span class="s">$</span><span class="nb"></span></code> character can be escaped using <code class="codehilite"><span class="k">\$</span></code>.</p>
-<p><code class="codehilite"><span class="sb">$$</span><span class="nb">...</span><span class="s">$$</span></code> is the <em>block</em> form.  When using <code class="codehilite"><span class="sb">$$</span><span class="nb"></span></code>, the block must start with <code class="codehilite"><span class="sb">$$</span><span class="nb"></span></code> and end with <code class="codehilite"><span class="sb">$$</span><span class="nb"></span></code>; a block contains no empty lines.</p>
-<p>The Arithmatex extension actually converts the dollar notation to a more reliable notation in the HTML.  So the conversion is as follows: <code class="codehilite"><span class="s">$</span><span class="nb">...</span><span class="s">$</span></code> &rarr; <code class="codehilite"><span class="s">\(</span><span class="nb">...</span><span class="s">\)</span></code> and <code class="codehilite"><span class="sb">$$</span><span class="nb">...</span><span class="s">$$</span></code> &rarr; <code class="codehilite"><span class="sb">\[</span><span class="nb">...</span><span class="s">\]</span></code>.  Keep this in mind when configuring MathJax for your document.  If a different conversion is desired, see <a href="#options">Options</a> below to learn how to configure it.</p>
+<p>Arithmatex is an extension that preserves LaTeX math equations during the Markdown conversion process so that they can be used with <a href="http://www.mathjax.org/">MathJax</a>. It searches for the patterns <code class="codehilite"><span class="s">$</span><span class="nb">...</span><span class="s">$</span></code> and <code class="codehilite"><span class="s">\(</span><span class="nb">...</span><span class="s">\)</span></code> for inline math, and <code class="codehilite"><span class="sb">$$</span><span class="nb">...</span><span class="s">$$</span></code>, <code class="codehilite"><span class="sb">\[</span><span class="nb">...</span><span class="s">\]</span></code>, and <code class="codehilite"><span class="k">\begin</span><span class="nb">{}</span>...<span class="k">\end</span><span class="nb">{}</span></code> for block math. By default, all formats are enabled, but they each format can individually be disabled if desired.</p>
+<p>Keep in mind that some equations can make it through without Arithmatex fine.  Arithmatex is meant to <em>ensure</em> they make it through.</p>
+<h2 id="input-format">Input Format<a class="headerlink" href="#input-format" title="Permanent link"></a></h2>
+<p>For the <code class="codehilite"><span class="s">$</span><span class="nb">...</span><span class="s">$</span></code> inline variant, it is expected that the opening token (<code class="codehilite"><span class="s">$</span><span class="nb"></span></code>) is to be followed by a non-whitespace character, and the closing to be preceded by a non-white-space character.  This is to help avoid false positives when using the dollar sign in traditional ways such as: I have $2.00 and Bob has $10.00.  The previous statement requires no escaping of the <code class="codehilite"><span class="s">$</span><span class="nb"></span></code> character.  But when needed, the <code class="codehilite"><span class="s">$</span><span class="nb"></span></code> character can be escaped using <code class="codehilite"><span class="k">\$</span></code>.</p>
+<p>For block forms, the block must start with the appropriate opening for the block type: <code class="codehilite"><span class="sb">$$</span><span class="nb"></span></code>, <code class="codehilite"><span class="sb">\[</span><span class="nb"></span></code>, and <code class="codehilite"><span class="k">\begin</span><span class="nb">{}</span></code> for the respective search pattern. The block must also end with the proper respective end: <code class="codehilite"><span class="sb">$$</span><span class="nb"></span></code>, <code class="codehilite"><span class="k">\]</span></code>, and <code class="codehilite"><span class="k">\end</span><span class="nb">{}</span></code>. A block also must contain no empty lines and should be both preceded and followed by an empty line.</p>
+<h2 id="output-format">Output Format<a class="headerlink" href="#output-format" title="Permanent link"></a></h2>
+<p>If <code>insert_as_script</code> is enabled, the math equations will be wrapped in a special MathJax script tag and embedded into the HTML. MathJax can already find these scripts, so there is no need to configure the <code>tex2jax</code> extension when setting up MathJax. The tag will be <code class="codehilite"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;math/tex&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span></code> for inline and <code class="codehilite"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;math/tex; mode=display&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span></code> for block. This is probably the most reliable HTML form, but if MathJax doesn't load, you don't get fallback text.  When <code>insert_as_script</code> is enabled, <code>tex_inline_wrap</code> and <code>tex_block_wrap</code> are ignored.</p>
+<p>On output, if <code>insert_as_script</code> is <code class="codehilite"><span class="bp">False</span></code>, the extension will escape necessary symbols and normalize all output to be wrapped in the more reliable <code class="codehilite"><span class="s">\(</span><span class="nb">...</span><span class="s">\)</span></code> for inline math and <code class="codehilite"><span class="sb">\[</span><span class="nb">...</span><span class="s">\]</span></code> for block math. Then the wrapped content will be inserted into a <code>span</code> and embedded into the HTML.  The span provides a container to keep MathJax from gathering multiple equations into one by mistake.  So, with the default settings, if in your Markdown you used <code class="codehilite"><span class="s">$</span><span class="nb">...</span><span class="s">$</span></code>, it would be converted to <code class="codehilite"><span class="s">\(</span><span class="nb">...</span><span class="s">\)</span></code> in the HTML. Blocks would respectively be normalized from <code class="codehilite"><span class="sb">$$</span><span class="nb">...</span><span class="s">$$</span></code> to <code class="codehilite"><span class="sb">\[</span><span class="nb">...</span><span class="s">\]</span></code>.  In the case of <code class="codehilite"><span class="k">\begin</span><span class="nb">{}</span>...<span class="k">\end</span><span class="nb">{}</span></code>, begins and ends will not be replaced, only wrapped<code class="codehilite"><span class="sb">\[</span><span class="nv">\begin</span><span class="nb">{}...</span><span class="nv">\end</span><span class="nb">{}</span><span class="s">\]</span></code>. Normalization is provided as MathJax disables detection of <code class="codehilite"><span class="s">$</span><span class="nb">...</span><span class="s">$</span></code> by default due to detection issues with money notation.  Since Arithmatex provides additional logic to curb issues with <code class="codehilite"><span class="s">$</span><span class="nb"></span></code>, we allow it in the Markdown. If a different wrapper is desired, see <a href="#options">Options</a> below to learn how to change the wrapper.</p>
 <h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link"></a></h2>
 <table>
 <thead>
@@ -676,6 +708,18 @@
 </thead>
 <tbody>
 <tr>
+<td><code>inline_syntax</code></td>
+<td><code class="codehilite"><span class="p">[</span><span class="n">string</span><span class="p">]</span></code></td>
+<td><code class="codehilite"><span class="p">[</span><span class="s1">&#39;dollar&#39;</span><span class="p">,</span> <span class="s1">&#39;round&#39;</span><span class="p">]</span></code></td>
+<td>Syntax to search for: dollar=<code class="codehilite"><span class="s">$</span><span class="nb">...</span><span class="s">$</span></code> and round=<code class="codehilite"><span class="s">\(</span><span class="nb">...</span><span class="s">\)</span></code>.</td>
+</tr>
+<tr>
+<td><code>block_syntax</code></td>
+<td><code class="codehilite"><span class="p">[</span><span class="n">string</span><span class="p">]</span></code></td>
+<td><code class="codehilite"><span class="p">[</span><span class="s1">&#39;dollar&#39;</span><span class="p">,</span> <span class="s1">&#39;square&#39;</span><span class="p">,</span> <span class="s1">&#39;begin&#39;</span><span class="p">]</span></code></td>
+<td>Syntax to search for: dollar=<code class="codehilite"><span class="s">$</span><span class="nb">...</span><span class="s">$</span></code>, square=<code class="codehilite"><span class="sb">\[</span><span class="nb">...</span><span class="s">\]</span></code>, and <code class="codehilite"><span class="k">\begin</span><span class="nb">{}</span>...<span class="k">\end</span><span class="nb">{}</span></code>.</td>
+</tr>
+<tr>
 <td><code>tex_inline_wrap</code></td>
 <td><code class="codehilite"><span class="p">[</span><span class="n">string</span><span class="p">]</span></code></td>
 <td><code class="codehilite"><span class="p">[</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">(&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">)&#39;</span><span class="p">]</span></code></td>
@@ -687,84 +731,82 @@
 <td><code class="codehilite"><span class="p">[</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">[&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">]&#39;</span><span class="p">]</span></code></td>
 <td>An array containing the opening and closing portion of the wrap.</td>
 </tr>
+<tr>
+<td><code>insert_as_script</code></td>
+<td>bool</td>
+<td><code class="codehilite"><span class="bp">False</span></code></td>
+<td>Instead of using the above wrap options, insert the equations in a <code>math/tex</code> script. This form is the most reliable in HTML, but if the MathJax script fails to load, the user won't see any indication of the equations.</td>
+</tr>
 </tbody>
 </table>
-<div class="admonition warning">
+<div class="admonition danger">
 <p class="admonition-title">Wrapping Format</p>
-<p>The wrapping options are <strong>not</strong> run through an HTML escaper, so make sure you escape whatever requires escaping.  The reason we don't escape the wrap strings is so you can inject an HTML tag wrapper if desired.  Most people don't need to insert HTML, but as an example, when these docs are run through CI and spell checked, math is wrapped with <code>&lt;nospell&gt;&lt;/nospell&gt;</code> tags which are filtered out to avoid spell checking the content. So there are practical applications.</p>
+<p>Version <code>1.7.0</code>: Arithmatex, when <code>insert_as_script</code> is <code class="codehilite"><span class="bp">False</span></code>, now runs the wrap options through an HTML escaper and then everything is wrapped in a <code>span</code>. This is to isolate equations and prevent them from bleeding into each other when MathJax parses the HTML. Though this is a more aggressive change, it is to meant to provide more reliable output.</p>
 </div>
 <h2 id="loading-mathjax">Loading MathJax<a class="headerlink" href="#loading-mathjax" title="Permanent link"></a></h2>
-<p>Arithmatex requires you to provide the MathJax library and provide and configure it to your liking.  The recommended way of including MathJax is to use the CDN.  Below in this example, we are selecting the default <code>TeX-MML-AM_CHTML</code> configuration. This is what <em>this</em> documentation site is currently using.</p>
+<p>Arithmatex requires you to provide the MathJax library and provide and configure it to your liking.  The recommended way of including MathJax is to use the CDN.</p>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>If you want to load one of the pre-defined configurations that MathJax offers, you can do as shown below.  Notice we are using the <a href="http://docs.mathjax.org/en/latest/config-files.html?highlight=TeX-MML-AM_CHTML#the-tex-mml-am-chtml-configuration-file"><code>TeX-MML-AM_CHTML</code></a> configuration file.</p>
 <div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 
 
-<p>If you need to configure or tweak the settings further, make sure to load your configuration tweaks <strong>before</strong> you load the <code>MathJax.js</code> file. Below is an example of the configuration that we use to tweak the MathJax in this page.  We include this snippet <strong>before</strong> we include <code>MathJax.js</code>.</p>
+<p>If you don't include a pre-defined configuration, you will need to provide your own.  But you can also provide a configuration to tweak the pre-defined configuration.  Here we show a simple example of a configuration done in JavaScript.</p>
 <div class="codehilite"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">MathJax</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">jax</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;input/TeX&quot;</span><span class="p">],</span>
+  <span class="nx">config</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;MMLorHTML.js&quot;</span><span class="p">],</span>
+  <span class="nx">jax</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;input/TeX&quot;</span><span class="p">,</span> <span class="s2">&quot;output/HTML-CSS&quot;</span><span class="p">,</span> <span class="s2">&quot;output/NativeMML&quot;</span><span class="p">],</span>
+  <span class="nx">extensions</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;tex2jax.js&quot;</span><span class="p">,</span> <span class="s2">&quot;MathMenu.js&quot;</span><span class="p">,</span> <span class="s2">&quot;MathZoom.js&quot;</span><span class="p">],</span>
   <span class="nx">tex2jax</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">inlineMath</span><span class="o">:</span> <span class="p">[</span> <span class="p">[</span><span class="s2">&quot;\\(&quot;</span><span class="p">,</span><span class="s2">&quot;\\)&quot;</span><span class="p">]</span> <span class="p">],</span>
     <span class="nx">displayMath</span><span class="o">:</span> <span class="p">[</span> <span class="p">[</span><span class="s2">&quot;\\[&quot;</span><span class="p">,</span><span class="s2">&quot;\\]&quot;</span><span class="p">]</span> <span class="p">]</span>
   <span class="p">},</span>
-  <span class="nx">TeX</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">TagSide</span><span class="o">:</span> <span class="s2">&quot;right&quot;</span><span class="p">,</span>
-    <span class="nx">TagIndent</span><span class="o">:</span> <span class="s2">&quot;.8em&quot;</span><span class="p">,</span>
-    <span class="nx">MultLineWidth</span><span class="o">:</span> <span class="s2">&quot;85%&quot;</span><span class="p">,</span>
-    <span class="nx">equationNumbers</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">autoNumber</span><span class="o">:</span> <span class="s2">&quot;AMS&quot;</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="nx">unicode</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">fonts</span><span class="o">:</span> <span class="s2">&quot;STIXGeneral,&#39;Arial Unicode MS&#39;&quot;</span>
-    <span class="p">}</span>
-  <span class="p">},</span>
-  <span class="nx">displayAlign</span><span class="o">:</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span>
-  <span class="nx">showProcessingMessages</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="nx">messageStyle</span><span class="o">:</span> <span class="s1">&#39;none&#39;</span>
 <span class="p">};</span>
 </pre></div>
 
 
-<p>Please see the <a href="http://www.mathjax.org/">MathJax</a> site for more info on using MathJax.</p>
+<p>If you have <code>insert_as_script</code> enabled, you could omit the extension <code>tex2jax.js</code> and the <code>tex2jax</code> settings.</p>
+<div class="codehilite"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">MathJax</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">config</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;MMLorHTML.js&quot;</span><span class="p">],</span>
+  <span class="nx">jax</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;input/TeX&quot;</span><span class="p">,</span> <span class="s2">&quot;output/HTML-CSS&quot;</span><span class="p">,</span> <span class="s2">&quot;output/NativeMML&quot;</span><span class="p">],</span>
+  <span class="nx">extensions</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;MathMenu.js&quot;</span><span class="p">,</span> <span class="s2">&quot;MathZoom.js&quot;</span><span class="p">]</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>Please see the <a href="http://www.mathjax.org/">MathJax</a> site for more info on using MathJax extensions/plugins and configuring those extensions/plugins.</p>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link"></a></h2>
-<div class="codehilite"><pre><span></span>Some Equations:
+<div class="codehilite"><pre><span></span>Some Block Equations:
 
 <span class="sb">$$</span><span class="nb"></span>
 <span class="nb">E</span><span class="o">(</span><span class="nv">\mathbf</span><span class="nb">{v}, </span><span class="nv">\mathbf</span><span class="nb">{h}</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="o">-</span><span class="nv">\sum</span><span class="nb">_{i,j}w_{ij}v_i h_j </span><span class="o">-</span><span class="nb"> </span><span class="nv">\sum</span><span class="nb">_i b_i v_i </span><span class="o">-</span><span class="nb"> </span><span class="nv">\sum</span><span class="nb">_j c_j h_j</span>
 <span class="s">$$</span>
 
-- Here are some more equations:
+<span class="sb">\[</span><span class="m">3</span><span class="nb"> &lt; </span><span class="m">4</span><span class="s">\]</span>
 
-    <span class="sb">$$</span><span class="nb"></span>
-<span class="nb">        </span><span class="nv">\begin</span><span class="nb">{align}</span>
-<span class="nb">            p</span><span class="o">(</span><span class="nb">v_i</span><span class="o">=</span><span class="m">1</span><span class="nb">|</span><span class="nv">\mathbf</span><span class="nb">{h}</span><span class="o">)</span><span class="nb"> &amp; </span><span class="o">=</span><span class="nb"> </span><span class="nv">\sigma\left</span><span class="o">(</span><span class="nv">\sum</span><span class="nb">_j w_{ij}h_j </span><span class="o">+</span><span class="nb"> b_i</span><span class="nv">\right</span><span class="o">)</span><span class="nb"> </span><span class="nv">\\</span><span class="nb"></span>
-<span class="nb">            p</span><span class="o">(</span><span class="nb">h_j</span><span class="o">=</span><span class="m">1</span><span class="nb">|</span><span class="nv">\mathbf</span><span class="nb">{v}</span><span class="o">)</span><span class="nb"> &amp; </span><span class="o">=</span><span class="nb"> </span><span class="nv">\sigma\left</span><span class="o">(</span><span class="nv">\sum</span><span class="nb">_i w_{ij}v_i </span><span class="o">+</span><span class="nb"> c_j</span><span class="nv">\right</span><span class="o">)</span><span class="nb"></span>
-<span class="nb">        </span><span class="nv">\end</span><span class="nb">{align}</span>
-<span class="nb">    </span><span class="s">$$</span>
+<span class="k">\begin</span><span class="nb">{</span>align<span class="nb">}</span>
+    p(v<span class="nb">_</span>i=1|<span class="k">\mathbf</span><span class="nb">{</span>h<span class="nb">}</span>) <span class="nb">&amp;</span> = <span class="k">\sigma\left</span>(<span class="k">\sum</span><span class="nb">_</span>j w<span class="nb">_{</span>ij<span class="nb">}</span>h<span class="nb">_</span>j + b<span class="nb">_</span>i<span class="k">\right</span>) <span class="k">\\</span>
+    p(h<span class="nb">_</span>j=1|<span class="k">\mathbf</span><span class="nb">{</span>v<span class="nb">}</span>) <span class="nb">&amp;</span> = <span class="k">\sigma\left</span>(<span class="k">\sum</span><span class="nb">_</span>i w<span class="nb">_{</span>ij<span class="nb">}</span>v<span class="nb">_</span>i + c<span class="nb">_</span>j<span class="k">\right</span>)
+<span class="k">\end</span><span class="nb">{</span>align<span class="nb">}</span>
 
-- Inline equations: <span class="s">$</span><span class="nb">p</span><span class="o">(</span><span class="nb">x|y</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{p</span><span class="o">(</span><span class="nb">y|x</span><span class="o">)</span><span class="nb">p</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb">}{p</span><span class="o">(</span><span class="nb">y</span><span class="o">)</span><span class="nb">}</span><span class="s">$</span>.
+Inline equations: <span class="s">$</span><span class="nb">p</span><span class="o">(</span><span class="nb">x|y</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{p</span><span class="o">(</span><span class="nb">y|x</span><span class="o">)</span><span class="nb">p</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb">}{p</span><span class="o">(</span><span class="nb">y</span><span class="o">)</span><span class="nb">}</span><span class="s">$</span>, <span class="s">\(</span><span class="nb">p</span><span class="o">(</span><span class="nb">x|y</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{p</span><span class="o">(</span><span class="nb">y|x</span><span class="o">)</span><span class="nb">p</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb">}{p</span><span class="o">(</span><span class="nb">y</span><span class="o">)</span><span class="nb">}</span><span class="s">\)</span>.
 </pre></div>
 
 
-<p>Some Equations:</p>
-<p>\[
+<p>Some Block Equations:</p>
+<span>\[
 E(\mathbf{v}, \mathbf{h}) = -\sum_{i,j}w_{ij}v_i h_j - \sum_i b_i v_i - \sum_j c_j h_j
-\]</p>
-<ul>
-<li>
-<p>Here are some more equations:</p>
-<p>\[
-    \begin{align}
-        p(v_i=1|\mathbf{h}) &amp; = \sigma\left(\sum_j w_{ij}h_j + b_i\right) \\
-        p(h_j=1|\mathbf{v}) &amp; = \sigma\left(\sum_i w_{ij}v_i + c_j\right)
-    \end{align}
-\]</p>
-</li>
-<li>
-<p>Inline equations: \(p(x|y) = \frac{p(y|x)p(x)}{p(y)}\).</p>
-</li>
-</ul>
+\]</span><span>\[3 &lt; 4\]</span><span>\[\begin{align}
+    p(v_i=1|\mathbf{h}) &amp; = \sigma\left(\sum_j w_{ij}h_j + b_i\right) \\
+    p(h_j=1|\mathbf{v}) &amp; = \sigma\left(\sum_i w_{ij}v_i + c_j\right)
+\end{align}\]</span><p>Inline equations: <span>\(p(x|y) = \frac{p(y|x)p(x)}{p(y)}\)</span>, <span>\(p(x|y) = \frac{p(y|x)p(x)}{p(y)}\)</span>.</p>
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
+    config: ["MMLorHTML.js"],
+    jax: ["input/TeX", "output/HTML-CSS", "output/NativeMML"],
+    extensions: ["tex2jax.js", "MathMenu.js", "MathZoom.js"],
     tex2jax: {
         inlineMath: [ ["\\(","\\)"] ],
         displayMath: [ ["\\[","\\]"] ]
@@ -775,9 +817,6 @@ MathJax.Hub.Config({
         MultLineWidth: "85%",
         equationNumbers: {
             autoNumber: "AMS",
-        },
-        unicode: {
-            fonts: "STIXGeneral,'Arial Unicode MS'"
         }
     },
     displayAlign: 'left',
@@ -786,7 +825,7 @@ MathJax.Hub.Config({
 });
 </script>
 
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
               
             </article>
           </div>

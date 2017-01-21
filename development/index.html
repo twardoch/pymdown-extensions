@@ -799,9 +799,9 @@
 <h2 id="coding-standards">Coding Standards<a class="headerlink" href="#coding-standards" title="Permanent link"></a></h2>
 <p>When writing code, the code should roughly conform to PEP8 and PEP257 suggestions.  The PyMdown Extensions project utilizes the flake8 linter (with some additional plugins) to ensure code conforms (give or take some of the rules).  When in doubt follow the formatting hints of existing code when adding or modifying files. existing files.  Listed below are the modules used:</p>
 <ul>
-<li><a href="https://pypi.python.org/pypi/flake8">flake8</a></li>
-<li><a href="https://pypi.python.org/pypi/flake8-docstrings">flake8_docstrings</a></li>
-<li><a href="https://pypi.python.org/pypi/pep8-naming">pep8-naming</a></li>
+<li><a href="https://pypi.python.org/pypi/flake8">flake8</a></li>
+<li><a href="https://pypi.python.org/pypi/flake8-docstrings">flake8_docstrings</a></li>
+<li><a href="https://pypi.python.org/pypi/pep8-naming">pep8-naming</a></li>
 </ul>
 <p>Flake8 can be run directly via the command line from the root of the project.</p>
 <div class="codehilite"><pre><span></span>flake8
@@ -811,9 +811,9 @@
 <h2 id="building-documents">Building Documents<a class="headerlink" href="#building-documents" title="Permanent link"></a></h2>
 <p>Documents are in Markdown (with with some additional syntax) and converted to HTML via Python Markdown and this extension bundle. If you would like to build and preview the documentation, you must have these packages installed:</p>
 <ul>
-<li><a href="https://github.com/waylan/Python-Markdown">Python Markdown</a>: the Markdown parser.</li>
-<li><a href="https://github.com/mkdocs/mkdocs">MkDocs</a>: the document site generator.</li>
-<li><a href="https://github.com/squidfunk/mkdocs-material">Material</a>: a material theme for MkDocs.</li>
+<li><a href="https://github.com/waylan/Python-Markdown">Python Markdown</a>: the Markdown parser.</li>
+<li><a href="https://github.com/mkdocs/mkdocs">MkDocs</a>: the document site generator.</li>
+<li><a href="https://github.com/squidfunk/mkdocs-material">Material</a>: a material theme for MkDocs.</li>
 <li>PyMdown Extensions: this Python Markdown extension bundle.</li>
 </ul>
 <p>In order to build and preview the documents, just run the following from the root of the project and you should be able to view the docs at <code>localhost:8000</code> in your browser (assuming you have the dependencies installed).</p>
@@ -822,14 +822,14 @@
 
 
 <h2 id="spell-checking-documents">Spell Checking Documents<a class="headerlink" href="#spell-checking-documents" title="Permanent link"></a></h2>
-<p>During validation we build the docs and run a spell checker on them.  The spell checker script uses <a href="http://aspell.net/">Aspell</a>.  Currently this project uses the latest Aspell.  As the latest Aspell is not available on Windows, it is not expected that everyone will install and run Aspell locally.  In order to perform the spell check, it is expected you are setup to build the documents, and that you have Aspell installed in the your system path. To initiate the spell check run the following command from the root of the project:</p>
+<p>During validation we build the docs and run a spell checker on them.  The spell checker script uses <a href="http://aspell.net/">Aspell</a>.  Currently this project uses the latest Aspell.  As the latest Aspell is not available on Windows, it is not expected that everyone will install and run Aspell locally.  In order to perform the spell check, it is expected you are setup to build the documents, and that you have Aspell installed in the your system path. To initiate the spell check run the following command from the root of the project:</p>
 <div class="codehilite"><pre><span></span>python spelling.py
 </pre></div>
 
 
 <p>It should print out the files with the misspelled words if any are found.  If you find it prints words that are not misspelled, you can add them in <code>.dictionary</code> in the root of the project.</p>
 <h2 id="validation-tests">Validation Tests<a class="headerlink" href="#validation-tests" title="Permanent link"></a></h2>
-<p>In order to preserve good code health, a test suite has been put together with <a href="http://doc.pytest.org/en/latest/">pytest</a>. There are currently two kinds of tests: syntax and targeted.  To run these tests, you can use the following command:</p>
+<p>In order to preserve good code health, a test suite has been put together with <a href="http://doc.pytest.org/en/latest/">pytest</a>. There are currently two kinds of tests: syntax and targeted.  To run these tests, you can use the following command:</p>
 <div class="codehilite"><pre><span></span>python run_tests.py
 </pre></div>
 
@@ -846,8 +846,18 @@
 </pre></div>
 
 
-<p>To accept the differences in a test due to a change(s) you made, you can run the following command:</p>
+<p>To run a specific syntax test:</p>
+<div class="codehilite"><pre><span></span>python run_tests.py --test-target syntax --file tests/extensions/arithmatex.txt
+</pre></div>
+
+
+<p>To accept the differences in tests due to a change(s) you made, you can run the following command:</p>
 <div class="codehilite"><pre><span></span>python run_tests.py --update
+</pre></div>
+
+
+<p>To update and accept the differences in a single test:</p>
+<div class="codehilite"><pre><span></span>python run_tests.py --update --file tests/extensions/arithmatex.txt
 </pre></div>
 
 
@@ -864,7 +874,7 @@
 
 
 <h3 id="running-validation-with-tox">Running Validation With Tox<a class="headerlink" href="#running-validation-with-tox" title="Permanent link"></a></h3>
-<p><a href="https://pypi.python.org/pypi/tox">Tox</a> is a great way to run the validation tests, spelling checks, and linting in virtual environments so as not to mess with your current working environment. Tox will use the specified Python version for the given environment and create a virtual environment and install all the needed requirements (minus Aspell).  You could also setup your own virtual environments with the Virtualenv module without Tox, and manually do the same.</p>
+<p><a href="https://pypi.python.org/pypi/tox">Tox</a> is a great way to run the validation tests, spelling checks, and linting in virtual environments so as not to mess with your current working environment. Tox will use the specified Python version for the given environment and create a virtual environment and install all the needed requirements (minus Aspell).  You could also setup your own virtual environments with the Virtualenv module without Tox, and manually do the same.</p>
 <p>First, you need to have Tox installed:</p>
 <div class="codehilite"><pre><span></span>pip install tox
 </pre></div>
@@ -892,7 +902,7 @@
 
 
 <h2 id="code-coverage">Code Coverage<a class="headerlink" href="#code-coverage" title="Permanent link"></a></h2>
-<p>When running the validation tests through Tox, it is setup to track code coverage via the <a href="https://coverage.readthedocs.io">coverage</a> module.  Coverage is run on each <code>pyxx-unittests</code> environment.  If you've made changes to the code, you can clear the old coverage data:</p>
+<p>When running the validation tests through Tox, it is setup to track code coverage via the <a href="https://coverage.readthedocs.io">coverage</a> module.  Coverage is run on each <code>pyxx-unittests</code> environment.  If you've made changes to the code, you can clear the old coverage data:</p>
 <div class="codehilite"><pre><span></span>coverage erase
 </pre></div>
 
@@ -902,7 +912,7 @@
 <h2 id="generating-emoji-indexes">Generating Emoji Indexes<a class="headerlink" href="#generating-emoji-indexes" title="Permanent link"></a></h2>
 <p>The Emoji extension has emoji indexes generated from the source of Gemoji and EmojiOne.  Below is the process for auto-generating these indexes.</p>
 <ol>
-<li>Ensure you have <a href="https://pypi.python.org/pypi/requests/">Requests</a> installed: <code>pip install requests</code>.</li>
+<li>Ensure you have <a href="https://pypi.python.org/pypi/requests/">Requests</a> installed: <code>pip install requests</code>.</li>
 <li>Fork the repository and checkout to your machine.</li>
 <li>Navigate to the root of the project.</li>
 <li>Call the generator script: <code>python tools/gen_emoji.py --gemoji</code> or <code>python tools/gen_emoji.py --emojione</code>.  It will prompt you to select a tag to download.  Please pull the latest <strong>official</strong> tag.  Please don't pull experimental tags.  This should update the indexes.</li>

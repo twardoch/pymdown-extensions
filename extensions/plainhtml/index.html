@@ -650,7 +650,7 @@
 <p>Because comments aren't stripped until the end in a post-processing step, they are present throughout the entire Markdown conversion process and could possibly affect parsing, so be careful how you generally insert comments.</p>
 <div class="admonition caution">
 <p class="admonition-title">Warning</p>
-<p>This is not meant to be a sanitizer for HTML.  This is just meant to try and strip out style, script, classes, etc. to provide a plain HTML output for the times this is desired; this is not meant as a security extension.  If you want something to secure the output, you should consider running a sanitizer like <a href="https://pypi.python.org/pypi/bleach">Bleach</a>.</p>
+<p>This is not meant to be a sanitizer for HTML.  This is just meant to try and strip out style, script, classes, etc. to provide a plain HTML output for the times this is desired; this is not meant as a security extension.  If you want something to secure the output, you should consider running a sanitizer like <a href="https://pypi.python.org/pypi/bleach">Bleach</a>.</p>
 </div>
 <h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link"></a></h2>
 <p>By default, PlainHtml strips the following attributes: <code>style</code>, <code>id</code>, <code>class</code>, and <code>on&lt;name&gt;</code>.  PlainHtml also strips HTML comments. If desired, its behavior can be configured to strip less or even more, but it is limited to attributes and comments.</p>
