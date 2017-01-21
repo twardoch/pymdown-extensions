@@ -701,38 +701,38 @@
 <table><thead><tr><th>Markup</th><th>Example</th></tr></thead><tbody><tr><td>delete</td><td><del class="critic">delete</del></td></tr><tr><td>insert</td><td><ins class="critic">insert</ins></td></tr><tr><td>delete and replace with substitutions</td><td><del class="critic">delete and replace</del><ins class="critic">substitutions</ins></td></tr><tr><td>highlight</td><td><mark class="critic">highlight</mark></td></tr><tr><td>comment</td><td><mark class="critic">text</mark><span class="critic comment">comment</span></td></tr></tbody></table>
 
 <p>Here they are in action:</p>
-<div class="codehilite"><pre><span></span>Here is some {--*incorrect*--} Markdown.  I am adding this{++ here.++}.  Here is some more {--text
- that I am removing--}text.  And here is even more {++text that I 
- am ++}adding.{~~
+<div class="codehilite"><pre><span></span>Here<span class="w"> </span>is<span class="w"> </span>some<span class="w"> </span><span class="s">{--*incorrect*--}</span><span class="w"> </span>Markdown.<span class="w">  </span>I<span class="w"> </span>am<span class="w"> </span>adding<span class="w"> </span>this<span class="s">{++ here.++}</span>.<span class="w">  </span>Here<span class="w"> </span>is<span class="w"> </span>some<span class="w"> </span>more<span class="w"> </span><span class="s">{--text</span>
+<span class="s"> that I am removing--}</span>text.<span class="w">  </span>And<span class="w"> </span>here<span class="w"> </span>is<span class="w"> </span>even<span class="w"> </span>more<span class="w"> </span><span class="s">{++text that I </span>
+<span class="s"> am ++}</span>adding.<span class="s">{~~</span>
 
-~&gt;  ~~}Paragraph was deleted and replaced with some spaces.{~~  ~&gt;
+<span class="s">~&gt;  ~~}</span>Paragraph<span class="w"> </span>was<span class="w"> </span>deleted<span class="w"> </span>and<span class="w"> </span>replaced<span class="w"> </span>with<span class="w"> </span>some<span class="w"> </span>spaces.<span class="s">{~~  ~&gt;</span>
 
-~~}Spaces were removed and a paragraph was added.
+<span class="s">~~}</span>Spaces<span class="w"> </span>were<span class="w"> </span>removed<span class="w"> </span>and<span class="w"> </span>a<span class="w"> </span>paragraph<span class="w"> </span>was<span class="w"> </span>added.
 
-And here is a comment on {==some
- ==text== ==}{&gt;&gt;This works quite well. I just wanted to comment on it.&lt;&lt;}. Substitutions {~~is~&gt;are~~} great!
+And<span class="w"> </span>here<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>comment<span class="w"> </span>on<span class="w"> </span><span class="s">{==some</span>
+<span class="s"> ==text== ==}{&gt;&gt;This works quite well. I just wanted to comment on it.&lt;&lt;}</span>.<span class="w"> </span>Substitutions<span class="w"> </span><span class="s">{~~is~&gt;are~~}</span><span class="w"> </span>great!
 
-General block handling.
+General<span class="w"> </span>block<span class="w"> </span>handling.
 
-{--
+<span class="s">{--</span>
 
-* test
-* test
-* test
-    * test
-* test
+<span class="s">* test</span>
+<span class="s">* test</span>
+<span class="s">* test</span>
+<span class="s">    * test</span>
+<span class="s">* test</span>
 
---}
+<span class="s">--}</span>
 
-{++
+<span class="s">{++</span>
 
-* test
-* test
-* test
-    * test
-* test
+<span class="s">* test</span>
+<span class="s">* test</span>
+<span class="s">* test</span>
+<span class="s">    * test</span>
+<span class="s">* test</span>
 
-++}
+<span class="s">++}</span>
 </pre></div>
 
 
