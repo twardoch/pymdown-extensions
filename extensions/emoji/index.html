@@ -13,7 +13,7 @@
       
         <link rel="shortcut icon" href="../../assets/images/favicon.ico">
       
-      <meta name="generator" content="mkdocs+mkdocs-material#1.0.2">
+      <meta name="generator" content="mkdocs+mkdocs-material#1.0.3">
     
     
       
@@ -34,7 +34,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-1b8b9fdf68.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-f3ab63f78a.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/application-02ce7adcc2.palette.css">
       
@@ -818,7 +818,7 @@ Gemoji: <a href="https://github.com/github/gemoji/blob/master/LICENSE">https://g
 <h2 id="default-emoji-indexes">Default Emoji Indexes<a class="headerlink" href="#default-emoji-indexes" title="Permanent link"></a></h2>
 <p>By default, Emoji provides two indexes: <code>emojione</code> and <code>gemoji</code>.  Both indexes are generated from the most recent official release tag source. They can be used by passing in one of the two functions below via the <code>emoji_index</code> parameter.  Pass the actual function reference, not a string. If you need to create your own, just check out <a href="#custom-emoji-generators">Custom Emoji Indexes</a>.</p>
 <dl>
-<dt>pymdownx.emoji.emojione</dt>
+<dt><code>pymdownx.emoji.emojione</code></dt>
 <dd>
 <p>This is the default function that is used and provides an index using the latest EmojiOne supported emojis (at the time of release).  You can always find out what tag it was built with by doing the following:</p>
 <div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">pymdownx.emoji1_db</span> <span class="kn">as</span> <span class="nn">e1db</span>
@@ -828,7 +828,7 @@ Gemoji: <a href="https://github.com/github/gemoji/blob/master/LICENSE">https://g
 
 
 </dd>
-<dt>pymdownx.emoji.gemoji</dt>
+<dt><code>pymdownx.emoji.gemoji</code></dt>
 <dd>
 <p>This function provides an index of the latest Gemoji supported emoji (at the time of release). You can always find out what tag it was built with by doing the following:</p>
 <div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">pymdownx.gemoji_db</span> <span class="kn">as</span> <span class="nn">gmdb</span>
@@ -842,7 +842,7 @@ Gemoji: <a href="https://github.com/github/gemoji/blob/master/LICENSE">https://g
 <h2 id="default-emoji-generators">Default Emoji Generators<a class="headerlink" href="#default-emoji-generators" title="Permanent link"></a></h2>
 <p>Emoji provides six default emoji generators.  All the generators can be used with the <code>emojione</code> index, but only two will work well with the <code>gemoji</code> index: <code>pymdownx.emoji.to_png</code> and <code>pymdownx.emoji.to_alt</code>. You can select a generator to use by passing in one of the functions below via the <code>emoji_generator</code> parameter.  Pass the actual function reference, not a string. If you need to create your own, just check out <a href="#custom-emoji-generators">Custom Emoji Generators</a>.</p>
 <dl>
-<dt>pymdownx.emoji.to_png</dt>
+<dt><code>pymdownx.emoji.to_png</code></dt>
 <dd>
 <p>This is a general purpose generator and, by default, provides an EmojiOne CDN and GitHub CDN path(s).  The PNG output form is as follows:</p>
 <div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;😄&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;emojione&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/emojione/assets/png/1f604.png&quot;</span> <span class="na">title</span><span class="o">=</span><span class="s">&quot;:smile:&quot;</span> <span class="p">/&gt;</span>
@@ -887,7 +887,7 @@ Gemoji: <a href="https://github.com/github/gemoji/blob/master/LICENSE">https://g
 </tbody>
 </table>
 </dd>
-<dt>pymdownx.emoji.to_svg</dt>
+<dt><code>pymdownx.emoji.to_svg</code></dt>
 <dd>
 <p>This generator was written to output EmojiOne SVG images. The SVG image outputs as:</p>
 <div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;😄&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;emojione&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/emojione/assets/svg/1f604.svg&quot;</span> <span class="na">title</span><span class="o">=</span><span class="s">&quot;:smile:&quot;</span> <span class="p">/&gt;</span>
@@ -926,7 +926,7 @@ Gemoji: <a href="https://github.com/github/gemoji/blob/master/LICENSE">https://g
 </tbody>
 </table>
 </dd>
-<dt>pymdownx.emoji.to_png_sprite</dt>
+<dt><code>pymdownx.emoji.to_png_sprite</code></dt>
 <dd>
 <p>This generator was written to support PNG sprite output for EmojiOne.  It is expected that this will be used in conjunction with the the official EmojiOne CSS.  You can include the CSS from the CDN in your document.  Example CDN for version 2.2.7: <code>https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/sprites/emojione.sprites.css</code>. This outputs the emoji as a span in the form below.  The CSS will apply the appropriate mapping in the sprite PNG for the background image of the span.</p>
 <div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;emojione emojione-1f604&quot;</span> <span class="na">title</span><span class="o">=</span><span class="s">&quot;:smile:&quot;</span><span class="p">&gt;</span>😄<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
@@ -959,7 +959,7 @@ Gemoji: <a href="https://github.com/github/gemoji/blob/master/LICENSE">https://g
 </tbody>
 </table>
 </dd>
-<dt>pymdownx.emoji.to_svg_sprite</dt>
+<dt><code>pymdownx.emoji.to_svg_sprite</code></dt>
 <dd>
 <p>This was written to support EmojiOne SVG sprite output.  The output form was taken directly from an example in the EmojiOne source.  It is expected that the the user will provide a local version of the official SVG sprite and the path to it.  The output is:</p>
 <div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">svg</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;emojione&quot;</span><span class="p">&gt;&lt;</span><span class="nt">description</span><span class="p">&gt;</span>😄<span class="p">&lt;/</span><span class="nt">description</span><span class="p">&gt;&lt;</span><span class="nt">use</span> <span class="na">xlink:href</span><span class="o">=</span><span class="s">&quot;./../assets/sprites/emojione.sprites.svg#emoji-1f604&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">use</span><span class="p">&gt;&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span>
@@ -992,7 +992,7 @@ Gemoji: <a href="https://github.com/github/gemoji/blob/master/LICENSE">https://g
 </tbody>
 </table>
 </dd>
-<dt>pymdownx.emoji.to_awesome</dt>
+<dt><code>pymdownx.emoji.to_awesome</code></dt>
 <dd>
 <p>This generator is another EmojiOne specific output called <a href="https://github.com/Ranks/emojione/tree/master/lib/emojione-awesome">EmojiOne Awesome</a>.  According to EmojiOne's documentation, it aims to give a font-awesome like interface for EmojiOne.  There isn't currently a CDN link that could be found, but you can provide the CSS in your project locally by <a href="../emojione-awesome-css">downloading it</a> from their repository.  The output format is:</p>
 <div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;e1a-smile&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>
@@ -1025,7 +1025,7 @@ Gemoji: <a href="https://github.com/github/gemoji/blob/master/LICENSE">https://g
 </tbody>
 </table>
 </dd>
-<dt>pymdownx.emoji.to_alt</dt>
+<dt><code>pymdownx.emoji.to_alt</code></dt>
 <dd>
 <p>This generator supports both Gemoji and EmojiOne.  The generator outputs the alt value directly to the document.  The output can be Unicode characters, HTML entities, or even just the short name depending on what the global setting of 'alt' is set to.</p>
 <div class="codehilite"><pre><span></span>😃
@@ -1099,7 +1099,7 @@ Gemoji: <a href="https://github.com/github/gemoji/blob/master/LICENSE">https://g
 <h2 id="custom-emoji-generators">Custom Emoji Generators<a class="headerlink" href="#custom-emoji-generators" title="Permanent link"></a></h2>
 <p>Each different kind of output is controlled by a different emoji generator function, but all generator functions have the same format. The format is shown below in case you need to create your own custom output generator.</p>
 <dl>
-<dt>def emoji_generator(index, shortname, alias, uc, alt, title, options, md)</dt>
+<dt><code class="codehilite"><span class="k">def</span> <span class="nf">emoji_generator</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">shortname</span><span class="p">,</span> <span class="n">alias</span><span class="p">,</span> <span class="n">uc</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">md</span><span class="p">)</span></code></dt>
 <dd>
 <table>
 <thead>
@@ -1298,7 +1298,7 @@ You can also escape `:` characters to escape the emoji: \:smile:.
       
     </div>
     
-      <script src="../../assets/javascripts/application-16f434a21a.js"></script>
+      <script src="../../assets/javascripts/application-2afe21e0b2.js"></script>
       <script>var config={url:{base:"../.."}},app=new Application(config);app.initialize()</script>
       
     

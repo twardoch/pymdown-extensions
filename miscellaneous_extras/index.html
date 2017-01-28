@@ -13,7 +13,7 @@
       
         <link rel="shortcut icon" href="../assets/images/favicon.ico">
       
-      <meta name="generator" content="mkdocs+mkdocs-material#1.0.2">
+      <meta name="generator" content="mkdocs+mkdocs-material#1.0.3">
     
     
       
@@ -34,7 +34,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application-1b8b9fdf68.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application-f3ab63f78a.css">
       
         <link rel="stylesheet" href="../assets/stylesheets/application-02ce7adcc2.palette.css">
       
@@ -654,11 +654,11 @@
                   <h1>Miscellaneous Extras</h1>
                 
                 <h2 id="alternate-slugify">Alternate Slugify<a class="headerlink" href="#alternate-slugify" title="Permanent link"></a></h2>
-<p>Python Markdown's default slugify strips out Unicode chars. To better handle Unicode, a couple of optional slugify options have been provided.</p>
-<h3 id="uslugify">uslugify<a class="headerlink" href="#uslugify" title="Permanent link"></a></h3>
-<p>In order to handle Unicode characters in slugs better, a slugify has been included at <code>pymdownx.slugs.uslugify</code>.  This assumes you are encoding your HTML as UTF-8.  UTF-8 Unicode should be okay in your slugs in modern browsers.  You can use this to override <abbr title="Table of Contents">Toc</abbr>'s slugify.</p>
-<h3 id="uslugify_encoded">uslugify_encoded<a class="headerlink" href="#uslugify_encoded" title="Permanent link"></a></h3>
-<p>If you aren't encoding your HTML as UTF-8, or prefer the safer percent encoded Unicode slugs, you can use <code>pymdownx.slugs.uslugify_encoded</code> which will percent encode non-ASCII word chars.  You can use this to override <abbr title="Table of Contents">Toc</abbr>'s slugify.</p>
+<p>Python Markdown's default slugify strips out all Unicode chars. To better handle Unicode, a couple of optional slugify options have been provided. These are very simple slugify options. There are many slugify options out there, some of which are very sophisticated. Some may prefer using one of those, but if you just want something simple, these might fill that requirement.</p>
+<h3 id="uslugify"><code>uslugify</code><a class="headerlink" href="#uslugify" title="Permanent link"></a></h3>
+<p>In order to handle Unicode characters in slugs better, a slugify has been included at <code>pymdownx.slugs.uslugify</code>. This assumes you are encoding your HTML as UTF-8.  UTF-8 Unicode should be okay in your slugs in modern browsers, so <code>uslugify</code> takes the Unicode string and strips out non-word Unicode characters and leaves in Unicode word chars. Spaces are replaced with the separator provided by <abbr title="Table of Contents">Toc</abbr>.  And the entire string is lower cased. You can override <abbr title="Table of Contents">Toc</abbr>'s default slugify by feeding in this function via the <code>slugify</code> parameter.</p>
+<h3 id="uslugify_encoded"><code>uslugify_encoded</code><a class="headerlink" href="#uslugify_encoded" title="Permanent link"></a></h3>
+<p>If you aren't encoding your HTML as UTF-8, or prefer the safer percent encoded Unicode slugs, you can use <code>pymdownx.slugs.uslugify_encoded</code>. This will take the Unicode string, strip out non-Unicode word characters, replace spaces with the provided separator, percent encode the Unicode word characters, and lastly lower case the string. You can override <abbr title="Table of Contents">Toc</abbr>'s default slugify by feeding in this function via the <code>slugify</code> parameter.</p>
               
             </article>
           </div>
@@ -779,7 +779,7 @@
       
     </div>
     
-      <script src="../assets/javascripts/application-16f434a21a.js"></script>
+      <script src="../assets/javascripts/application-2afe21e0b2.js"></script>
       <script>var config={url:{base:".."}},app=new Application(config);app.initialize()</script>
       
     

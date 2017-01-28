@@ -13,7 +13,7 @@
       
         <link rel="shortcut icon" href="../../assets/images/favicon.ico">
       
-      <meta name="generator" content="mkdocs+mkdocs-material#1.0.2">
+      <meta name="generator" content="mkdocs+mkdocs-material#1.0.3">
     
     
       
@@ -34,7 +34,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-1b8b9fdf68.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-f3ab63f78a.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/application-02ce7adcc2.palette.css">
       
@@ -764,64 +764,64 @@
 </tbody>
 </table>
 <p>In order to style these we mainly remove the list type style and adjust the margins to align with normal list styles.</p>
-<div class="codehilite"><pre><span></span><span class="nc">.markdown-body</span> <span class="nc">.task-list-item</span> <span class="p">{</span>
-  <span class="nb">list-style-type</span><span class="o">:</span> <span class="nb">none</span> <span class="cp">!important</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span><span class="p">.</span><span class="nc">markdown-body</span> <span class="p">.</span><span class="nc">task-list-item</span> <span class="p">{</span>
+  <span class="k">list-style-type</span><span class="p">:</span> <span class="kc">none</span> <span class="cp">!important</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nc">.markdown-body</span> <span class="nc">.task-list-item</span> <span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="s2">&quot;checkbox&quot;</span><span class="o">]</span> <span class="p">{</span>
-  <span class="nb">margin</span><span class="o">:</span> <span class="m">0</span> <span class="m">4px</span> <span class="m">0.25em</span> <span class="m">-20px</span><span class="p">;</span>
-  <span class="nb">vertical-align</span><span class="o">:</span> <span class="nb">middle</span><span class="p">;</span>
+<span class="p">.</span><span class="nc">markdown-body</span> <span class="p">.</span><span class="nc">task-list-item</span> <span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="s2">&quot;checkbox&quot;</span><span class="o">]</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">4</span><span class="kt">px</span> <span class="mf">0.25</span><span class="kt">em</span> <span class="mi">-20</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">vertical-align</span><span class="p">:</span> <span class="kc">middle</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 
 
 <p>If custom check box icons are desired, custom styles can be used to give a unique look to the check marks.  Below is a very simple CSS example that creates a light gray square with rounded corners and displays a green Unicode check mark when the control is checked.  This can be adapted to use web fonts, images, etc.</p>
-<div class="codehilite"><pre><span></span><span class="nc">.markdown-body</span> <span class="nc">.task-list-item</span> <span class="p">{</span>
-  <span class="nb">list-style-type</span><span class="o">:</span> <span class="nb">none</span> <span class="cp">!important</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span><span class="p">.</span><span class="nc">markdown-body</span> <span class="p">.</span><span class="nc">task-list-item</span> <span class="p">{</span>
+  <span class="k">list-style-type</span><span class="p">:</span> <span class="kc">none</span> <span class="cp">!important</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nc">.markdown-body</span> <span class="nc">.task-list-item</span> <span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="s2">&quot;checkbox&quot;</span><span class="o">]</span> <span class="p">{</span>
-  <span class="nb">margin</span><span class="o">:</span> <span class="m">0</span> <span class="m">4px</span> <span class="m">0.25em</span> <span class="m">-20px</span><span class="p">;</span>
-  <span class="nb">vertical-align</span><span class="o">:</span> <span class="nb">middle</span><span class="p">;</span>
+<span class="p">.</span><span class="nc">markdown-body</span> <span class="p">.</span><span class="nc">task-list-item</span> <span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="s2">&quot;checkbox&quot;</span><span class="o">]</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">4</span><span class="kt">px</span> <span class="mf">0.25</span><span class="kt">em</span> <span class="mi">-20</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">vertical-align</span><span class="p">:</span> <span class="kc">middle</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nc">.markdown-body</span> <span class="nc">.task-list-control</span> <span class="p">{</span>
-  <span class="nb">display</span><span class="o">:</span> <span class="nb">inline</span><span class="p">;</span> <span class="c">/* Ensure label is inline incase theme sets it to block.*/</span>
+<span class="p">.</span><span class="nc">markdown-body</span> <span class="p">.</span><span class="nc">task-list-control</span> <span class="p">{</span>
+  <span class="k">display</span><span class="p">:</span> <span class="kc">inline</span><span class="p">;</span> <span class="c">/* Ensure label is inline incase theme sets it to block.*/</span>
 <span class="p">}</span>
 
-<span class="nc">.markdown-body</span> <span class="nc">.task-list-control</span> <span class="p">{</span>
-  <span class="nb">position</span><span class="o">:</span> <span class="nb">relative</span><span class="p">;</span>
-  <span class="nb">display</span><span class="o">:</span> <span class="nb">inline</span><span class="o">-</span><span class="nb">block</span><span class="p">;</span>
-  <span class="nb">color</span><span class="o">:</span> <span class="m">#555</span><span class="p">;</span>
-  <span class="nb">cursor</span><span class="o">:</span> <span class="nb">pointer</span><span class="p">;</span>
+<span class="p">.</span><span class="nc">markdown-body</span> <span class="p">.</span><span class="nc">task-list-control</span> <span class="p">{</span>
+  <span class="k">position</span><span class="p">:</span> <span class="kc">relative</span><span class="p">;</span>
+  <span class="k">display</span><span class="p">:</span> <span class="kc">inline-block</span><span class="p">;</span>
+  <span class="k">color</span><span class="p">:</span> <span class="mh">#555</span><span class="p">;</span>
+  <span class="k">cursor</span><span class="p">:</span> <span class="kc">pointer</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nc">.markdown-body</span> <span class="nc">.task-list-control</span> <span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="s2">&quot;checkbox&quot;</span><span class="o">]</span> <span class="p">{</span>
-  <span class="nb">position</span><span class="o">:</span> <span class="nb">absolute</span><span class="p">;</span>
-  <span class="nb">opacity</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
-  <span class="nb">z-index</span><span class="o">:</span> <span class="m">-1</span><span class="p">;</span> <span class="c">/* Put the input behind the label so it doesn&#39;t overlay text */</span>
+<span class="p">.</span><span class="nc">markdown-body</span> <span class="p">.</span><span class="nc">task-list-control</span> <span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="s2">&quot;checkbox&quot;</span><span class="o">]</span> <span class="p">{</span>
+  <span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
+  <span class="k">opacity</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">z-index</span><span class="p">:</span> <span class="mi">-1</span><span class="p">;</span> <span class="c">/* Put the input behind the label so it doesn&#39;t overlay text */</span>
 <span class="p">}</span>
 
-<span class="nc">.markdown-body</span> <span class="nc">.task-list-indicator</span> <span class="p">{</span>
-  <span class="nb">position</span><span class="o">:</span> <span class="nb">absolute</span><span class="p">;</span>
-  <span class="nb">top</span><span class="o">:</span> <span class="m">-8px</span><span class="p">;</span>
-  <span class="nb">left</span><span class="o">:</span> <span class="m">-18px</span><span class="p">;</span>
-  <span class="nb">display</span><span class="o">:</span> <span class="nb">block</span><span class="p">;</span>
-  <span class="nb">width</span><span class="o">:</span>  <span class="m">14px</span><span class="p">;</span>
-  <span class="nb">height</span><span class="o">:</span> <span class="m">14px</span><span class="p">;</span>
-  <span class="nb">color</span><span class="o">:</span> <span class="m">#eee</span><span class="p">;</span>
-  <span class="nb">background-color</span><span class="o">:</span> <span class="m">#eee</span><span class="p">;</span>
-  <span class="nb">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="o">.</span><span class="m">25</span><span class="n">rem</span><span class="p">;</span>
+<span class="p">.</span><span class="nc">markdown-body</span> <span class="p">.</span><span class="nc">task-list-indicator</span> <span class="p">{</span>
+  <span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
+  <span class="k">top</span><span class="p">:</span> <span class="mi">-8</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">left</span><span class="p">:</span> <span class="mi">-18</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">display</span><span class="p">:</span> <span class="kc">block</span><span class="p">;</span>
+  <span class="k">width</span><span class="p">:</span>  <span class="mi">14</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">height</span><span class="p">:</span> <span class="mi">14</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">color</span><span class="p">:</span> <span class="mh">#eee</span><span class="p">;</span>
+  <span class="k">background-color</span><span class="p">:</span> <span class="mh">#eee</span><span class="p">;</span>
+  <span class="k">border-radius</span><span class="p">:</span> <span class="mf">.25</span><span class="kt">rem</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nc">.markdown-body</span> <span class="nc">.task-list-control</span> <span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="s2">&quot;checkbox&quot;</span><span class="o">]</span><span class="nd">:checked</span> <span class="o">+</span> <span class="nc">.task-list-indicator</span><span class="o">:</span><span class="nd">:before</span> <span class="p">{</span>
-  <span class="nb">display</span><span class="o">:</span> <span class="nb">block</span><span class="p">;</span>
-  <span class="nb">margin-top</span><span class="o">:</span> <span class="m">-4px</span><span class="p">;</span>
-  <span class="nb">margin-left</span><span class="o">:</span> <span class="m">2px</span><span class="p">;</span>
-  <span class="nb">font-size</span><span class="o">:</span> <span class="m">16px</span><span class="p">;</span>
-  <span class="nb">line-height</span><span class="o">:</span> <span class="m">1</span><span class="p">;</span>
-  <span class="nb">content</span><span class="o">:</span> <span class="s2">&quot;✔&quot;</span><span class="p">;</span>
-  <span class="nb">color</span><span class="o">:</span> <span class="m">#1EBB52</span><span class="p">;</span>
+<span class="p">.</span><span class="nc">markdown-body</span> <span class="p">.</span><span class="nc">task-list-control</span> <span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="s2">&quot;checkbox&quot;</span><span class="o">]</span><span class="p">:</span><span class="nd">checked</span> <span class="o">+</span> <span class="p">.</span><span class="nc">task-list-indicator</span><span class="p">::</span><span class="nd">before</span> <span class="p">{</span>
+  <span class="k">display</span><span class="p">:</span> <span class="kc">block</span><span class="p">;</span>
+  <span class="k">margin-top</span><span class="p">:</span> <span class="mi">-4</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">margin-left</span><span class="p">:</span> <span class="mi">2</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="p">:</span> <span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">line-height</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">content</span><span class="p">:</span> <span class="s2">&quot;✔&quot;</span><span class="p">;</span>
+  <span class="k">color</span><span class="p">:</span> <span class="mh">#1EBB52</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
               
@@ -944,7 +944,7 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application-16f434a21a.js"></script>
+      <script src="../../assets/javascripts/application-2afe21e0b2.js"></script>
       <script>var config={url:{base:"../.."}},app=new Application(config);app.initialize()</script>
       
     
