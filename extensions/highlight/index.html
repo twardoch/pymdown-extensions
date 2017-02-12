@@ -17,7 +17,7 @@
     
     
       
-        <title>PyMdown - PyMdown Extensions Documentation</title>
+        <title>Highlight - PyMdown Extensions Documentation</title>
       
     
     
@@ -83,7 +83,7 @@
                 </span>
               
             
-            PyMdown
+            Highlight
           
         </span>
       </div>
@@ -361,9 +361,49 @@
           
   <li class="md-nav__item">
     
-      <a href="../highlight/" title="Highlight" class="md-nav__link">
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
         Highlight
-      </a>
+      </label>
+    
+    <a href="./" title="Highlight" class="md-nav__link md-nav__link--active">
+      Highlight
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" title="Overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extended-pygments-lexer-options" title="Extended Pygments Lexer Options" class="md-nav__link">
+    Extended Pygments Lexer Options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options" title="Options" class="md-nav__link">
+    Options
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -438,35 +478,9 @@
           
   <li class="md-nav__item">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
+      <a href="../pymdown/" title="PyMdown" class="md-nav__link">
         PyMdown
-      </label>
-    
-    <a href="./" title="PyMdown" class="md-nav__link md-nav__link--active">
-      PyMdown
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" title="Overview" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
+      </a>
     
   </li>
 
@@ -611,6 +625,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#extended-pygments-lexer-options" title="Extended Pygments Lexer Options" class="md-nav__link">
+    Extended Pygments Lexer Options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options" title="Options" class="md-nav__link">
+    Options
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -622,78 +650,78 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions/pymdown.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions/highlight.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
-                  <h1>PyMdown</h1>
+                  <h1>Highlight</h1>
                 
                 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Deprecated Extension</p>
-<p>This is extension is deprecated in version <code>1.3.0</code> and will be removed in <code>3.0</code>.  It is advised individually include the desired extensions instead of relying on <code>pymdownx.pymdown</code> to include them.</p>
-</div>
-<p>The PyMdown extension is a convenience extension to load up the following extensions with their default settings. It currently provides no other additional features.</p>
-<div class="admonition danger">
-<p class="admonition-title">Reminder</p>
-<p>Remember to read the <a href="../../usage_notes/">Usage Notes</a> for information that may be relevant when using this extension!</p>
-</div>
-<p>Extensions:</p>
+<p>Highlight is an extension that adds no additional syntax patterns to Python Markdown. Its only purpose is to provide a single place to configure syntax highlighting for code blocks. Both <a href="../inlinehilite/">InlineHilite</a> and <a href="../superfences/">SuperFences</a> can use Highlight to configure their highlight settings.</p>
+<p>Both InlineHilite and SuperFences can use <a href="http://pygments.org/">Pygments</a> or JavaScript highlighters to do their code syntax highlighting, but all of the settings here affect Pygments highlighting only except <code>use_pygments</code>.  If you want to use a JavaScript syntax highlighter, set <code>use_pygments</code> to <code class="codehilite"><span class="bp">False</span></code> or make sure you don't have Pygments installed.</p>
+<h2 id="extended-pygments-lexer-options">Extended Pygments Lexer Options<a class="headerlink" href="#extended-pygments-lexer-options" title="Permanent link"></a></h2>
+<p>If using Pygments, some lexers have special options.  For instance, the <code>php</code> lexer has the option <code>startinline</code> which, if enabled, will parse PHP syntax without requiring <code class="codehilite"><span class="cp">&lt;?</span></code> at the beginning.  InlineHilite takes the approach of allowing you to create a special Pygments language with options.  So if you wanted to enable <code>startinline</code> for <code>php</code>, you might create a language name called <code>php-inline</code> that maps to <code>php</code> with <code>startinline</code> enabled.  This is done via the <code>extend_pygments_lang</code> option.</p>
+<p><code>extend_pygments_lang</code> is an option that takes an array of dictionaries.  Each dictionary contains three keys: <code>name</code> which is the new name you are adding, <code>lang</code> which is the language the new name maps to, and <code>options</code> which is a dictionary of the options you wish to apply.</p>
+<p>For example, to create the above mentioned <code>php-inline</code> we would feed in the following to <code>extend_pygments_lang</code>:</p>
+<div class="codehilite"><pre><span></span><span class="n">extended_pygments_lang</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;php-inline&quot;</span><span class="p">,</span> <span class="s2">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;php&quot;</span><span class="p">,</span> <span class="s2">&quot;options&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;startinline&quot;</span><span class="p">:</span> <span class="bp">True</span><span class="p">}}</span>
+<span class="p">]</span>
+</pre></div>
+
+
+<p>Now we can do this:</p>
+<div class="codehilite"><pre><span></span>`#!php-inline $a = array(&quot;foo&quot; =&gt; 0, &quot;bar&quot; =&gt; 1);`
+</pre></div>
+
+
+<p>To get this:</p>
+<p><code class="codehilite">$a = array(&quot;foo&quot; =&gt; 0, &quot;bar&quot; =&gt; 1);</code></p>
+<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link"></a></h2>
 <table>
 <thead>
 <tr>
-<th>Extension</th>
-<th>Name</th>
+<th>Option</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="../magiclink/">MagicLink</a></td>
-<td><code>pymdownx.magiclink</code></td>
+<td><code>guess_lang</code></td>
+<td>bool</td>
+<td><code class="codehilite"><span class="bp">False</span></code></td>
+<td>Guess what syntax language should be used if no language is specified. This can be particularly tricky with</td>
 </tr>
 <tr>
-<td><a href="../betterem/">BetterEm</a></td>
-<td><code>pymdownx.betterem</code></td>
+<td><code>pygments_style</code></td>
+<td>string</td>
+<td><code class="codehilite"><span class="s1">&#39;default&#39;</span></code></td>
+<td>Set the Pygments' style to use.  This really only has an effect when used with <code>noclasses</code>.</td>
 </tr>
 <tr>
-<td><a href="../tilde/">Tilde</a></td>
-<td><code>pymdownx.tilde</code></td>
+<td><code>noclasses</code></td>
+<td>bool</td>
+<td><code class="codehilite"><span class="bp">False</span></code></td>
+<td>This will cause the styles to directly be written to the tag's style attribute instead of requiring a stylesheet.</td>
 </tr>
 <tr>
-<td><a href="../caret/">Caret</a></td>
-<td><code>pymdownx.caret</code></td>
+<td><code>use_pygments</code></td>
+<td>bool</td>
+<td><code class="codehilite"><span class="bp">True</span></code></td>
+<td>Controls whether Pygments (if available) is used to style the code, or if the code will just be escaped and prepped for a JavaScript syntax highlighter.</td>
 </tr>
 <tr>
-<td><a href="../mark/">Mark</a></td>
-<td><code>pymdownx.mark</code></td>
+<td><code>linenums</code></td>
+<td>bool</td>
+<td><code class="codehilite"><span class="bp">False</span></code></td>
+<td>Enable line numbers globally for <em>block</em> code.  This will be ignored for <em>inline</em> code.</td>
 </tr>
 <tr>
-<td><a href="../smartsymbols/">SmartSymbols</a></td>
-<td><code>pymdownx.smartsymbols</code></td>
-</tr>
-<tr>
-<td><a href="../emoji/">Emoji</a></td>
-<td><code>pymdownx.emoji</code></td>
-</tr>
-<tr>
-<td><a href="../tasklist/">Tasklist</a></td>
-<td><code>pymdownx.tasklist</code></td>
-</tr>
-<tr>
-<td><a href="../progressbar/">ProgressBar</a></td>
-<td><code>pymdownx.progressbar</code></td>
-</tr>
-<tr>
-<td><a href="../headeranchor/">HeaderAnchor</a></td>
-<td><code>pymdownx.headeranchor</code></td>
-</tr>
-<tr>
-<td><a href="../superfences/">SuperFences</a></td>
-<td><code>pymdownx.superfences</code></td>
-</tr>
-<tr>
-<td><a href="../arithmatex/">Arithmatex</a></td>
-<td><code>pymdownx.arithmatex</code></td>
+<td><code>extend_pygments_lang</code></td>
+<td>list</td>
+<td><code class="codehilite"><span class="p">[]</span></code></td>
+<td>A list of extended languages to add.  See <a href="#extended-pygments-lexer-options">Extended Pygments Lexer Options</a> for more info.</td>
 </tr>
 </tbody>
 </table>
@@ -734,8 +762,8 @@
 
         <!-- Link to previous page -->
         
-          <a href="../progressbar/"
-              title="ProgressBar"
+          <a href="../headeranchor/"
+              title="HeaderAnchor"
               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
               rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -748,7 +776,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                ProgressBar
+                HeaderAnchor
               </span>
             </div>
           </a>
@@ -756,7 +784,7 @@
 
         <!-- Link to next page -->
         
-          <a href="../smartsymbols/" title="SmartSymbols"
+          <a href="../inlinehilite/" title="InlineHilite"
               class="md-flex md-footer-nav__link md-footer-nav__link--next"
               rel="next">
             <div class="md-flex__cell md-flex__cell--stretch
@@ -765,7 +793,7 @@
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                SmartSymbols
+                InlineHilite
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
