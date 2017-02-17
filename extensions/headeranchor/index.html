@@ -13,7 +13,7 @@
       
         <link rel="shortcut icon" href="../../assets/images/favicon.ico">
       
-      <meta name="generator" content="mkdocs+mkdocs-material#1.0.3">
+      <meta name="generator" content="mkdocs-0.16.1, mkdocs-material-1.0.3">
     
     
       
@@ -21,7 +21,13 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr-facb31f4a3.js"></script>
+      <script src="../../assets/javascripts/modernizr-5b0c41c2b5.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-166740f5bb.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-02ce7adcc2.palette.css">
+      
     
     
       
@@ -34,13 +40,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-f3ab63f78a.css">
-      
-        <link rel="stylesheet" href="../../assets/stylesheets/application-02ce7adcc2.palette.css">
-      
-      
-        <link rel="stylesheet" href="../../extra.css">
-      
+      <link rel="stylesheet" href="../../extra.css">
     
     
   </head>
@@ -352,74 +352,12 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
+      
     
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        HeaderAnchor
-      </label>
     
     <a href="./" title="HeaderAnchor" class="md-nav__link md-nav__link--active">
       HeaderAnchor
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" title="Overview" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#options" title="Options" class="md-nav__link">
-    Options
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#alternate-slugify" title="Alternate Slugify" class="md-nav__link">
-    Alternate Slugify
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#uslugify" title="uslugify" class="md-nav__link">
-    uslugify
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#uslugify_encoded" title="uslugify_encoded" class="md-nav__link">
-    uslugify_encoded
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#css" title="CSS" class="md-nav__link">
-    CSS
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -704,7 +642,7 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions\headeranchor.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions/headeranchor.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
@@ -792,65 +730,65 @@
 </table>
 <p>The CSS below is an example.</p>
 <div class="codehilite"><pre><span></span><span class="c">/* Header Anchors */</span>
-<span class="nc">.markdown-body</span> <span class="nc">.headeranchor-link</span> <span class="p">{</span>
-  <span class="nb">opacity</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
-  <span class="nb">float</span><span class="o">:</span> <span class="nb">left</span><span class="p">;</span>
-  <span class="nb">margin-top</span><span class="o">:</span>  <span class="o">-.</span><span class="m">5</span><span class="n">rem</span><span class="p">;</span>
-  <span class="nb">padding-right</span><span class="o">:</span> <span class="m">4px</span><span class="p">;</span>
-  <span class="nb">margin-left</span><span class="o">:</span> <span class="m">-2</span><span class="o">.</span><span class="m">4</span><span class="n">rem</span><span class="p">;</span>
-  <span class="nb">text-decoration</span><span class="o">:</span> <span class="nb">none</span><span class="p">;</span>
+<span class="p">.</span><span class="nc">markdown-body</span> <span class="p">.</span><span class="nc">headeranchor-link</span> <span class="p">{</span>
+  <span class="k">opacity</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">float</span><span class="p">:</span> <span class="kc">left</span><span class="p">;</span>
+  <span class="k">margin-top</span><span class="p">:</span>  <span class="mf">-.5</span><span class="kt">rem</span><span class="p">;</span>
+  <span class="k">padding-right</span><span class="p">:</span> <span class="mi">4</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">margin-left</span><span class="p">:</span> <span class="mf">-2.4</span><span class="kt">rem</span><span class="p">;</span>
+  <span class="k">text-decoration</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nc">.markdown-body</span> <span class="nc">.headeranchor-link</span><span class="nd">:not</span><span class="o">(</span><span class="nd">:hover</span><span class="o">)</span> <span class="p">{</span>
-  <span class="nb">color</span><span class="o">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">.</span><span class="m">26</span><span class="p">);</span>
+<span class="p">.</span><span class="nc">markdown-body</span> <span class="p">.</span><span class="nc">headeranchor-link</span><span class="p">:</span><span class="nd">not</span><span class="o">(</span><span class="p">:</span><span class="nd">hover</span><span class="o">)</span> <span class="p">{</span>
+  <span class="k">color</span><span class="p">:</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.26</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="nc">.markdown-body</span> <span class="nc">.headeranchor-link</span><span class="nd">:focus</span> <span class="p">{</span>
-  <span class="nb">outline</span><span class="o">:</span> <span class="nb">none</span><span class="p">;</span>
+<span class="p">.</span><span class="nc">markdown-body</span> <span class="p">.</span><span class="nc">headeranchor-link</span><span class="p">:</span><span class="nd">focus</span> <span class="p">{</span>
+  <span class="k">outline</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nc">.markdown-body</span> <span class="nt">h1</span><span class="nd">:target</span> <span class="nc">.headeranchor-link</span><span class="o">,</span>
-<span class="nc">.markdown-body</span> <span class="nt">h2</span><span class="nd">:target</span> <span class="nc">.headeranchor-link</span><span class="o">,</span>
-<span class="nc">.markdown-body</span> <span class="nt">h3</span><span class="nd">:target</span> <span class="nc">.headeranchor-link</span><span class="o">,</span>
-<span class="nc">.markdown-body</span> <span class="nt">h4</span><span class="nd">:target</span> <span class="nc">.headeranchor-link</span><span class="o">,</span>
-<span class="nc">.markdown-body</span> <span class="nt">h5</span><span class="nd">:target</span> <span class="nc">.headeranchor-link</span><span class="o">,</span>
-<span class="nc">.markdown-body</span> <span class="nt">h6</span><span class="nd">:target</span> <span class="nc">.headeranchor-link</span> <span class="p">{</span>
-  <span class="nb">opacity</span><span class="o">:</span> <span class="m">1</span><span class="p">;</span>
-  <span class="nb">text-decoration</span><span class="o">:</span> <span class="nb">none</span><span class="p">;</span>
-  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transform</span><span class="o">:</span><span class="n">translateY</span><span class="p">(</span><span class="o">.</span><span class="m">5</span><span class="n">rem</span><span class="p">);</span>
-  <span class="n">transform</span><span class="o">:</span><span class="n">translateY</span><span class="p">(</span><span class="o">.</span><span class="m">5</span><span class="n">rem</span><span class="p">);</span>
+<span class="p">.</span><span class="nc">markdown-body</span> <span class="nt">h1</span><span class="p">:</span><span class="nd">target</span> <span class="p">.</span><span class="nc">headeranchor-link</span><span class="o">,</span>
+<span class="p">.</span><span class="nc">markdown-body</span> <span class="nt">h2</span><span class="p">:</span><span class="nd">target</span> <span class="p">.</span><span class="nc">headeranchor-link</span><span class="o">,</span>
+<span class="p">.</span><span class="nc">markdown-body</span> <span class="nt">h3</span><span class="p">:</span><span class="nd">target</span> <span class="p">.</span><span class="nc">headeranchor-link</span><span class="o">,</span>
+<span class="p">.</span><span class="nc">markdown-body</span> <span class="nt">h4</span><span class="p">:</span><span class="nd">target</span> <span class="p">.</span><span class="nc">headeranchor-link</span><span class="o">,</span>
+<span class="p">.</span><span class="nc">markdown-body</span> <span class="nt">h5</span><span class="p">:</span><span class="nd">target</span> <span class="p">.</span><span class="nc">headeranchor-link</span><span class="o">,</span>
+<span class="p">.</span><span class="nc">markdown-body</span> <span class="nt">h6</span><span class="p">:</span><span class="nd">target</span> <span class="p">.</span><span class="nc">headeranchor-link</span> <span class="p">{</span>
+  <span class="k">opacity</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">text-decoration</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
+  <span class="kp">-webkit-</span><span class="k">transform</span><span class="p">:</span><span class="nb">translateY</span><span class="p">(</span><span class="mf">.5</span><span class="kt">rem</span><span class="p">);</span>
+  <span class="k">transform</span><span class="p">:</span><span class="nb">translateY</span><span class="p">(</span><span class="mf">.5</span><span class="kt">rem</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="nc">.markdown-body</span> <span class="nt">h1</span><span class="nd">:hover</span> <span class="nc">.headeranchor-link</span><span class="o">,</span>
-<span class="nc">.markdown-body</span> <span class="nt">h2</span><span class="nd">:hover</span> <span class="nc">.headeranchor-link</span><span class="o">,</span>
-<span class="nc">.markdown-body</span> <span class="nt">h3</span><span class="nd">:hover</span> <span class="nc">.headeranchor-link</span><span class="o">,</span>
-<span class="nc">.markdown-body</span> <span class="nt">h4</span><span class="nd">:hover</span> <span class="nc">.headeranchor-link</span><span class="o">,</span>
-<span class="nc">.markdown-body</span> <span class="nt">h5</span><span class="nd">:hover</span> <span class="nc">.headeranchor-link</span><span class="o">,</span>
-<span class="nc">.markdown-body</span> <span class="nt">h6</span><span class="nd">:hover</span> <span class="nc">.headeranchor-link</span> <span class="p">{</span>
-  <span class="nb">opacity</span><span class="o">:</span> <span class="m">1</span><span class="p">;</span>
-  <span class="nb">text-decoration</span><span class="o">:</span> <span class="nb">none</span><span class="p">;</span>
-  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transform</span><span class="o">:</span><span class="n">translateY</span><span class="p">(</span><span class="o">.</span><span class="m">5</span><span class="n">rem</span><span class="p">);</span>
-  <span class="n">transform</span><span class="o">:</span><span class="n">translateY</span><span class="p">(</span><span class="o">.</span><span class="m">5</span><span class="n">rem</span><span class="p">);</span>
-  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transition</span><span class="o">:</span> <span class="nb">color</span> <span class="m">.25s</span><span class="o">,</span><span class="nb">opacity</span> <span class="m">.125s</span> <span class="m">.25s</span><span class="o">,-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transform</span> <span class="m">.25s</span> <span class="m">.25s</span><span class="p">;</span>
-  <span class="n">transition</span><span class="o">:</span> <span class="nb">color</span> <span class="m">.25s</span><span class="o">,</span><span class="nb">opacity</span> <span class="m">.125s</span> <span class="m">.25s</span><span class="o">,-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transform</span> <span class="m">.25s</span> <span class="m">.25s</span><span class="p">;</span>
-  <span class="n">transition</span><span class="o">:</span> <span class="n">transform</span> <span class="m">.25s</span> <span class="m">.25s</span><span class="o">,</span><span class="nb">color</span> <span class="m">.25s</span><span class="o">,</span><span class="nb">opacity</span> <span class="m">.125s</span> <span class="m">.25s</span><span class="p">;</span>
-  <span class="n">transition</span><span class="o">:</span> <span class="n">transform</span> <span class="m">.25s</span> <span class="m">.25s</span><span class="o">,</span><span class="nb">color</span> <span class="m">.25s</span><span class="o">,</span><span class="nb">opacity</span> <span class="m">.125s</span> <span class="m">.25s</span><span class="o">,-</span><span class="n">webkit</span><span class="o">-</span><span class="n">transform</span> <span class="m">.25s</span> <span class="m">.25s</span><span class="p">;</span>
+<span class="p">.</span><span class="nc">markdown-body</span> <span class="nt">h1</span><span class="p">:</span><span class="nd">hover</span> <span class="p">.</span><span class="nc">headeranchor-link</span><span class="o">,</span>
+<span class="p">.</span><span class="nc">markdown-body</span> <span class="nt">h2</span><span class="p">:</span><span class="nd">hover</span> <span class="p">.</span><span class="nc">headeranchor-link</span><span class="o">,</span>
+<span class="p">.</span><span class="nc">markdown-body</span> <span class="nt">h3</span><span class="p">:</span><span class="nd">hover</span> <span class="p">.</span><span class="nc">headeranchor-link</span><span class="o">,</span>
+<span class="p">.</span><span class="nc">markdown-body</span> <span class="nt">h4</span><span class="p">:</span><span class="nd">hover</span> <span class="p">.</span><span class="nc">headeranchor-link</span><span class="o">,</span>
+<span class="p">.</span><span class="nc">markdown-body</span> <span class="nt">h5</span><span class="p">:</span><span class="nd">hover</span> <span class="p">.</span><span class="nc">headeranchor-link</span><span class="o">,</span>
+<span class="p">.</span><span class="nc">markdown-body</span> <span class="nt">h6</span><span class="p">:</span><span class="nd">hover</span> <span class="p">.</span><span class="nc">headeranchor-link</span> <span class="p">{</span>
+  <span class="k">opacity</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">text-decoration</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
+  <span class="kp">-webkit-</span><span class="k">transform</span><span class="p">:</span><span class="nb">translateY</span><span class="p">(</span><span class="mf">.5</span><span class="kt">rem</span><span class="p">);</span>
+  <span class="k">transform</span><span class="p">:</span><span class="nb">translateY</span><span class="p">(</span><span class="mf">.5</span><span class="kt">rem</span><span class="p">);</span>
+  <span class="kp">-webkit-</span><span class="k">transition</span><span class="p">:</span> <span class="kc">color</span> <span class="mf">.25</span><span class="kt">s</span><span class="p">,</span><span class="k">opacity</span> <span class="mf">.125</span><span class="kt">s</span> <span class="mf">.25</span><span class="kt">s</span><span class="p">,</span><span class="bp">-webkit-</span><span class="k">transform</span> <span class="mf">.25</span><span class="kt">s</span> <span class="mf">.25</span><span class="kt">s</span><span class="p">;</span>
+  <span class="k">transition</span><span class="p">:</span> <span class="kc">color</span> <span class="mf">.25</span><span class="kt">s</span><span class="p">,</span><span class="k">opacity</span> <span class="mf">.125</span><span class="kt">s</span> <span class="mf">.25</span><span class="kt">s</span><span class="p">,</span><span class="bp">-webkit-</span><span class="k">transform</span> <span class="mf">.25</span><span class="kt">s</span> <span class="mf">.25</span><span class="kt">s</span><span class="p">;</span>
+  <span class="k">transition</span><span class="p">:</span> <span class="k">transform</span> <span class="mf">.25</span><span class="kt">s</span> <span class="mf">.25</span><span class="kt">s</span><span class="p">,</span><span class="kc">color</span> <span class="mf">.25</span><span class="kt">s</span><span class="p">,</span><span class="k">opacity</span> <span class="mf">.125</span><span class="kt">s</span> <span class="mf">.25</span><span class="kt">s</span><span class="p">;</span>
+  <span class="k">transition</span><span class="p">:</span> <span class="k">transform</span> <span class="mf">.25</span><span class="kt">s</span> <span class="mf">.25</span><span class="kt">s</span><span class="p">,</span><span class="kc">color</span> <span class="mf">.25</span><span class="kt">s</span><span class="p">,</span><span class="k">opacity</span> <span class="mf">.125</span><span class="kt">s</span> <span class="mf">.25</span><span class="kt">s</span><span class="p">,</span><span class="bp">-webkit-</span><span class="k">transform</span> <span class="mf">.25</span><span class="kt">s</span> <span class="mf">.25</span><span class="kt">s</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nc">.markdown-body</span> <span class="nc">.headeranchor</span> <span class="p">{</span>
-  <span class="nb">vertical-align</span><span class="o">:</span> <span class="nb">middle</span><span class="p">;</span>
-  <span class="nb">font</span><span class="o">:</span> <span class="nb">normal</span> <span class="nb">normal</span> <span class="m">2</span><span class="n">rem</span> <span class="s2">&quot;Material Icons&quot;</span><span class="p">;</span>
-  <span class="nb">line-height</span><span class="o">:</span> <span class="m">1</span><span class="p">;</span>
-  <span class="nb">display</span><span class="o">:</span> <span class="nb">inline</span><span class="o">-</span><span class="nb">block</span><span class="p">;</span>
-  <span class="nb">text-decoration</span><span class="o">:</span> <span class="nb">none</span><span class="p">;</span>
-  <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="n">select</span><span class="o">:</span> <span class="nb">none</span><span class="p">;</span>
-  <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="n">select</span><span class="o">:</span> <span class="nb">none</span><span class="p">;</span>
-  <span class="o">-</span><span class="n">ms</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="n">select</span><span class="o">:</span> <span class="nb">none</span><span class="p">;</span>
-  <span class="n">user</span><span class="o">-</span><span class="n">select</span><span class="o">:</span> <span class="nb">none</span><span class="p">;</span>
+<span class="p">.</span><span class="nc">markdown-body</span> <span class="p">.</span><span class="nc">headeranchor</span> <span class="p">{</span>
+  <span class="k">vertical-align</span><span class="p">:</span> <span class="kc">middle</span><span class="p">;</span>
+  <span class="k">font</span><span class="p">:</span> <span class="kc">normal</span> <span class="kc">normal</span> <span class="mi">2</span><span class="kt">rem</span> <span class="s2">&quot;Material Icons&quot;</span><span class="p">;</span>
+  <span class="k">line-height</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">display</span><span class="p">:</span> <span class="kc">inline-block</span><span class="p">;</span>
+  <span class="k">text-decoration</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
+  <span class="kp">-webkit-</span><span class="k">user-select</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
+  <span class="kp">-moz-</span><span class="k">user-select</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
+  <span class="kp">-ms-</span><span class="k">user-select</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
+  <span class="k">user-select</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nc">.markdown-body</span> <span class="nc">.headeranchor</span><span class="nd">:before</span> <span class="p">{</span>
-  <span class="nb">content</span><span class="o">:</span> <span class="s1">&#39;\E157&#39;</span><span class="p">;</span>
+<span class="p">.</span><span class="nc">markdown-body</span> <span class="p">.</span><span class="nc">headeranchor</span><span class="p">:</span><span class="nd">before</span> <span class="p">{</span>
+  <span class="k">content</span><span class="p">:</span> <span class="s1">&#39;\E157&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
               
@@ -930,8 +868,8 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application-2afe21e0b2.js"></script>
-      <script>var config={url:{base:"../.."}},app=new Application(config);app.initialize()</script>
+      <script src="../../assets/javascripts/application-39a173f6f5.js"></script>
+      <script>app.initialize({url:{base:"../.."}})</script>
       
     
     

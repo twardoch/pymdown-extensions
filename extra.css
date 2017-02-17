@@ -6,10 +6,6 @@
 }
 
 /* Code */
-.md-typeset .linenos .special {
-  color: rgba(0,0,0,.40);
-}
-
 .md-typeset a>code {
     margin: 0 .29412em;
     padding: .07353em 0;
