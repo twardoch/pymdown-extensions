@@ -13,7 +13,7 @@
       
         <link rel="shortcut icon" href="../../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.1, mkdocs-material-1.1.1">
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.5.4">
     
     
       
@@ -24,9 +24,9 @@
       <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-4ebe3f1d68.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-b1a1975878.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-f6789307ff.palette.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-f78e5cb881.palette.css">
       
     
     
@@ -62,7 +62,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <header class="md-header">
+      <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -96,12 +96,18 @@
   <div class="md-search__overlay"></div>
   <div class="md-search__inner">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
       <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result"></div>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
       </div>
     </div>
   </div>
@@ -283,12 +289,49 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
-      
     
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Caret
+      </label>
     
     <a href="./" title="Caret" class="md-nav__link md-nav__link--active">
       Caret
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" title="Overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options" title="Options" class="md-nav__link">
+    Options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" title="Examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -371,30 +414,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../githubemoji/" title="GitHubEmoji" class="md-nav__link">
-      GitHubEmoji
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../headeranchor/" title="HeaderAnchor" class="md-nav__link">
-      HeaderAnchor
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../highlight/" title="Highlight" class="md-nav__link">
       Highlight
     </a>
@@ -409,6 +428,18 @@
   <li class="md-nav__item">
     <a href="../inlinehilite/" title="InlineHilite" class="md-nav__link">
       InlineHilite
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../keys/" title="Keys" class="md-nav__link">
+      Keys
     </a>
   </li>
 
@@ -469,18 +500,6 @@
   <li class="md-nav__item">
     <a href="../progressbar/" title="ProgressBar" class="md-nav__link">
       ProgressBar
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../pymdown/" title="PyMdown" class="md-nav__link">
-      PyMdown
     </a>
   </li>
 
@@ -649,6 +668,8 @@
   
 </li>
       
+      
+      
     </ul>
   
 </nav>
@@ -659,10 +680,10 @@
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
-               
-                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions/caret.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
-               
               
+                
+                  <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/extensions/caret.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                
                 
                   <h1>Caret</h1>
                 
@@ -702,7 +723,12 @@
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link"></a></h2>
 <p>The first feature adds underline emphasis (<code>ins</code> tags) when inline text is surrounded by double carets: <code>^^underline me^^</code> &rarr; <ins>underline me</ins>.  It can optionally be configured to use smart logic: <code>^^underline^^me^^</code> &rarr; <ins>underline^^me</ins>.</p>
 <p>The second feature adds superscript using single carets: <code>H^2^0</code> &rarr; H<sup>2</sup>0.  It uses Pandoc style logic, so if your superscript needs to have spaces, you must escape the spaces: <code>text^a\ superscript^</code> &rarr; text<sup>a&nbsp;superscript</sup>.</p>
+                
+                  
+                
               
+              
+                
               
             </article>
           </div>
@@ -780,7 +806,7 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application-30ac6a1727.js"></script>
+      <script src="../../assets/javascripts/application-0b7df094bf.js"></script>
       <script>app.initialize({url:{base:"../.."}})</script>
       
     

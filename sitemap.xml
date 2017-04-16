@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,7 +12,7 @@
     
     <url>
      <loc>/installation/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -20,7 +20,7 @@
     
     <url>
      <loc>/usage_notes/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -29,151 +29,139 @@
         
     <url>
      <loc>/extensions/arithmatex/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/extensions/b64/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/extensions/betterem/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/extensions/caret/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/extensions/critic/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/extensions/emoji/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/extensions/escapeall/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/extensions/extra/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/extensions/extrarawhtml/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/extensions/github/</loc>
-     <lastmod>2017-02-26</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/extensions/githubemoji/</loc>
-     <lastmod>2017-02-26</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/extensions/headeranchor/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/extensions/highlight/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/extensions/inlinehilite/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/extensions/keys/</loc>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/extensions/magiclink/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/extensions/mark/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/extensions/pathconverter/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/extensions/plainhtml/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/extensions/progressbar/</loc>
-     <lastmod>2017-02-26</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/extensions/pymdown/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/extensions/smartsymbols/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/extensions/snippets/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/extensions/superfences/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/extensions/tasklist/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/extensions/tilde/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -182,7 +170,7 @@
     
     <url>
      <loc>/miscellaneous_extras/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -190,7 +178,7 @@
     
     <url>
      <loc>/contributing/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -198,7 +186,7 @@
     
     <url>
      <loc>/development/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -206,7 +194,7 @@
     
     <url>
      <loc>/changelog/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -214,7 +202,7 @@
     
     <url>
      <loc>/license/</loc>
-     <lastmod>2017-02-26</lastmod>
+     <lastmod>2017-04-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     

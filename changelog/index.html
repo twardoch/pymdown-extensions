@@ -13,7 +13,7 @@
       
         <link rel="shortcut icon" href="../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.1, mkdocs-material-1.1.1">
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.5.4">
     
     
       
@@ -24,9 +24,9 @@
       <script src="../assets/javascripts/modernizr-56ade86843.js"></script>
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application-4ebe3f1d68.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application-b1a1975878.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/application-f6789307ff.palette.css">
+        <link rel="stylesheet" href="../assets/stylesheets/application-f78e5cb881.palette.css">
       
     
     
@@ -62,7 +62,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <header class="md-header">
+      <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -92,12 +92,18 @@
   <div class="md-search__overlay"></div>
   <div class="md-search__inner">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
       <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result"></div>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
       </div>
     </div>
   </div>
@@ -356,30 +362,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../extensions/githubemoji/" title="GitHubEmoji" class="md-nav__link">
-      GitHubEmoji
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../extensions/headeranchor/" title="HeaderAnchor" class="md-nav__link">
-      HeaderAnchor
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../extensions/highlight/" title="Highlight" class="md-nav__link">
       Highlight
     </a>
@@ -394,6 +376,18 @@
   <li class="md-nav__item">
     <a href="../extensions/inlinehilite/" title="InlineHilite" class="md-nav__link">
       InlineHilite
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../extensions/keys/" title="Keys" class="md-nav__link">
+      Keys
     </a>
   </li>
 
@@ -454,18 +448,6 @@
   <li class="md-nav__item">
     <a href="../extensions/progressbar/" title="ProgressBar" class="md-nav__link">
       ProgressBar
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../extensions/pymdown/" title="PyMdown" class="md-nav__link">
-      PyMdown
     </a>
   </li>
 
@@ -582,45 +564,29 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
-      
     
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Changelog
+      </label>
     
     <a href="./" title="Changelog" class="md-nav__link md-nav__link--active">
       Changelog
     </a>
     
-  </li>
-
-    
       
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../license/" title="License" class="md-nav__link">
-      License
-    </a>
-  </li>
-
-    
-  </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
 <nav class="md-nav md-nav--secondary">
   
   
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#300" title="3.0.0" class="md-nav__link">
+    3.0.0
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#200" title="2.0.0" class="md-nav__link">
@@ -706,6 +672,138 @@
   
 </li>
       
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#300" title="3.0.0" class="md-nav__link">
+    3.0.0
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#200" title="2.0.0" class="md-nav__link">
+    2.0.0
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#180" title="1.8.0" class="md-nav__link">
+    1.8.0
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#170" title="1.7.0" class="md-nav__link">
+    1.7.0
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#161" title="1.6.1" class="md-nav__link">
+    1.6.1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#160" title="1.6.0" class="md-nav__link">
+    1.6.0
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#150" title="1.5.0" class="md-nav__link">
+    1.5.0
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#140" title="1.4.0" class="md-nav__link">
+    1.4.0
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#130" title="1.3.0" class="md-nav__link">
+    1.3.0
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#120" title="1.2.0" class="md-nav__link">
+    1.2.0
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#110" title="1.1.0" class="md-nav__link">
+    1.1.0
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#101" title="1.0.1" class="md-nav__link">
+    1.0.1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#100" title="1.0.0" class="md-nav__link">
+    1.0.0
+  </a>
+  
+</li>
+      
+      
+      
     </ul>
   
 </nav>
@@ -716,14 +814,33 @@
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
-               
-                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/changelog.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
-               
               
+                
+                  <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/changelog.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                
                 
                   <h1>Changelog</h1>
                 
-                <h2 id="200">2.0.0<a class="headerlink" href="#200" title="Permanent link"></a></h2>
+                <h2 id="300">3.0.0<a class="headerlink" href="#300" title="Permanent link"></a></h2>
+<blockquote>
+<p>Released Apr 16, 2017</p>
+</blockquote>
+<ul>
+<li><strong>NEW</strong>: Added Keys extension.</li>
+<li><strong>NEW</strong>: Generalized custom fences (<a href="https://github.com/facelessuser/pymdown-extensions/issues/60">#60</a>). <code>flow</code> and <code>sequence</code> fence are now just custom fences and can be disabled simply by overwriting the <code>custom_fences</code> setting.</li>
+<li><strong>NEW</strong>: Remove deprecated <code>no_nl2br</code> in GitHub extension (<a href="https://github.com/facelessuser/pymdown-extensions/issues/24">#24</a>).</li>
+<li><strong>NEW</strong>: Remove deprecated HeaderAnchor extension (<a href="https://github.com/facelessuser/pymdown-extensions/issues/24">#24</a>).</li>
+<li><strong>NEW</strong>: Remove deprecated PyMdown extension (<a href="https://github.com/facelessuser/pymdown-extensions/issues/24">#24</a>).</li>
+<li><strong>NEW</strong>: Remove deprecated GitHubEmoji extension (<a href="https://github.com/facelessuser/pymdown-extensions/issues/24">#24</a>).</li>
+<li><strong>NEW</strong>: Remove deprecated <code>nested</code> option in SuperFences (<a href="https://github.com/facelessuser/pymdown-extensions/issues/24">#24</a>).</li>
+<li><strong>NEW</strong>: Wrapper extensions (such as GitHub and Extra) can now allow setting the included sub extensions settings (<a href="https://github.com/facelessuser/pymdown-extensions/issues/61">#61</a>). Workaround settings that directly set specific extensions settings has been removed.</li>
+<li><strong>NEW</strong>: Deprecated <code>use_codehilite_settings</code> in SuperFences and InlineHilite and now does nothing.  The settings will be removed in the future.  If <code>pymdownx.highlight</code> is used, it's settings will be used instead of CodeHilite. Eventually, the both SuperFences and InlineHilite will require <code>pymdownx.highlight</code> to be used and will have CodeHilite support stripped.</li>
+<li><strong>FIX</strong>: Fix MathJax CDN references and usage in documentation.  MathJax CDN is shutting down and must now use Cloudflare CDN (<a href="https://github.com/facelessuser/pymdown-extensions/issues/63">#63</a>).</li>
+</ul>
+<h2 id="200">2.0.0<a class="headerlink" href="#200" title="Permanent link"></a></h2>
+<blockquote>
+<p>Released Feb 12, 2017</p>
+</blockquote>
 <ul>
 <li><strong>NEW</strong>: SuperFences and InlineHilite can be configured via the new Highlight extension.</li>
 <li><strong>NEW</strong>: InlineHilite now has all highlighting features pushed to the Highlight extension.  This removes all the CodeHilite code that used to be in it and instead relocates it to Highlight.</li>
@@ -837,7 +954,12 @@
 <ul>
 <li><strong>NEW</strong>: Initial release.</li>
 </ul>
+                
+                  
+                
               
+              
+                
               
             </article>
           </div>
@@ -915,7 +1037,7 @@
       
     </div>
     
-      <script src="../assets/javascripts/application-30ac6a1727.js"></script>
+      <script src="../assets/javascripts/application-0b7df094bf.js"></script>
       <script>app.initialize({url:{base:".."}})</script>
       
     

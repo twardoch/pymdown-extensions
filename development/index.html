@@ -13,7 +13,7 @@
       
         <link rel="shortcut icon" href="../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.1, mkdocs-material-1.1.1">
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.5.4">
     
     
       
@@ -24,9 +24,9 @@
       <script src="../assets/javascripts/modernizr-56ade86843.js"></script>
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application-4ebe3f1d68.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application-b1a1975878.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/application-f6789307ff.palette.css">
+        <link rel="stylesheet" href="../assets/stylesheets/application-f78e5cb881.palette.css">
       
     
     
@@ -62,7 +62,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <header class="md-header">
+      <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -92,12 +92,18 @@
   <div class="md-search__overlay"></div>
   <div class="md-search__inner">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
       <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result"></div>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
       </div>
     </div>
   </div>
@@ -356,30 +362,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../extensions/githubemoji/" title="GitHubEmoji" class="md-nav__link">
-      GitHubEmoji
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../extensions/headeranchor/" title="HeaderAnchor" class="md-nav__link">
-      HeaderAnchor
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../extensions/highlight/" title="Highlight" class="md-nav__link">
       Highlight
     </a>
@@ -394,6 +376,18 @@
   <li class="md-nav__item">
     <a href="../extensions/inlinehilite/" title="InlineHilite" class="md-nav__link">
       InlineHilite
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../extensions/keys/" title="Keys" class="md-nav__link">
+      Keys
     </a>
   </li>
 
@@ -454,18 +448,6 @@
   <li class="md-nav__item">
     <a href="../extensions/progressbar/" title="ProgressBar" class="md-nav__link">
       ProgressBar
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../extensions/pymdown/" title="PyMdown" class="md-nav__link">
-      PyMdown
     </a>
   </li>
 
@@ -570,12 +552,104 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
-      
     
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Development
+      </label>
     
     <a href="./" title="Development" class="md-nav__link md-nav__link--active">
       Development
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-layout" title="Project Layout" class="md-nav__link">
+    Project Layout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-standards" title="Coding Standards" class="md-nav__link">
+    Coding Standards
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-documents" title="Building Documents" class="md-nav__link">
+    Building Documents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spell-checking-documents" title="Spell Checking Documents" class="md-nav__link">
+    Spell Checking Documents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-tests" title="Validation Tests" class="md-nav__link">
+    Validation Tests
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#syntax" title="Syntax" class="md-nav__link">
+    Syntax
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#targeted" title="Targeted" class="md-nav__link">
+    Targeted
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-validation-with-tox" title="Running Validation With Tox" class="md-nav__link">
+    Running Validation With Tox
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-coverage" title="Code Coverage" class="md-nav__link">
+    Code Coverage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-emoji-indexes" title="Generating Emoji Indexes" class="md-nav__link">
+    Generating Emoji Indexes
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -698,6 +772,8 @@
   
 </li>
       
+      
+      
     </ul>
   
 </nav>
@@ -708,10 +784,10 @@
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
-               
-                 <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/development.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
-               
               
+                
+                  <a href="https://github.com/facelessuser/pymdown-extensions/edit/master/docs/development.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                
                 
                   <h1>Development</h1>
                 
@@ -884,7 +960,12 @@
 <li>Force the tests to update via <code>python run_tests.py --update</code>.</li>
 </ol>
 <p>Nothing is fool proof.  If they make a breaking change to the files that the script parses, or the location of the files change, the auto-update tool may need to be updated itself (hopefully this would be a rare occurrence).  If such a change does occur, and you are feeling brave, a pull request would be appreciated, but in time, they will be resolved regardless.</p>
+                
+                  
+                
               
+              
+                
               
             </article>
           </div>
@@ -962,7 +1043,7 @@
       
     </div>
     
-      <script src="../assets/javascripts/application-30ac6a1727.js"></script>
+      <script src="../assets/javascripts/application-0b7df094bf.js"></script>
       <script>app.initialize({url:{base:".."}})</script>
       
     
