@@ -790,11 +790,9 @@
 <div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 
-
 <p>If you want to load one of the pre-defined configurations that MathJax offers, you can do as shown below.  Notice we are using the <a href="http://docs.mathjax.org/en/latest/config-files.html?highlight=TeX-MML-AM_CHTML#the-tex-mml-am-chtml-configuration-file"><code>TeX-MML-AM_CHTML</code></a> configuration file.</p>
 <div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
-
 
 <p>If you don't include a pre-defined configuration, you will need to provide your own.  But you can also provide a configuration to tweak the pre-defined configuration.  Here we show a simple example of a configuration done in JavaScript.</p>
 <div class="codehilite"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">MathJax</span> <span class="o">=</span> <span class="p">{</span>
@@ -808,7 +806,6 @@
 <span class="p">};</span>
 </pre></div>
 
-
 <p>If you have <code>insert_as_script</code> enabled, you could omit the extension <code>tex2jax.js</code> and the <code>tex2jax</code> settings.</p>
 <div class="codehilite"><pre><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">MathJax</span> <span class="o">=</span> <span class="p">{</span>
   <span class="nx">config</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;MMLorHTML.js&quot;</span><span class="p">],</span>
@@ -816,7 +813,6 @@
   <span class="nx">extensions</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;MathMenu.js&quot;</span><span class="p">,</span> <span class="s2">&quot;MathZoom.js&quot;</span><span class="p">]</span>
 <span class="p">};</span>
 </pre></div>
-
 
 <p>Please see the <a href="http://www.mathjax.org/">MathJax</a> site for more info on using MathJax extensions/plugins and configuring those extensions/plugins.</p>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link"></a></h2>
@@ -835,7 +831,6 @@
 
 Inline equations: <span class="s">$</span><span class="nb">p</span><span class="o">(</span><span class="nb">x|y</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{p</span><span class="o">(</span><span class="nb">y|x</span><span class="o">)</span><span class="nb">p</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb">}{p</span><span class="o">(</span><span class="nb">y</span><span class="o">)</span><span class="nb">}</span><span class="s">$</span>, <span class="s">\(</span><span class="nb">p</span><span class="o">(</span><span class="nb">x|y</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{p</span><span class="o">(</span><span class="nb">y|x</span><span class="o">)</span><span class="nb">p</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb">}{p</span><span class="o">(</span><span class="nb">y</span><span class="o">)</span><span class="nb">}</span><span class="s">\)</span>.
 </pre></div>
-
 
 <p>Some Block Equations:</p>
 <span>\[
@@ -953,6 +948,10 @@ MathJax.Hub.Config({
     
       <script src="../../assets/javascripts/application-7018102a8b.js"></script>
       <script>app.initialize({url:{base:"../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
+      
+        <script src="../../extra.js"></script>
       
     
     

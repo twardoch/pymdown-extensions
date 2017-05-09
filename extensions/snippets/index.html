@@ -737,14 +737,12 @@
 <div class="codehilite"><pre><span></span>--8&lt;-- &quot;filename.md&quot; 
 </pre></div>
 
-
 <p>Or you can insert multiple files with block notation:</p>
 <div class="codehilite"><pre><span></span>--8&lt;-- 
 filename.md
 filename2.md
 --8&lt;-- 
 </pre></div>
-
 
 <p>As you can see, the notation is ASCII scissors cutting a line followed by the file name.  In the case of the single line variant, the file name follows directly after the scissors and is quoted.  In the case of the block format, the file names follow on separate lines and an additional scissor is added afterwards to signal the end of the block.</p>
 <p>The dashes can be as few as 2 (<code>--8&lt;--</code>) or longer if desired (<code>---8&lt;---------</code>); whatever your preference is.  The important thing is that the notation must reside on a line(s) by itself, and the path must be quoted in the case of the single line notation.  If the file name is indented, the content will be indented to that level as well.  To reduce confusion in block format, it is advised to ensure the entire block is indented to the same level.  If you need to escape the syntax, just make sure a minimum of a space is after the quoted file name for single line format, or a space after the start or end block markers in block format.</p>
@@ -755,7 +753,6 @@ escaped notation
 --8&lt;--&lt;space&gt;
 </pre></div>
 
-
 <p>If you have a file you want to temporarily ignore, you can comment it out by prepending the path with <code>;</code> (notice the semicolon is followed by a space).  This works for both single line and block format:</p>
 <div class="codehilite"><pre><span></span>--8&lt;-- &quot;; skip.md&quot; 
 
@@ -764,7 +761,6 @@ include.md
 ; skip.md
 --8&lt;-- 
 </pre></div>
-
 
 <h2 id="formatting-snippets">Formatting Snippets<a class="headerlink" href="#formatting-snippets" title="Permanent link"></a></h2>
 <p>When inserting your snippet, it is important to remember that some snippets may need whitespace around them.</p>
@@ -775,7 +771,6 @@ We want blank lines before and after the insertion:
 
 So we put blank lines around the insertion.
 </pre></div>
-
 
 <p>In block format, it is important to note that empty lines are preserved for formatting:</p>
 <div class="codehilite"><pre><span></span>--8&lt;-- 
@@ -869,6 +864,10 @@ file2.md
     
       <script src="../../assets/javascripts/application-7018102a8b.js"></script>
       <script>app.initialize({url:{base:"../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
+      
+        <script src="../../extra.js"></script>
       
     
     
