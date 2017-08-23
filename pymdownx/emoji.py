@@ -27,12 +27,16 @@ from markdown import Extension
 from markdown.inlinepatterns import Pattern
 from markdown import util as md_util
 from . import util
+from .util import PymdownxDeprecationWarning
+import warnings
 
 RE_EMOJI = r'(:[+\-\w]+:)'
-SUPPORTED_INDEXES = ('emojione', 'gemoji')
+SUPPORTED_INDEXES = ('emojione', 'gemoji', 'twemoji')
 UNICODE_VARIATION_SELECTOR_16 = 'fe0f'
 EMOJIONE_SVG_CDN = 'https://cdn.jsdelivr.net/emojione/assets/svg/'
-EMOJIONE_PNG_CDN = 'https://cdn.jsdelivr.net/emojione/assets/png/'
+EMOJIONE_PNG_CDN = 'https://cdn.jsdelivr.net/emojione/assets/3.0/png/64/'
+TWEMOJI_SVG_CDN = 'https://twemoji.maxcdn.com/2/svg/'
+TWEMOJI_PNG_CDN = 'https://twemoji.maxcdn.com/2/72x72/'
 GITHUB_UNICODE_CDN = 'https://assets-cdn.github.com/images/icons/emoji/unicode/'
 GITHUB_CDN = 'https://assets-cdn.github.com/images/icons/emoji/'
 NO_TITLE = 'none'
@@ -41,6 +45,7 @@ SHORT_TITLE = 'short'
 VALID_TITLE = (LONG_TITLE, SHORT_TITLE, NO_TITLE)
 UNICODE_ENTITY = 'html_entity'
 UNICODE_ALT = ('unicode', UNICODE_ENTITY)
+LEGACY_ARG_COUNT = 8
 
 
 def add_attriubtes(options, attributes):
@@ -53,28 +58,38 @@ def add_attriubtes(options, attributes):
 
 
 def emojione():
-    """Emojione index."""
+    """The EmojiOne index."""
 
     from . import emoji1_db as emoji_map
     return {"name": emoji_map.name, "emoji": emoji_map.emoji, "aliases": emoji_map.aliases}
 
 
 def gemoji():
-    """gemoji_index index."""
+    """The Gemoji index."""
 
     from . import gemoji_db as emoji_map
+    return {"name": emoji_map.name, "emoji": emoji_map.emoji, "aliases": emoji_map.aliases}
+
+
+def twemoji():
+    """The Twemoji index."""
+
+    from . import twemoji_db as emoji_map
     return {"name": emoji_map.name, "emoji": emoji_map.emoji, "aliases": emoji_map.aliases}
 
 
 ###################
 # Converters
 ###################
-def to_png(index, shortname, alias, uc, alt, title, options, md):
+def to_png(index, shortname, alias, uc, alt, title, category, options, md):
     """Return png element."""
 
     if index == 'gemoji':
         def_image_path = GITHUB_UNICODE_CDN
         def_non_std_image_path = GITHUB_CDN
+    elif index == 'twemoji':
+        def_image_path = TWEMOJI_PNG_CDN
+        def_image_path = TWEMOJI_PNG_CDN
     else:
         def_image_path = EMOJIONE_PNG_CDN
         def_non_std_image_path = EMOJIONE_PNG_CDN
@@ -108,14 +123,19 @@ def to_png(index, shortname, alias, uc, alt, title, options, md):
     return md_util.etree.Element("img", attributes)
 
 
-def to_svg(index, shortname, alias, uc, alt, title, options, md):
+def to_svg(index, shortname, alias, uc, alt, title, category, options, md):
     """Return svg element."""
+
+    if index == 'twemoji':
+        svg_path = TWEMOJI_SVG_CDN
+    else:
+        svg_path = EMOJIONE_SVG_CDN
 
     attributes = {
         "class": options.get('classes', index),
         "alt": alt,
         "src": "%s%s.svg" % (
-            options.get('image_path', EMOJIONE_SVG_CDN),
+            options.get('image_path', svg_path),
             uc
         )
     }
@@ -128,12 +148,14 @@ def to_svg(index, shortname, alias, uc, alt, title, options, md):
     return md_util.etree.Element("img", attributes)
 
 
-def to_png_sprite(index, shortname, alias, uc, alt, title, options, md):
+def to_png_sprite(index, shortname, alias, uc, alt, title, category, options, md):
     """Return png sprite element."""
 
     attributes = {
-        "class": '%(class)s-%(unicode)s' % {
-            "class": options.get('classes', '%s %s' % (index, index)),
+        "class": '%(class)s-%(size)s-%(category)s _%(unicode)s' % {
+            "class": options.get('classes', index),
+            "size": options.get('size', '64'),
+            "category": (category if category else ''),
             "unicode": uc
         }
     }
@@ -149,7 +171,7 @@ def to_png_sprite(index, shortname, alias, uc, alt, title, options, md):
     return el
 
 
-def to_svg_sprite(index, shortname, alias, uc, alt, title, options, md):
+def to_svg_sprite(index, shortname, alias, uc, alt, title, category, options, md):
     """
     Return svg sprite element.
 
@@ -168,7 +190,7 @@ def to_svg_sprite(index, shortname, alias, uc, alt, title, options, md):
     return svg
 
 
-def to_awesome(index, shortname, alias, uc, alt, title, options, md):
+def to_awesome(index, shortname, alias, uc, alt, title, category, options, md):
     """
     Return "awesome style element for "font-awesome" format.
 
@@ -181,7 +203,7 @@ def to_awesome(index, shortname, alias, uc, alt, title, options, md):
     return md_util.etree.Element("i", attributes)
 
 
-def to_alt(index, shortname, alias, uc, alt, title, options, md):
+def to_alt(index, shortname, alias, uc, alt, title, category, options, md):
     """Return html entities."""
 
     return md.htmlStash.store(alt, safe=True)
@@ -193,20 +215,20 @@ def to_alt(index, shortname, alias, uc, alt, title, options, md):
 class EmojiPattern(Pattern):
     """Return element of type `tag` with a text attribute of group(3) of a Pattern."""
 
-    def __init__(
-        self, pattern, index, generator, remove_var_sel,
-        alt, title, options, md
-    ):
+    def __init__(self, pattern, config, md):
         """Initialize."""
 
-        self._set_index(index)
+        title = config['title']
+        alt = config['alt']
+
+        self._set_index(config["emoji_index"])
         self.markdown = md
         self.unicode_alt = alt in UNICODE_ALT
         self.encoded_alt = alt == UNICODE_ENTITY
-        self.remove_var_sel = remove_var_sel
+        self.remove_var_sel = config['remove_variation_selector']
         self.title = title if title in VALID_TITLE else NO_TITLE
-        self.generator = generator
-        self.options = options
+        self.generator = config['emoji_generator']
+        self.options = config['options']
         Pattern.__init__(self, pattern)
 
     def _set_index(self, index):
@@ -275,6 +297,11 @@ class EmojiPattern(Pattern):
                 )
         return alt
 
+    def _get_category(self, emoji):
+        """Get the category."""
+
+        return emoji.get('category')
+
     def handleMatch(self, m):
         """Hanlde emoji pattern matches."""
 
@@ -287,6 +314,7 @@ class EmojiPattern(Pattern):
             uc, uc_alt = self._get_unicode(emoji)
             title = self._get_title(el, emoji)
             alt = self._get_alt(el, uc_alt)
+            category = self._get_category(emoji)
             el = self.generator(
                 self.emoji_index['name'],
                 shortname,
@@ -294,6 +322,7 @@ class EmojiPattern(Pattern):
                 uc,
                 alt,
                 title,
+                category,
                 self.options,
                 self.markdown
             )
@@ -342,23 +371,26 @@ class EmojiExtension(Extension):
     def extendMarkdown(self, md, md_globals):
         """Add support for emojis."""
 
-        emoji_index = self.getConfigs()["emoji_index"]
-        generator = self.getConfigs()['emoji_generator']
-        title = self.getConfigs()['title']
-        alt = self.getConfigs()['alt']
-        options = self.getConfigs()['options']
-        remove_var_sel = self.getConfigs()['remove_variation_selector']
+        config = self.getConfigs()
+
+        # To avoid having to do a major release, we'll support the old format until the next major release.
+        if util.get_arg_count(config['emoji_generator']) == LEGACY_ARG_COUNT:  # pragma: no coverage
+            legacy_gen = config['emoji_generator']
+            config['emoji_generator'] = (
+                lambda index, shortname, alias, uc, alt, title, category, options, md, legacy_gen=legacy_gen:
+                    legacy_gen(index, shortname, alias, uc, alt, title, options, md)
+            )
+            warnings.warn(
+                "'Emoji generators' now take 9 arguments. The 8 argument format is \n"
+                "\ndeprecated and will be removed in the future. Please update your\n"
+                "\ngenerator to the new format to avoid complications in the future.",
+                PymdownxDeprecationWarning
+            )
 
         util.escape_chars(md, [':'])
 
-        md.inlinePatterns.add(
-            "emoji",
-            EmojiPattern(
-                RE_EMOJI, emoji_index, generator, remove_var_sel,
-                alt, title, options, md
-            ),
-            "<not_strong"
-        )
+        emj = EmojiPattern(RE_EMOJI, config, md)
+        md.inlinePatterns.add("emoji", emj, "<not_strong")
 
 
 ###################

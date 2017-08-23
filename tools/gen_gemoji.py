@@ -97,7 +97,8 @@ def parse(repo, tag):
             uc, uc_alt = get_unicode(v)
             emoji_db[':%s:' % short] = {
                 'name': v.get('description', short),
-                'unicode': uc
+                'unicode': uc,
+                'category': v['category']
             }
             if uc_alt:
                 emoji_db[':%s:' % short]['unicode_alt'] = uc_alt
@@ -111,7 +112,7 @@ def parse(repo, tag):
 
     # Save test files
     for test in ('png', 'entities'):
-        with open('../tests/extensions/gemoji (%s).txt' % test, 'w') as f:
+        with open('../tests/extensions/emoji/gemoji (%s).txt' % test, 'w') as f:
             f.write('# Emojis\n')
             count = 0
             for emoji in sorted(shortnames):
@@ -121,12 +122,12 @@ def parse(repo, tag):
                     break
 
     with open(os.path.join(current_dir, 'tags', repo, repo, 'LICENSE'), 'r') as f:
-        license = f.read()
+        license_content = f.read()
 
     # Write out essential info
     with open('../pymdownx/gemoji_db.py', 'w') as f:
         # Dump emoji db to file and strip out PY2 unicode specifiers
-        f.write('"""Gemoji autogen.\n\nGenerated from gemoji source. Do not edit by hand.\n\n%s"""\n' % license)
+        f.write('"""Gemoji autogen.\n\nGenerated from gemoji source. Do not edit by hand.\n\n%s"""\n' % license_content)
         f.write('from __future__ import unicode_literals\n')
         f.write('version = "%s"\n' % tag)
         f.write('name = "gemoji"\n')
