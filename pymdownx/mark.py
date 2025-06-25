@@ -23,17 +23,18 @@ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABI
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 """
-from __future__ import unicode_literals
+
 from markdown import Extension
 from markdown.inlinepatterns import SimpleTagPattern, SimpleTextPattern
+
 from . import util
 
-RE_SMART_CONTENT = r'((?:[^\=]|\=(?=[^\W_]|\=|\s)|(?<=\s)\=+?(?=\s))+?\=*?)'
-RE_DUMB_CONTENT = r'((?:[^\=]|(?<!\=)\=(?=[^\W_]|\=))+?)'
-RE_SMART_MARK_BASE = r'(\={2})(?![\s\=])%s(?<!\s)\={2}' % RE_SMART_CONTENT
-RE_SMART_MARK = r'(?:(?<=_)|(?<![\w\=]))%s(?:(?=_)|(?![\w\=]))' % RE_SMART_MARK_BASE
-RE_MARK_BASE = r'(\={2})(?!\s)%s(?<!\s)\={2}' % RE_DUMB_CONTENT
-RE_NOT_MARK = r'((^| )(\=)( |$))'
+RE_SMART_CONTENT = r"((?:[^\=]|\=(?=[^\W_]|\=|\s)|(?<=\s)\=+?(?=\s))+?\=*?)"
+RE_DUMB_CONTENT = r"((?:[^\=]|(?<!\=)\=(?=[^\W_]|\=))+?)"
+RE_SMART_MARK_BASE = r"(\={2})(?![\s\=])%s(?<!\s)\={2}" % RE_SMART_CONTENT
+RE_SMART_MARK = r"(?:(?<=_)|(?<![\w\=]))%s(?:(?=_)|(?![\w\=]))" % RE_SMART_MARK_BASE
+RE_MARK_BASE = r"(\={2})(?!\s)%s(?<!\s)\={2}" % RE_DUMB_CONTENT
+RE_NOT_MARK = r"((^| )(\=)( |$))"
 RE_MARK = RE_MARK_BASE
 
 
@@ -44,22 +45,29 @@ class MarkExtension(Extension):
         """Initialize."""
 
         self.config = {
-            'smart_mark': [True, "Treat ==connected==words== intelligently - Default: True"]
+            "smart_mark": [
+                True,
+                "Treat ==connected==words== intelligently - Default: True",
+            ]
         }
 
-        super(MarkExtension, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def extendMarkdown(self, md, md_globals):
         """Add support for <mark>test</mark> tags as ==test==."""
 
-        util.escape_chars(md, ['='])
+        util.escape_chars(md, ["="])
         config = self.getConfigs()
 
-        if config.get('smart_mark', True):
-            md.inlinePatterns.add("mark", SimpleTagPattern(RE_SMART_MARK, "mark"), "<not_strong")
+        if config.get("smart_mark", True):
+            md.inlinePatterns.add(
+                "mark", SimpleTagPattern(RE_SMART_MARK, "mark"), "<not_strong"
+            )
         else:
-            md.inlinePatterns.add("mark", SimpleTagPattern(RE_MARK, "mark"), "<not_strong")
-        md.inlinePatterns.add('not_mark', SimpleTextPattern(RE_NOT_MARK), "<mark")
+            md.inlinePatterns.add(
+                "mark", SimpleTagPattern(RE_MARK, "mark"), "<not_strong"
+            )
+        md.inlinePatterns.add("not_mark", SimpleTextPattern(RE_NOT_MARK), "<mark")
 
 
 def makeExtension(*args, **kwargs):

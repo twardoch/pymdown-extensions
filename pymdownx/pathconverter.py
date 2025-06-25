@@ -33,31 +33,33 @@ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABI
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 """
-from __future__ import unicode_literals
-from markdown import Extension
-from markdown.postprocessors import Postprocessor
-from . import util
+
 import os
 import re
 
-RE_TAG_HTML = r'''(?xus)
+from markdown import Extension
+from markdown.postprocessors import Postprocessor
+
+from . import util
+
+RE_TAG_HTML = r"""(?xus)
     (?:
         (?P<comments>(\r?\n?\s*)<!--[\s\S]*?-->(\s*)(?=\r?\n)|<!--[\s\S]*?-->)|
         (?P<open><(?P<tag>(?:%s)))
         (?P<attr>(?:\s+[\w\-:]+(?:\s*=\s*(?:"[^"]*"|'[^']*'))?)*)
         (?P<close>\s*(?:\/?)>)
     )
-    '''
+    """
 
 RE_TAG_LINK_ATTR = re.compile(
-    r'''(?xus)
+    r"""(?xus)
     (?P<attr>
         (?:
             (?P<name>\s+(?:href|src)\s*=\s*)
             (?P<path>"[^"]*"|'[^']*')
         )
     )
-    '''
+    """
 )
 
 
@@ -66,21 +68,28 @@ def repl_relative(m, base_path, relative_path):
 
     link = m.group(0)
     try:
-        scheme, netloc, path, params, query, fragment, is_url, is_absolute = util.parse_url(m.group('path')[1:-1])
+        scheme, netloc, path, params, query, fragment, is_url, is_absolute = (
+            util.parse_url(m.group("path")[1:-1])
+        )
 
         if not is_url:
             # Get the absolute path of the file or return
             # if we can't resolve the path
             path = util.url2pathname(path)
             abs_path = None
-            if (not is_absolute):
+            if not is_absolute:
                 # Convert current relative path to absolute
                 temp = os.path.normpath(os.path.join(base_path, path))
                 abs_path = temp.replace("\\", "/")
 
                 # Convert the path, url encode it, and format it as a link
-                path = util.pathname2url(os.path.relpath(abs_path, relative_path).replace('\\', '/'))
-                link = '%s"%s"' % (m.group('name'), util.urlunparse((scheme, netloc, path, params, query, fragment)))
+                path = util.pathname2url(
+                    os.path.relpath(abs_path, relative_path).replace("\\", "/")
+                )
+                link = '{}"{}"'.format(
+                    m.group("name"),
+                    util.urlunparse((scheme, netloc, path, params, query, fragment)),
+                )
     except Exception:  # pragma: no cover
         # Parsing crashed and burned; no need to continue.
         pass
@@ -93,13 +102,18 @@ def repl_absolute(m, base_path):
 
     link = m.group(0)
     try:
-        scheme, netloc, path, params, query, fragment, is_url, is_absolute = util.parse_url(m.group('path')[1:-1])
+        scheme, netloc, path, params, query, fragment, is_url, is_absolute = (
+            util.parse_url(m.group("path")[1:-1])
+        )
 
-        if (not is_absolute and not is_url):
+        if not is_absolute and not is_url:
             path = util.url2pathname(path)
             temp = os.path.normpath(os.path.join(base_path, path))
             path = util.pathname2url(temp.replace("\\", "/"))
-            link = '%s"%s"' % (m.group('name'), util.urlunparse((scheme, netloc, path, params, query, fragment)))
+            link = '{}"{}"'.format(
+                m.group("name"),
+                util.urlunparse((scheme, netloc, path, params, query, fragment)),
+            )
     except Exception:  # pragma: no cover
         # Parsing crashed and burned; no need to continue.
         pass
@@ -110,15 +124,19 @@ def repl_absolute(m, base_path):
 def repl(m, base_path, rel_path=None):
     """Replace."""
 
-    if m.group('comments'):
-        tag = m.group('comments')
+    if m.group("comments"):
+        tag = m.group("comments")
     else:
-        tag = m.group('open')
+        tag = m.group("open")
         if rel_path is None:
-            tag += RE_TAG_LINK_ATTR.sub(lambda m2: repl_absolute(m2, base_path), m.group('attr'))
+            tag += RE_TAG_LINK_ATTR.sub(
+                lambda m2: repl_absolute(m2, base_path), m.group("attr")
+            )
         else:
-            tag += RE_TAG_LINK_ATTR.sub(lambda m2: repl_relative(m2, base_path, rel_path), m.group('attr'))
-        tag += m.group('close')
+            tag += RE_TAG_LINK_ATTR.sub(
+                lambda m2: repl_relative(m2, base_path, rel_path), m.group("attr")
+            )
+        tag += m.group("close")
     return tag
 
 
@@ -128,10 +146,10 @@ class PathConverterPostprocessor(Postprocessor):
     def run(self, text):
         """Find and convert paths."""
 
-        basepath = self.config['base_path']
-        relativepath = self.config['relative_path']
-        absolute = bool(self.config['absolute'])
-        tags = re.compile(RE_TAG_HTML % '|'.join(self.config['tags'].split()))
+        basepath = self.config["base_path"]
+        relativepath = self.config["relative_path"]
+        absolute = bool(self.config["absolute"])
+        tags = re.compile(RE_TAG_HTML % "|".join(self.config["tags"].split()))
         if not absolute and basepath and relativepath:
             text = tags.sub(lambda m: repl(m, basepath, relativepath), text)
         elif absolute and basepath:
@@ -146,13 +164,22 @@ class PathConverterExtension(Extension):
         """Initialize."""
 
         self.config = {
-            'base_path': ["", "Base path used to find files - Default: \"\""],
-            'relative_path': ["", "Path that files will be relative to (not needed if using absolute) - Default: \"\""],
-            'absolute': [False, "Paths are absolute by default; disable for relative - Default: False"],
-            'tags': ["img script a link", "tags to convert src and/or href in - Default: 'img scripts a link'"]
+            "base_path": ["", 'Base path used to find files - Default: ""'],
+            "relative_path": [
+                "",
+                'Path that files will be relative to (not needed if using absolute) - Default: ""',
+            ],
+            "absolute": [
+                False,
+                "Paths are absolute by default; disable for relative - Default: False",
+            ],
+            "tags": [
+                "img script a link",
+                "tags to convert src and/or href in - Default: 'img scripts a link'",
+            ],
         }
 
-        super(PathConverterExtension, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def extendMarkdown(self, md, md_globals):
         """Add PathConverterPostprocessor to Markdown instance."""

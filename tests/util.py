@@ -1,7 +1,9 @@
 """Utils."""
-import yaml
-from collections import OrderedDict
+
 import sys
+from collections import OrderedDict
+
+import yaml
 
 PY2 = sys.version_info >= (2, 0) and sys.version_info < (3, 0)
 PY3 = sys.version_info >= (3, 0) and sys.version_info < (4, 0)
@@ -42,13 +44,9 @@ def yaml_load(stream, loader=yaml.Loader, object_pairs_hook=OrderedDict):
         """Custom Loader."""
 
     Loader.add_constructor(
-        yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG,
-        construct_mapping
+        yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, construct_mapping
     )
 
-    Loader.add_constructor(
-        'tag:yaml.org,2002:str',
-        construct_yaml_str
-    )
+    Loader.add_constructor("tag:yaml.org,2002:str", construct_yaml_str)
 
     return yaml.load(stream, Loader)

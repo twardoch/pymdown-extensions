@@ -13,18 +13,18 @@ use CodeHilite to source its settings or pymdownx.highlight.
 Copyright 2014 - 2017 Isaac Muse <isaacmuse@gmail.com>
 """
 
-from __future__ import absolute_import
-from __future__ import unicode_literals
-from markdown import Extension
-from markdown.inlinepatterns import Pattern
-from markdown import util as md_util
-from . import highlight as hl
-from .util import PymdownxDeprecationWarning
 import warnings
 
-ESCAPED_BSLASH = '%s%s%s' % (md_util.STX, ord('\\'), md_util.ETX)
-DOUBLE_BSLASH = '\\\\'
-BACKTICK_CODE_RE = r'''(?x)
+from markdown import Extension
+from markdown import util as md_util
+from markdown.inlinepatterns import Pattern
+
+from . import highlight as hl
+from .util import PymdownxDeprecationWarning
+
+ESCAPED_BSLASH = "{}{}{}".format(md_util.STX, ord("\\"), md_util.ETX)
+DOUBLE_BSLASH = "\\\\"
+BACKTICK_CODE_RE = r"""(?x)
 (?:
 (?<!\\)(?P<escapes>(?:\\{2})+)(?=`+) |  # Process code escapes before code
 (?<!\\)(?P<tic>`+)
@@ -32,16 +32,16 @@ BACKTICK_CODE_RE = r'''(?x)
 (?P<code>.+?)                           # Code
 (?<!`)(?P=tic)(?!`)                     # Closing
 )
-'''
+"""
 
 
 def _escape(txt):
     """Basic html escaping."""
 
-    txt = txt.replace('&', '&amp;')
-    txt = txt.replace('<', '&lt;')
-    txt = txt.replace('>', '&gt;')
-    txt = txt.replace('"', '&quot;')
+    txt = txt.replace("&", "&amp;")
+    txt = txt.replace("<", "&lt;")
+    txt = txt.replace(">", "&gt;")
+    txt = txt.replace('"', "&quot;")
     return txt
 
 
@@ -60,17 +60,17 @@ class InlineHilitePattern(Pattern):
 
         if not self.get_hl_settings:
             self.get_hl_settings = True
-            self.style_plain_text = self.config['style_plain_text']
+            self.style_plain_text = self.config["style_plain_text"]
 
             config = hl.get_hl_settings(self.markdown)
-            css_class = self.config['css_class']
-            self.css_class = css_class if css_class else config['css_class']
+            css_class = self.config["css_class"]
+            self.css_class = css_class if css_class else config["css_class"]
 
-            self.extend_pygments_lang = config.get('extend_pygments_lang', None)
-            self.guess_lang = config['guess_lang']
-            self.pygments_style = config['pygments_style']
-            self.use_pygments = config['use_pygments']
-            self.noclasses = config['noclasses']
+            self.extend_pygments_lang = config.get("extend_pygments_lang", None)
+            self.guess_lang = config["guess_lang"]
+            self.pygments_style = config["pygments_style"]
+            self.use_pygments = config["use_pygments"]
+            self.noclasses = config["noclasses"]
 
     def highlight_code(self, language, src):
         """Syntax highlite the inline code block."""
@@ -83,22 +83,22 @@ class InlineHilitePattern(Pattern):
                 pygments_style=self.pygments_style,
                 use_pygments=self.use_pygments,
                 noclasses=self.noclasses,
-                extend_pygments_lang=self.extend_pygments_lang
+                extend_pygments_lang=self.extend_pygments_lang,
             ).highlight(src, language, self.css_class, inline=True)
             el.text = self.markdown.htmlStash.store(el.text, safe=True)
         else:
-            el = md_util.etree.Element('code')
+            el = md_util.etree.Element("code")
             el.text = self.markdown.htmlStash.store(_escape(src), safe=True)
         return el
 
     def handleMatch(self, m):
         """Handle the pattern match."""
 
-        if m.group('escapes'):
-            return m.group('escapes').replace(DOUBLE_BSLASH, ESCAPED_BSLASH)
+        if m.group("escapes"):
+            return m.group("escapes").replace(DOUBLE_BSLASH, ESCAPED_BSLASH)
         else:
-            lang = m.group('lang') if m.group('lang') else ''
-            src = m.group('code').strip()
+            lang = m.group("lang") if m.group("lang") else ""
+            src = m.group("code").strip()
             self.get_settings()
             return self.highlight_code(lang, src)
 
@@ -110,45 +110,44 @@ class InlineHiliteExtension(Extension):
         """Initialize."""
 
         self.config = {
-            'use_codehilite_settings': [
+            "use_codehilite_settings": [
                 None,
-                "Deprecated and does nothing. "
-                "- Default: True"
+                "Deprecated and does nothing. - Default: True",
             ],
-            'style_plain_text': [
+            "style_plain_text": [
                 False,
                 "Process inline code even when a language is not specified "
                 "or langauge is specified as 'text'. "
                 "When 'False', no classes will be added to 'text' code blocks"
                 "and no scoping will performed. The content will just be escaped."
-                "- Default: False"
+                "- Default: False",
             ],
-            'css_class': [
-                '',
+            "css_class": [
+                "",
                 "Set class name for wrapper element. The default of CodeHilite or Highlight will be used"
                 "if nothing is set. - "
-                "Default: ''"
-            ]
+                "Default: ''",
+            ],
         }
-        super(InlineHiliteExtension, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def extendMarkdown(self, md, md_globals):
         """Add support for :::language`code` code hiliting."""
 
         config = self.getConfigs()
 
-        if config.get('use_codehilite_settings'):  # pragma: no coverage
+        if config.get("use_codehilite_settings"):  # pragma: no coverage
             warnings.warn(
                 "'use_codehilite_settings' is deprecated and does nothing.\n"
                 "\nCodeHilite settings will only be used if CodeHilite is configured\n"
                 " and 'pymdownx.highlight' is not configured.\n"
                 "Please discontinue use of this setting as it will be removed in the future.",
-                PymdownxDeprecationWarning
+                PymdownxDeprecationWarning,
             )
 
         inline_hilite = InlineHilitePattern(BACKTICK_CODE_RE, md)
         inline_hilite.config = config
-        md.inlinePatterns['backtick'] = inline_hilite
+        md.inlinePatterns["backtick"] = inline_hilite
 
 
 def makeExtension(*args, **kwargs):

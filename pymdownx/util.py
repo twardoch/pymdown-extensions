@@ -5,37 +5,42 @@ MIT license.
 
 Copyright (c) 2017 Isaac Muse <isaacmuse@gmail.com>
 """
-from __future__ import unicode_literals
-import sys
+
 import copy
 import re
+import sys
 
 PY3 = sys.version_info >= (3, 0)
 PY34 = sys.version_info >= (3, 4)
 
 if PY3:
     uchr = chr  # noqa
-    from urllib.request import pathname2url, url2pathname  # noqa
-    from urllib.parse import urlparse, urlunparse, quote  # noqa
     from html.parser import HTMLParser  # noqa
+    from urllib.parse import quote, urlparse, urlunparse  # noqa
+    from urllib.request import pathname2url, url2pathname  # noqa
+
     if PY34:
         import html  # noqa
+
         html_unescape = html.unescape  # noqa
     else:
         html_unescape = HTMLParser().unescape  # noqa
 else:
     uchr = unichr  # noqa
-    from urllib import pathname2url, url2pathname, quote  # noqa
-    from urlparse import urlparse, urlunparse  # noqa
+    from urllib import pathname2url, quote, url2pathname  # noqa
+
     from HTMLParser import HTMLParser  # noqa
+    from urlparse import urlparse, urlunparse  # noqa
+
     html_unescape = HTMLParser().unescape  # noqa
 
 RE_WIN_DRIVE_LETTER = re.compile(r"^[A-Za-z]$")
 RE_WIN_DRIVE_PATH = re.compile(r"^[A-Za-z]:(?:\\.*)?$")
-RE_URL = re.compile('(http|ftp)s?|data|mailto|tel|news')
+RE_URL = re.compile("(http|ftp)s?|data|mailto|tel|news")
 IS_NARROW = sys.maxunicode == 0xFFFF
 
 if IS_NARROW:
+
     def get_code_points(s):
         """Get the Unicode code points."""
 
@@ -58,13 +63,13 @@ if IS_NARROW:
             del point[:]
             return True
 
-        return [(''.join(pt) if pt else c) for c in s if is_full_point(c, pt)]
+        return [("".join(pt) if pt else c) for c in s if is_full_point(c, pt)]
 
     def get_ord(c):
         """Get Unicode ord."""
 
         if len(c) == 2:
-            high, low = [ord(p) for p in c]
+            high, low = (ord(p) for p in c)
             ordinal = (high - 0xD800) * 0x400 + low - 0xDC00 + 0x10000
         else:
             ordinal = ord(c)
@@ -74,10 +79,10 @@ if IS_NARROW:
     def get_char(value):
         """Get the Unicode char."""
         if value > 0xFFFF:
-            c = ''.join(
+            c = "".join(
                 [
                     uchr(int((value - 0x10000) / (0x400)) + 0xD800),
-                    uchr((value - 0x10000) % 0x400 + 0xDC00)
+                    uchr((value - 0x10000) % 0x400 + 0xDC00),
                 ]
             )
         else:
@@ -85,6 +90,7 @@ if IS_NARROW:
         return c
 
 else:
+
     def get_code_points(s):
         """Get the Unicode code points."""
 
@@ -148,38 +154,38 @@ def parse_url(url):
     if RE_URL.match(scheme):
         # Clearly a url
         is_url = True
-    elif scheme == '' and netloc == '' and path == '':
+    elif scheme == "" and netloc == "" and path == "":
         # Maybe just a url fragment
         is_url = True
-    elif scheme == 'file' and (RE_WIN_DRIVE_PATH.match(netloc)):
+    elif scheme == "file" and (RE_WIN_DRIVE_PATH.match(netloc)):
         # file://c:/path or file://c:\path
-        path = '/' + (netloc + path).replace('\\', '/')
-        netloc = ''
+        path = "/" + (netloc + path).replace("\\", "/")
+        netloc = ""
         is_absolute = True
-    elif scheme == 'file' and netloc.startswith('\\'):
+    elif scheme == "file" and netloc.startswith("\\"):
         # file://\c:\path or file://\\path
-        path = (netloc + path).replace('\\', '/')
-        netloc = ''
+        path = (netloc + path).replace("\\", "/")
+        netloc = ""
         is_absolute = True
-    elif scheme == 'file':
+    elif scheme == "file":
         # file:///path
         is_absolute = True
     elif RE_WIN_DRIVE_LETTER.match(scheme):
         # c:/path
-        path = '/%s:%s' % (scheme, path.replace('\\', '/'))
-        scheme = 'file'
-        netloc = ''
+        path = "/{}:{}".format(scheme, path.replace("\\", "/"))
+        scheme = "file"
+        netloc = ""
         is_absolute = True
-    elif scheme == '' and netloc != '' and url.startswith('//'):
+    elif scheme == "" and netloc != "" and url.startswith("//"):
         # //file/path
-        path = '//' + netloc + path
-        scheme = 'file'
-        netloc = ''
+        path = "//" + netloc + path
+        scheme = "file"
+        netloc = ""
         is_absolute = True
-    elif scheme != '' and netloc != '':
+    elif scheme != "" and netloc != "":
         # A non-filepath or strange url
         is_url = True
-    elif path.startswith(('/', '\\')):
+    elif path.startswith(("/", "\\")):
         # /root path
         is_absolute = True
 

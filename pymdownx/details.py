@@ -21,12 +21,12 @@ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABI
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 """
-from __future__ import absolute_import
-from __future__ import unicode_literals
+
+import re
+
 from markdown import Extension
 from markdown.blockprocessors import BlockProcessor
 from markdown.util import etree
-import re
 
 
 class DetailsProcessor(BlockProcessor):
@@ -38,12 +38,10 @@ class DetailsProcessor(BlockProcessor):
         """Test block."""
 
         sibling = self.lastChild(parent)
-        return (
-            self.START.search(block) or
-            (
-                block.startswith(' ' * self.tab_length) and sibling is not None and
-                sibling.tag.lower() == 'details'
-            )
+        return self.START.search(block) or (
+            block.startswith(" " * self.tab_length)
+            and sibling is not None
+            and sibling.tag.lower() == "details"
         )
 
     def run(self, parent, blocks):
@@ -55,7 +53,7 @@ class DetailsProcessor(BlockProcessor):
         m = self.START.search(block)
         if m:
             # remove the first line
-            block = block[m.end():]
+            block = block[m.end() :]
 
         # Get the details block and and the non-details content
         block, non_details = self.detab(block)
@@ -64,13 +62,15 @@ class DetailsProcessor(BlockProcessor):
             state = m.group(1)
             is_open = state is not None
             class_name = m.group(2)
-            class_name = '' if class_name is None else class_name.lower()
+            class_name = "" if class_name is None else class_name.lower()
             title = m.group(3)
 
-            div = etree.SubElement(parent, 'details', ({'open': 'open'} if is_open else {}))
+            div = etree.SubElement(
+                parent, "details", ({"open": "open"} if is_open else {})
+            )
             if class_name:
-                div.set('class', class_name)
-            summary = etree.SubElement(div, 'summary')
+                div.set("class", class_name)
+            summary = etree.SubElement(div, "summary")
             summary.text = title
         else:
             div = sibling
@@ -89,7 +89,7 @@ class DetailsExtension(Extension):
         """Add Details to Markdown instance."""
         md.registerExtension(self)
 
-        md.parser.blockprocessors.add('details', DetailsProcessor(md.parser), '_begin')
+        md.parser.blockprocessors.add("details", DetailsProcessor(md.parser), "_begin")
 
 
 def makeExtension(*args, **kwargs):

@@ -21,15 +21,16 @@ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABI
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 """
-from __future__ import unicode_literals
+
 import re
 import unicodedata
+
 from . import util
 
-RE_TAGS = re.compile(r'</?[^>]*>', re.UNICODE)
-RE_INVALID_SLUG_CHAR = re.compile(r'[^\w\- ]', re.UNICODE)
-RE_SEP = re.compile(r' ', re.UNICODE)
-RE_ASCII_LETTERS = re.compile(r'[A-Z]', re.UNICODE)
+RE_TAGS = re.compile(r"</?[^>]*>", re.UNICODE)
+RE_INVALID_SLUG_CHAR = re.compile(r"[^\w\- ]", re.UNICODE)
+RE_SEP = re.compile(r" ", re.UNICODE)
+RE_ASCII_LETTERS = re.compile(r"[A-Z]", re.UNICODE)
 
 NO_CASED = 0
 UNICODE_CASED = 1
@@ -40,7 +41,7 @@ def uslugify(text, sep, cased=NO_CASED, percent_encode=False):
     """Unicode slugify (utf-8)."""
 
     # Normalize, Strip html tags, strip leading and trailing whitespace, and lower
-    slug = RE_TAGS.sub('', unicodedata.normalize('NFC', text)).strip()
+    slug = RE_TAGS.sub("", unicodedata.normalize("NFC", text)).strip()
 
     if cased == NO_CASED:
         slug = slug.lower()
@@ -53,9 +54,9 @@ def uslugify(text, sep, cased=NO_CASED, percent_encode=False):
         slug = RE_ASCII_LETTERS.sub(lower, slug)
 
     # Remove non word characters, non spaces, and non dashes, and convert spaces to dashes.
-    slug = RE_SEP.sub(sep, RE_INVALID_SLUG_CHAR.sub('', slug))
+    slug = RE_SEP.sub(sep, RE_INVALID_SLUG_CHAR.sub("", slug))
 
-    return util.quote(slug.encode('utf-8')) if percent_encode else slug
+    return util.quote(slug.encode("utf-8")) if percent_encode else slug
 
 
 def uslugify_encoded(text, sep):

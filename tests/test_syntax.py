@@ -1,21 +1,23 @@
 """Test extension syntax."""
-from __future__ import unicode_literals
-import os
-import markdown
-import difflib
+
 import codecs
-import pytest
 import copy
-from . import util
+import difflib
+import os
 import warnings
+
+import markdown
+import pytest
 from pymdownx.util import PymdownxDeprecationWarning
 
-warnings.simplefilter('ignore', PymdownxDeprecationWarning)
+from . import util
+
+warnings.simplefilter("ignore", PymdownxDeprecationWarning)
 
 CURRENT_DIR = os.path.abspath(os.path.dirname(__file__))
 
 CSS_LINK = '<link rel="stylesheet" type="text/css" href="%s"/>'
-WRAPPER = '''<!DOCTYPE html>
+WRAPPER = """<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 %s
@@ -25,7 +27,7 @@ WRAPPER = '''<!DOCTYPE html>
 %%s
 </div>
 </body>
-'''
+"""
 
 target_file = None
 
@@ -43,12 +45,12 @@ def compare_results(cfg, testfile, update=False):
     extension = []
     extension_config = {}
     wrapper = "%s"
-    for k, v in cfg['extensions'].items():
+    for k, v in cfg["extensions"].items():
         extension.append(k)
         if v:
             extension_config[k] = v
-    if 'css' in cfg and len(cfg['css']):
-        wrapper = WRAPPER % '\n'.join([CSS_LINK % css for css in cfg['css']])
+    if "css" in cfg and len(cfg["css"]):
+        wrapper = WRAPPER % "\n".join([CSS_LINK % css for css in cfg["css"]])
 
     check_markdown(testfile, extension, extension_config, wrapper, update)
 
@@ -56,8 +58,8 @@ def compare_results(cfg, testfile, update=False):
 def check_markdown(testfile, extension, extension_config, wrapper, update=False):
     """Check the markdown."""
 
-    expected_html = os.path.splitext(testfile)[0] + '.html'
-    with codecs.open(testfile, 'r', encoding='utf-8') as f:
+    expected_html = os.path.splitext(testfile)[0] + ".html"
+    with codecs.open(testfile, "r", encoding="utf-8") as f:
         source = f.read()
 
     results = wrapper % markdown.Markdown(
@@ -65,54 +67,55 @@ def check_markdown(testfile, extension, extension_config, wrapper, update=False)
     ).convert(source)
 
     try:
-        with codecs.open(expected_html, 'r', encoding='utf-8') as f:
+        with codecs.open(expected_html, "r", encoding="utf-8") as f:
             expected = f.read().replace("\r\n", "\n")
     except Exception:
-        expected = ''
+        expected = ""
 
     diff = [
-        l for l in difflib.unified_diff(
+        l
+        for l in difflib.unified_diff(
             expected.splitlines(True),
             results.splitlines(True),
             expected_html,
-            os.path.join(os.path.dirname(testfile), 'results.html'),
-            n=3
+            os.path.join(os.path.dirname(testfile), "results.html"),
+            n=3,
         )
     ]
     if diff:
         if update:
-            print('Updated: %s' % expected_html)
-            with codecs.open(expected_html, 'w', encoding='utf-8') as f:
+            print("Updated: %s" % expected_html)
+            with codecs.open(expected_html, "w", encoding="utf-8") as f:
                 f.write(results)
         else:
             raise Exception(
                 'Output from "%s" failed to match expected '
-                'output.\n\n%s' % (testfile, ''.join(diff))
+                "output.\n\n%s" % (testfile, "".join(diff))
             )
     elif update:
-        print('Skipped: %s' % expected_html)
+        print("Skipped: %s" % expected_html)
 
 
 def gather_test_params():
     """Gather the test parameters."""
 
     for base, dirs, files in os.walk(CURRENT_DIR):
-        [dirs.remove(d) for d in dirs[:] if d.startswith('_')]
-        cfg_path = os.path.join(base, 'tests.yml')
+        [dirs.remove(d) for d in dirs[:] if d.startswith("_")]
+        cfg_path = os.path.join(base, "tests.yml")
         if os.path.exists(cfg_path):
-            files.remove('tests.yml')
-            [files.remove(file) for file in files if not file.endswith('.txt')]
-            with codecs.open(cfg_path, 'r', encoding='utf-8') as f:
+            files.remove("tests.yml")
+            [files.remove(file) for file in files if not file.endswith(".txt")]
+            with codecs.open(cfg_path, "r", encoding="utf-8") as f:
                 cfg = util.yaml_load(f.read())
             for testfile in files:
                 key = os.path.splitext(testfile)[0]
-                test_cfg = copy.deepcopy(cfg['__default__'])
-                if 'extensions' not in test_cfg:
-                    test_cfg['extensions'] = util.OrderedDict()
-                if 'css' not in test_cfg:
-                    test_cfg['css'] = []
+                test_cfg = copy.deepcopy(cfg["__default__"])
+                if "extensions" not in test_cfg:
+                    test_cfg["extensions"] = util.OrderedDict()
+                if "css" not in test_cfg:
+                    test_cfg["css"] = []
                 for k, v in cfg.get(key, util.OrderedDict()).items():
-                    if k == 'css':
+                    if k == "css":
                         for css in v:
                             test_cfg[k].append(css)
                         continue
@@ -120,10 +123,8 @@ def gather_test_params():
                         if v1 is not None:
                             for k2, v2 in v1.items():
                                 if isinstance(v2, util.string_type):
-                                    v1[k2] = v2.replace(
-                                        '{{BASE}}', base
-                                    ).replace(
-                                        '{{RELATIVE}}', CURRENT_DIR
+                                    v1[k2] = v2.replace("{{BASE}}", base).replace(
+                                        "{{RELATIVE}}", CURRENT_DIR
                                     )
                         test_cfg[k][k1] = v1
                 target = os.path.join(base, testfile)
@@ -148,9 +149,4 @@ def test_extensions(compare):
 def run():
     """Run pytest."""
 
-    pytest.main(
-        [
-            'tests/test_syntax.py',
-            '-p', 'no:pytest_cov'
-        ]
-    )
+    pytest.main(["tests/test_syntax.py", "-p", "no:pytest_cov"])

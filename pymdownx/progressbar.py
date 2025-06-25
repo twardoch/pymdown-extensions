@@ -102,14 +102,15 @@ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABI
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 """
-from __future__ import unicode_literals
+
 from markdown import Extension
-from markdown.inlinepatterns import Pattern, dequote
 from markdown import util as md_util
 from markdown.extensions.attr_list import AttrListTreeprocessor
+from markdown.inlinepatterns import Pattern, dequote
+
 from . import util
 
-RE_PROGRESS = r'''(?x)
+RE_PROGRESS = r"""(?x)
 \[={1,}\s*                                                          # Opening
 (?:
   (?P<percent>100(?:.0+)?|[1-9]?[0-9](?:\.\d+)?)% |                 # Percent
@@ -118,7 +119,7 @@ RE_PROGRESS = r'''(?x)
 (?P<title>\s+(?P<quote>['"]).*?(?P=quote))?\s*                      # Title
 \]                                                                  # Closing
 (?P<attr_list>\{\:?([^\}]*)\})?                                     # Optional attr list
-'''
+"""
 
 CLASS_100PLUS = "progress-100plus"
 CLASS_80PLUS = "progress-80plus"
@@ -138,7 +139,7 @@ class ProgressBarTreeProcessor(AttrListTreeprocessor):
             m = self.INLINE_RE.match(elem.tail)
             if m:
                 self.assign_attrs(elem, m.group(1))
-                elem.tail = elem.tail[m.end():]
+                elem.tail = elem.tail[m.end() :]
 
 
 class ProgressBarPattern(Pattern):
@@ -154,24 +155,20 @@ class ProgressBarPattern(Pattern):
 
         # Create list of all classes and remove duplicates
         classes = list(
-            set(
-                ["progress"] +
-                self.config.get('add_classes', '').split() +
-                add_classes
-            )
+            set(["progress"] + self.config.get("add_classes", "").split() + add_classes)
         )
         classes.sort()
         el = md_util.etree.Element("div")
-        el.set('class', ' '.join(classes))
-        bar = md_util.etree.SubElement(el, 'div')
-        bar.set('class', "progress-bar")
-        bar.set('style', 'width:%s%%' % width)
-        p = md_util.etree.SubElement(bar, 'p')
-        p.set('class', 'progress-label')
+        el.set("class", " ".join(classes))
+        bar = md_util.etree.SubElement(el, "div")
+        bar.set("class", "progress-bar")
+        bar.set("style", "width:%s%%" % width)
+        p = md_util.etree.SubElement(bar, "p")
+        p.set("class", "progress-label")
         p.text = label
         if alist is not None:
             el.tail = alist
-            if 'attr_list' in self.markdown.treeprocessors.keys():
+            if "attr_list" in self.markdown.treeprocessors.keys():
                 ProgressBarTreeProcessor(self.markdown).run(el)
         return el
 
@@ -179,22 +176,22 @@ class ProgressBarPattern(Pattern):
         """Handle the match."""
 
         label = ""
-        level_class = self.config.get('level_class', False)
+        level_class = self.config.get("level_class", False)
         add_classes = []
         alist = None
         if m.group(5):
-            label = dequote(self.unescape(m.group('title').strip()))
-        if m.group('attr_list'):
-            alist = m.group('attr_list')
-        if m.group('percent'):
+            label = dequote(self.unescape(m.group("title").strip()))
+        if m.group("attr_list"):
+            alist = m.group("attr_list")
+        if m.group("percent"):
             value = float(m.group(2))
         else:
             try:
-                num = float(m.group('frac_num'))
+                num = float(m.group("frac_num"))
             except Exception:  # pragma: no cover
                 num = 0.0
             try:
-                den = float(m.group('frac_den'))
+                den = float(m.group("frac_den"))
             except Exception:  # pragma: no cover
                 den = 0.0
             if den == 0.0:
@@ -221,7 +218,7 @@ class ProgressBarPattern(Pattern):
             else:
                 add_classes.append(CLASS_0PLUS)
 
-        return self.create_tag('%.2f' % value, label, add_classes, alist)
+        return self.create_tag("%.2f" % value, label, add_classes, alist)
 
 
 class ProgressBarExtension(Extension):
@@ -231,23 +228,23 @@ class ProgressBarExtension(Extension):
         """Initialize."""
 
         self.config = {
-            'level_class': [
+            "level_class": [
                 True,
-                "Include class that defines progress level in increments of 20 - Default: True"
+                "Include class that defines progress level in increments of 20 - Default: True",
             ],
-            'add_classes': [
-                '',
+            "add_classes": [
+                "",
                 "Add additional classes to the progress tag for styling.  "
-                "Classes are separated by spaces. - Default: None"
-            ]
+                "Classes are separated by spaces. - Default: None",
+            ],
         }
 
-        super(ProgressBarExtension, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def extendMarkdown(self, md, md_globals):
         """Add the progress bar pattern handler."""
 
-        util.escape_chars(md, ['='])
+        util.escape_chars(md, ["="])
         progress = ProgressBarPattern(RE_PROGRESS)
         progress.config = self.getConfigs()
         progress.markdown = md

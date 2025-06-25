@@ -39,52 +39,53 @@ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABI
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 """
-from __future__ import unicode_literals
+
 from markdown import Extension
 from markdown.inlinepatterns import HtmlPattern
 from markdown.odict import OrderedDict
 from markdown.treeprocessors import InlineProcessor
 
-RE_TRADE = ("smart-trademark", r'\(tm\)', r'&trade;')
-RE_COPY = ("smart-copyright", r'\(c\)', r'&copy;')
-RE_REG = ("smart-registered", r'\(r\)', r'&reg;')
-RE_PLUSMINUS = ("smart-plus-minus", r'\+/-', r'&plusmn;')
-RE_NOT_EQUAL = ("smart-not-equal", r'=/=', r'&ne;')
-RE_CARE_OF = ("smart-care-of", r'\bc/o\b', r'&#8453;')
+RE_TRADE = ("smart-trademark", r"\(tm\)", r"&trade;")
+RE_COPY = ("smart-copyright", r"\(c\)", r"&copy;")
+RE_REG = ("smart-registered", r"\(r\)", r"&reg;")
+RE_PLUSMINUS = ("smart-plus-minus", r"\+/-", r"&plusmn;")
+RE_NOT_EQUAL = ("smart-not-equal", r"=/=", r"&ne;")
+RE_CARE_OF = ("smart-care-of", r"\bc/o\b", r"&#8453;")
 RE_ORDINAL_NUMBERS = (
     "smart-ordinal-numbers",
-    r'''(?x)
+    r"""(?x)
     \b
     (?P<leading>(?:[1-9][0-9]*)?)
     (?P<tail>(?<=1)(?:1|2|3)th|1st|2nd|3rd|[04-9]th)
     \b
-    ''',
-    lambda m: '%s%s<sup>%s</sup>' % (
-        m.group('leading') if m.group('leading') else '',
-        m.group('tail')[:-2], m.group('tail')[1:]
-    )
+    """,
+    lambda m: "{}{}<sup>{}</sup>".format(
+        m.group("leading") if m.group("leading") else "",
+        m.group("tail")[:-2],
+        m.group("tail")[1:],
+    ),
 )
 RE_ARROWS = (
     "smart-arrows",
-    r'(?P<arrows>\<-{2}\>|(?<!-)-{2}\>|\<-{2}(?!-))',
-    lambda m: ARR[m.group('arrows')]
+    r"(?P<arrows>\<-{2}\>|(?<!-)-{2}\>|\<-{2}(?!-))",
+    lambda m: ARR[m.group("arrows")],
 )
 RE_FRACTIONS = (
     "smart-fractions",
-    r'(?<!\d)(?P<fractions>1/4|1/2|3/4|1/3|2/3|1/5|2/5|3/5|4/5|1/6|5/6|1/8|3/8|5/8|7/8)(?!\d)',
-    lambda m: FRAC[m.group('fractions')]
+    r"(?<!\d)(?P<fractions>1/4|1/2|3/4|1/3|2/3|1/5|2/5|3/5|4/5|1/6|5/6|1/8|3/8|5/8|7/8)(?!\d)",
+    lambda m: FRAC[m.group("fractions")],
 )
 
 REPL = {
-    'trademark': RE_TRADE,
-    'copyright': RE_COPY,
-    'registered': RE_REG,
-    'plusminus': RE_PLUSMINUS,
-    'arrows': RE_ARROWS,
-    'notequal': RE_NOT_EQUAL,
-    'fractions': RE_FRACTIONS,
-    'ordinal_numbers': RE_ORDINAL_NUMBERS,
-    'care_of': RE_CARE_OF
+    "trademark": RE_TRADE,
+    "copyright": RE_COPY,
+    "registered": RE_REG,
+    "plusminus": RE_PLUSMINUS,
+    "arrows": RE_ARROWS,
+    "notequal": RE_NOT_EQUAL,
+    "fractions": RE_FRACTIONS,
+    "ordinal_numbers": RE_ORDINAL_NUMBERS,
+    "care_of": RE_CARE_OF,
 }
 
 FRAC = {
@@ -102,14 +103,10 @@ FRAC = {
     "1/8": "&#8539;",
     "3/8": "&#8540;",
     "5/8": "&#8541;",
-    "7/8": "&#8542;"
+    "7/8": "&#8542;",
 }
 
-ARR = {
-    '-->': "&rarr;",
-    '<--': "&larr;",
-    '<-->': "&harr;"
-}
+ARR = {"-->": "&rarr;", "<--": "&larr;", "<-->": "&harr;"}
 
 
 class SmartSymbolsPattern(HtmlPattern):
@@ -118,7 +115,7 @@ class SmartSymbolsPattern(HtmlPattern):
     def __init__(self, pattern, replace, md):
         """Setup replace pattern."""
 
-        super(SmartSymbolsPattern, self).__init__(pattern)
+        super().__init__(pattern)
         self.replace = replace
         self.md = md
 
@@ -127,7 +124,7 @@ class SmartSymbolsPattern(HtmlPattern):
 
         return self.md.htmlStash.store(
             m.expand(self.replace(m) if callable(self.replace) else self.replace),
-            safe=True
+            safe=True,
         )
 
 
@@ -138,25 +135,23 @@ class SmartSymbolsExtension(Extension):
         """Setup config of which symbols are enabled."""
 
         self.config = {
-            'trademark': [True, 'Trademark'],
-            'copyright': [True, 'Copyright'],
-            'registered': [True, 'Registered'],
-            'plusminus': [True, 'Plus/Minus'],
-            'arrows': [True, 'Arrows'],
-            'notequal': [True, 'Not Equal'],
-            'fractions': [True, 'Fractions'],
-            'ordinal_numbers': [True, 'Ordinal Numbers'],
-            'care_of': [True, 'Care/of']
+            "trademark": [True, "Trademark"],
+            "copyright": [True, "Copyright"],
+            "registered": [True, "Registered"],
+            "plusminus": [True, "Plus/Minus"],
+            "arrows": [True, "Arrows"],
+            "notequal": [True, "Not Equal"],
+            "fractions": [True, "Fractions"],
+            "ordinal_numbers": [True, "Ordinal Numbers"],
+            "care_of": [True, "Care/of"],
         }
-        super(SmartSymbolsExtension, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def add_pattern(self, patterns, md):
         """Construct the inline symbol pattern."""
 
         self.patterns.add(
-            patterns[0],
-            SmartSymbolsPattern(patterns[1], patterns[2], md),
-            '_begin'
+            patterns[0], SmartSymbolsPattern(patterns[1], patterns[2], md), "_begin"
         )
 
     def extendMarkdown(self, md, md_globals):
@@ -171,9 +166,9 @@ class SmartSymbolsExtension(Extension):
 
         inline_processor = InlineProcessor(md)
         inline_processor.inlinePatterns = self.patterns
-        md.treeprocessors.add('smart-symbols', inline_processor, '_end')
+        md.treeprocessors.add("smart-symbols", inline_processor, "_end")
         if "smarty" in md.treeprocessors.keys():
-            md.treeprocessors.link('smarty', '_end')
+            md.treeprocessors.link("smarty", "_end")
 
 
 def makeExtension(*args, **kwargs):

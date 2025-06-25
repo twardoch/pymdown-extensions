@@ -22,42 +22,43 @@ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABI
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 """
-from __future__ import unicode_literals
-from markdown import Extension
-from markdown.preprocessors import Preprocessor
-import re
+
 import codecs
 import os
+import re
+
+from markdown import Extension
+from markdown.preprocessors import Preprocessor
 
 
 class SnippetPreprocessor(Preprocessor):
     """Handle snippets in Markdown content."""
 
     RE_ALL_SNIPPETS = re.compile(
-        r'''(?x)
+        r"""(?x)
         ^(?P<space>[ \t]*)
         (?P<all>
             (?P<inline_marker>-{2,}8<-{2,}[ ]+)
             (?P<snippet>(?:"(?:\\"|[^"\n])+?"|'(?:\\'|[^'\n])+?'))(?![ \t]) |
             (?P<block_marker>-{2,}8<-{2,})(?![ \t])
         )$
-        '''
+        """
     )
 
     RE_SNIPPET = re.compile(
-        r'''(?x)
+        r"""(?x)
         ^(?P<space>[ \t]*)
         (?P<snippet>.*?)$
-        '''
+        """
     )
 
     def __init__(self, config, md):
         """Initialize."""
 
-        self.base_path = config.get('base_path')
-        self.encoding = config.get('encoding')
+        self.base_path = config.get("base_path")
+        self.encoding = config.get("encoding")
         self.tab_length = md.tab_length
-        super(SnippetPreprocessor, self).__init__()
+        super().__init__()
 
     def parse_snippets(self, lines, file_name=None):
         """Parse snippets snippet."""
@@ -68,11 +69,11 @@ class SnippetPreprocessor(Preprocessor):
         for line in lines:
             m = self.RE_ALL_SNIPPETS.match(line)
             if m:
-                if block and m.group('inline_marker'):
+                if block and m.group("inline_marker"):
                     # Don't use inline notation directly under a block.
                     # It's okay if inline is used again in sub file though.
                     continue
-                elif m.group('inline_marker'):
+                elif m.group("inline_marker"):
                     # Inline
                     inline = True
                 else:
@@ -92,16 +93,20 @@ class SnippetPreprocessor(Preprocessor):
 
             if m:
                 # Get spaces and snippet path.  Remove quotes if inline.
-                space = m.group('space').replace('\t', ' ' * self.tab_length)
-                path = m.group('snippet')[1:-1].strip() if inline else m.group('snippet').strip()
+                space = m.group("space").replace("\t", " " * self.tab_length)
+                path = (
+                    m.group("snippet")[1:-1].strip()
+                    if inline
+                    else m.group("snippet").strip()
+                )
 
                 if not inline:
                     # Block path handling
                     if not path:
                         # Empty path line, insert a blank line
-                        new_lines.append('')
+                        new_lines.append("")
                         continue
-                if path.startswith('; '):
+                if path.startswith("; "):
                     # path stats with '#', consider it commented out.
                     # We just removing the line.
                     continue
@@ -115,9 +120,14 @@ class SnippetPreprocessor(Preprocessor):
                         # Track this file.
                         self.seen.add(file_name)
                     try:
-                        with codecs.open(snippet, 'r', encoding=self.encoding) as f:
+                        with codecs.open(snippet, "r", encoding=self.encoding) as f:
                             new_lines.extend(
-                                [space + l2 for l2 in self.parse_snippets([l.rstrip('\r\n') for l in f], snippet)]
+                                [
+                                    space + l2
+                                    for l2 in self.parse_snippets(
+                                        [l.rstrip("\r\n") for l in f], snippet
+                                    )
+                                ]
                             )
                     except Exception:  # pragma: no cover
                         pass
@@ -140,11 +150,11 @@ class SnippetExtension(Extension):
         """Initialize."""
 
         self.config = {
-            'base_path': [".", "Base path for snippet paths - Default: \"\""],
-            'encoding': ["utf-8", "Encoding of snippets - Default: \"utf-8\""]
+            "base_path": [".", 'Base path for snippet paths - Default: ""'],
+            "encoding": ["utf-8", 'Encoding of snippets - Default: "utf-8"'],
         }
 
-        super(SnippetExtension, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def extendMarkdown(self, md, md_globals):
         """Register the extension."""
@@ -153,7 +163,7 @@ class SnippetExtension(Extension):
         md.registerExtension(self)
         config = self.getConfigs()
         snippet = SnippetPreprocessor(config, md)
-        md.preprocessors.add('snippet', snippet, ">normalize_whitespace")
+        md.preprocessors.add("snippet", snippet, ">normalize_whitespace")
 
 
 def makeExtension(*args, **kwargs):

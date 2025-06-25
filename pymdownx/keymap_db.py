@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
 """English US keymap."""
-from __future__ import unicode_literals
 
 keymap = {
     # Digits
@@ -14,7 +12,6 @@ keymap = {
     "7": "7",
     "8": "8",
     "9": "9",
-
     # Letters
     "a": "A",
     "b": "B",
@@ -42,10 +39,8 @@ keymap = {
     "x": "X",
     "y": "Y",
     "z": "Z",
-
     # Space
     "space": "Space",
-
     # Punctuation
     "backslash": "\\",
     "bar": "|",
@@ -55,7 +50,7 @@ keymap = {
     "bracket-right": "]",
     "colon": ":",
     "comma": ",",
-    "double-quote": "\"",
+    "double-quote": '"',
     "equal": "=",
     "exclam": "!",
     "grave": "`",
@@ -70,7 +65,6 @@ keymap = {
     "slash": "/",
     "tilde": "~",
     "underscore": "_",
-
     # Navigation keys
     "arrow-up": "Up",
     "arrow-down": "Down",
@@ -80,14 +74,11 @@ keymap = {
     "page-down": "Page Down",
     "home": "Home",
     "end": "End",
-
-
     # Edit keys
     "backspace": "Backspace",
     "delete": "Del",
     "insert": "Ins",
     "tab": "Tab",
-
     # Action keys
     "break": "Break",
     "caps-lock": "Caps Lock",
@@ -98,7 +89,6 @@ keymap = {
     "help": "Help",
     "print-screen": "Print Screen",
     "scroll-lock": "Scroll Lock",
-
     # Numeric keypad
     "num0": "Num 0",
     "num1": "Num 1",
@@ -120,7 +110,6 @@ keymap = {
     "num-separator": "Num .",
     "num-slash": "Num /",
     "num-enter": "Num Enter",
-
     # Modifier keys
     "alt": "Alt",
     "command": "Cmd",
@@ -138,7 +127,6 @@ keymap = {
     "right-windows": "Right Win",
     "shift": "Shift",
     "windows": "Win",
-
     # Function keys
     "f1": "F1",
     "f2": "F2",
@@ -164,7 +152,6 @@ keymap = {
     "f22": "F22",
     "f23": "F23",
     "f24": "F24",
-
     # Extra keys
     "backtab": "Back Tab",
     "browser-back": "Browser Back",
@@ -192,13 +179,12 @@ keymap = {
     "volume-mute": "Mute",
     "volume-up": "Volume Up",
     "zoom": "Zoom",
-
     # Mouse
     "left-button": "Left Button",
     "middle-button": "Middle Button",
     "right-button": "Right Button",
     "x-button1": "X Button 1",
-    "x-button2": "X Button 2"
+    "x-button2": "X Button 2",
 }
 
 aliases = {
@@ -294,5 +280,5 @@ aliases = {
     "vol-up": "volume-up",
     "win": "windows",
     "xbutton1": "x-button1",
-    "xbutton2": "x-button2"
+    "xbutton2": "x-button2",
 }

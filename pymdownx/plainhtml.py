@@ -23,46 +23,46 @@ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABI
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 """
-from __future__ import unicode_literals
-from markdown import Extension
-from markdown.postprocessors import Postprocessor
+
 import re
 
+from markdown import Extension
+from markdown.postprocessors import Postprocessor
 
 RE_TAG_HTML = re.compile(
-    r'''(?x)
+    r"""(?x)
     (?:
         (?P<comments>(\r?\n?\s*)<!--[\s\S]*?-->(\s*)(?=\r?\n)|<!--[\s\S]*?-->)|
         (?P<open><[\w\:\.\-]+)
         (?P<attr>(?:\s+[\w\-:]+(?:\s*=\s*(?:"[^"]*"|'[^']*'))?)*)
         (?P<close>\s*(?:\/?)>)
     )
-    ''',
-    re.DOTALL | re.UNICODE
+    """,
+    re.DOTALL | re.UNICODE,
 )
 
-TAG_BAD_ATTR = r'''(?x)
+TAG_BAD_ATTR = r"""(?x)
 (?P<attr>
     (?:
         \s+(?:%s)
         (?:\s*=\s*(?:"[^"]*"|'[^']*'))
     )*
 )
-'''
+"""
 
 
 def repl(m, attributes, strip_comments):
     """Replace comments and unwanted attributes."""
 
-    if m.group('comments'):
-        tag = '' if strip_comments else m.group('comments')
+    if m.group("comments"):
+        tag = "" if strip_comments else m.group("comments")
     else:
-        tag = m.group('open')
+        tag = m.group("open")
         if attributes is not None:
-            tag += attributes.sub('', m.group('attr'))
+            tag += attributes.sub("", m.group("attr"))
         else:
-            tag += m.group('attr')
-        tag += m.group('close')
+            tag += m.group("attr")
+        tag += m.group("close")
     return tag
 
 
@@ -72,23 +72,19 @@ class PlainHtmlPostprocessor(Postprocessor):
     def run(self, text):
         """Strip out ids and classes for a simplified HTML output."""
 
-        attr_str = self.config.get('strip_attributes', 'id class style').strip()
-        attributes = [re.escape(a) for a in attr_str.split(' ')] if attr_str else []
-        if self.config.get('strip_js_on_attributes', True):
-            attributes.append(r'on[\w]+')
+        attr_str = self.config.get("strip_attributes", "id class style").strip()
+        attributes = [re.escape(a) for a in attr_str.split(" ")] if attr_str else []
+        if self.config.get("strip_js_on_attributes", True):
+            attributes.append(r"on[\w]+")
         if len(attributes):
             re_attributes = re.compile(
-                TAG_BAD_ATTR % '|'.join(attributes),
-                re.DOTALL | re.UNICODE
+                TAG_BAD_ATTR % "|".join(attributes), re.DOTALL | re.UNICODE
             )
         else:
             re_attributes = None
-        strip_comments = self.config.get('strip_comments', True)
+        strip_comments = self.config.get("strip_comments", True)
 
-        return RE_TAG_HTML.sub(
-            lambda m: repl(m, re_attributes, strip_comments),
-            text
-        )
+        return RE_TAG_HTML.sub(lambda m: repl(m, re_attributes, strip_comments), text)
 
 
 class PlainHtmlExtension(Extension):
@@ -98,23 +94,22 @@ class PlainHtmlExtension(Extension):
         """Initialize."""
 
         self.config = {
-            'strip_comments': [
+            "strip_comments": [
                 True,
-                "Strip HTML comments at the end of processing. "
-                "- Default: True"
+                "Strip HTML comments at the end of processing. - Default: True",
             ],
-            'strip_attributes': [
-                'id class style',
+            "strip_attributes": [
+                "id class style",
                 "A string of attributes separated by spaces."
-                "- Default: 'id class style']"
+                "- Default: 'id class style']",
             ],
-            'strip_js_on_attributes': [
+            "strip_js_on_attributes": [
                 True,
                 "Strip JavaScript script attribues with the pattern on*. "
-                " - Default: True"
-            ]
+                " - Default: True",
+            ],
         }
-        super(PlainHtmlExtension, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def extendMarkdown(self, md, md_globals):
         """Strip unwanted attributes to give a plain HTML."""

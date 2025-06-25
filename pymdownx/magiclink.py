@@ -23,23 +23,24 @@ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABI
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 """
-from __future__ import unicode_literals
-from markdown import Extension
-from markdown.inlinepatterns import LinkPattern, Pattern
-from markdown.treeprocessors import Treeprocessor
-from markdown import util as md_util
+
 import re
 
-RE_MAIL = r'''(?xi)
+from markdown import Extension
+from markdown import util as md_util
+from markdown.inlinepatterns import LinkPattern, Pattern
+from markdown.treeprocessors import Treeprocessor
+
+RE_MAIL = r"""(?xi)
 (
     (?<![-/\+@a-z\d_])(?:[-+a-z\d_]([-a-z\d_+]|\.(?!\.))*)  # Local part
     (?<!\.)@(?:[-a-z\d_]+\.)                                # @domain part start
     (?:(?:[-a-z\d_]|(?<!\.)\.(?!\.))*)[a-z]\b               # @domain.end (allow multiple dot names)
     (?![-@])                                                # Don't allow last char to be followed by these
 )
-'''
+"""
 
-RE_LINK = r'''(?xi)
+RE_LINK = r"""(?xi)
 (
     (?:(?<=\b)|(?<=_))(?:
         (?:ht|f)tps?://(?:(?:[^_\W][-\w]*(?:\.[-\w.]+)+)|localhost)|  # (http|ftp)://
@@ -48,12 +49,12 @@ RE_LINK = r'''(?xi)
     /?[-\w.?,!'(){}\[\]/+&@%$#=:"|~;]*                                # url path, fragments, and query stuff
     (?:[^_\W]|[-/#@$+=])                                              # allowed end chars
 )
-'''
+"""
 
-RE_AUTOLINK = r'(?i)<((?:ht|f)tps?://[^>]*)>'
+RE_AUTOLINK = r"(?i)<((?:ht|f)tps?://[^>]*)>"
 
 RE_REPO_LINK = re.compile(
-    r'''(?xi)
+    r"""(?xi)
     (?:
         (?P<github>(?P<github_base>https://(?:w{3}\.)?github.com/(?P<github_user_repo>[^/]+/[^/]+))/
             (?:issues/(?P<github_issue>\d+)/?|
@@ -70,7 +71,7 @@ RE_REPO_LINK = re.compile(
                merge_requests/(?P<gitlab_pull>\d+)/?|
                commit/(?P<gitlab_commit>[\da-f]+)/?))
     )
-    '''
+    """
 )
 
 
@@ -87,36 +88,36 @@ class MagicShortenerTreeprocessor(Treeprocessor):
 
         if link_type is self.COMMIT:
             # user/repo@`hash`
-            text = '' if my_repo else user_repo + '@'
+            text = "" if my_repo else user_repo + "@"
             link.text = md_util.AtomicString(text)
 
             # Need a root with an element for things to get processed.
             # Send the `value` through and retreive it from the p element.
             # Pop it off and add it to the link.
-            el = md_util.etree.Element('div')
-            p = md_util.etree.SubElement(el, 'p')
-            p.text = '`%s`' % value[0:hash_size]
-            el = self.markdown.treeprocessors['inline'].run(el)
+            el = md_util.etree.Element("div")
+            p = md_util.etree.SubElement(el, "p")
+            p.text = "`%s`" % value[0:hash_size]
+            el = self.markdown.treeprocessors["inline"].run(el)
             p = list(el)[0]
             for child in list(p):
                 link.append(child)
                 p.remove(child)
         else:
             # user/repo#(issue|pull)
-            link.text = ('#' + value) if my_repo else (user_repo + '#' + value)
+            link.text = ("#" + value) if my_repo else (user_repo + "#" + value)
 
     def get_provider(self, match):
         """Get the provider and hash size."""
 
         # Set provider specific variables
-        if match.group('github'):
-            provider = 'github'
+        if match.group("github"):
+            provider = "github"
             hash_size = 7
-        elif match.group('bitbucket'):
-            provider = 'bitbucket'
+        elif match.group("bitbucket"):
+            provider = "bitbucket"
             hash_size = 7
-        elif match.group('gitlab'):
-            provider = 'gitlab'
+        elif match.group("gitlab"):
+            provider = "gitlab"
             hash_size = 8
         return provider, hash_size
 
@@ -124,14 +125,14 @@ class MagicShortenerTreeprocessor(Treeprocessor):
         """Get the link type."""
 
         # Gather info about link type
-        if match.group(provider + '_commit') is not None:
-            value = match.group(provider + '_commit')
+        if match.group(provider + "_commit") is not None:
+            value = match.group(provider + "_commit")
             link_type = self.COMMIT
-        elif match.group(provider + '_pull') is not None:
-            value = match.group(provider + '_pull')
+        elif match.group(provider + "_pull") is not None:
+            value = match.group(provider + "_pull")
             link_type = self.PULL
         else:
-            value = match.group(provider + '_issue')
+            value = match.group(provider + "_issue")
             link_type = self.ISSUE
         return value, link_type
 
@@ -139,26 +140,26 @@ class MagicShortenerTreeprocessor(Treeprocessor):
         """Check if link is from our specified repo."""
 
         # See if these links are from the specified repo.
-        my_repo = match.group(provider + '_base') == self.base
+        my_repo = match.group(provider + "_base") == self.base
         if not my_repo and self.hide_protocol:
-            my_repo = match.group(provider + '_base') == ('https://' + self.base)
+            my_repo = match.group(provider + "_base") == ("https://" + self.base)
         return my_repo
 
     def run(self, root):
         """Shorten popular git repository links."""
 
-        self.base = self.config.get('base_repo_url', '').rstrip('/')
-        self.hide_protocol = self.config['hide_protocol']
+        self.base = self.config.get("base_repo_url", "").rstrip("/")
+        self.hide_protocol = self.config["hide_protocol"]
 
-        links = root.iter('a')
+        links = root.iter("a")
         for link in links:
             has_child = len(list(link))
-            is_magic = link.attrib.get('magiclink')
-            href = link.attrib.get('href', '')
+            is_magic = link.attrib.get("magiclink")
+            href = link.attrib.get("href", "")
             text = link.text
 
             if is_magic:
-                del link.attrib['magiclink']
+                del link.attrib["magiclink"]
 
             # We want a normal link.  No subelements embedded in it, just a normal string.
             if has_child or not text:  # pragma: no cover
@@ -166,7 +167,9 @@ class MagicShortenerTreeprocessor(Treeprocessor):
 
             # Make sure the text matches the href.  If needed, add back protocol to be sure.
             # Not all links will pass through MagicLink, so we try both with and without protocol.
-            if text == href or (is_magic and self.hide_protocol and ('https://' + text) == href):
+            if text == href or (
+                is_magic and self.hide_protocol and ("https://" + text) == href
+            ):
                 m = RE_REPO_LINK.match(href)
                 if m:
                     provider, hash_size = self.get_provider(m)
@@ -178,10 +181,10 @@ class MagicShortenerTreeprocessor(Treeprocessor):
                         link,
                         my_repo,
                         link_type,
-                        m.group(provider + '_user_repo'),
+                        m.group(provider + "_user_repo"),
                         value,
                         href,
-                        hash_size
+                        hash_size,
                     )
         return root
 
@@ -192,18 +195,18 @@ class MagiclinkPattern(LinkPattern):
     def handleMatch(self, m):
         """Handle URL matches."""
 
-        shorten = self.config.get('repo_url_shortener', False)
+        shorten = self.config.get("repo_url_shortener", False)
         el = md_util.etree.Element("a")
         el.text = md_util.AtomicString(m.group(2))
         if m.group("www"):
             href = "http://%s" % m.group(2)
         else:
             href = m.group(2)
-            if self.config['hide_protocol']:
-                el.text = md_util.AtomicString(el.text[el.text.find("://") + 3:])
+            if self.config["hide_protocol"]:
+                el.text = md_util.AtomicString(el.text[el.text.find("://") + 3 :])
 
         if shorten:
-            el.set('magiclink', '1')
+            el.set("magiclink", "1")
         el.set("href", self.sanitize_url(self.unescape(href.strip())))
         return el
 
@@ -214,14 +217,14 @@ class MagiclinkAutoPattern(Pattern):
     def handleMatch(self, m):
         """Return link optionally without protocol."""
 
-        shorten = self.config.get('repo_url_shortener', False)
+        shorten = self.config.get("repo_url_shortener", False)
         el = md_util.etree.Element("a")
-        el.set('href', self.unescape(m.group(2)))
+        el.set("href", self.unescape(m.group(2)))
         el.text = md_util.AtomicString(m.group(2))
-        if self.config['hide_protocol']:
-            el.text = md_util.AtomicString(el.text[el.text.find("://") + 3:])
+        if self.config["hide_protocol"]:
+            el.text = md_util.AtomicString(el.text[el.text.find("://") + 3 :])
         if shorten:
-            el.attrib['magiclink'] = '1'
+            el.attrib["magiclink"] = "1"
         return el
 
 
@@ -238,8 +241,12 @@ class MagicMailPattern(LinkPattern):
         el = md_util.etree.Element("a")
         email = self.unescape(m.group(2))
         href = "mailto:%s" % email
-        el.text = md_util.AtomicString(''.join([self.email_encode(ord(c)) for c in email]))
-        el.set("href", ''.join([md_util.AMP_SUBSTITUTE + '#%d;' % ord(c) for c in href]))
+        el.text = md_util.AtomicString(
+            "".join([self.email_encode(ord(c)) for c in email])
+        )
+        el.set(
+            "href", "".join([md_util.AMP_SUBSTITUTE + "#%d;" % ord(c) for c in href])
+        )
         return el
 
 
@@ -250,21 +257,18 @@ class MagiclinkExtension(Extension):
         """Initialize."""
 
         self.config = {
-            'hide_protocol': [
+            "hide_protocol": [
                 False,
                 "If 'True', links are displayed without the initial ftp://, http:// or https://"
-                "- Default: False"
+                "- Default: False",
             ],
-            'repo_url_shortener': [
+            "repo_url_shortener": [
                 False,
-                "If 'True' repo commit and issue links are shortened - Default: False"
+                "If 'True' repo commit and issue links are shortened - Default: False",
             ],
-            'base_repo_url': [
-                '',
-                'The base repo url to use - Default: ""'
-            ]
+            "base_repo_url": ["", 'The base repo url to use - Default: ""'],
         }
-        super(MagiclinkExtension, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def extendMarkdown(self, md, md_globals):
         """Add support for turning html links and emails to link tags."""
@@ -274,10 +278,10 @@ class MagiclinkExtension(Extension):
         auto_link_pattern.config = config
         link_pattern = MagiclinkPattern(RE_LINK, md)
         link_pattern.config = config
-        md.inlinePatterns['autolink'] = auto_link_pattern
+        md.inlinePatterns["autolink"] = auto_link_pattern
         md.inlinePatterns.add("magic-link", link_pattern, "<entity")
         md.inlinePatterns.add("magic-mail", MagicMailPattern(RE_MAIL, md), "<entity")
-        if config.get('repo_url_shortener', False):
+        if config.get("repo_url_shortener", False):
             shortener = MagicShortenerTreeprocessor(md)
             shortener.config = config
             md.treeprocessors.add("magic-repo-shortener", shortener, "<prettify")

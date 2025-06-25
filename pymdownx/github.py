@@ -22,18 +22,19 @@ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABI
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 """
-from __future__ import unicode_literals
+
 from markdown import Extension
+
 from . import emoji
 
 extensions = [
-    'markdown.extensions.tables',
-    'pymdownx.magiclink',
-    'pymdownx.betterem',
-    'pymdownx.tilde',
-    'pymdownx.emoji',
-    'pymdownx.tasklist',
-    'pymdownx.superfences'
+    "markdown.extensions.tables",
+    "pymdownx.magiclink",
+    "pymdownx.betterem",
+    "pymdownx.tilde",
+    "pymdownx.emoji",
+    "pymdownx.tasklist",
+    "pymdownx.superfences",
 ]
 
 
@@ -46,9 +47,7 @@ class GithubExtension(Extension):
         self.config = {}
 
         self.extension_configs = {
-            "pymdownx.tilde": {
-                "subscript": False
-            },
+            "pymdownx.tilde": {"subscript": False},
             "pymdownx.emoji": {
                 "emoji_index": emoji.gemoji,
                 "alt": "unicode",
@@ -56,16 +55,16 @@ class GithubExtension(Extension):
                     "attributes": {
                         "align": "absmiddle",
                         "height": "20px",
-                        "width": "20px"
+                        "width": "20px",
                     }
-                }
-            }
+                },
+            },
         }
 
         for ext in extensions:
             if ext in kwargs:
                 self.extension_configs[ext] = kwargs.pop(ext)
-        super(GithubExtension, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def extendMarkdown(self, md, md_globals):
         """Register extension instances."""

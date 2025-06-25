@@ -27,18 +27,18 @@ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABI
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 """
-from __future__ import unicode_literals
+
 from markdown import Extension
 
 extra_extensions = [
-    'pymdownx.betterem',
-    'pymdownx.superfences',
-    'markdown.extensions.footnotes',
-    'markdown.extensions.attr_list',
-    'markdown.extensions.def_list',
-    'markdown.extensions.tables',
-    'markdown.extensions.abbr',
-    'pymdownx.extrarawhtml'
+    "pymdownx.betterem",
+    "pymdownx.superfences",
+    "markdown.extensions.footnotes",
+    "markdown.extensions.attr_list",
+    "markdown.extensions.def_list",
+    "markdown.extensions.tables",
+    "markdown.extensions.abbr",
+    "pymdownx.extrarawhtml",
 ]
 
 extra_extension_configs = {}
@@ -50,7 +50,7 @@ class ExtraExtension(Extension):
     def __init__(self, *args, **kwargs):
         """Initialize."""
 
-        self.config = kwargs.pop('configs', {})
+        self.config = kwargs.pop("configs", {})
         self.config.update(extra_extension_configs)
         self.config.update(kwargs)
 

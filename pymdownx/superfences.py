@@ -28,18 +28,18 @@ All changes Copyright 2008-2014 The Python Markdown Project
 License: [BSD](http://www.opensource.org/licenses/bsd-license.php)
 """
 
-from __future__ import absolute_import
-from __future__ import unicode_literals
+import re
+import warnings
+
+from markdown import util as md_util
+from markdown.blockprocessors import CodeBlockProcessor
 from markdown.extensions import Extension
 from markdown.preprocessors import Preprocessor
-from markdown.blockprocessors import CodeBlockProcessor
-from markdown import util as md_util
+
 from . import highlight as hl
 from .util import PymdownxDeprecationWarning
-import warnings
-import re
 
-NESTED_FENCE_START = r'''(?x)
+NESTED_FENCE_START = r"""(?x)
 (?:^(?P<ws>[\> ]*)(?P<fence>~{3,}|`{3,}))[ ]*                         # Fence opening
 (\{?                                                                  # Language opening
 \.?(?P<lang>[\w#.+-]*))?[ ]*                                          # Language
@@ -52,13 +52,13 @@ NESTED_FENCE_START = r'''(?x)
 (?P=quot2))?[ ]*
 ){,2}
 }?[ ]*$                                                               # Language closing
-'''
-NESTED_FENCE_END = r'^[\> ]*%s[ ]*$'
+"""
+NESTED_FENCE_END = r"^[\> ]*%s[ ]*$"
 
-WS = r'^([\> ]{0,%d})(.*)'
+WS = r"^([\> ]{0,%d})(.*)"
 
 RE_FENCE = re.compile(
-    r'''(?xsm)
+    r"""(?xsm)
     (?P<fence>^(?:~{3,}|`{3,}))[ ]*                                       # Opening
     (\{?\.?(?P<lang>[\w#.+-]*))?[ ]*                                      # Optional {, and lang
     (?:
@@ -72,21 +72,21 @@ RE_FENCE = re.compile(
     }?[ ]*\n                                                              # Optional closing }
     (?P<code>.*?)(?<=\n)                                                  # Code
     (?P=fence)[ ]*$                                                       # Closing
-    '''
+    """
 )
 
 
 def _escape(txt):
     """Basic html escaping."""
 
-    txt = txt.replace('&', '&amp;')
-    txt = txt.replace('<', '&lt;')
-    txt = txt.replace('>', '&gt;')
-    txt = txt.replace('"', '&quot;')
+    txt = txt.replace("&", "&amp;")
+    txt = txt.replace("<", "&lt;")
+    txt = txt.replace(">", "&gt;")
+    txt = txt.replace('"', "&quot;")
     return txt
 
 
-class CodeStash(object):
+class CodeStash:
     """
     Stash code for later retrieval.
 
@@ -130,13 +130,13 @@ class CodeStash(object):
 def fence_code_format(source, language, css_class):
     """Format source as code blocks."""
 
-    return '<pre class="%s"><code>%s</code></pre>' % (css_class, _escape(source))
+    return f'<pre class="{css_class}"><code>{_escape(source)}</code></pre>'
 
 
 def fence_div_format(source, language, css_class):
     """Format source as div."""
 
-    return '<div class="%s">%s</div>' % (css_class, _escape(source))
+    return f'<div class="{css_class}">{_escape(source)}</div>'
 
 
 class SuperFencesCodeExtension(Extension):
@@ -147,30 +147,32 @@ class SuperFencesCodeExtension(Extension):
 
         self.superfences = []
         self.config = {
-            'disable_indented_code_blocks': [False, "Disable indented code blocks - Default: False"],
-            'uml_flow': [True, "Enable flowcharts - Default: True"],
-            'uml_sequence': [True, "Enable sequence diagrams - Default: True"],
-            'custom_fences': [
+            "disable_indented_code_blocks": [
+                False,
+                "Disable indented code blocks - Default: False",
+            ],
+            "uml_flow": [True, "Enable flowcharts - Default: True"],
+            "uml_sequence": [True, "Enable sequence diagrams - Default: True"],
+            "custom_fences": [
                 [
-                    {'name': 'flow', 'class': 'uml-flowchart'},
-                    {'name': 'sequence', 'class': 'uml-sequence-diagram'}
+                    {"name": "flow", "class": "uml-flowchart"},
+                    {"name": "sequence", "class": "uml-sequence-diagram"},
                 ],
-                'Specify custom fences. Default: See documentation.'
+                "Specify custom fences. Default: See documentation.",
             ],
-            'highlight_code': [True, "Highlight code - Default: True"],
-            'use_codehilite_settings': [
+            "highlight_code": [True, "Highlight code - Default: True"],
+            "use_codehilite_settings": [
                 None,
-                "Deprecatd and does nothing. "
-                "- Default: None"
+                "Deprecatd and does nothing. - Default: None",
             ],
-            'css_class': [
-                '',
+            "css_class": [
+                "",
                 "Set class name for wrapper element. The default of CodeHilite or Highlight will be used"
                 "if nothing is set. - "
-                "Default: ''"
-            ]
+                "Default: ''",
+            ],
         }
-        super(SuperFencesCodeExtension, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def extend_super_fences(self, name, formatter):
         """Extend superfences with the given name, language, and formatter."""
@@ -179,7 +181,7 @@ class SuperFencesCodeExtension(Extension):
             {
                 "name": name,
                 "test": lambda l, language=name: language == l,
-                "formatter": formatter
+                "formatter": formatter,
             }
         )
 
@@ -192,33 +194,27 @@ class SuperFencesCodeExtension(Extension):
 
         # Default fenced blocks
         self.superfences.insert(
-            0,
-            {
-                "name": "superfences",
-                "test": lambda language: True,
-                "formatter": None
-            }
+            0, {"name": "superfences", "test": lambda language: True, "formatter": None}
         )
 
-        if config.get('use_codehilite_settings'):  # pragma: no coverage
+        if config.get("use_codehilite_settings"):  # pragma: no coverage
             warnings.warn(
                 "'use_codehilite_settings' is deprecated and does nothing.\n"
                 "\nCodeHilite settings will only be used if CodeHilite is configured\n"
                 " and 'pymdownx.highlight' is not configured.\n"
                 "Please discontinue use of this setting as it will be removed in the future.",
-                PymdownxDeprecationWarning
+                PymdownxDeprecationWarning,
             )
 
         # UML blocks
-        custom_fences = config.get('custom_fences', [])
+        custom_fences = config.get("custom_fences", [])
         for custom in custom_fences:
-            name = custom.get('name')
-            class_name = custom.get('class')
-            fence_format = custom.get('format', fence_code_format)
+            name = custom.get("name")
+            class_name = custom.get("class")
+            fence_format = custom.get("format", fence_code_format)
             if name is not None and class_name is not None:
                 self.extend_super_fences(
-                    name,
-                    lambda s, l, c=class_name, f=fence_format: f(s, l, c)
+                    name, lambda s, l, c=class_name, f=fence_format: f(s, l, c)
                 )
 
         self.markdown = md
@@ -243,8 +239,10 @@ class SuperFencesCodeExtension(Extension):
         indented_code.markdown = self.markdown
         indented_code.extension = self
         self.superfences[0]["formatter"] = fenced.highlight
-        self.markdown.parser.blockprocessors['code'] = indented_code
-        self.markdown.preprocessors.add('fenced_code_block', fenced, ">normalize_whitespace")
+        self.markdown.parser.blockprocessors["code"] = indented_code
+        self.markdown.preprocessors.add(
+            "fenced_code_block", fenced, ">normalize_whitespace"
+        )
 
     def reset(self):
         """Clear the stash."""
@@ -263,12 +261,12 @@ class SuperFencesBlockPreprocessor(Preprocessor):
     """
 
     fence_start = re.compile(NESTED_FENCE_START)
-    CODE_WRAP = '<pre%s><code%s>%s</code></pre>'
+    CODE_WRAP = "<pre%s><code%s>%s</code></pre>"
 
     def __init__(self, md):
         """Initialize."""
 
-        super(SuperFencesBlockPreprocessor, self).__init__(md)
+        super().__init__(md)
         self.markdown = md
         self.checked_hl_settings = False
         self.codehilite_conf = {}
@@ -276,25 +274,25 @@ class SuperFencesBlockPreprocessor(Preprocessor):
     def rebuild_block(self, lines):
         """Deindent the fenced block lines."""
 
-        return '\n'.join([line[self.ws_len:] for line in lines])
+        return "\n".join([line[self.ws_len :] for line in lines])
 
     def get_hl_settings(self):
         """Check for code hilite extension to get its config."""
 
         if not self.checked_hl_settings:
             self.checked_hl_settings = True
-            self.highlight_code = self.config['highlight_code']
+            self.highlight_code = self.config["highlight_code"]
 
             config = hl.get_hl_settings(self.markdown)
-            css_class = self.config['css_class']
-            self.css_class = css_class if css_class else config['css_class']
+            css_class = self.config["css_class"]
+            self.css_class = css_class if css_class else config["css_class"]
 
-            self.extend_pygments_lang = config.get('extend_pygments_lang', None)
-            self.guess_lang = config['guess_lang']
-            self.pygments_style = config['pygments_style']
-            self.use_pygments = config['use_pygments']
-            self.noclasses = config['noclasses']
-            self.linenums = config['linenums']
+            self.extend_pygments_lang = config.get("extend_pygments_lang", None)
+            self.guess_lang = config["guess_lang"]
+            self.pygments_style = config["pygments_style"]
+            self.use_pygments = config["use_pygments"]
+            self.noclasses = config["noclasses"]
+            self.linenums = config["linenums"]
 
     def clear(self):
         """Reset the class variables."""
@@ -316,14 +314,16 @@ class SuperFencesBlockPreprocessor(Preprocessor):
     def eval(self, m, start, end):
         """Evaluate a normal fence."""
 
-        if m.group(0).strip() == '':
+        if m.group(0).strip() == "":
             # Empty line is okay
             self.empty_lines += 1
             self.code.append(m.group(0))
-        elif len(m.group(1)) != self.ws_len and m.group(2) != '':
+        elif len(m.group(1)) != self.ws_len and m.group(2) != "":
             # Not indented enough
             self.clear()
-        elif self.fence_end.match(m.group(0)) is not None and not m.group(2).startswith(' '):
+        elif self.fence_end.match(m.group(0)) is not None and not m.group(2).startswith(
+            " "
+        ):
             # End of fence
             self.process_nested_block(m, start, end)
         else:
@@ -338,7 +338,7 @@ class SuperFencesBlockPreprocessor(Preprocessor):
             # Quote level exceeds the starting quote level
             self.clear()
         elif quote_level <= self.quote_level:
-            if m.group(2) == '':
+            if m.group(2) == "":
                 # Empty line is okay
                 self.code.append(m.group(0))
                 self.empty_lines += 1
@@ -368,7 +368,7 @@ class SuperFencesBlockPreprocessor(Preprocessor):
                 break
 
         if code is not None:
-            self._store('\n'.join(self.code) + '\n', code, start, end, entry)
+            self._store("\n".join(self.code) + "\n", code, start, end, entry)
         self.clear()
 
     def parse_hl_lines(self, hl_lines):
@@ -404,16 +404,16 @@ class SuperFencesBlockPreprocessor(Preprocessor):
                 if m is not None:
                     start = count
                     self.first = m.group(0)
-                    self.ws = m.group('ws') if m.group('ws') else ''
+                    self.ws = m.group("ws") if m.group("ws") else ""
                     self.ws_len = len(self.ws)
                     self.quote_level = self.ws.count(">")
                     self.empty_lines = 0
-                    self.fence = m.group('fence')
-                    self.lang = m.group('lang')
-                    self.hl_lines = m.group('hl_lines')
-                    self.linestart = m.group('linestart')
-                    self.linestep = m.group('linestep')
-                    self.linespecial = m.group('linespecial')
+                    self.fence = m.group("fence")
+                    self.lang = m.group("lang")
+                    self.hl_lines = m.group("hl_lines")
+                    self.linestart = m.group("linestart")
+                    self.linestep = m.group("linestep")
+                    self.linespecial = m.group("linespecial")
                     self.fence_end = re.compile(NESTED_FENCE_END % self.fence)
                     self.whitespace = re.compile(WS % self.ws_len)
             else:
@@ -474,7 +474,7 @@ class SuperFencesBlockPreprocessor(Preprocessor):
                 use_pygments=self.use_pygments,
                 noclasses=self.noclasses,
                 linenums=self.linenums,
-                extend_pygments_lang=self.extend_pygments_lang
+                extend_pygments_lang=self.extend_pygments_lang,
             ).highlight(
                 src,
                 language,
@@ -482,11 +482,11 @@ class SuperFencesBlockPreprocessor(Preprocessor):
                 hl_lines=hl_lines,
                 linestart=linestart,
                 linestep=linestep,
-                linespecial=linespecial
+                linespecial=linespecial,
             )
         else:
             # Format as a code block.
-            el = self.CODE_WRAP % ('', '', _escape(src))
+            el = self.CODE_WRAP % ("", "", _escape(src))
         return el
 
     def _store(self, source, code, start, end, obj):
@@ -497,14 +497,14 @@ class SuperFencesBlockPreprocessor(Preprocessor):
         """
         # Save the fenced blocks to add once we are done iterating the lines
         placeholder = self.markdown.htmlStash.store(code, safe=True)
-        self.stack.append(('%s%s' % (self.ws, placeholder), start, end))
+        self.stack.append((f"{self.ws}{placeholder}", start, end))
         if not self.disabled_indented:
             # If an indented block consumes this placeholder,
             # we can restore the original source
             obj["stash"].store(
                 placeholder[1:-1],
-                "%s\n%s%s" % (self.first, source, self.last),
-                self.ws_len
+                f"{self.first}\n{source}{self.last}",
+                self.ws_len,
             )
 
     def run(self, lines):
@@ -524,10 +524,10 @@ class SuperFencesCodeBlockProcessor(CodeBlockProcessor):
     """Process idented code blocks to see if we accidentaly processed its content as a fenced block."""
 
     FENCED_BLOCK_RE = re.compile(
-        r'^([\> ]*)%s(%s)%s$' % (
+        r"^([\> ]*){}({}){}$".format(
             md_util.HTML_PLACEHOLDER[0],
-            md_util.HTML_PLACEHOLDER[1:-1] % r'([0-9]+)',
-            md_util.HTML_PLACEHOLDER[-1]
+            md_util.HTML_PLACEHOLDER[1:-1] % r"([0-9]+)",
+            md_util.HTML_PLACEHOLDER[-1],
         )
     )
 
@@ -540,16 +540,16 @@ class SuperFencesCodeBlockProcessor(CodeBlockProcessor):
         """Reindent the code to where it is supposed to be."""
 
         indented = []
-        for line in text.split('\n'):
+        for line in text.split("\n"):
             index = pos - level
             indented.append(line[index:])
-        return '\n'.join(indented)
+        return "\n".join(indented)
 
     def revert_greedy_fences(self, block):
         """Revert a prematurely converted fenced block."""
 
         new_block = []
-        for line in block.split('\n'):
+        for line in block.split("\n"):
             m = self.FENCED_BLOCK_RE.match(line)
             if m:
                 key = m.group(2)
@@ -572,7 +572,7 @@ class SuperFencesCodeBlockProcessor(CodeBlockProcessor):
                     new_block.append(line)
             else:
                 new_block.append(line)
-        return '\n'.join(new_block)
+        return "\n".join(new_block)
 
     def run(self, parent, blocks):
         """Look for and parse code block."""

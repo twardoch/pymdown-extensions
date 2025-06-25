@@ -11,10 +11,11 @@ for documentation.
 Copyright The Python Markdown Project
 License: [BSD](http://www.opensource.org/licenses/bsd-license.php)
 """
-from __future__ import unicode_literals
+
+import re
+
 from markdown import Extension
 from markdown.extensions import extra
-import re
 
 
 class ExtraRawHtmExtension(Extension):
@@ -27,16 +28,13 @@ class ExtraRawHtmExtension(Extension):
 
         if not md.safeMode:
             # Turn on processing of markdown text within raw html
-            md.preprocessors['html_block'].markdown_in_raw = True
+            md.preprocessors["html_block"].markdown_in_raw = True
             md.parser.blockprocessors.add(
-                'markdown_block',
-                extra.MarkdownInHtmlProcessor(md.parser),
-                '_begin'
+                "markdown_block", extra.MarkdownInHtmlProcessor(md.parser), "_begin"
             )
             md.parser.blockprocessors.tag_counter = -1
             md.parser.blockprocessors.contain_span_tags = re.compile(
-                r'^(p|h[1-6]|li|dd|dt|td|th|legend|address)$',
-                re.IGNORECASE
+                r"^(p|h[1-6]|li|dd|dt|td|th|legend|address)$", re.IGNORECASE
             )
 
 
